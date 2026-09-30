@@ -295,6 +295,7 @@ img{display:block;max-width:100%}
 .ask-send{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:2px}
 .ask-status{font-size:14px;color:var(--ink-2)}
 .ask-status.good{color:var(--ok)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .inbox{margin-top:34px;padding:24px;border-radius:18px;background:var(--sheet);border:2px dashed var(--rule-2)}
 .inbox-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px}
 .inbox-head h3{font-family:var(--display);font-weight:600;font-size:19px}
@@ -899,6 +900,8 @@ function askHTML() {
             <input id="askContact" name="askContact" type="text" maxlength="120" placeholder="Only if you want a reply">
           </div>
         </div>
+        <div class="hp" aria-hidden="true"><label for="askSite">Website</label>
+          <input id="askSite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
         <div class="ask-send">
           <button class="btn btn-dark" id="askSend" type="submit">Send it over</button>
           <p class="ask-status" id="askStatus" role="status"></p>
@@ -914,7 +917,7 @@ function askHTML() {
    store; a static site on a domain cannot, and a form that silently saves nothing is
    worse than no form, so the public build leaves the section out until it has a
    backend. build.py sets this. */
-const SITE = {"requests":"off"};
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request"};
 
 const CAPS = { db: undefined, isOwner: false };
 let inboxStop = null;
@@ -1039,7 +1042,8 @@ function mountAsk() {
   if (inboxStop) { inboxStop(); inboxStop = null; }
   const form = $("#askForm"); if (!form) return;
   const status = $("#askStatus"), send = $("#askSend");
-  if (CAPS.db === null) {
+  const endpoint = /^https?:/.test(SITE.requests) ? SITE.requests : null;
+  if (!endpoint && CAPS.db === null) {
     send.disabled = true;
     status.textContent = "Requests can't be saved from this view.";
   }
@@ -1050,6 +1054,25 @@ function mountAsk() {
     const text = $("#askText").value.trim();
     if (text.length < 5) { status.className = "ask-status"; status.textContent = "Tell me a little more first."; return; }
     send.disabled = true; status.className = "ask-status"; status.textContent = "Sending\u2026";
+    if (endpoint) {                       // the real site: straight into the workshop
+      try {
+        const r = await fetch(endpoint, {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: text.slice(0, 1000), grade: $("#askGrade").value,
+                                 contact: $("#askContact").value.trim().slice(0, 120),
+                                 website: $("#askSite").value }),
+        });
+        if (!r.ok) throw new Error(r.status);
+        form.reset();
+        status.className = "ask-status good"; status.textContent = "Sent. Thank you \u2014 I read every one.";
+      } catch (err) {
+        status.textContent = String(err.message) === "429"
+          ? "That is plenty for now \u2014 try again later."
+          : "That didn't send. Try again in a moment.";
+      }
+      send.disabled = false;
+      return;
+    }
     await capsReady;
     if (!CAPS.db) { send.disabled = true; status.textContent = "Requests can't be saved from this view."; return; }
     try {
