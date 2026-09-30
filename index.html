@@ -438,7 +438,7 @@ footer p{font-size:14px;color:var(--ink-3);max-width:46ch}
   <div class="df">
     <div class="tot"><span>Subtotal</span><b id="subtotal">$0.00</b></div>
     <button class="checkout" id="checkout" disabled>Checkout</button>
-    <small>Checkout isn&rsquo;t set up yet &mdash; this shop is a preview.</small>
+    <small id="checkoutNote">Checkout isn&rsquo;t set up yet &mdash; this shop is a preview.</small>
   </div>
 </aside>
 <div class="toast" id="toast" role="status"></div>
@@ -449,7 +449,7 @@ const CHIPS = {"maple":{"hero":{"base":"assets/maple-hero-19caf265af.webp","mask
 const PHOTOS = {"clicker":{"orange":"assets/clicker-orange-b3ab4e347d.webp","red":"assets/clicker-red-37dc0d407c.webp","blue":"assets/clicker-blue-30e9f27155.webp","green":"assets/clicker-green-bb348b29fe.webp","ring":"assets/clicker-ring-be8436322c.webp","cap":"assets/clicker-cap-79c55049d9.webp","four":"assets/clicker-four-ccc944a548.webp","clip":"assets/clicker-clip-cf855b4d4b.webp"}};      // products that are photographed straight, with no tinting
 /* Prices are set in the workshop (classroom-admin) and baked in at build time, so the page
    never depends on that service being up to show a price. */
-const PRICES = {"chips":{"price":12.0,"status":"live"},"clicker":{"price":8.0,"status":"live"},"spider":{"price":12.0,"status":"live"},"candycorn":{"price":10.0,"status":"live"}};
+const PRICES = {};
 
 /* Categories and the planned line-up live here: edit these two lists and the header,
    pages and counts all follow. */
@@ -917,7 +917,7 @@ function askHTML() {
    store; a static site on a domain cannot, and a form that silently saves nothing is
    worse than no form, so the public build leaves the section out until it has a
    backend. build.py sets this. */
-const SITE = {"requests":"https://requests.mromars-classroom.com/public/request"};
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":null};          // {requests: ..., checkout: ...}
 
 const CAPS = { db: undefined, isOwner: false };
 let inboxStop = null;
@@ -1482,6 +1482,53 @@ $("#view").addEventListener("click", e => {
   setTimeout(() => { b.classList.remove("done"); b.textContent = "Add to bag"; }, 1500);
   toast(p.name + " added to your bag");
 });
+/* ---------- paying ----------
+   The bag is posted to a Cloudflare Worker, which prices it against the workshop's own
+   catalogue and hands back a Stripe page to send the buyer to. The page never sees a
+   secret key, and a price edited in devtools is simply ignored. */
+function wireCheckout() {
+  const btn = $("#checkout"), note = $("#checkoutNote");
+  if (!SITE.checkout) return;
+  note.textContent = "Card payment by Stripe. Posted in the US.";
+  const refresh = () => {
+    const n = Object.values(bag).reduce((s, q) => s + q, 0);
+    btn.disabled = !n;
+  };
+  refresh();
+  new MutationObserver(refresh).observe($("#bagCount"), { childList: true });
+  btn.addEventListener("click", async () => {
+    const cart = Object.entries(bag).filter(([, q]) => q > 0).map(([key, qty]) => ({ key, qty }));
+    if (!cart.length) return;
+    btn.disabled = true; btn.textContent = "Taking you to checkout\u2026";
+    try {
+      const r = await fetch(SITE.checkout, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cart }),
+      });
+      const out = await r.json();
+      if (!r.ok || !out.url) throw new Error(out.error || "no session");
+      location.href = out.url;                     // Stripe takes it from here
+    } catch (err) {
+      btn.disabled = false; btn.textContent = "Checkout";
+      note.textContent = "That didn't start. Try again in a moment.";
+      toast("Checkout didn't start");
+    }
+  });
+}
+
+/* Coming back from Stripe: ?paid=1 means the payment went through, so the bag is done.
+   The order itself is recorded by Stripe calling the workshop, not by this page. */
+function afterPayment() {
+  const q = new URLSearchParams(location.search);
+  if (!q.has("paid")) return;
+  const paid = q.get("paid") === "1";
+  if (paid) { bag = {}; saveBag(); renderBag(); }
+  history.replaceState(null, "", location.pathname + location.hash);
+  setTimeout(() => toast(paid
+    ? "Thank you \u2014 your order is in. I'll email you when it ships."
+    : "Payment cancelled \u2014 your bag is still here."), 400);
+}
+
 const openBag = () => { $("#drawer").classList.add("open"); $("#scrim").classList.add("open"); $("#closeBag").focus(); };
 function closeBag() { $("#drawer").classList.remove("open"); $("#scrim").classList.remove("open"); }
 $("#bagBtn").addEventListener("click", openBag);
@@ -1490,6 +1537,6 @@ $("#scrim").addEventListener("click", closeBag);
 let toastT;
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("up"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("up"), 2000); }
 
-buildNav(); renderBag(); route(); requestAnimationFrame(loop);
+buildNav(); renderBag(); wireCheckout(); afterPayment(); route(); requestAnimationFrame(loop);
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "24c405086994467b8fdf0931d3f8295c"}'></script>
