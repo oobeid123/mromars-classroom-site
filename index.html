@@ -6,13 +6,20 @@
   --ink:#1C221F; --ink-2:#4B544F; --ink-3:#5F6862; --rule:#D8DBD2; --rule-2:#BFC4B9;
   --chip-red:#CE3A32; --chip-yellow:#F5C020; --rod-blue:#2C6491; --pumpkin:#EA6A1E; --grape:#6A3E9E;
   --mark:#CE3A32; --mark-ink:#FFF6EC;
-  --link:#5A3290; --btn:#1C221F; --btn-ink:#F3F4EF; --ok:#2F7D4F;
+  --link:#2F5E9E; --btn:#2F6DB5; --btn-ink:#FFFFFF; --ok:#2F7D4F;
   --lift:0 1px 0 rgba(28,34,31,.04), 0 14px 34px rgba(28,34,31,.10);
   --scrim:rgba(20,26,23,.46);
   --display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
   --body:"Lexend","Segoe UI",system-ui,-apple-system,sans-serif;
   --hand:"Kalam","Bradley Hand","Comic Sans MS",cursive;
   --maxw:1180px;
+  --butcher:#3B78C2; --butcher-sub:#E3EDFA; --letter-shadow:#1F3F6B; --navy:#1F3F6B; --navy-sub:#C9D7EA;
+  --sunny:#F5C842; --sunny-ink:#2A2118; --sunny-sub:#4F3E10;
+  --kraft:#C99F70; --kraft-ink:#2B2016; --kraft-sub:#3E2E1C;
+  --chalk:#2F5D4A; --chalk-ink:#F2F5F0; --chalk-sub:#D2E3D9;
+  --trim-a:#C93A30; --trim-b:#F3BC1C; --trim-c:#2F6DB5;
+  --bin-red:#C93A30; --bin-orange:#EC7A1F; --bin-yellow:#F3BC1C; --bin-green:#2E8045; --bin-blue:#2F6DB5; --bin-purple:#7B4FB6; --bin-teal:#127C82;
+  --wash-red:#FBE4E0; --wash-orange:#FDEBDA; --wash-yellow:#FDF3D0; --wash-green:#E1F1E3; --wash-blue:#DFEAF7; --wash-purple:#ECE4F6; --wash-teal:#D9F0F0;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -20,9 +27,15 @@
     --ink:#ECEFE8; --ink-2:#B6BEB8; --ink-3:#9AA39D; --rule:#33403A; --rule-2:#46534C;
     --chip-red:#E4584F; --chip-yellow:#F5C020; --rod-blue:#6FA8D4; --pumpkin:#F2803E; --grape:#B697E3;
     --mark:#E4584F; --mark-ink:#1B2420;
-    --link:#CBB2F0; --btn:#ECEFE8; --btn-ink:#1B2420; --ok:#7FD39E;
+    --link:#9DC0EE; --btn:#5B93D6; --btn-ink:#0F1520; --ok:#7FD39E;
     --lift:0 1px 0 rgba(0,0,0,.2), 0 16px 40px rgba(0,0,0,.38);
     --scrim:rgba(6,10,8,.62);
+    --butcher:#22446D; --butcher-sub:#C9D7EA; --letter-shadow:#0E1F36; --navy:#142A47; --navy-sub:#B5C6DD;
+    --sunny:#5A4813; --sunny-ink:#FBF3DC; --sunny-sub:#EBDDB4;
+    --kraft:#4F3C2A; --kraft-ink:#F6EDE2; --kraft-sub:#E2D2BF;
+    --chalk:#1C3A2E; --chalk-ink:#EEF3EF; --chalk-sub:#BFD3C7;
+    --trim-a:#B8433A; --trim-b:#D9A824; --trim-c:#3F78BC;
+    --wash-red:#3B2422; --wash-orange:#3A2A1C; --wash-yellow:#363019; --wash-green:#1E3324; --wash-blue:#1D2A3D; --wash-purple:#2C2340; --wash-teal:#183235;
   }
 }
 :root[data-theme="dark"]{
@@ -30,9 +43,15 @@
   --ink:#ECEFE8; --ink-2:#B6BEB8; --ink-3:#9AA39D; --rule:#33403A; --rule-2:#46534C;
   --chip-red:#E4584F; --chip-yellow:#F5C020; --rod-blue:#6FA8D4; --pumpkin:#F2803E; --grape:#B697E3;
   --mark:#E4584F; --mark-ink:#1B2420;
-  --link:#CBB2F0; --btn:#ECEFE8; --btn-ink:#1B2420; --ok:#7FD39E;
+  --link:#9DC0EE; --btn:#5B93D6; --btn-ink:#0F1520; --ok:#7FD39E;
   --lift:0 1px 0 rgba(0,0,0,.2), 0 16px 40px rgba(0,0,0,.38);
   --scrim:rgba(6,10,8,.62);
+  --butcher:#22446D; --butcher-sub:#C9D7EA; --letter-shadow:#0E1F36; --navy:#142A47; --navy-sub:#B5C6DD;
+  --sunny:#5A4813; --sunny-ink:#FBF3DC; --sunny-sub:#EBDDB4;
+  --kraft:#4F3C2A; --kraft-ink:#F6EDE2; --kraft-sub:#E2D2BF;
+  --chalk:#1C3A2E; --chalk-ink:#EEF3EF; --chalk-sub:#BFD3C7;
+  --trim-a:#B8433A; --trim-b:#D9A824; --trim-c:#3F78BC;
+  --wash-red:#3B2422; --wash-orange:#3A2A1C; --wash-yellow:#363019; --wash-green:#1E3324; --wash-blue:#1D2A3D; --wash-purple:#2C2340; --wash-teal:#183235;
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -402,6 +421,101 @@ footer p{font-size:14px;color:var(--ink-3);max-width:46ch}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.001ms!important;animation-duration:.001ms!important;animation-delay:0s!important}
   .colorin::after{clip-path:none;animation:none}
+}
+/* ========== classroom wall (2026-10-06): every section is a sheet of classroom paper ========== */
+body{background:var(--navy)}
+main > section{position:relative;background:var(--sunny);color:var(--sunny-ink);--sec-sub:var(--sunny-sub);--tx:var(--trim-a)}
+main > section:not([class]){padding-block:48px 56px;--tx:var(--trim-c)}
+.hero,.page-head,.byteacher{background:var(--butcher);color:#FFFFFF;--sec-sub:var(--butcher-sub)}
+.shelves{background:var(--kraft);color:var(--kraft-ink);--sec-sub:var(--kraft-sub)}
+.ask{background:var(--chalk);color:var(--chalk-ink);--sec-sub:var(--chalk-sub);--tx:var(--trim-c);border-top:0}
+.shop{--tx:var(--trim-c)}
+.byteacher{border-top:0}
+.sec-head p,.page-head p,.ask-copy p{color:var(--sec-sub)}
+.ask-copy .hand{color:var(--chalk-ink)}
+.by p{color:var(--butcher-sub)}
+
+/* scalloped border trim where one paper meets the next */
+.hero::after,.page-head::after,.shop::after,.shelves::after,.ask::after,main > section:not([class])::after{content:"";position:absolute;left:0;right:0;
+  bottom:-22px;height:30px;z-index:3;pointer-events:none;
+  background:
+    linear-gradient(var(--trim-b),var(--trim-b)) 0 0/100% 8px no-repeat,
+    radial-gradient(circle at 14px 8px,var(--tx) 14px,transparent 14.5px) 0 0/56px 30px repeat-x,
+    radial-gradient(circle at 42px 8px,var(--trim-b) 14px,transparent 14.5px) 0 0/56px 30px repeat-x}
+
+.hero{padding-block:24px 60px}
+.page-head{padding-block:30px 50px}
+.shop{padding-block:54px 50px}
+.shelves{padding-block:54px 54px}
+.ask{padding-block:58px 54px}
+.byteacher{padding-block:58px 54px}
+.prod,.one-toy,.products{margin-block:0}
+.plan-grid{margin-block:22px 0}
+.products + .plan-grid{margin-top:22px}
+
+/* header: butcher paper, continuous with the hero */
+.bar{background:var(--butcher);border-bottom:0;backdrop-filter:none;color:#FFFFFF}
+.brand{color:#FFFFFF}
+.brand-mr{color:#FFF3C4}
+.cat-btn{color:#FFFFFF;opacity:.92}
+.cat-btn:hover,.cat-btn[aria-expanded="true"],.cat-btn.here{color:#FFFFFF;opacity:1;background:rgba(255,255,255,.16)}
+.bag-btn{background:#FFFFFF;color:#1C2230;font-weight:600}
+.bag-count.zero{background:#E3E7EE;color:#1C2230}
+.browse{border-color:rgba(255,255,255,.65);color:#FFFFFF}
+.sheetnav{border-top-color:rgba(255,255,255,.22)}
+.sheetnav h2{color:var(--butcher-sub)}
+.sheetnav a{color:#FFFFFF;border-bottom-color:rgba(255,255,255,.18)}
+.sheetnav a em{color:var(--butcher-sub)}
+:focus-visible{outline-color:#F3BC1C}
+
+/* hero: cut-paper headline, photo pinned to the board */
+.hero h1,.page-head h1{color:#FFFFFF;text-shadow:3px 3px 0 var(--letter-shadow)}
+.hero .lede{color:var(--butcher-sub)}
+.hand-line{font-family:var(--hand);font-size:19px;color:#FFF3C4;margin-bottom:10px}
+.btn-sun{background:#F3BC1C;color:#231C08;font-weight:600}
+.btn-ghost{border:2px solid rgba(255,255,255,.75);color:#FFFFFF;font-weight:600}
+.pinned{position:relative;width:100%;max-width:520px;justify-self:center;background:#FFFFFF;padding:12px 12px 8px;
+  transform:rotate(-2deg);box-shadow:0 18px 36px rgba(10,25,50,.35)}
+.pinned .hero-shot{border-radius:3px}
+.pinned .frame-cap{color:#3A4150;margin-top:6px;font-size:17px}
+.pin{position:absolute;z-index:2;left:50%;top:-12px;width:24px;height:24px;margin-left:-12px;border-radius:50%;
+  background:radial-gradient(circle at 35% 32%,#FFB3AB 0 18%,#C93A30 22% 100%);box-shadow:2px 4px 5px rgba(0,0,0,.35)}
+
+.crumbs{color:var(--butcher-sub)}
+.crumbs a{color:#FFFFFF}
+.crumbs a:hover{color:#FFFFFF}
+.pill{background:var(--sheet);color:var(--ink);border-color:transparent}
+.pill:hover{border-color:var(--ink);color:var(--ink)}
+.pill[aria-current="page"]{background:#F3BC1C;border-color:#F3BC1C;color:#231C08}
+
+/* white sheets pinned on the paper */
+.card,.prod,.plan,.products > .product,.one-toy .product,.ask-form{color:var(--ink)}
+.card{border:0;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.card-shot{background:var(--wash,var(--stage))}
+.card-tag{background:var(--bin,var(--sheet));color:var(--bin-ink,var(--ink-2));backdrop-filter:none}
+.prod,.one-toy .product{background:var(--sheet);border-radius:22px;padding:clamp(18px,3vw,32px);box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.products > .product{background:var(--sheet);border-radius:20px;padding:18px;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.plan{border-color:transparent;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+
+/* every shelf is a coloured bin with a white label slot */
+.tile{position:relative;justify-content:flex-end;gap:0;min-height:116px;padding:14px;border:0;border-radius:14px;
+  background:var(--bin);box-shadow:inset 0 -6px 0 rgba(0,0,0,.14)}
+.tile:hover{border-color:transparent;transform:translateY(-2px)}
+.tile::before{content:"";position:absolute;left:50%;top:12px;width:44px;height:10px;margin-left:-22px;border-radius:99px;
+  background:rgba(0,0,0,.2)}
+.tile-label{display:grid;gap:1px;background:#FFFFFF;color:#1B2230;border-radius:8px;padding:8px 12px 7px}
+.tile-label b{font-family:var(--display);font-weight:600;font-size:17px;line-height:1.2}
+.tile-label span{font-size:12.5px;color:#4A5263}
+
+.ask-form{border:0}
+.ask-form label{text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink)}
+
+footer{background:var(--navy);color:#FFFFFF;border-top:0;padding-block:44px 48px}
+footer p{color:var(--navy-sub)}
+
+@media (max-width:760px){
+  .hero{padding-block:18px 52px}
+  .pinned{max-width:440px}
 }
 </style>
 
@@ -1109,8 +1223,17 @@ function wireInbox() {
   }
 }
 
+/* each shelf owns a classroom bin colour: tiles, card tags and photo backings all use it */
+const BIN = { "counting-number": "red", "place-value-fractions": "blue", "letters-phonics": "yellow",
+  "classroom": "green", "halloween": "orange", "color-your-own": "purple", "fidgets": "teal" };
+const binStyle = subId => {
+  const b = BIN[subId] || "blue";
+  return `--bin:var(--bin-${b});--wash:var(--wash-${b});--bin-ink:${b === "yellow" || b === "orange" ? "#2A2118" : "#FFFFFF"}`;
+};
+
 function homeCard(p) {
   const cat = CATALOG.find(c => p.in[0].startsWith(c.id));
+  const sub = cat.subs.find(x => p.in[0].endsWith("/" + x.id));
   const pic = p.shapes
     ? `<canvas data-shape="${p.shapes[0].id}" data-shot="hero" data-hex="${p.colours[2].hex}"
          role="img" aria-label="${esc(p.name)}, a pack with its container"></canvas>`
@@ -1121,8 +1244,8 @@ function homeCard(p) {
     : p.lights ? "Pick your light colour &middot; on a keyring"
     : "Arrives white &middot; color it in";
   return `
-  <article class="card">
-    <a class="card-shot" href="#/p/${p.id}"><span class="card-tag">${esc(cat.name)}</span>${pic}</a>
+  <article class="card" style="${binStyle(sub.id)}">
+    <a class="card-shot" href="#/p/${p.id}"><span class="card-tag">${esc(sub.name)}</span>${pic}</a>
     <div class="card-body">
       <div class="card-row"><h3><a href="#/p/${p.id}">${esc(p.name)}</a></h3><span class="price">${money(p.price)}</span></div>
       <p class="tagline">${note}</p>
@@ -1137,23 +1260,23 @@ function viewHome() {
   const shop = PRODUCTS.filter(forSale).sort((a, b) => order(a) - order(b));
   const tile = (c, s) => {
     const n = listFor(c.id, s.id).filter(forSale).length;
-    return `<a class="tile" href="#/${c.id}/${s.id}">${ICONS[s.id] || ""}
-      <b>${esc(s.name)}</b><span>${esc(c.name)} &middot; ${n ? plural(n, "item") : "in the works"}</span></a>`;
+    return `<a class="tile" href="#/${c.id}/${s.id}" style="${binStyle(s.id)}">
+      <div class="tile-label"><b>${esc(s.name)}</b><span>${esc(c.name)} &middot; ${n ? plural(n, "item") : "in the works"}</span></div></a>`;
   };
   return `
   <section class="hero">
     <div class="wrap hero-in">
       <div>
-        <p class="label">Made by a teacher &middot; Pre-K through 5th</p>
+        <p class="hand-line">Made by a teacher, for Pre-K through 5th</p>
         <h1 class="dsp">Classroom sets and prize-box toys.</h1>
         <p class="lede">I teach, and I make the hands-on pieces my own room kept running out of.
            Made a set at a time, for real classrooms and the kids in them.</p>
         <div class="cta-row">
-          <a class="btn btn-dark" href="#shop">Shop what&rsquo;s ready</a>
-          <a class="btn btn-line" href="#/teacher-materials">Teacher materials</a>
+          <a class="btn btn-sun" href="#shop">Shop what&rsquo;s ready</a>
+          <a class="btn btn-ghost" href="#/teacher-materials">Teacher materials</a>
         </div>
       </div>
-      <div class="frame-wrap">
+      <div class="frame-wrap pinned"><span class="pin" aria-hidden="true"></span>
         <img class="hero-shot" src="${CHIPS.home}" width="1400" height="1050"
           alt="Maple leaf counting chips in their own maple leaf container, the lid beside it">
         <p class="frame-cap">Fifteen to a pack, in a tin shaped the same way.</p>
@@ -1224,7 +1347,7 @@ function viewCategory(cat, subId) {
     </div>
   </section>
   <section><div class="wrap">
-    ${sale.length ? `<div class="products" style="margin-block:30px 60px">${sale.map(cardHTML).join("")}</div>` : ""}
+    ${sale.length ? `<div class="products">${sale.map(cardHTML).join("")}</div>` : ""}
     ${soon.length ? `<div class="plan-grid">${soon.map(plannedHTML).join("")}</div>` : ""}
   </div></section>
   ${cat.id === "teacher-materials" ? askHTML() : ""}`;
