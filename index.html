@@ -218,6 +218,8 @@ img{display:block;max-width:100%}
   font-weight:500;font-size:15px;transition:transform .18s ease}
 .add:hover{transform:translateY(-2px)}
 .add.done{background:var(--ok);color:var(--paper)}
+.add:disabled{background:transparent;color:var(--ink-3);box-shadow:inset 0 0 0 1.5px currentColor;
+  cursor:not-allowed;transform:none}
 
 /* ---------- a product with photography ---------- */
 .one-toy{margin-block:14px 60px}
@@ -876,6 +878,7 @@ function mountLight() {
     });
     $$("[data-light]", wrap).forEach(b => b.setAttribute("aria-pressed", b.dataset.light === light.id));
     $("#addLight").dataset.add = p.id + ":" + light.id;
+    markSold();
   };
   $$(".thumb", wrap).forEach(b => b.addEventListener("click", () => { shot = b.dataset.shot; paint(); }));
   $$("[data-light]", wrap).forEach(b => b.addEventListener("click", () => {
@@ -1031,7 +1034,34 @@ function askHTML() {
    store; a static site on a domain cannot, and a form that silently saves nothing is
    worse than no form, so the public build leaves the section out until it has a
    backend. build.py sets this. */
-const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/"};          // {requests: ..., checkout: ...}
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","available":["candycorn","chips:apple","chips:leaf","chips:maple","clicker:green","spider"],"shipping_cents":700};          // {requests, checkout, stock, available, shipping_cents}
+
+/* ---------- stock ----------
+   The workshop says which bag keys can be bought - "chips:maple", "spider" - and never how
+   many: quantities stay off the site on purpose. The list is baked in at build, then asked
+   for again on load, so a sale that took the last one shows Sold out without a rebuild.
+   No list at all (the artifact, or a build with the workshop down) means nothing is marked. */
+let AVAIL = SITE.available ? new Set(SITE.available) : null;
+const inStock = key => {
+  if (!AVAIL) return true;
+  const [id, v] = key.split(":");
+  return AVAIL.has(id) || AVAIL.has(id + ":" + v);
+};
+function markSold() {
+  $$("[data-add]").forEach(b => {
+    const ok = inStock(b.dataset.add);
+    b.disabled = !ok;
+    if (!ok) b.textContent = "Sold out";
+    else if (b.textContent === "Sold out") b.textContent = "Add to bag";
+  });
+}
+async function liveStock() {
+  if (!SITE.stock) return;
+  try {
+    const r = await fetch(SITE.stock, { cache: "no-store" });
+    if (r.ok) { AVAIL = new Set((await r.json()).available || []); markSold(); }
+  } catch (e) { /* keep the list the build baked in */ }
+}
 
 const CAPS = { db: undefined, isOwner: false };
 let inboxStop = null;
@@ -1140,6 +1170,7 @@ function mountGallery() {
     const v = p.shapes.find(x => x.id === shape);
     $("#chipSize").textContent = v.chip;
     $("#addProd").dataset.add = [p.id, shape, colour.id].join(":");
+    markSold();
     main.setAttribute("aria-label", `${p.name}, ${v.name.toLowerCase()} in ${colour.name.toLowerCase()}`);
     $$("[data-shape]", wrap).forEach(b => b.setAttribute("aria-pressed", b.dataset.shape === shape));
     $$("[data-colour]", wrap).forEach(b => b.setAttribute("aria-pressed", b.dataset.colour === colour.id));
@@ -1366,7 +1397,7 @@ function route() {
     : cat ? (sub ? sub.name + " \u00b7 " : "") + cat.name + " \u00b7 Mr. Omar's Classroom"
     : "Mr. Omar's Classroom";
   $$(".stage").forEach(el => stages.push(new Stage(el, PRODUCTS.find(p => p.id === el.dataset.id))));
-  mountGallery(); mountLight(); mountAsk();
+  mountGallery(); mountLight(); mountAsk(); markSold();
   if (prod || cat) scrollTo({ top: 0, behavior: "instant" });
 }
 addEventListener("hashchange", () => {
@@ -1612,7 +1643,9 @@ $("#view").addEventListener("click", e => {
 function wireCheckout() {
   const btn = $("#checkout"), note = $("#checkoutNote");
   if (!SITE.checkout) return;
-  note.textContent = "Card payment by Stripe. Posted in the US.";
+  note.textContent = SITE.shipping_cents
+    ? `Card payment by Stripe. ${money(SITE.shipping_cents / 100)} flat shipping, US only.`
+    : "Card payment by Stripe. Posted in the US.";
   const refresh = () => {
     const n = Object.values(bag).reduce((s, q) => s + q, 0);
     btn.disabled = !n;
@@ -1629,6 +1662,12 @@ function wireCheckout() {
         body: JSON.stringify({ cart }),
       });
       const out = await r.json();
+      if (r.status === 409) {                      // something in the bag sold out
+        btn.disabled = false; btn.textContent = "Checkout";
+        note.textContent = out.error + " Take it out of your bag to carry on.";
+        toast(out.error); liveStock();
+        return;
+      }
       if (!r.ok || !out.url) throw new Error(out.error || "no session");
       location.href = out.url;                     // Stripe takes it from here
     } catch (err) {
@@ -1660,6 +1699,6 @@ $("#scrim").addEventListener("click", closeBag);
 let toastT;
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("up"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("up"), 2000); }
 
-buildNav(); renderBag(); wireCheckout(); afterPayment(); route(); requestAnimationFrame(loop);
+buildNav(); renderBag(); wireCheckout(); afterPayment(); route(); liveStock(); requestAnimationFrame(loop);
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "24c405086994467b8fdf0931d3f8295c"}'></script>
