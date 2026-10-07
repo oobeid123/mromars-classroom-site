@@ -520,6 +520,20 @@ footer p{color:var(--navy-sub)}
   .hero{padding-block:18px 52px}
   .pinned{max-width:440px}
 }
+
+/* ---------- mailing list band, bag opt-in, footer help (2026-10-06) ---------- */
+.join{background:var(--sunny);color:var(--sunny-ink);padding-block:44px}
+.join-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
+.join h2{font-size:clamp(24px,2.8vw,30px);font-weight:600}
+.join p{color:var(--sunny-sub);margin-top:6px;max-width:46ch}
+.join-form{display:flex;flex-wrap:wrap;gap:10px;flex:1 1 320px;max-width:480px}
+.join-form input[type=email]{flex:1 1 200px;min-width:0;font:inherit;font-size:15px;color:var(--ink);background:var(--sheet);
+  border:0;border-radius:999px;padding:13px 18px}
+.join-form .btn{flex:0 0 auto}
+.join-status{flex-basis:100%;font-size:14px;min-height:1.2em;color:var(--sunny-ink)}
+.optin{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--ink-2);margin:0 0 10px;cursor:pointer}
+.optin input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--btn)}
+.foot-help a{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
 </style>
 
 <header class="bar">
@@ -537,6 +551,7 @@ footer p{color:var(--navy-sub)}
 
 <main id="view"></main>
 
+<div id="joinSlot"></div>
 <footer>
   <div class="wrap foot">
     <a class="brand" href="#/">
@@ -545,6 +560,7 @@ footer p{color:var(--navy-sub)}
     </a>
     <p>Classroom materials made by a teacher. Toys arrive white and ready to color.
        Not for children under 3 &mdash; small parts.</p>
+    <p class="foot-help" id="footHelp" hidden></p>
   </div>
 </footer>
 
@@ -554,6 +570,8 @@ footer p{color:var(--navy-sub)}
   <div class="lines-list" id="lines"></div>
   <div class="df">
     <div class="tot"><span>Subtotal</span><b id="subtotal">$0.00</b></div>
+    <label class="optin" id="optinRow" hidden><input type="checkbox" id="optin" checked>
+      <span>Email me new materials, promotions and discounts. Unsubscribe any time.</span></label>
     <button class="checkout" id="checkout" disabled>Checkout</button>
     <small id="checkoutNote">Checkout isn&rsquo;t set up yet &mdash; this shop is a preview.</small>
   </div>
@@ -1022,8 +1040,9 @@ function askHTML() {
             <select id="askGrade" name="askGrade">${GRADE_CHOICES.map(g => `<option>${esc(g)}</option>`).join("")}</select>
           </div>
           <div>
-            <label for="askContact">Name or email</label>
-            <input id="askContact" name="askContact" type="text" maxlength="120" placeholder="Only if you want a reply">
+            <label for="askContact">Your email</label>
+            <input id="askContact" name="askContact" type="email" maxlength="120" required
+              autocomplete="email" placeholder="So I can write back">
           </div>
         </div>
         <div class="hp" aria-hidden="true"><label for="askSite">Website</label>
@@ -1043,7 +1062,7 @@ function askHTML() {
    store; a static site on a domain cannot, and a form that silently saves nothing is
    worse than no form, so the public build leaves the section out until it has a
    backend. build.py sets this. */
-const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["candycorn","chips-apple:apple:blue","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","clicker:blue","clicker:green","clicker:orange","clicker:red","spider"],"shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["candycorn","chips-apple:apple:blue","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","clicker:blue","clicker:green","clicker:orange","clicker:red","spider"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":null,"shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
 
 /* ---------- stock ----------
    The workshop says which bag keys can be bought - exactly as they go in the bag, colour
@@ -1202,6 +1221,50 @@ function mountGallery() {
   paint();
 }
 
+const EMAIL_OK = e => /^[^@\s<>,;]{1,64}@[^@\s<>,;]+\.[^@\s<>,;]{2,}$/.test(e) && e.length <= 200;
+
+/* ---------- the mailing list ----------
+   Promotions, news, discounts. Only on the real site: the artifact has nowhere to keep it.
+   The address goes to the workshop through the tunnel, like a request. */
+function mountJoin() {
+  if (SITE.support) {
+    const h = $("#footHelp");
+    h.innerHTML = `Questions or a problem with an order? <a href="mailto:${esc(SITE.support)}">${esc(SITE.support)}</a>`;
+    h.hidden = false;
+  }
+  if (!SITE.subscribe) return;
+  $("#joinSlot").innerHTML = `
+  <section class="join" aria-labelledby="joinHead"><div class="wrap join-in">
+    <div><h2 class="dsp" id="joinHead">Join the list</h2>
+      <p>New materials as they come off the workbench, classroom deals and the odd discount.
+         A few emails a term, never sold or shared.</p></div>
+    <form class="join-form" id="joinForm" novalidate>
+      <label class="hp" for="joinSite">Website<input id="joinSite" type="text" tabindex="-1" autocomplete="off"></label>
+      <input type="email" id="joinEmail" required autocomplete="email" maxlength="200"
+        placeholder="you@school.org" aria-label="Your email">
+      <button class="btn btn-dark" id="joinSend" type="submit">Sign me up</button>
+      <p class="join-status" id="joinStatus" role="status"></p>
+    </form>
+  </div></section>`;
+  const form = $("#joinForm"), status = $("#joinStatus"), send = $("#joinSend");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const email = $("#joinEmail").value.trim();
+    if (!EMAIL_OK(email)) { status.textContent = "That doesn't look like an email."; return; }
+    send.disabled = true; status.textContent = "Signing you up\u2026";
+    try {
+      const r = await fetch(SITE.subscribe, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, website: $("#joinSite").value }) });
+      if (!r.ok) throw new Error(r.status);
+      form.reset(); status.textContent = "You're on the list. Thank you!";
+    } catch (err) {
+      status.textContent = String(err.message) === "429" ? "That is plenty for now \u2014 try again later."
+        : "That didn't go through. Try again in a moment.";
+    }
+    send.disabled = false;
+  });
+}
+
 function mountAsk() {
   if (inboxStop) { inboxStop(); inboxStop = null; }
   const form = $("#askForm"); if (!form) return;
@@ -1217,15 +1280,25 @@ function mountAsk() {
     e.preventDefault();
     const text = $("#askText").value.trim();
     if (text.length < 5) { status.className = "ask-status"; status.textContent = "Tell me a little more first."; return; }
+    const email = $("#askContact").value.trim();
+    if (endpoint && !EMAIL_OK(email)) {
+      status.className = "ask-status"; status.textContent = "Add your email so I can write back.";
+      $("#askContact").focus(); return;
+    }
     send.disabled = true; status.className = "ask-status"; status.textContent = "Sending\u2026";
     if (endpoint) {                       // the real site: straight into the workshop
       try {
         const r = await fetch(endpoint, {
           method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ text: text.slice(0, 1000), grade: $("#askGrade").value,
-                                 contact: $("#askContact").value.trim().slice(0, 120),
+                                 contact: email.slice(0, 120),
                                  website: $("#askSite").value }),
         });
+        if (r.status === 400) {
+          status.textContent = ((await r.json().catch(() => ({}))).detail === "add your email")
+            ? "Add your email so I can write back." : "That didn't send. Try again in a moment.";
+          send.disabled = false; return;
+        }
         if (!r.ok) throw new Error(r.status);
         form.reset();
         status.className = "ask-status good"; status.textContent = "Sent. Thank you \u2014 I read every one.";
@@ -1668,6 +1741,7 @@ $("#view").addEventListener("click", e => {
 function wireCheckout() {
   const btn = $("#checkout"), note = $("#checkoutNote");
   if (!SITE.checkout) return;
+  $("#optinRow").hidden = false;
   note.textContent = SITE.shipping_cents
     ? `Card payment by Stripe. ${money(SITE.shipping_cents / 100)} flat shipping, US only.`
     : "Card payment by Stripe. Posted in the US.";
@@ -1684,7 +1758,7 @@ function wireCheckout() {
     try {
       const r = await fetch(SITE.checkout, {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart }),
+        body: JSON.stringify({ cart, marketing: $("#optin").checked }),
       });
       const out = await r.json();
       if (r.status === 409) {                      // something in the bag sold out
@@ -1724,6 +1798,6 @@ $("#scrim").addEventListener("click", closeBag);
 let toastT;
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("up"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("up"), 2000); }
 
-buildNav(); renderBag(); wireCheckout(); afterPayment(); route(); liveStock(); requestAnimationFrame(loop);
+buildNav(); renderBag(); wireCheckout(); mountJoin(); afterPayment(); route(); liveStock(); requestAnimationFrame(loop);
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "24c405086994467b8fdf0931d3f8295c"}'></script>
