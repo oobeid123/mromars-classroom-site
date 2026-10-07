@@ -566,7 +566,7 @@ const CHIPS = {"maple":{"hero":{"base":"assets/maple-hero-19caf265af.webp","mask
 const PHOTOS = {"clicker":{"orange":"assets/clicker-orange-b3ab4e347d.webp","red":"assets/clicker-red-37dc0d407c.webp","blue":"assets/clicker-blue-30e9f27155.webp","green":"assets/clicker-green-bb348b29fe.webp","ring":"assets/clicker-ring-be8436322c.webp","cap":"assets/clicker-cap-79c55049d9.webp","four":"assets/clicker-four-ccc944a548.webp","clip":"assets/clicker-clip-cf855b4d4b.webp"}};      // products that are photographed straight, with no tinting
 /* Prices are set in the workshop (classroom-admin) and baked in at build time, so the page
    never depends on that service being up to show a price. */
-const PRICES = {"chips":{"price":10.0,"status":"live"},"clicker":{"price":8.0,"status":"live"},"spider":{"price":5.0,"status":"live"},"candycorn":{"price":5.0,"status":"live"}};
+const PRICES = {"chips-maple":{"price":10.0,"status":"live"},"chips-apple":{"price":10.0,"status":"live"},"chips-leaf":{"price":10.0,"status":"live"},"clicker":{"price":8.0,"status":"live"},"spider":{"price":5.0,"status":"live"},"candycorn":{"price":5.0,"status":"live"}};
 
 /* Categories and the planned line-up live here: edit these two lists and the header,
    pages and counts all follow. */
@@ -621,13 +621,17 @@ const PRODUCTS = [
     pack: ["One clicker on a split ring", "Black case with a clear key cap",
            "One light colour per clicker, on while the cap is down"] },
 
-  { id: "chips", name: "Counting Chips", price: 12, first: true, in: ["teacher-materials/counting-number"],
+  /* Counting Chips are THREE products, one per shape (Omar 2026-10-06), each with its own
+     price and the same four colours. Colour never changes the price. The shape stays in the
+     bag key (chips-apple:apple:red) because the photo sets and stock are keyed by it. */
+  ...[
+    ["maple", "Maple Leaf Counting Chips", "Maple leaf", "46 \u00d7 43 mm"],
+    ["apple", "Apple Counting Chips", "Apple", "42 \u00d7 47 mm"],
+    ["leaf", "Leaf Counting Chips", "Leaf", "34 \u00d7 49 mm"],
+  ].map(([shape, name, label, chip]) => ({
+    id: "chips-" + shape, name, price: 10, first: true, in: ["teacher-materials/counting-number"],
     grades: ["Pre-K\u2013K", "1\u20132", "3\u20135"],
-    shapes: [
-      { id: "maple", name: "Maple leaf", chip: "46 \u00d7 43 mm" },
-      { id: "apple", name: "Apple", chip: "42 \u00d7 47 mm" },
-      { id: "leaf", name: "Leaf", chip: "34 \u00d7 49 mm" },
-    ],
+    shapes: [{ id: shape, name: label, chip }],
     colours: [                                   // measured off real swatches with a colorimeter
       { id: "red", name: "Red", hex: "#AC3637" },
       { id: "orange", name: "Orange", hex: "#E77932" },
@@ -636,7 +640,8 @@ const PRODUCTS = [
     ],
     desc: "Fifteen counters of one shape, in a container shaped the same way. Sorting, patterning, adding, probability \u2014 and fifteen fills a ten frame with five left over for making ten.",
     tip: "The container is the same silhouette as the chips, so a pack reads across the room.",
-    pack: ["15 chips, all one shape, 3 mm thick", "A container sized for exactly one pack", "A lid that caps over the top"] },
+    pack: ["15 chips, all one shape, 3 mm thick", "A container sized for exactly one pack", "A lid that caps over the top"]
+  })),
   { id: "tenframes", name: "Ten-Frame Trays", status: "soon", in: ["teacher-materials/counting-number"],
     grades: ["Pre-K\u2013K", "1\u20132"],
     desc: "Wells that hold the chips still, so a number stays built while a small hand counts it. Doubles up into a twenty frame." },
@@ -805,8 +810,8 @@ function shotCardHTML(p) {
     <div class="meta">
       <div class="title-row"><h3><a href="#/p/${p.id}">${esc(p.name)}</a></h3><span class="price">${money(p.price)}</span></div>
       <p class="desc">${esc(p.desc)}</p>
-      <p class="shapes"><span>Shapes</span> ${p.shapes.map(x => esc(x.name)).join(" \u00b7 ")}
-        &nbsp; <span>Colours</span> ${p.colours.map(x => esc(x.name)).join(" \u00b7 ")}</p>
+      <p class="shapes">${p.shapes.length > 1 ? `<span>Shapes</span> ${p.shapes.map(x => esc(x.name)).join(" \u00b7 ")}
+        &nbsp; ` : ""}<span>Colours</span> ${p.colours.map(x => esc(x.name)).join(" \u00b7 ")}</p>
       <a class="btn btn-dark" href="#/p/${p.id}">See the pack</a>
     </div>
   </article>`;
@@ -956,10 +961,10 @@ function viewProduct(p) {
       <h1 class="dsp">${esc(p.name)}</h1>
       <p class="price big" id="prodPrice">${money(p.price)} <span>a pack of 15</span></p>
       <p class="desc">${esc(p.desc)}</p>
-      <div class="ways" role="group" aria-label="Shape">
+      ${p.shapes.length > 1 ? `<div class="ways" role="group" aria-label="Shape">
         <span class="label">Shape</span>
         ${p.shapes.map((x, i) => `<button class="way" data-shape="${x.id}" aria-pressed="${!i}">${esc(x.name)}</button>`).join("")}
-      </div>
+      </div>` : ""}
       <div class="ways" role="group" aria-label="Colour">
         <span class="label">Colour</span>
         ${p.colours.map((c, i) => `<button class="way" data-colour="${c.id}" aria-pressed="${!i}">
@@ -1035,7 +1040,7 @@ function askHTML() {
    store; a static site on a domain cannot, and a form that silently saves nothing is
    worse than no form, so the public build leaves the section out until it has a
    backend. build.py sets this. */
-const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["candycorn","chips:apple:blue","chips:apple:green","chips:apple:orange","chips:apple:red","chips:leaf:blue","chips:leaf:green","chips:leaf:orange","chips:leaf:red","chips:maple:blue","chips:maple:green","chips:maple:orange","chips:maple:red","clicker:blue","clicker:green","clicker:orange","clicker:red","spider"],"shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["candycorn","chips-apple:apple:blue","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","clicker:blue","clicker:green","clicker:orange","clicker:red","spider"],"shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
 
 /* ---------- stock ----------
    The workshop says which bag keys can be bought - exactly as they go in the bag, colour
@@ -1282,7 +1287,7 @@ function homeCard(p) {
     : p.lights
       ? `<img src="${PHOTOS[p.id][p.lights[0].id]}" alt="${esc(p.name)}, lit up" loading="lazy">`
       : `<img class="toy-pic" src="${ASSETS[p.id].frames[0]}" alt="${esc(p.name)}, as it arrives" loading="lazy">`;
-  const note = p.shapes ? "15 to a pack &middot; 3 shapes &middot; 4 colours"
+  const note = p.shapes ? `15 to a pack &middot; ${p.shapes.length > 1 ? p.shapes.length + " shapes &middot; " : ""}${p.colours.length} colours`
     : p.lights ? "Pick your light colour &middot; on a keyring"
     : "Arrives white &middot; color it in";
   return `
@@ -1397,6 +1402,7 @@ function viewCategory(cat, subId) {
 
 let stages = [];
 function route() {
+  if (location.hash === "#/p/chips") { location.replace("#/p/chips-maple"); return; }   // old one-product link
   stages.forEach(s => s.destroy()); stages = [];
   const parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
   const prod = parts[0] === "p" && PRODUCTS.find(x => x.id === parts[1] && forSale(x));
@@ -1600,6 +1606,10 @@ function loop(now) {
 /* ---------- bag ---------- */
 let bag = {};
 try { bag = JSON.parse(localStorage.getItem("mrOmarsClassroom.bag") || "{}") || {}; } catch (e) { bag = {}; }
+// Before 2026-10-06 all chips were one product: "chips:apple:red" is now "chips-apple:apple:red".
+for (const k of Object.keys(bag)) if (k.startsWith("chips:")) {
+  const nk = "chips-" + k.split(":")[1] + k.slice(5); bag[nk] = (bag[nk] || 0) + bag[k]; delete bag[k];
+}
 const saveBag = () => { try { localStorage.setItem("mrOmarsClassroom.bag", JSON.stringify(bag)); } catch (e) {} };
 const bagItem = key => {                       // "chips:maple:red" -> product, shape, colour
   const [id, shapeId, colourId] = key.split(":");
@@ -1616,7 +1626,8 @@ function renderBag() {
   const c = $("#bagCount"); c.textContent = n; c.classList.toggle("zero", n === 0);
   $("#lines").innerHTML = ids.length ? ids.map(key => {
     const { p, shape, colour, light } = bagItem(key);
-    const note = shape ? shape.name + (colour ? ", " + colour.name.toLowerCase() : "")
+    const note = shape ? (p.shapes.length > 1 ? shape.name + (colour ? ", " + colour.name.toLowerCase() : "")
+                                              : colour ? colour.name : shape.name)
       : light ? light.name.toLowerCase() + " light" : "arrives white";
     const pic = shape
       ? `<canvas class="line-pic" data-shape="${shape.id}" data-shot="hero" data-hex="${colour ? colour.hex : "#4EE349"}"></canvas>`
