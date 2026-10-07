@@ -625,10 +625,13 @@ const PRODUCTS = [
      price and the same four colours. Colour never changes the price. The shape stays in the
      bag key (chips-apple:apple:red) because the photo sets and stock are keyed by it. */
   ...[
-    ["maple", "Maple Leaf Counting Chips", "Maple leaf", "46 \u00d7 43 mm"],
-    ["apple", "Apple Counting Chips", "Apple", "42 \u00d7 47 mm"],
-    ["leaf", "Leaf Counting Chips", "Leaf", "34 \u00d7 49 mm"],
-  ].map(([shape, name, label, chip]) => ({
+    ["maple", "Maple Leaf Counting Chips", "Maple leaf", "46 \u00d7 43 mm",
+     "Fifteen maple leaf counters in a maple leaf container, made for fall. Count the leaves that fell, sort them by colour, build patterns along a branch \u2014 and fifteen fills a ten frame with five left over for making ten."],
+    ["apple", "Apple Counting Chips", "Apple", "42 \u00d7 47 mm",
+     "Fifteen apple counters in an apple-shaped container, a back-to-school favourite. Stack them up on top, fill an apple tree, add to and take away from the basket \u2014 and fifteen fills a ten frame with five left over for making ten."],
+    ["leaf", "Leaf Counting Chips", "Leaf", "34 \u00d7 49 mm",
+     "Fifteen leaf counters in a leaf-shaped container, at home in any season. Green for spring, red and orange for fall: sort by colour, measure a branch in leaves, grow a pattern \u2014 and fifteen fills a ten frame with five left over for making ten."],
+  ].map(([shape, name, label, chip, desc]) => ({
     id: "chips-" + shape, name, price: 10, first: true, in: ["teacher-materials/counting-number"],
     grades: ["Pre-K\u2013K", "1\u20132", "3\u20135"],
     shapes: [{ id: shape, name: label, chip }],
@@ -638,7 +641,7 @@ const PRODUCTS = [
       { id: "green", name: "Green", hex: "#4EE349" },
       { id: "blue", name: "Blue", hex: "#0063A0" },
     ],
-    desc: "Fifteen counters of one shape, in a container shaped the same way. Sorting, patterning, adding, probability \u2014 and fifteen fills a ten frame with five left over for making ten.",
+    desc,
     tip: "The container is the same silhouette as the chips, so a pack reads across the room.",
     pack: ["15 chips, all one shape, 3 mm thick", "A container sized for exactly one pack", "A lid that caps over the top"]
   })),
