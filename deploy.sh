@@ -12,8 +12,15 @@ for f in assets/*; do
   grep -q "$(basename "$f")" index.html || { echo "    - $(basename "$f")"; rm -f "$f"; }
 done
 
-if [ -z "$(git status --porcelain)" ]; then echo "==> nothing changed"; exit 0; fi
-git add -A
-git commit -q -m "${1:-site: rebuild from the workshop}"
+if [ -n "$(git status --porcelain)" ]; then
+  git add -A
+  git commit -q -m "${1:-site: rebuild from the workshop}"
+fi
+# Push whenever local is ahead - not only after a new commit. A push GitHub refused (it
+# answers 500 now and then) leaves a commit behind, and "nothing changed" must not strand it.
+git fetch -q origin main || true
+if [ "$(git rev-list --count origin/main..main 2>/dev/null || echo 1)" = "0" ]; then
+  echo "==> nothing changed"; exit 0
+fi
 git push -q origin main
 echo "==> pushed. GitHub Pages usually serves it within a minute."
