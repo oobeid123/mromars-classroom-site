@@ -534,6 +534,41 @@ footer p{color:var(--navy-sub)}
 .optin{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--ink-2);margin:0 0 10px;cursor:pointer}
 .optin input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--btn)}
 .foot-help a{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- maintenance screen (2026-10-07) ----------
+   The workshop's "Take the shop offline" switch. Butcher paper like the hero, a note pinned
+   to the board with the email, the yellow scallop trim onto the paper below. */
+.closed{display:none;position:relative;background:var(--butcher);color:#FFFFFF;
+  min-height:calc(100vh - 140px);min-height:calc(100svh - 140px);padding-block:56px 92px}
+html.is-closed .closed{display:grid;align-content:center}
+html.is-closed #view,html.is-closed #joinSlot,html.is-closed .cats,html.is-closed .browse,
+html.is-closed .bag-btn,html.is-closed #sheetnav,html.is-closed .drawer,html.is-closed .scrim{display:none!important}
+.closed::after{content:"";position:absolute;left:0;right:0;bottom:-22px;height:30px;z-index:3;pointer-events:none;
+  background:
+    linear-gradient(var(--trim-b),var(--trim-b)) 0 0/100% 8px no-repeat,
+    radial-gradient(circle at 14px 8px,var(--trim-a) 14px,transparent 14.5px) 0 0/56px 30px repeat-x,
+    radial-gradient(circle at 42px 8px,var(--trim-b) 14px,transparent 14.5px) 0 0/56px 30px repeat-x}
+html.is-closed footer{padding-top:66px}
+.closed-in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.closed h1{font-size:clamp(38px,5.2vw,64px);font-weight:700;color:#FFFFFF;text-shadow:3px 3px 0 var(--letter-shadow)}
+.closed .lede{color:var(--butcher-sub);max-width:44ch}
+.closed .hand-line{font-size:21px}
+.closed-sign{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 18px 10px 12px;border-radius:12px;
+  background:#FFFFFF;color:#1C2230;font-family:var(--display);font-weight:600;font-size:18px;transform:rotate(-2.5deg);
+  box-shadow:0 10px 22px rgba(10,25,50,.28)}
+.closed-sign .mark{width:30px;height:30px;transform:rotate(-7deg)}
+.note{width:min(440px,calc(100% - 14px));padding:30px 28px 26px;color:#1C2230;transform:rotate(1.6deg)}
+.note h2{font-family:var(--display);font-weight:600;font-size:24px;line-height:1.2;margin:0}
+.note p{color:#3A4150;margin:10px 0 0;font-family:var(--body);font-size:15.5px}
+.note .btn{font-family:var(--body)}
+.note .btn{margin-top:20px}
+.note .note-mail{font-family:var(--body);font-weight:500;font-size:16px;overflow-wrap:anywhere}
+.note-mail a{color:#2F5E9E;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){
+  .closed{padding-block:34px 80px}
+  .closed-in{grid-template-columns:1fr;gap:40px}
+  .note{justify-self:center;transform:rotate(1deg)}
+}
 </style>
 
 <header class="bar">
@@ -548,6 +583,24 @@ footer p{color:var(--navy-sub)}
   </div>
   <nav class="wrap sheetnav" id="sheetnav" aria-label="Browse categories" hidden></nav>
 </header>
+
+<section class="closed" id="closed" aria-labelledby="closedHead">
+  <div class="wrap closed-in">
+    <div>
+      <p class="hand-line">The shop is under maintenance</p>
+      <h1 class="dsp" id="closedHead">We&rsquo;ll be back soon!</h1>
+      <p class="lede">I&rsquo;m giving the shelves a little tidy-up. Check back shortly &mdash; everything will be
+        right where you left it.</p>
+      <p class="closed-sign" aria-hidden="true"><svg class="mark" viewBox="0 0 100 100"><path d="M50.00 4.00 A7.47 7.47 0 0 1 73.00 10.16 A7.47 7.47 0 0 1 89.84 27.00 A7.47 7.47 0 0 1 96.00 50.00 A7.47 7.47 0 0 1 89.84 73.00 A7.47 7.47 0 0 1 73.00 89.84 A7.47 7.47 0 0 1 50.00 96.00 A7.47 7.47 0 0 1 27.00 89.84 A7.47 7.47 0 0 1 10.16 73.00 A7.47 7.47 0 0 1 4.00 50.00 A7.47 7.47 0 0 1 10.16 27.00 A7.47 7.47 0 0 1 27.00 10.16 A7.47 7.47 0 0 1 50.00 4.00 Z" fill="var(--mark)"/><path d="M50.00 26.00 L56.00 42.75 L73.78 43.27 L59.70 54.15 L64.69 71.23 L50.00 61.20 L35.31 71.23 L40.30 54.15 L26.22 43.27 L44.00 42.75 Z" fill="var(--mark-ink)"/></svg>Back soon</p>
+    </div>
+    <div class="pinned note">
+      <span class="pin" aria-hidden="true"></span>
+      <h2>Need something in the meantime?</h2>
+      <p>A question about an order, or something your classroom needs? Send me an email and I&rsquo;ll get back to you.</p>
+      <div id="closedMail"></div>
+    </div>
+  </div>
+</section>
 
 <main id="view"></main>
 
@@ -733,6 +786,22 @@ for (let i = PRODUCTS.length - 1; i >= 0; i--) {
   if (w.status === "retired") { PRODUCTS.splice(i, 1); continue; }
   if (w.price != null) PRODUCTS[i].price = w.price;
   if (w.status === "soon") PRODUCTS[i].status = "soon";
+}
+/* The workshop's On shop switch. A product switched off ("off") is built into the page but
+   held back; the live answer (`on`, the store keys switched on) shows or hides it on the
+   next page load, both ways, with no rebuild. Only products the workshop sells are governed
+   by it - a "soon" card stays a card. */
+const ALL_PRODUCTS = PRODUCTS.slice();
+let ON_KEYS = null;
+function applyOn(on) {
+  ON_KEYS = on ? new Set(on) : null;
+  const shown = p => {
+    const w = PRICES[p.id];
+    if (!w || !["live", "off"].includes(w.status)) return true;
+    return ON_KEYS ? ON_KEYS.has(p.id) : w.status === "live";
+  };
+  PRODUCTS.length = 0;
+  ALL_PRODUCTS.filter(shown).forEach(p => PRODUCTS.push(p));
 }
 
 const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1063,7 +1132,7 @@ function askHTML() {
    store; a static site on a domain cannot, and a form that silently saves nothing is
    worse than no form, so the public build leaves the section out until it has a
    backend. build.py sets this. */
-const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["candycorn","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","clicker:blue","clicker:green","clicker:orange","clicker:red","spider"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["candycorn","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","clicker:blue","clicker:green","clicker:orange","clicker:red","spider"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","on":["candycorn","chips-apple","chips-leaf","chips-maple","clicker","spider"],"offline":false,"shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
 
 /* ---------- stock ----------
    The workshop says which bag keys can be bought - exactly as they go in the bag, colour
@@ -1072,6 +1141,7 @@ const SITE = {"requests":"https://requests.mromars-classroom.com/public/request"
    a sale that took the last one shows Sold out without a rebuild. No list at all (the
    artifact, or a build with the workshop down) means nothing is marked. */
 let AVAIL = SITE.keys ? new Set(SITE.keys) : null;
+applyOn(SITE.on || null);
 const inStock = key => !AVAIL || AVAIL.has(key);
 function markSold() {
   $$("[data-add]").forEach(b => {
@@ -1099,8 +1169,37 @@ async function liveStock() {
     const r = await fetch(SITE.stock, { cache: "no-store" });
     const out = r.ok ? await r.json() : null;
     if (out && Array.isArray(out.keys)) { AVAIL = new Set(out.keys); markSold(); }
+    if (out && typeof out.offline === "boolean") showClosed(out.offline);
+    if (out && Array.isArray(out.on)) {
+      const before = PRODUCTS.map(p => p.id).join();
+      applyOn(out.on);
+      if (PRODUCTS.map(p => p.id).join() !== before) { buildNav(); renderBag(); route(); }
+    }
   } catch (e) { /* keep the list the build baked in */ }
 }
+
+/* ---------- the maintenance screen ----------
+   The workshop's "Take the shop offline" switch: every view gives way to the "back soon"
+   screen, with the support email. Baked in at build and asked again on load; a visitor who
+   saw it in the last day starts on it, so a closed shop does not flash the shelves first. */
+const CLOSED_KEY = "mrOmarsClassroom.closed";
+function showClosed(on) {
+  const was = document.documentElement.classList.contains("is-closed");
+  document.documentElement.classList.toggle("is-closed", on);
+  try { on ? localStorage.setItem(CLOSED_KEY, String(Date.now())) : localStorage.removeItem(CLOSED_KEY); } catch (e) {}
+  if (!on) { if (was) route(); return; }          // back open: redraw, which resets the title
+  const mail = SITE.support;
+  $("#closedMail").innerHTML = mail
+    ? `<a class="btn btn-sun" href="mailto:${esc(mail)}">Email Mr. Omar</a>
+       <p class="note-mail"><a href="mailto:${esc(mail)}">${esc(mail)}</a></p>` : "";
+  document.title = "Back soon \u00b7 Mr. Omar's Classroom";
+  closeMenus();
+}
+(() => {
+  let recent = false;
+  try { recent = Date.now() - (+localStorage.getItem(CLOSED_KEY) || 0) < 864e5; } catch (e) {}
+  if (SITE.offline || (SITE.stock && recent)) showClosed(true);
+})();
 
 const CAPS = { db: undefined, isOwner: false };
 let inboxStop = null;
@@ -1500,6 +1599,7 @@ function route() {
   $$(".stage").forEach(el => stages.push(new Stage(el, PRODUCTS.find(p => p.id === el.dataset.id))));
   mountGallery(); mountLight(); mountAsk(); markSold();
   if (prod || cat) scrollTo({ top: 0, behavior: "instant" });
+  if (document.documentElement.classList.contains("is-closed")) document.title = "Back soon \u00b7 Mr. Omar's Classroom";
 }
 addEventListener("hashchange", () => {
   const h = location.hash.slice(1);
