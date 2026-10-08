@@ -534,6 +534,16 @@ footer p{color:var(--navy-sub)}
 .optin{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--ink-2);margin:0 0 10px;cursor:pointer}
 .optin input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--btn)}
 .foot-help a{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
+.foot-links{flex-basis:100%}
+#checkoutNote a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.foot-links a{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}
+.policy{max-width:68ch;padding-block:28px 56px}
+.policy h2{font-size:clamp(22px,2.6vw,28px);font-weight:600;margin:34px 0 10px;scroll-margin-top:90px}
+.policy h2:first-child{margin-top:0}
+.policy p{font-size:16.5px;line-height:1.65;color:var(--ink-2);margin-top:10px}
+.policy strong{color:var(--ink)}
+.policy a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.policy-date{font-size:14px!important;color:var(--ink-3)!important;margin-top:30px!important}
 
 /* ---------- maintenance screen (2026-10-07) ----------
    The workshop's "Take the shop offline" switch. Butcher paper like the hero, a note pinned
@@ -614,6 +624,7 @@ html.is-closed footer{padding-top:66px}
     <p>Classroom materials made by a teacher. Toys arrive white and ready to color.
        Not for children under 3 &mdash; small parts.</p>
     <p class="foot-help" id="footHelp" hidden></p>
+    <p class="foot-links"><a href="#/policies">Shipping, returns &amp; privacy</a></p>
   </div>
 </footer>
 
@@ -637,7 +648,7 @@ const CHIPS = {"maple":{"hero":{"base":"assets/maple-hero-19caf265af.webp","mask
 const PHOTOS = {"clicker":{"orange":"assets/clicker-orange-b3ab4e347d.webp","red":"assets/clicker-red-37dc0d407c.webp","blue":"assets/clicker-blue-30e9f27155.webp","green":"assets/clicker-green-bb348b29fe.webp","ring":"assets/clicker-ring-be8436322c.webp","cap":"assets/clicker-cap-79c55049d9.webp","four":"assets/clicker-four-ccc944a548.webp","clip":"assets/clicker-clip-cf855b4d4b.webp"}};      // products that are photographed straight, with no tinting
 /* Prices are set in the workshop (classroom-admin) and baked in at build time, so the page
    never depends on that service being up to show a price. */
-const PRICES = {"chips-maple":{"price":10.0,"status":"live"},"chips-apple":{"price":10.0,"status":"live"},"chips-leaf":{"price":10.0,"status":"live"},"clicker":{"price":8.0,"status":"live"},"spider":{"price":5.0,"status":"live"},"candycorn":{"price":5.0,"status":"live"}};
+const PRICES = {"chips-maple":{"price":10.0,"status":"live"},"chips-apple":{"price":10.0,"status":"live"},"chips-leaf":{"price":10.0,"status":"live"},"clicker":{"price":8.0,"status":"off"},"spider":{"price":5.0,"status":"live"},"candycorn":{"price":5.0,"status":"live"}};
 
 /* Categories and the planned line-up live here: edit these two lists and the header,
    pages and counts all follow. */
@@ -1132,7 +1143,7 @@ function askHTML() {
    store; a static site on a domain cannot, and a form that silently saves nothing is
    worse than no form, so the public build leaves the section out until it has a
    backend. build.py sets this. */
-const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["candycorn","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","clicker:blue","clicker:green","clicker:orange","clicker:red","spider"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","on":["candycorn","chips-apple","chips-leaf","chips-maple","clicker","spider"],"offline":false,"shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["candycorn","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","spider"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","on":["candycorn","chips-apple","chips-leaf","chips-maple","spider"],"offline":false,"shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
 
 /* ---------- stock ----------
    The workshop says which bag keys can be bought - exactly as they go in the bag, colour
@@ -1562,6 +1573,44 @@ function pillsFor(cat, sub) {
     return `<a class="pill" href="#/${cat.id}/${s.id}" ${sub === s.id ? 'aria-current="page"' : ""}>${esc(s.name)}<em>${n || "soon"}</em></a>`;
   }).join("");
 }
+/* ---------- policies (2026-10-08) ----------
+   Shipping, returns and privacy, on one page. Stripe checks a live shop's site for a refund
+   policy and a way to reach the seller, so this page has to exist before taking real money.
+   Omar's rules: 30 days for unused items, ships in 3-5 business days, US only. */
+function viewPolicies() {
+  const mail = SITE.support ? `<a href="mailto:${esc(SITE.support)}">${esc(SITE.support)}</a>` : "the email at the bottom of this page";
+  const ship = SITE.shipping_cents ? `a flat ${money(SITE.shipping_cents / 100)} per order` : "a flat rate per order, shown in the bag";
+  return `
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span aria-hidden="true">/</span><span>Policies</span></nav>
+      <h1 class="dsp">Shipping, returns &amp; privacy</h1>
+      <p>The short version: orders go out within a week, unused things come back within 30 days, and your details are used for your order and nothing else.</p>
+    </div>
+  </section>
+  <section><div class="wrap policy">
+    <h2 class="dsp" id="shipping">Shipping</h2>
+    <p>We ship to the United States only, for ${ship}.</p>
+    <p>Everything is made by hand, so orders leave within <strong>3&ndash;5 business days</strong>. When yours goes out you'll get an email with the tracking number. Most parcels arrive a few days after that.</p>
+
+    <h2 class="dsp" id="returns">Returns &amp; refunds</h2>
+    <p><strong>Changed your mind?</strong> Send back anything unused, in the condition it arrived, within <strong>30 days of delivery</strong> for a full refund of what you paid for it. Email first so we know it's coming. Return postage is yours, and the original shipping isn't refunded. A color-your-own toy that has been colored in counts as used.</p>
+    <p><strong>Arrived broken, wrong or missing a piece?</strong> Email within 30 days with a photo and we'll send a replacement or refund it in full, shipping included. You won't need to send the broken one back.</p>
+    <p>Refunds go back to the card you paid with. Once we've approved one, your bank usually shows it within 5&ndash;10 business days.</p>
+
+    <h2 class="dsp" id="privacy">Privacy</h2>
+    <p><strong>At checkout</strong> we get your name, email and shipping address, and use them to fill and ship your order and to email you about it. Your card is handled by Stripe; we never see the number.</p>
+    <p><strong>The mailing list</strong> only has you on it if you joined or left the box ticked at checkout. Every email has an unsubscribe link, and one click takes you off.</p>
+    <p><strong>Requests</strong> you send keep the email you gave, so we can answer you.</p>
+    <p>We don't sell or share your details with anyone. The only others who see them are Stripe, to take the payment, and the post, to deliver it. Visits are counted with Cloudflare Web Analytics, which uses no cookies and doesn't track you from site to site.</p>
+    <p>To see or delete what we hold about you, just ask.</p>
+
+    <h2 class="dsp" id="contact">Contact</h2>
+    <p>Mr. Omar's Classroom, Tampa, Florida. Questions, problems with an order, or a return: ${mail}. A real teacher reads every email, usually within a day or two.</p>
+    <p class="policy-date">Last updated October 8, 2026.</p>
+  </div></section>`;
+}
+
 function viewCategory(cat, subId) {
   const sub = cat.subs.find(s => s.id === subId);
   const items = listFor(cat.id, sub && sub.id);
@@ -1591,14 +1640,16 @@ function route() {
   const prod = parts[0] === "p" && PRODUCTS.find(x => x.id === parts[1] && forSale(x));
   const cat = CATALOG.find(c => c.id === parts[0]);
   const sub = cat && cat.subs.find(s => s.id === parts[1]);
-  $("#view").innerHTML = prod ? viewProduct(prod) : cat ? viewCategory(cat, sub && sub.id) : viewHome();
+  const pol = parts[0] === "policies";
+  $("#view").innerHTML = pol ? viewPolicies() : prod ? viewProduct(prod) : cat ? viewCategory(cat, sub && sub.id) : viewHome();
   $$(".cat-btn").forEach(b => b.classList.toggle("here", !!cat && b.dataset.cat === cat.id));
-  document.title = prod ? prod.name + " \u00b7 Mr. Omar's Classroom"
+  document.title = pol ? "Shipping, returns & privacy \u00b7 Mr. Omar's Classroom"
+    : prod ? prod.name + " \u00b7 Mr. Omar's Classroom"
     : cat ? (sub ? sub.name + " \u00b7 " : "") + cat.name + " \u00b7 Mr. Omar's Classroom"
     : "Mr. Omar's Classroom";
   $$(".stage").forEach(el => stages.push(new Stage(el, PRODUCTS.find(p => p.id === el.dataset.id))));
   mountGallery(); mountLight(); mountAsk(); markSold();
-  if (prod || cat) scrollTo({ top: 0, behavior: "instant" });
+  if (prod || cat || pol) scrollTo({ top: 0, behavior: "instant" });
   if (document.documentElement.classList.contains("is-closed")) document.title = "Back soon \u00b7 Mr. Omar's Classroom";
 }
 addEventListener("hashchange", () => {
@@ -1850,9 +1901,10 @@ function wireCheckout() {
   const btn = $("#checkout"), note = $("#checkoutNote");
   if (!SITE.checkout) return;
   $("#optinRow").hidden = false;
-  note.textContent = SITE.shipping_cents
+  note.innerHTML = (SITE.shipping_cents
     ? `Card payment by Stripe. ${money(SITE.shipping_cents / 100)} flat shipping, US only.`
-    : "Card payment by Stripe. Posted in the US.";
+    : "Card payment by Stripe. Posted in the US.")
+    + ` <a href="#/policies">30-day returns</a>.`;
   const refresh = () => {
     const n = Object.values(bag).reduce((s, q) => s + q, 0);
     btn.disabled = !n;
