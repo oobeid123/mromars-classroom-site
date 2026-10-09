@@ -1662,7 +1662,7 @@ function viewHelp(kind) {
       <div><label for="helpOrder">Order number <span class="opt" id="helpOrderOpt">${r ? "" : "(if it's about an order)"}</span></label>
         <p class="help-note">It's on your order confirmation email.</p>
         <input id="helpOrder" type="text" inputmode="numeric" maxlength="12" placeholder="e.g. 12"></div>
-      <div><label for="helpMsg" id="helpMsgLabel">${r ? "What happened? (optional)" : "How can I help?"}</label>
+      <div><label for="helpMsg" id="helpMsgLabel">${r ? "Why are you asking for a refund?" : "How can I help?"}</label>
         <textarea id="helpMsg" rows="5" maxlength="2000"></textarea></div>
       <div><label for="helpPhotos" id="helpPhotoLabel">${r ? "Photos of the item" : "Photos (optional)"}</label>
         <p class="help-note" id="helpPhotoNote">${r ? "At least one photo, up to four &mdash; of what arrived, or what's wrong with it." : "Up to four, if a picture helps."}</p>
@@ -1717,7 +1717,7 @@ function mountHelp() {
   const paintKind = () => {
     const r = kind() === "refund";
     $("#helpOrderOpt").textContent = r ? "" : "(if it's about an order)";
-    $("#helpMsgLabel").textContent = r ? "What happened? (optional)" : "How can I help?";
+    $("#helpMsgLabel").textContent = r ? "Why are you asking for a refund?" : "How can I help?";
     $("#helpPhotoLabel").textContent = r ? "Photos of the item" : "Photos (optional)";
     $("#helpPhotoNote").textContent = r ? "At least one photo, up to four \u2014 of what arrived, or what's wrong with it."
                                         : "Up to four, if a picture helps.";
@@ -1750,7 +1750,7 @@ function mountHelp() {
     if (!EMAIL_OK(email)) return say("Add your email so I can write back.", $("#helpEmail"));
     if (k === "refund" && !order) return say("Add your order number \u2014 it's on your confirmation email.", $("#helpOrder"));
     if (k === "refund" && !helpPhotos.length) return say("Add at least one photo.", $("#helpPhotos"));
-    if (k === "support" && message.length < 5) return say("Tell me a little more.", $("#helpMsg"));
+    if (message.length < 5) return say(k === "refund" ? "Tell me why you'd like a refund." : "Tell me a little more.", $("#helpMsg"));
     send.disabled = true; say("Sending\u2026");
     try {
       const r = await fetch(SITE.tickets, { method: "POST", headers: { "Content-Type": "application/json" },
@@ -1767,7 +1767,7 @@ function mountHelp() {
       }
       form.reset(); helpPhotos = []; paintThumbs(); paintKind();
       status.className = "ask-status good";
-      status.textContent = `Sent \u2014 your request number is #${j.ticket}. I've emailed you a copy, and I'll get back to you within a day or two.`;
+      status.textContent = "Sent \u2014 I've emailed you a copy, and I'll get back to you within a day or two.";
     } catch (err) {
       say(String(err.message) === "429" ? "That is plenty for now \u2014 try again later." : "That didn't send. Try again in a moment.");
     }
