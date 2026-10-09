@@ -536,8 +536,27 @@ footer p{color:var(--navy-sub)}
 .foot-help a{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
 .foot-links{flex-basis:100%}
 #checkoutNote a{color:inherit;text-decoration:underline;text-underline-offset:2px}
-.foot-links a{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}
+.foot-links{color:#FFFFFF;font-size:14px}
+.foot-links a{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
 .policy{max-width:68ch;padding-block:28px 56px}
+.help-wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px;align-items:start;padding-block:28px 56px}
+.help-kind{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 22px}
+.help-kind legend{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;padding:0}
+.help-kind label{display:flex;align-items:center;gap:8px;font-size:15.5px;color:var(--ink);text-transform:none;letter-spacing:0;font-weight:500;margin:0;cursor:pointer}
+.help-kind input{width:18px;height:18px;accent-color:var(--btn);margin:0}
+.help-form .opt{text-transform:none;letter-spacing:0;font-weight:400}
+.help-note{font-size:14px;color:var(--ink-2);margin:0 0 8px}
+.help-form input[type=file]{padding:10px;font-size:14px}
+.help-thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.help-thumbs:empty{display:none}
+.help-thumb{position:relative;display:block}
+.help-thumb img{width:86px;height:86px;object-fit:cover;border-radius:10px;display:block}
+.help-thumb button{position:absolute;top:-8px;right:-8px;width:26px;height:26px;border-radius:50%;border:0;
+  background:var(--ink);color:var(--paper);font-size:16px;line-height:26px;cursor:pointer}
+.help-side h2{font-size:22px;font-weight:600;margin-bottom:6px}
+.help-side p{font-size:15.5px;line-height:1.6;color:var(--ink-2);margin-top:10px}
+.help-side a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:820px){.help-wrap{grid-template-columns:1fr;gap:28px}}
 .policy h2{font-size:clamp(22px,2.6vw,28px);font-weight:600;margin:34px 0 10px;scroll-margin-top:90px}
 .policy h2:first-child{margin-top:0}
 .policy p{font-size:16.5px;line-height:1.65;color:var(--ink-2);margin-top:10px}
@@ -621,10 +640,10 @@ html.is-closed footer{padding-top:66px}
       <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50.00 4.00 A7.47 7.47 0 0 1 73.00 10.16 A7.47 7.47 0 0 1 89.84 27.00 A7.47 7.47 0 0 1 96.00 50.00 A7.47 7.47 0 0 1 89.84 73.00 A7.47 7.47 0 0 1 73.00 89.84 A7.47 7.47 0 0 1 50.00 96.00 A7.47 7.47 0 0 1 27.00 89.84 A7.47 7.47 0 0 1 10.16 73.00 A7.47 7.47 0 0 1 4.00 50.00 A7.47 7.47 0 0 1 10.16 27.00 A7.47 7.47 0 0 1 27.00 10.16 A7.47 7.47 0 0 1 50.00 4.00 Z" fill="var(--mark)"/><path d="M50.00 26.00 L56.00 42.75 L73.78 43.27 L59.70 54.15 L64.69 71.23 L50.00 61.20 L35.31 71.23 L40.30 54.15 L26.22 43.27 L44.00 42.75 Z" fill="var(--mark-ink)"/></svg>
       <span class="brand-txt"><span class="brand-mr">Mr. Omar's</span><span class="brand-name">Classroom</span></span>
     </a>
-    <p>Classroom materials made by a teacher. Toys arrive white and ready to color.
+    <p>Classroom materials made by a teacher.
        Not for children under 3 &mdash; small parts.</p>
     <p class="foot-help" id="footHelp" hidden></p>
-    <p class="foot-links"><a href="#/policies">Shipping, returns &amp; privacy</a></p>
+    <p class="foot-links"><a href="#/help">Help &amp; refunds</a> &middot; <a href="#/policies">Shipping, returns &amp; privacy</a></p>
   </div>
 </footer>
 
@@ -1143,7 +1162,7 @@ function askHTML() {
    store; a static site on a domain cannot, and a form that silently saves nothing is
    worse than no form, so the public build leaves the section out until it has a
    backend. build.py sets this. */
-const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["candycorn","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","spider"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","on":["candycorn","chips-apple","chips-leaf","chips-maple","spider"],"offline":false,"shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["candycorn","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","spider"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","tickets":"https://requests.mromars-classroom.com/public/ticket","on":["candycorn","chips-apple","chips-leaf","chips-maple","spider"],"offline":false,"shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
 
 /* ---------- stock ----------
    The workshop says which bag keys can be bought - exactly as they go in the bag, colour
@@ -1594,8 +1613,8 @@ function viewPolicies() {
     <p>Please allow <strong>3&ndash;5 business days</strong> for your order to ship. When it goes out you'll get an email with the tracking number. Most parcels arrive a few days after that.</p>
 
     <h2 class="dsp" id="returns">Returns &amp; refunds</h2>
-    <p><strong>Changed your mind?</strong> Send back anything unused, in the condition it arrived, within <strong>30 days of delivery</strong> for a full refund of what you paid for it. Email first so we know it's coming. Return postage is yours, and the original shipping isn't refunded. A color-your-own toy that has been colored in counts as used.</p>
-    <p><strong>Arrived broken, wrong or missing a piece?</strong> Email within 30 days with a photo and we'll send a replacement or refund it in full, shipping included. You won't need to send the broken one back.</p>
+    <p><strong>Changed your mind?</strong> Send back anything unused, in the condition it arrived, within <strong>30 days of delivery</strong> for a full refund of what you paid for it. Start it from the <a href="#/help/refund">Help page</a> so we know it's coming. Return postage is yours, and the original shipping isn't refunded. A color-your-own toy that has been colored in counts as used.</p>
+    <p><strong>Arrived broken, wrong or missing a piece?</strong> Send a <a href="#/help/refund">refund request</a> within 30 days with a photo and we'll send a replacement or refund it in full, shipping included. You won't need to send the broken one back.</p>
     <p>Refunds go back to the card you paid with. Once we've approved one, your bank usually shows it within 5&ndash;10 business days.</p>
 
     <h2 class="dsp" id="privacy">Privacy</h2>
@@ -1606,9 +1625,154 @@ function viewPolicies() {
     <p>To see or delete what we hold about you, just ask.</p>
 
     <h2 class="dsp" id="contact">Contact</h2>
-    <p>Mr. Omar's Classroom, Tampa, Florida. Questions, problems with an order, or a return: ${mail}. A real teacher reads every email, usually within a day or two.</p>
+    <p>Mr. Omar's Classroom, Tampa, Florida. Questions, problems with an order, or a return: the <a href="#/help">Help page</a>, or ${mail}. A real teacher reads every email, usually within a day or two.</p>
     <p class="policy-date">Last updated October 8, 2026.</p>
   </div></section>`;
+}
+
+/* ---------- help & refunds (2026-10-08) ----------
+   One form, two kinds: a question/problem, or a refund request. Both land in the workshop's
+   Help desk and are emailed to Omar. A refund needs the order number (it must match the
+   email used at checkout - the workshop checks) and at least one photo. Photos are shrunk
+   here to JPEGs of at most 1600 px before sending, which also drops a phone's location data. */
+function viewHelp(kind) {
+  const r = kind === "refund";
+  return `
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span aria-hidden="true">/</span><span>Help</span></nav>
+      <h1 class="dsp">Help &amp; refunds</h1>
+      <p>A question, a problem with an order, or a refund &mdash; send it here and I'll get back to you within a day or two.</p>
+    </div>
+  </section>
+  <section><div class="wrap help-wrap">
+    <form class="ask-form help-form" id="helpForm" novalidate>
+      <fieldset class="help-kind">
+        <legend>What do you need?</legend>
+        <label><input type="radio" name="kind" value="support" ${r ? "" : "checked"}> A question or a problem</label>
+        <label><input type="radio" name="kind" value="refund" ${r ? "checked" : ""}> A refund</label>
+      </fieldset>
+      <div class="ask-row">
+        <div><label for="helpName">Your name</label>
+          <input id="helpName" type="text" maxlength="80" autocomplete="name" required></div>
+        <div><label for="helpEmail">Your email</label>
+          <input id="helpEmail" type="email" maxlength="200" autocomplete="email" required
+            placeholder="The one you used at checkout"></div>
+      </div>
+      <div><label for="helpOrder">Order number <span class="opt" id="helpOrderOpt">${r ? "" : "(if it's about an order)"}</span></label>
+        <p class="help-note">It's on your order confirmation email.</p>
+        <input id="helpOrder" type="text" inputmode="numeric" maxlength="12" placeholder="e.g. 12"></div>
+      <div><label for="helpMsg" id="helpMsgLabel">${r ? "What happened? (optional)" : "How can I help?"}</label>
+        <textarea id="helpMsg" rows="5" maxlength="2000"></textarea></div>
+      <div><label for="helpPhotos" id="helpPhotoLabel">${r ? "Photos of the item" : "Photos (optional)"}</label>
+        <p class="help-note" id="helpPhotoNote">${r ? "At least one photo, up to four &mdash; of what arrived, or what's wrong with it." : "Up to four, if a picture helps."}</p>
+        <input id="helpPhotos" type="file" accept="image/*" multiple>
+        <div class="help-thumbs" id="helpThumbs"></div></div>
+      <div class="hp" aria-hidden="true"><label for="helpSite">Website</label>
+        <input id="helpSite" type="text" tabindex="-1" autocomplete="off"></div>
+      <div class="ask-send">
+        <button class="btn btn-dark" type="submit" id="helpSend">Send</button>
+        <span class="ask-status" id="helpStatus" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+    <aside class="help-side">
+      <h2 class="dsp">Good to know</h2>
+      <p><b>Unused, changed your mind?</b> You can send it back within 30 days of delivery.</p>
+      <p><b>Broken, wrong or missing a piece?</b> Send a photo and I'll replace it or refund it &mdash; no need to post it back.</p>
+      <p>Refunds go back to the card you paid with, usually within 5&ndash;10 business days of approval.
+         The full rules are on the <a href="#/policies">policies page</a>.</p>
+    </aside>
+  </div></section>`;
+}
+
+const HELP_MAX_PHOTOS = 4;
+let helpPhotos = [];                        // JPEG data URLs, already shrunk
+
+async function shrinkPhoto(file) {
+  // createImageBitmap honours the photo's rotation; the <img> route is the fallback.
+  let src;
+  try { src = await createImageBitmap(file, { imageOrientation: "from-image" }); }
+  catch (e) {
+    src = await new Promise((ok, bad) => {
+      const im = new Image(); im.onload = () => ok(im); im.onerror = bad; im.src = URL.createObjectURL(file);
+    });
+  }
+  for (const [max, q] of [[1600, 0.82], [1200, 0.72], [900, 0.65]]) {
+    const w0 = src.width || src.naturalWidth, h0 = src.height || src.naturalHeight;
+    const k = Math.min(1, max / Math.max(w0, h0));
+    const c = document.createElement("canvas");
+    c.width = Math.round(w0 * k); c.height = Math.round(h0 * k);
+    c.getContext("2d").drawImage(src, 0, 0, c.width, c.height);
+    const url = c.toDataURL("image/jpeg", q);
+    if (url.length < 2_600_000) return url;
+  }
+  throw new Error("too big");
+}
+
+function mountHelp() {
+  const form = $("#helpForm"); if (!form) return;
+  helpPhotos = [];
+  const status = $("#helpStatus"), send = $("#helpSend"), thumbs = $("#helpThumbs");
+  const kind = () => (form.querySelector("input[name=kind]:checked") || {}).value || "support";
+  const paintKind = () => {
+    const r = kind() === "refund";
+    $("#helpOrderOpt").textContent = r ? "" : "(if it's about an order)";
+    $("#helpMsgLabel").textContent = r ? "What happened? (optional)" : "How can I help?";
+    $("#helpPhotoLabel").textContent = r ? "Photos of the item" : "Photos (optional)";
+    $("#helpPhotoNote").textContent = r ? "At least one photo, up to four \u2014 of what arrived, or what's wrong with it."
+                                        : "Up to four, if a picture helps.";
+  };
+  const paintThumbs = () => {
+    thumbs.innerHTML = helpPhotos.map((u, i) =>
+      `<span class="help-thumb"><img src="${u}" alt="Photo ${i + 1}"><button type="button" data-rm="${i}" aria-label="Remove photo ${i + 1}">&times;</button></span>`).join("");
+    $$("[data-rm]", thumbs).forEach(b => b.addEventListener("click", () => { helpPhotos.splice(+b.dataset.rm, 1); paintThumbs(); }));
+  };
+  form.querySelectorAll("input[name=kind]").forEach(x => x.addEventListener("change", paintKind));
+  $("#helpPhotos").addEventListener("change", async e => {
+    const files = [...e.target.files]; e.target.value = "";
+    for (const f of files) {
+      if (helpPhotos.length >= HELP_MAX_PHOTOS) { status.className = "ask-status"; status.textContent = "Four photos is the most."; break; }
+      try { helpPhotos.push(await shrinkPhoto(f)); status.textContent = ""; }
+      catch (err) { status.className = "ask-status"; status.textContent = "That photo couldn't be read here \u2014 try a JPG, or a screenshot of it."; }
+    }
+    paintThumbs();
+  });
+  if (!/^https?:/.test(SITE.tickets || "")) {
+    send.disabled = true; status.textContent = "Requests can't be sent from this view.";
+    return;
+  }
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const k = kind(), name = $("#helpName").value.trim(), email = $("#helpEmail").value.trim();
+    const order = $("#helpOrder").value.replace(/[^0-9]/g, ""), message = $("#helpMsg").value.trim();
+    const say = (t, el) => { status.className = "ask-status"; status.textContent = t; if (el) el.focus(); };
+    if (!name) return say("Add your name.", $("#helpName"));
+    if (!EMAIL_OK(email)) return say("Add your email so I can write back.", $("#helpEmail"));
+    if (k === "refund" && !order) return say("Add your order number \u2014 it's on your confirmation email.", $("#helpOrder"));
+    if (k === "refund" && !helpPhotos.length) return say("Add at least one photo.", $("#helpPhotos"));
+    if (k === "support" && message.length < 5) return say("Tell me a little more.", $("#helpMsg"));
+    send.disabled = true; say("Sending\u2026");
+    try {
+      const r = await fetch(SITE.tickets, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ kind: k, name, email, order, message, photos: helpPhotos, website: $("#helpSite").value }) });
+      const j = await r.json().catch(() => ({}));
+      if (r.status === 429) throw new Error("429");
+      if (!r.ok) {
+        const d = j.detail || "";
+        say(d === "no order with that number under this email"
+          ? "I can't find that order number with this email. Use the email you checked out with, or pick \u201cA question or a problem\u201d instead."
+          : d === "that order has already been refunded" ? "That order has already been refunded."
+          : d ? d.charAt(0).toUpperCase() + d.slice(1) + "." : "That didn't send. Try again in a moment.");
+        send.disabled = false; return;
+      }
+      form.reset(); helpPhotos = []; paintThumbs(); paintKind();
+      status.className = "ask-status good";
+      status.textContent = `Sent \u2014 your request number is #${j.ticket}. I've emailed you a copy, and I'll get back to you within a day or two.`;
+    } catch (err) {
+      say(String(err.message) === "429" ? "That is plenty for now \u2014 try again later." : "That didn't send. Try again in a moment.");
+    }
+    send.disabled = false;
+  });
 }
 
 function viewCategory(cat, subId) {
@@ -1640,16 +1804,17 @@ function route() {
   const prod = parts[0] === "p" && PRODUCTS.find(x => x.id === parts[1] && forSale(x));
   const cat = CATALOG.find(c => c.id === parts[0]);
   const sub = cat && cat.subs.find(s => s.id === parts[1]);
-  const pol = parts[0] === "policies";
-  $("#view").innerHTML = pol ? viewPolicies() : prod ? viewProduct(prod) : cat ? viewCategory(cat, sub && sub.id) : viewHome();
+  const pol = parts[0] === "policies", help = parts[0] === "help";
+  $("#view").innerHTML = help ? viewHelp(parts[1] === "refund" ? "refund" : "support") : pol ? viewPolicies() : prod ? viewProduct(prod) : cat ? viewCategory(cat, sub && sub.id) : viewHome();
   $$(".cat-btn").forEach(b => b.classList.toggle("here", !!cat && b.dataset.cat === cat.id));
-  document.title = pol ? "Shipping, returns & privacy \u00b7 Mr. Omar's Classroom"
+  document.title = help ? "Help & refunds \u00b7 Mr. Omar's Classroom"
+    : pol ? "Shipping, returns & privacy \u00b7 Mr. Omar's Classroom"
     : prod ? prod.name + " \u00b7 Mr. Omar's Classroom"
     : cat ? (sub ? sub.name + " \u00b7 " : "") + cat.name + " \u00b7 Mr. Omar's Classroom"
     : "Mr. Omar's Classroom";
   $$(".stage").forEach(el => stages.push(new Stage(el, PRODUCTS.find(p => p.id === el.dataset.id))));
-  mountGallery(); mountLight(); mountAsk(); markSold();
-  if (prod || cat || pol) scrollTo({ top: 0, behavior: "instant" });
+  mountGallery(); mountLight(); mountAsk(); mountHelp(); markSold();
+  if (prod || cat || pol || help) scrollTo({ top: 0, behavior: "instant" });
   if (document.documentElement.classList.contains("is-closed")) document.title = "Back soon \u00b7 Mr. Omar's Classroom";
 }
 addEventListener("hashchange", () => {
