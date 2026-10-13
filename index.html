@@ -1,3 +1,11 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Classroom materials and prize-box toys, made by a teacher for Pre-K through 5th grade.">
+<meta name="theme-color" content="#2F6FD0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Mr. Omar's Classroom</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Kalam:wght@400;700&family=Lexend:wght@400;500;600&display=swap">
 <style>
@@ -375,10 +383,11 @@ footer p{font-size:14px;color:var(--ink-3);max-width:46ch}
 .line-item img,.line-item canvas{width:70px;height:52px;object-fit:cover;border-radius:10px;
   background:var(--stage);flex:none}
 .line-item div{flex:1;min-width:0}
+.line-item .qty{flex:0 0 auto}
 .line-item b{display:block;font-weight:600;font-size:15px}
 .line-item small{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .qty{display:flex;align-items:center;border:1px solid var(--rule-2);border-radius:999px;padding:2px}
-.qty button{width:28px;height:28px;border-radius:50%;font-size:16px;display:grid;place-items:center;color:var(--ink-2)}
+.qty button{width:40px;height:40px;border-radius:50%;font-size:16px;display:grid;place-items:center;color:var(--ink-2)}
 .qty button:hover{background:var(--stage);color:var(--ink)}
 .qty span{min-width:22px;text-align:center;font-size:14px;font-variant-numeric:tabular-nums}
 .empty{padding:50px 8px;text-align:center;color:var(--ink-3)}
@@ -392,9 +401,22 @@ footer p{font-size:14px;color:var(--ink-3);max-width:46ch}
 .toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:100;
   transform:translate(-50%,calc(100% + 40px));opacity:0;visibility:hidden;
   padding:12px 20px;border-radius:999px;background:var(--btn);color:var(--btn-ink);
-  font-size:14px;box-shadow:var(--lift);white-space:nowrap;
+  font-size:14px;box-shadow:var(--lift);white-space:normal;text-align:center;
+  width:max-content;max-width:calc(100vw - 32px);line-height:1.4;
   transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .25s ease,visibility 0s linear .4s}
 .toast.up{transform:translate(-50%,0);opacity:1;visibility:visible;transition-delay:0s}
+/* after paying: a thank-you that stays until it is closed (2026-10-12) */
+.thanks{position:fixed;left:50%;top:calc(16px + env(safe-area-inset-top,0px));transform:translateX(-50%);z-index:110;
+  width:min(520px,calc(100vw - 32px));background:var(--sheet);color:var(--ink);border-radius:20px;
+  box-shadow:var(--lift);padding:18px 52px 18px 20px;border:2px solid var(--btn)}
+.thanks h2{margin:0 0 4px;font-size:19px}
+.thanks p{margin:0;font-size:15px;color:var(--ink-2)}
+.thanks button{position:absolute;right:10px;top:10px;width:36px;height:36px;border-radius:50%;font-size:22px;color:var(--ink-2)}
+.card-sold,.sold-tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  background:#1C2230;color:#fff;border-radius:999px;padding:3px 10px;margin-left:6px;vertical-align:middle}
+.safety{font-size:13px;color:var(--ink-2);border-left:3px solid #C8462E;padding:4px 0 4px 10px;margin:14px 0 0}
+.notfound{padding:40px 0 60px;text-align:center}
+.notfound h1{color:#FFFFFF}
 
 @media (max-width:1040px){
   .tile-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -469,7 +491,7 @@ main > section:not([class]){padding-block:48px 56px;--tx:var(--trim-c)}
 .sheetnav h2{color:var(--butcher-sub)}
 .sheetnav a{color:#FFFFFF;border-bottom-color:rgba(255,255,255,.18)}
 .sheetnav a em{color:var(--butcher-sub)}
-:focus-visible{outline-color:#F3BC1C}
+:focus-visible{outline:3px solid #1C2230;outline-offset:2px;box-shadow:0 0 0 5px #FFFFFF}
 
 /* hero: cut-paper headline, photo pinned to the board */
 .hero h1,.page-head h1{color:#FFFFFF;text-shadow:3px 3px 0 var(--letter-shadow)}
@@ -599,6 +621,9 @@ html.is-closed footer{padding-top:66px}
   .note{justify-self:center;transform:rotate(1deg)}
 }
 </style>
+</head>
+<body>
+
 
 <header class="bar">
   <div class="wrap bar-in">
@@ -648,7 +673,7 @@ html.is-closed footer{padding-top:66px}
 </footer>
 
 <div class="scrim" id="scrim"></div>
-<aside class="drawer" id="drawer" aria-label="Your bag">
+<aside class="drawer" id="drawer" aria-label="Your bag" role="dialog" aria-modal="true" inert>
   <div class="dh"><h2>Your bag</h2><button class="x" id="closeBag" aria-label="Close bag">&times;</button></div>
   <div class="lines-list" id="lines"></div>
   <div class="df">
@@ -681,9 +706,9 @@ const CATALOG = [
       { id: "classroom", name: "Classroom & Calm Corner", blurb: "Table labels, voice-level dials and quiet fidgets that keep a room running." },
     ] },
   { id: "toys", name: "Toys", short: "toys",
-    blurb: "Toys for the prize box, the treasure chest and Friday rewards \u2014 in colour, or plain white for kids to color in.",
+    blurb: "Toys for the prize box, the treasure chest and Friday rewards \u2014 in color, or plain white for kids to color in.",
     subs: [
-      { id: "halloween", name: "Halloween", blurb: "Spooky-season toys for the prize box, in colour or plain white to color in." },
+      { id: "halloween", name: "Halloween", blurb: "Spooky-season toys for the prize box, in color or plain white to color in." },
       { id: "color-your-own", name: "Color Your Own", blurb: "Every toy here arrives plain white. The colors are up to the kid." },
       { id: "fidgets", name: "Fidgets", blurb: "Clicky, glowy, pocket-sized things for hands that need something to do." },
     ] },
@@ -699,10 +724,10 @@ const PRODUCTS = [
     desc: "A chubby spider with four big eyes and a round back, in black, with bright white eyes and feet.",
     note: "In black &middot; or white to color in",
     styles: [
-      { id: "colour", name: "In colour", sw: ["#1D1D1F", "#F2EFE4"],
+      { id: "colour", name: "In color", sw: ["#1D1D1F", "#F2EFE4"],
         desc: "A chubby spider with four big eyes and a round back, in black, with bright white eyes and feet.",
         tip: "White eyes on a black spider \u2014 it looks right back at you.",
-        specs: [["Colour", "Black, white eyes and feet"], ["Size", "About 2 in long"]] },
+        specs: [["Color", "Black, white eyes and feet"], ["Size", "About 2 in long"]] },
       { id: "white", name: "White, to color in", sw: ["#EDEDE8"],
         desc: "A chubby spider with four big eyes and a round back, in plain white. The eyes are raised, so they\u2019re easy to color on their own.",
         tip: "Leave the eyes white on a dark spider and they pop.",
@@ -717,10 +742,10 @@ const PRODUCTS = [
     desc: "A candy corn with two peek-through eyes and a pair of yellow feet. The bands are part of the shape, so the stripes line up every time.",
     note: "Orange, white and yellow &middot; or white to color in",
     styles: [
-      { id: "colour", name: "In colour", sw: ["#E77932", "#F1F1EF", "#F5CF1A"],
+      { id: "colour", name: "In color", sw: ["#E77932", "#F1F1EF", "#F5CF1A"],
         desc: "A candy corn with two peek-through eyes and a pair of yellow feet. The bands are part of the shape, so the stripes line up every time.",
         tip: "Orange body, white tip, yellow feet \u2014 the classic.",
-        specs: [["Colour", "Orange, white tip, yellow feet"], ["Size", "About 2 in tall"]] },
+        specs: [["Color", "Orange, white tip, yellow feet"], ["Size", "About 2 in tall"]] },
       { id: "white", name: "White, to color in", sw: ["#EDEDE8"],
         desc: "A candy corn with two peek-through eyes, in plain white. Two grooves run all the way around it, so kids know exactly where the stripes go.",
         tip: "Follow the grooves for crisp stripes.",
@@ -740,9 +765,9 @@ const PRODUCTS = [
       { id: "orange", name: "Orange", hex: "#F08A1E" },
     ],
     desc: "One key cap on a keyring. Press it and it clicks like the key on a keyboard, and the cap lights up while it is held down.",
-    tip: "Black case, clear cap. Each clicker lights one colour \u2014 pick which one.",
+    tip: "Black case, clear cap. Each clicker lights one color \u2014 pick which one.",
     pack: ["One clicker on a split ring", "Black case with a clear key cap",
-           "One light colour per clicker, on while the cap is down"] },
+           "One light color per clicker, on while the cap is down"] },
   { id: "clicker3", name: "Triple Key Cap Clicker", price: 5.5, in: ["toys/fidgets"],
     desc: "Three key caps on one keyring. Press any of them and it clicks like a keyboard key, and that cap lights up for as long as it is held down \u2014 one red, one white, one blue.",
     note: "Three caps &middot; red, white and blue lights",
@@ -755,11 +780,11 @@ const PRODUCTS = [
      bag key (chips-apple:apple:red) because the photo sets and stock are keyed by it. */
   ...[
     ["maple", "Maple Leaf Counting Chips", "Maple leaf", "46 \u00d7 43 mm",
-     "Fifteen maple leaf counters in a maple leaf container, made for fall. Count the leaves that fell, sort them by colour, build patterns along a branch \u2014 and fifteen fills a ten frame with five left over for making ten."],
+     "Fifteen maple leaf counters in a maple leaf container, made for fall. Count the leaves that fell, sort them by color, build patterns along a branch \u2014 and fifteen fills a ten frame with five left over for making ten."],
     ["apple", "Apple Counting Chips", "Apple", "42 \u00d7 47 mm",
-     "Fifteen apple counters in an apple-shaped container, a back-to-school favourite. Stack them up on top, fill an apple tree, add to and take away from the basket \u2014 and fifteen fills a ten frame with five left over for making ten."],
+     "Fifteen apple counters in an apple-shaped container, a back-to-school favorite. Stack them up on top, fill an apple tree, add to and take away from the basket \u2014 and fifteen fills a ten frame with five left over for making ten."],
     ["leaf", "Leaf Counting Chips", "Leaf", "34 \u00d7 49 mm",
-     "Fifteen leaf counters in a leaf-shaped container, at home in any season. Green for spring, red and orange for fall: sort by colour, measure a branch in leaves, grow a pattern \u2014 and fifteen fills a ten frame with five left over for making ten."],
+     "Fifteen leaf counters in a leaf-shaped container, at home in any season. Green for spring, red and orange for fall: sort by color, measure a branch in leaves, grow a pattern \u2014 and fifteen fills a ten frame with five left over for making ten."],
   ].map(([shape, name, label, chip, desc]) => ({
     id: "chips-" + shape, name, price: 10, first: true, in: ["teacher-materials/counting-number"],
     grades: ["Pre-K\u2013K", "1\u20132", "3\u20135"],
@@ -779,7 +804,7 @@ const PRODUCTS = [
      they are, not tinted like the three above. */
   { id: "chips-stopsign", name: "Stop Sign Counting Chips", price: 8, in: ["teacher-materials/counting-number"],
     per: "a pack of 15", grades: ["Pre-K\u2013K", "1\u20132", "3\u20135"],
-    desc: "Fifteen stop sign counters in a stop sign container \u2014 a shape every child already knows the meaning of. Count them into the pot, sort them, build patterns, and fifteen fills a ten frame with five left over for making ten.",
+    desc: "Fifteen stop sign counters in a stop sign container \u2014 a shape every child already knows the meaning of. Count them into the container, sort them, build patterns, and fifteen fills a ten frame with five left over for making ten.",
     note: "15 to a pack &middot; red with a white rim",
     tip: "Red faces with a white rim, like the real thing.",
     specs: [["In the pack", "15 chips"], ["Chip size", "44 \u00d7 44 mm"], ["Thickness", "3 mm"]],
@@ -809,7 +834,7 @@ const PRODUCTS = [
 
   { id: "alphabet", name: "Movable Alphabet \u2013 Lowercase", price: 6, in: ["teacher-materials/letters-phonics"],
     per: "a set of 26", grades: ["Pre-K\u2013K", "1\u20132"],
-    desc: "Twenty-six lowercase tiles with the vowels in a second colour, so a word a student builds shows its vowels at a glance. They come in a case with two compartments, which is what stops a set walking off round the room.",
+    desc: "Twenty-six lowercase tiles with the vowels in a second color, so a word a student builds shows its vowels at a glance. They come in a case with two compartments, which is what stops a set walking off round the room.",
     note: "26 tiles &middot; red consonants, brown vowels &middot; in a case",
     tip: "Vowels are brown and consonants red, so short vowel words practically sort themselves.",
     specs: [["Tiles", "26, a to z"], ["Tile size", "30 \u00d7 30 mm"], ["Thickness", "3 mm"]],
@@ -890,9 +915,18 @@ const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
 const CHEV = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8l4-3.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
 /* ---------- header navigation ---------- */
+/* In stock = any bag key of this product is buyable (all of them before stock is known).
+   On the Color Your Own shelf only the white style counts. */
+function anyInStock(p, subId) {
+  if (!AVAIL) return true;
+  const want = p.styles && subId === "color-your-own" ? [p.id + ":white"] : null;
+  return [...AVAIL].some(k => want ? want.includes(k) : (k === p.id || k.startsWith(p.id + ":")));
+}
 function subCount(c, s) {
   const items = listFor(c.id, s.id);
-  return items.every(p => p.status) ? '<em class="soon">Soon</em>' : "<em>" + plural(items.filter(forSale).length, "item") + "</em>";
+  if (items.every(p => p.status)) return '<em class="soon">Soon</em>';
+  const n = items.filter(p => forSale(p) && anyInStock(p, s.id)).length;
+  return n ? "<em>" + plural(n, "item") + "</em>" : '<em class="soon">Sold out</em>';
 }
 function buildNav() {
   $("#cats").innerHTML = CATALOG.map(c => `
@@ -976,7 +1010,7 @@ function shotCardHTML(p) {
       <div class="title-row"><h3><a href="#/p/${p.id}">${esc(p.name)}</a></h3><span class="price">${money(p.price)}</span></div>
       <p class="desc">${esc(p.desc)}</p>
       <p class="shapes">${p.shapes.length > 1 ? `<span>Shapes</span> ${p.shapes.map(x => esc(x.name)).join(" \u00b7 ")}
-        &nbsp; ` : ""}<span>Colours</span> ${p.colours.map(x => esc(x.name)).join(" \u00b7 ")}</p>
+        &nbsp; ` : ""}<span>Colors</span> ${p.colours.map(x => esc(x.name)).join(" \u00b7 ")}</p>
       <a class="btn btn-dark" href="#/p/${p.id}">See the pack</a>
     </div>
   </article>`;
@@ -984,7 +1018,7 @@ function shotCardHTML(p) {
 
 const LIGHT_SHOTS = [["light", "lit up"], ["clip", "clicking, and the light coming on"],
                      ["ring", "on its keyring"], ["cap", "the clear cap, unlit"],
-                     ["four", "the four light colours"]];
+                     ["four", "the four light colors"]];
 
 function viewLight(p) {
   const cat = CATALOG.find(c => p.in[0].startsWith(c.id));
@@ -1014,7 +1048,7 @@ function viewLight(p) {
       <h1 class="dsp">${esc(p.name)}</h1>
       <p class="price big" id="lightPrice">${money(p.price)}</p>
       <p class="desc">${esc(p.desc)}</p>
-      <div class="ways" role="group" aria-label="Light colour">
+      <div class="ways" role="group" aria-label="Light color">
         <span class="label">Light</span>
         ${p.lights.map((x, i) => `<button class="way" data-light="${x.id}" aria-pressed="${!i}">
           <span class="sw"><i style="background:${x.hex}"></i></span>${esc(x.name)}</button>`).join("")}
@@ -1022,11 +1056,12 @@ function viewLight(p) {
       <p class="tip">${esc(p.tip)}</p>
       <dl class="specs">
         <div><dt>Size</dt><dd>${esc(p.size)}</dd></div>
-        <div><dt>Light</dt><dd>One colour per clicker</dd></div>
+        <div><dt>Light</dt><dd>One color per clicker</dd></div>
         <div><dt>On</dt><dd>A split ring</dd></div>
       </dl>
       <button class="add" id="addLight" data-add="${p.id}:${l.id}">Add to bag</button>
       <ul class="pack">${p.pack.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      ${safetyHTML(p)}
     </div>
   </div></section>
   ${askHTML()}`;
@@ -1087,7 +1122,7 @@ function shotsFor(p, style) {
     const A = ASSETS[p.id];
     return [{ src: A.frames[0], alt: "plain white, as it arrives" },
             ...(p.ways || []).filter(w => A.ways[w.id])
-              .map(w => ({ src: A.ways[w.id], alt: "a colour idea: " + w.name.toLowerCase() }))];
+              .map(w => ({ src: A.ways[w.id], alt: "a color idea: " + w.name.toLowerCase() }))];
   }
   return PHOTOS[p.id].shots;
 }
@@ -1128,10 +1163,18 @@ function viewShots(p, styleId) {
       <button class="add" id="addShots" data-add="${addKey(p, st)}">Add to bag</button>
       ${p.pack ? `<ul class="pack">${p.pack.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
       ${p.grades ? `<p class="grades-line">${p.grades.map(g => `<span class="tag">${esc(g)}</span>`).join("")}</p>` : ""}
+      ${safetyHTML(p)}
     </div>
   </div></section>
   ${askHTML()}`;
 }
+/* On every product page, not just the footer: US rules for selling small-parts toys online
+   expect the warning where the product is offered. The clickers hold button cells. */
+const BATTERY_IDS = ["clicker", "clicker3"];
+const safetyHTML = p => `<p class="safety"><b>Warning: choking hazard</b> \u2014 small parts. Not for children under 3.</p>`
+  + (BATTERY_IDS.includes(p.id) ? `<p class="safety"><b>Warning: contains button/coin cell batteries.</b>
+      Swallowing a battery can cause serious injury or death. Keep batteries away from children;
+      if one may have been swallowed, get medical help right away.</p>` : "");
 const thumbsHTML = shots => shots.length < 2 ? "" : shots.map((x, i) =>
   `<button class="thumb${i ? "" : " on"}" data-i="${i}" aria-pressed="${!i}" aria-label="Show ${esc(x.alt)}"><img src="${x.src}" alt=""></button>`).join("");
 const specsHTML = specs => (specs || []).map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("");
@@ -1168,7 +1211,7 @@ function shotsCardHTML(p, subId) {
       <img src="${s0.src}" alt="${esc(p.name)}, ${esc(s0.alt)}" loading="lazy">
     </a>
     <div class="meta">
-      <div class="title-row"><h3><a href="${href}">${esc(p.name)}</a></h3><span class="price">${money(p.price)}</span></div>
+      <div class="title-row"><h3><a href="${href}">${esc(p.name)}</a>${anyInStock(p, subId) ? "" : '<span class="card-sold">Sold out</span>'}</h3><span class="price">${money(p.price)}</span></div>
       <p class="desc">${esc((st || p).desc)}</p>
       <p class="shapes">${st && st.id === "white" ? "<span>Arrives</span> plain white" : p.note || ""}</p>
       <a class="btn btn-dark" href="${href}">See it</a>
@@ -1231,8 +1274,8 @@ function viewProduct(p, styleId) {
         <span class="label">Shape</span>
         ${p.shapes.map((x, i) => `<button class="way" data-shape="${x.id}" aria-pressed="${!i}">${esc(x.name)}</button>`).join("")}
       </div>` : ""}
-      <div class="ways" role="group" aria-label="Colour">
-        <span class="label">Colour</span>
+      <div class="ways" role="group" aria-label="Color">
+        <span class="label">Color</span>
         ${p.colours.map((c, i) => `<button class="way" data-colour="${c.id}" aria-pressed="${!i}">
           <span class="sw"><i style="background:${c.hex}"></i></span>${esc(c.name)}</button>`).join("")}
       </div>
@@ -1245,6 +1288,7 @@ function viewProduct(p, styleId) {
       <button class="add" id="addProd" data-add="${p.id}:${v.id}:${p.colours[0].id}">Add to bag</button>
       <ul class="pack">${p.pack.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
       <p class="grades-line">${p.grades.map(g => `<span class="tag">${esc(g)}</span>`).join("")}</p>
+      ${safetyHTML(p)}
     </div>
   </div></section>
   ${askHTML()}`;
@@ -1343,14 +1387,19 @@ async function liveStock() {
   try {
     const r = await fetch(SITE.stock, { cache: "no-store" });
     const out = r.ok ? await r.json() : null;
-    if (out && Array.isArray(out.keys)) { AVAIL = new Set(out.keys); markSold(); }
+    if (!out) throw new Error("no answer");
+    if (out && Array.isArray(out.keys)) { AVAIL = new Set(out.keys); markSold(); buildNav(); if (!/^#\/p\//.test(location.hash)) route(); }
     if (out && typeof out.offline === "boolean") showClosed(out.offline);
     if (out && Array.isArray(out.on)) {
       const before = PRODUCTS.map(p => p.id).join();
       applyOn(out.on);
       if (PRODUCTS.map(p => p.id).join() !== before) { buildNav(); renderBag(); route(); }
     }
-  } catch (e) { /* keep the list the build baked in */ }
+  } catch (e) {
+    // Keep the list the build baked in. A remembered "back soon" from yesterday must not lock
+    // the shop when only this lookup failed (2026-10-12): trust the build's own flag instead.
+    if (!SITE.offline) showClosed(false);
+  }
 }
 
 /* ---------- the maintenance screen ----------
@@ -1503,7 +1552,8 @@ function mountGallery() {
   paint();
 }
 
-const EMAIL_OK = e => /^[^@\s<>,;]{1,64}@[^@\s<>,;]+\.[^@\s<>,;]{2,}$/.test(e) && e.length <= 200;
+const EMAIL_OK = e => /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]{1,64}@(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+[A-Za-z]{2,24}$/.test(e)
+  && e.length <= 200 && !e.includes("..");
 
 /* ---------- the mailing list ----------
    Promotions, news, discounts. Only on the real site: the artifact has nowhere to keep it.
@@ -1538,7 +1588,10 @@ function mountJoin() {
       const r = await fetch(SITE.subscribe, { method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, website: $("#joinSite").value }) });
       if (!r.ok) throw new Error(r.status);
-      form.reset(); status.textContent = "You're on the list. Thank you!";
+      const out = await r.json().catch(() => ({}));
+      form.reset();
+      status.textContent = out.confirm ? "Almost done \u2014 check your email and press the button to confirm."
+                                       : "You're on the list. Thank you!";
     } catch (err) {
       status.textContent = String(err.message) === "429" ? "That is plenty for now \u2014 try again later."
         : "That didn't go through. Try again in a moment.";
@@ -1647,8 +1700,8 @@ function homeCard(p) {
     : p.lights
       ? `<img src="${PHOTOS[p.id][p.lights[0].id]}" alt="${esc(p.name)}, lit up" loading="lazy">`
       : `<img class="toy-pic" src="${ASSETS[p.id].frames[0]}" alt="${esc(p.name)}, as it arrives" loading="lazy">`;
-  const note = p.note ? p.note : p.shapes ? `15 to a pack &middot; ${p.shapes.length > 1 ? p.shapes.length + " shapes &middot; " : ""}${p.colours.length} colours`
-    : p.lights ? "Pick your light colour &middot; on a keyring"
+  const note = p.note ? p.note : p.shapes ? `15 to a pack &middot; ${p.shapes.length > 1 ? p.shapes.length + " shapes &middot; " : ""}${p.colours.length} colors`
+    : p.lights ? "Pick your light color &middot; on a keyring"
     : "Arrives white &middot; color it in";
   return `
   <article class="card" style="${binStyle(sub.id)}">
@@ -1656,7 +1709,7 @@ function homeCard(p) {
     <div class="card-body">
       <div class="card-row"><h3><a href="#/p/${p.id}">${esc(p.name)}</a></h3><span class="price">${money(p.price)}</span></div>
       <p class="tagline">${note}</p>
-      <p>${esc(p.desc.split(". ")[0])}.</p>
+      <p>${esc(p.desc.split(". ")[0].replace(/\.$/, ""))}.</p>
       <a class="btn btn-dark" href="#/p/${p.id}">See it</a>
     </div>
   </article>`;
@@ -1666,7 +1719,7 @@ function viewHome() {
   const order = p => (inCat(p, "teacher-materials") ? 0 : 1) * 10 + (p.first ? 0 : 1);
   const shop = PRODUCTS.filter(forSale).sort((a, b) => order(a) - order(b));
   const tile = (c, s) => {
-    const n = listFor(c.id, s.id).filter(forSale).length;
+    const n = listFor(c.id, s.id).filter(p => forSale(p) && anyInStock(p, s.id)).length;
     return `<a class="tile" href="#/${c.id}/${s.id}" style="${binStyle(s.id)}">
       <div class="tile-label"><b>${esc(s.name)}</b><span>${esc(c.name)} &middot; ${n ? plural(n, "item") : "in the works"}</span></div></a>`;
   };
@@ -1686,7 +1739,7 @@ function viewHome() {
       <div class="frame-wrap pinned"><span class="pin" aria-hidden="true"></span>
         <img class="hero-shot" src="${CHIPS.home}" width="1400" height="1050"
           alt="Maple leaf counting chips in their own maple leaf container, the lid beside it">
-        <p class="frame-cap">Fifteen to a pack, in a tin shaped the same way.</p>
+        <p class="frame-cap">Fifteen to a pack, in a container shaped the same way.</p>
       </div>
     </div>
   </section>
@@ -1943,6 +1996,29 @@ function viewCategory(cat, subId) {
   ${cat.id === "teacher-materials" ? askHTML() : ""}`;
 }
 
+function viewNotFound(product) {
+  return `
+  <section class="page-head"><div class="wrap notfound">
+    <h1 class="dsp">${product ? "That item isn\u2019t in the shop" : "That page isn\u2019t here"}</h1>
+    <p>${product ? "It may have sold out for good, or the link is old." : "The link may be old or mistyped."}</p>
+    <p class="cta-row" style="justify-content:center"><a class="btn btn-sun" href="#/">See what\u2019s in the shop</a></p>
+  </div></section>`;
+}
+
+/* One anonymous beacon per page view, for the workshop's visitor counts. No cookie, nothing
+   stored in the browser; the workshop keeps only a hash that changes daily. */
+let lastBeacon = "";
+function beacon() {
+  if (!SITE.stock || !navigator.sendBeacon) return;
+  const path = location.hash || "#/";
+  if (path === lastBeacon) return;
+  lastBeacon = path;
+  try {
+    navigator.sendBeacon(SITE.stock.replace(/\/stock$/, "/hit"),
+      new Blob([JSON.stringify({ path, ref: document.referrer || "" })], { type: "text/plain" }));
+  } catch (e) {}
+}
+
 let stages = [];
 function route() {
   if (location.hash === "#/p/chips") { location.replace("#/p/chips-maple"); return; }   // old one-product link
@@ -1952,16 +2028,21 @@ function route() {
   const cat = CATALOG.find(c => c.id === parts[0]);
   const sub = cat && cat.subs.find(s => s.id === parts[1]);
   const pol = parts[0] === "policies", help = parts[0] === "help";
-  $("#view").innerHTML = help ? viewHelp(parts[1] === "refund" ? "refund" : "support") : pol ? viewPolicies() : prod ? viewProduct(prod, parts[2]) : cat ? viewCategory(cat, sub && sub.id) : viewHome();
+  // A link to something that isn't here (an old product, a typo) says so instead of quietly
+  // showing the home page.
+  const lost = parts.length && !prod && !pol && !help && !(cat && (!parts[1] || sub));
+  $("#view").innerHTML = lost ? viewNotFound(parts[0] === "p") : help ? viewHelp(parts[1] === "refund" ? "refund" : "support") : pol ? viewPolicies() : prod ? viewProduct(prod, parts[2]) : cat ? viewCategory(cat, sub && sub.id) : viewHome();
   $$(".cat-btn").forEach(b => b.classList.toggle("here", !!cat && b.dataset.cat === cat.id));
-  document.title = help ? "Help & refunds \u00b7 Mr. Omar's Classroom"
+  document.title = lost ? "Not found \u00b7 Mr. Omar's Classroom"
+    : help ? "Help & refunds \u00b7 Mr. Omar's Classroom"
     : pol ? "Shipping, returns & privacy \u00b7 Mr. Omar's Classroom"
     : prod ? prod.name + " \u00b7 Mr. Omar's Classroom"
     : cat ? (sub ? sub.name + " \u00b7 " : "") + cat.name + " \u00b7 Mr. Omar's Classroom"
     : "Mr. Omar's Classroom";
   $$(".stage").forEach(el => stages.push(new Stage(el, PRODUCTS.find(p => p.id === el.dataset.id))));
   mountGallery(); mountLight(); mountShots(); mountAsk(); mountHelp(); markSold();
-  if (prod || cat || pol || help) scrollTo({ top: 0, behavior: "instant" });
+  if (prod || cat || pol || help || lost) scrollTo({ top: 0, behavior: "instant" });
+  beacon();
   if (document.documentElement.classList.contains("is-closed")) document.title = "Back soon \u00b7 Mr. Omar's Classroom";
 }
 addEventListener("hashchange", () => {
@@ -2169,8 +2250,14 @@ const bagItem = key => {                       // "chips:maple:red" -> product, 
   if (p.styles && !style) return null;          // an old bare "spider" key: no style, no line
   return { p, shape, colour, light, style };
 };
+const MAX_QTY = 20;          // the checkout's own limit per item
 function renderBag() {
-  const ids = Object.keys(bag).filter(k => bag[k] > 0 && bagItem(k));
+  // A line the shop can't sell any more (an old saved key, a product switched off, the old
+  // 404 page's bag) is removed, not hidden: hidden lines used to ride along to checkout and
+  // fail it every time, with nothing on screen to take out (2026-10-12).
+  for (const k of Object.keys(bag)) if (!(bag[k] > 0) || !bagItem(k)) delete bag[k];
+  for (const k of Object.keys(bag)) if (bag[k] > MAX_QTY) bag[k] = MAX_QTY;
+  const ids = Object.keys(bag);
   const n = ids.reduce((s, id) => s + bag[id], 0);
   const c = $("#bagCount"); c.textContent = n; c.classList.toggle("zero", n === 0);
   $("#lines").innerHTML = ids.length ? ids.map(key => {
@@ -2185,7 +2272,7 @@ function renderBag() {
       : isShots(p) ? `<img src="${shotsFor(p, style)[0].src}" alt="">`
       : `<img src="${ASSETS[p.id].frames[0]}" alt="">`;
     return `<div class="line-item">${pic}<div><b>${esc(p.name)}</b><small>${money(p.price)}${note ? " &middot; " + esc(note) : ""}</small></div>
-      <div class="qty"><button data-q="-1" data-id="${key}" aria-label="One fewer ${esc(p.name)}">&minus;</button><span>${bag[key]}</span><button data-q="1" data-id="${key}" aria-label="One more ${esc(p.name)}">+</button></div></div>`;
+      <div class="qty"><button data-q="-1" data-id="${key}" aria-label="One fewer ${esc(p.name)}">&minus;</button><span>${bag[key]}</span><button data-q="1" data-id="${key}" aria-label="One more ${esc(p.name)}" ${bag[key] >= MAX_QTY ? "disabled" : ""}>+</button></div></div>`;
   }).join("") : `<p class="empty">Your bag is empty.</p>`;
   $("#subtotal").textContent = money(ids.reduce((s, k) => s + bag[k] * bagItem(k).p.price, 0));
   $$(".line-pic").forEach(c => paintChip(c, c.dataset.shape, c.dataset.shot, c.dataset.hex, c.dataset.real));
@@ -2193,7 +2280,9 @@ function renderBag() {
 }
 $("#lines").addEventListener("click", e => {
   const b = e.target.closest("button[data-q]"); if (!b) return;
-  bag[b.dataset.id] = Math.max(0, (bag[b.dataset.id] || 0) + +b.dataset.q); renderBag();
+  bag[b.dataset.id] = Math.min(MAX_QTY, Math.max(0, (bag[b.dataset.id] || 0) + +b.dataset.q));
+  if (+b.dataset.q > 0 && bag[b.dataset.id] >= MAX_QTY) toast(`Up to ${MAX_QTY} of one item per order \u2014 for more, send a request.`, 4000);
+  renderBag();
 });
 $("#view").addEventListener("click", e => {
   const anchor = e.target.closest('a[href^="#"]:not([href^="#/"])');
@@ -2204,9 +2293,11 @@ $("#view").addEventListener("click", e => {
   const b = e.target.closest("[data-add]"); if (!b) return;
   const key = b.dataset.add, item = bagItem(key); if (!item) return;
   const p = item.p;
+  if ((bag[key] || 0) >= MAX_QTY) { toast(`Up to ${MAX_QTY} of one item per order \u2014 for more, send a request.`, 4000); return; }
   bag[key] = (bag[key] || 0) + 1; renderBag();
   b.classList.add("done"); b.textContent = "Added";
-  setTimeout(() => { b.classList.remove("done"); b.textContent = "Add to bag"; }, 1500);
+  // markSold, not a fixed label: a style switch in the meantime may have made it Sold out.
+  setTimeout(() => { b.classList.remove("done"); b.textContent = "Add to bag"; markSold(); }, 1500);
   toast(p.name + " added to your bag");
 });
 /* ---------- paying ----------
@@ -2222,13 +2313,13 @@ function wireCheckout() {
     : "Card payment by Stripe. Posted in the US.")
     + ` <a href="#/policies">30-day returns</a>.`;
   const refresh = () => {
-    const n = Object.values(bag).reduce((s, q) => s + q, 0);
+    const n = Object.keys(bag).filter(k => bag[k] > 0 && bagItem(k)).length;
     btn.disabled = !n;
   };
   refresh();
   new MutationObserver(refresh).observe($("#bagCount"), { childList: true });
   btn.addEventListener("click", async () => {
-    const cart = Object.entries(bag).filter(([, q]) => q > 0).map(([key, qty]) => ({ key, qty }));
+    const cart = Object.entries(bag).filter(([k, q]) => q > 0 && bagItem(k)).map(([key, qty]) => ({ key, qty }));
     if (!cart.length) return;
     btn.disabled = true; btn.textContent = "Taking you to checkout\u2026";
     try {
@@ -2236,14 +2327,16 @@ function wireCheckout() {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cart, marketing: $("#optin").checked }),
       });
-      const out = await r.json();
-      if (r.status === 409) {                      // something in the bag sold out
+      const out = await r.json().catch(() => ({}));
+      if (!r.ok && out.error) {
         btn.disabled = false; btn.textContent = "Checkout";
-        note.textContent = out.error + " Take it out of your bag to carry on.";
-        toast(out.error); liveStock();
+        // Sold out, or no longer sold: take that line out so the next try can go through.
+        if ((out.sold_out || r.status === 400) && out.key && bag[out.key]) { delete bag[out.key]; renderBag(); }
+        note.textContent = out.error;
+        toast(out.error, 5000); liveStock();
         return;
       }
-      if (!r.ok || !out.url) throw new Error(out.error || "no session");
+      if (!r.ok || !out.url) throw new Error("no session");
       location.href = out.url;                     // Stripe takes it from here
     } catch (err) {
       btn.disabled = false; btn.textContent = "Checkout";
@@ -2261,19 +2354,32 @@ function afterPayment() {
   const paid = q.get("paid") === "1";
   if (paid) { bag = {}; saveBag(); renderBag(); }
   history.replaceState(null, "", location.pathname + location.hash);
-  setTimeout(() => toast(paid
-    ? "Thank you \u2014 your order is in. I'll email you when it ships."
-    : "Payment cancelled \u2014 your bag is still here."), 400);
+  if (!paid) { setTimeout(() => toast("Payment cancelled \u2014 your bag is still here."), 400); return; }
+  const box = document.createElement("div");
+  box.className = "thanks"; box.setAttribute("role", "status");
+  box.innerHTML = `<h2>Thank you \u2014 your order is in!</h2>
+    <p>A confirmation is on its way to your email. Please allow 3\u20135 business days for it to ship;
+       I'll email you again the moment it does.</p>
+    <button aria-label="Close">&times;</button>`;
+  $("button", box).addEventListener("click", () => box.remove());
+  document.body.appendChild(box);
 }
 
-const openBag = () => { $("#drawer").classList.add("open"); $("#scrim").classList.add("open"); $("#closeBag").focus(); };
-function closeBag() { $("#drawer").classList.remove("open"); $("#scrim").classList.remove("open"); }
+const openBag = () => { const d = $("#drawer"); d.inert = false; d.classList.add("open"); $("#scrim").classList.add("open"); $("#closeBag").focus(); };
+function closeBag() {
+  const d = $("#drawer"); if (!d.classList.contains("open")) return;
+  d.classList.remove("open"); $("#scrim").classList.remove("open"); d.inert = true;
+  $("#bagBtn").focus();                       // back where the shopper was
+}
 $("#bagBtn").addEventListener("click", openBag);
 $("#closeBag").addEventListener("click", closeBag);
 $("#scrim").addEventListener("click", closeBag);
 let toastT;
-function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("up"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("up"), 2000); }
+function toast(msg, ms = 2600) { const t = $("#toast"); t.textContent = msg; t.classList.add("up"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("up"), ms); }
 
 buildNav(); renderBag(); wireCheckout(); mountJoin(); afterPayment(); route(); liveStock(); requestAnimationFrame(loop);
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "24c405086994467b8fdf0931d3f8295c"}'></script>
+
+</body>
+</html>
