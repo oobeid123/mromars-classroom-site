@@ -620,6 +620,18 @@ html.is-closed footer{padding-top:66px}
   .closed-in{grid-template-columns:1fr;gap:40px}
   .note{justify-self:center;transform:rotate(1deg)}
 }
+/* Free shipping (2026-10-18): the strip above the header, the line under each price, and
+   the meter in the bag. All hidden while the workshop has free shipping off. */
+.promo{background:var(--sunny);color:var(--sunny-ink);text-align:center;font:600 14px/1.35 var(--body);
+  padding:7px 16px}
+.promo b{font-weight:700}
+.ship-hint{margin:-4px 0 14px;font-size:14px;color:var(--ink-2)}
+.ship-hint b{color:var(--ok);font-weight:600}
+.ship-meter{margin:2px 0 12px;font-size:13.5px;color:var(--ink-2)}
+.ship-meter .track{height:7px;border-radius:99px;background:var(--stage);overflow:hidden;margin-top:6px}
+.ship-meter .track i{display:block;height:100%;width:0;background:var(--ok);border-radius:inherit;transition:width .35s}
+.ship-meter.done{color:var(--ok);font-weight:600}
+html.is-closed .promo{display:none}
 </style>
 <link rel="canonical" href="https://mromars-classroom.com/teacher-materials/counting-number/">
 <meta property="og:site_name" content="Mr. Omar&#x27;s Classroom">
@@ -631,12 +643,13 @@ html.is-closed footer{padding-top:66px}
 <meta property="og:image" content="https://mromars-classroom.com/share/chips-maple-card-a145b23338.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Counting & Number · Teacher Materials","url":"https://mromars-classroom.com/teacher-materials/counting-number/","description":"Seasonal counters, ten frames and number lines for building numbers by hand.","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://mromars-classroom.com/p/chips-maple/"},{"@type":"ListItem","position":2,"url":"https://mromars-classroom.com/p/chips-apple/"},{"@type":"ListItem","position":3,"url":"https://mromars-classroom.com/p/chips-leaf/"},{"@type":"ListItem","position":4,"url":"https://mromars-classroom.com/p/chips-stopsign/"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Counting & Number · Teacher Materials","url":"https://mromars-classroom.com/teacher-materials/counting-number/","description":"Seasonal counters, ten frames and number lines for building numbers by hand.","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://mromars-classroom.com/p/chips-maple/"},{"@type":"ListItem","position":2,"url":"https://mromars-classroom.com/p/chips-apple/"},{"@type":"ListItem","position":3,"url":"https://mromars-classroom.com/p/chips-leaf/"},{"@type":"ListItem","position":4,"url":"https://mromars-classroom.com/p/chips-stopsign/"},{"@type":"ListItem","position":5,"url":"https://mromars-classroom.com/p/chips-bus/"},{"@type":"ListItem","position":6,"url":"https://mromars-classroom.com/p/chips-pinecone/"}]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mromars-classroom.com/"},{"@type":"ListItem","position":2,"name":"Teacher Materials","item":"https://mromars-classroom.com/teacher-materials/"},{"@type":"ListItem","position":3,"name":"Counting & Number","item":"https://mromars-classroom.com/teacher-materials/counting-number/"}]}</script>
 </head>
 <body>
 
 
+<div class="promo" id="promo" hidden></div>
 <header class="bar">
   <div class="wrap bar-in">
     <a class="brand" href="/" aria-label="Mr. Omar's Classroom, home">
@@ -690,6 +703,7 @@ html.is-closed footer{padding-top:66px}
   <div class="lines-list" id="lines"></div>
   <div class="df">
     <div class="tot"><span>Subtotal</span><b id="subtotal">$0.00</b></div>
+    <div class="ship-meter" id="shipMeter" hidden><span></span><div class="track"><i></i></div></div>
     <label class="optin" id="optinRow" hidden><input type="checkbox" id="optin" checked>
       <span>Email me new materials, promotions and discounts. Unsubscribe any time.</span></label>
     <button class="checkout" id="checkout" disabled>Checkout</button>
@@ -787,6 +801,28 @@ const PRODUCTS = [
     specs: [["Size", "About 2.7 in long"], ["Lights", "Red, white and blue"], ["On", "A split ring"]],
     pack: ["Three key caps on one clicker", "One red, one white and one blue light", "On a split ring"] },
 
+  /* Run 2 (2026-10-18): flexi toys in real colour, one style per plastic colour. Each
+     style has its own photos (PHOTOS[id].styles[style]) plus a detail picture rendered from
+     the STL, because translucent plastic hides the face and scales in a phone photo (Omar:
+     "use the stls to help add details"). draft: shown only in a --preview build. */
+  ...[
+    ["wyvern", "Tiny Wyvern", "About 3.4 in long",
+     "A little wyvern with swept-back wings, a spiky ridge down its back and a tail made of linked segments, so it wiggles and curls in your hand.",
+     "Perch it on a pencil cup and it keeps watch over the table.",
+     [["red", "Red", ["#E05F66"]], ["blue", "Blue", ["#4FAEDD"]], ["white", "White", ["#ECEAE0"]],
+      ["yellow", "Yellow & green", ["#F2C417", "#B9E02B"]]]],
+    ["gecko", "Baby Gecko", "About 2.2 in long",
+     "A baby gecko with a round head, big eyes and a little smile. Its body and tail are linked segments, so it bends, curls and wiggles across the table.",
+     "Small enough for the prize box, wiggly enough for busy hands.",
+     [["blue", "Blue", ["#4FAEDD"]], ["orange", "Orange & yellow", ["#F07A2A", "#F5C21A"]],
+      ["white", "White", ["#ECEAE0"]], ["pink", "Pink", ["#F08A8E"]]]],
+  ].map(([id, name, size, desc, tip, cols]) => ({
+    id, name, price: 5, draft: true, in: ["toys/fidgets"], size, desc,
+    note: cols.map(c => c[1]).join(" &middot; "),
+    styles: cols.map(([sid, sname, sw]) => ({ id: sid, name: sname, sw, desc, tip,
+      specs: [["Color", sname], ["Size", size], ["Moves", "Bends at every joint"]] })),
+  })),
+
   /* Counting Chips are THREE products, one per shape (Omar 2026-10-06), each with its own
      price and the same four colours. Colour never changes the price. The shape stays in the
      bag key (chips-apple:apple:red) because the photo sets and stock are keyed by it. */
@@ -821,6 +857,22 @@ const PRODUCTS = [
     tip: "Red faces with a white rim, like the real thing.",
     specs: [["In the pack", "15 chips"], ["Chip size", "44 \u00d7 44 mm"], ["Thickness", "3 mm"]],
     pack: ["15 stop sign chips, 3 mm thick", "A container sized for exactly one pack", "A lid lettered Stop Sign"] },
+  /* Run 2 (2026-10-18). Omar: every counting-chips description must tell the customer it
+     comes with a container and 15 chips. Real colour, photographed as they are. */
+  { id: "chips-bus", name: "School Bus Counting Chips", price: 8, draft: true, in: ["teacher-materials/counting-number"],
+    per: "a pack of 15", grades: ["Pre-K\u2013K", "1\u20132", "3\u20135"],
+    desc: "Fifteen school bus counters that come with a container to keep them in. Yellow buses with white windows, for the first day of school and every day after: load the bus, count who gets off at each stop, and fifteen fills a ten frame with five left over for making ten.",
+    note: "15 chips and a container &middot; yellow with white windows",
+    tip: "Line the buses up nose to tail for a counting road across the table.",
+    specs: [["In the pack", "15 chips and a container"], ["Chip size", "47 \u00d7 28 mm"], ["Thickness", "3 mm"]],
+    pack: ["15 school bus chips, 3 mm thick", "A container sized for exactly one pack", "A lid that caps over the top"] },
+  { id: "chips-pinecone", name: "Pine Cone Counting Chips", price: 8, draft: true, in: ["teacher-materials/counting-number"],
+    per: "a pack of 15", grades: ["Pre-K\u2013K", "1\u20132", "3\u20135"],
+    desc: "Fifteen pine cone counters that come with a container to keep them in, for fall and winter math tables. The scales are raised, so small fingers can trace them while they count, and fifteen fills a ten frame with five left over for making ten.",
+    note: "15 chips and a container &middot; brown",
+    tip: "Pair them with the maple leaf chips for a whole autumn sorting tray.",
+    specs: [["In the pack", "15 chips and a container"], ["Chip size", "33 \u00d7 51 mm"], ["Thickness", "3 mm"]],
+    pack: ["15 pine cone chips, 3 mm thick", "A container sized for exactly one pack", "A lid lettered Pine Cones"] },
   { id: "tenframes", name: "Ten-Frame Trays", status: "soon", in: ["teacher-materials/counting-number"],
     grades: ["Pre-K\u2013K", "1\u20132"],
     desc: "Wells that hold the chips still, so a number stays built while a small hand counts it. Doubles up into a twenty frame." },
@@ -902,7 +954,9 @@ for (let i = PRODUCTS.length - 1; i >= 0; i--) {
    held back; the live answer (`on`, the store keys switched on) shows or hides it on the
    next page load, both ways, with no rebuild. Only products the workshop sells are governed
    by it - a "soon" card stays a card. */
-const ALL_PRODUCTS = PRODUCTS.slice();
+const DRAFTS = /*DRAFTS*/false;      // build.py --preview turns this on
+const ALL_PRODUCTS = PRODUCTS.filter(p => DRAFTS || !p.draft);
+PRODUCTS.length = 0; ALL_PRODUCTS.forEach(p => PRODUCTS.push(p));
 let ON_KEYS = null;
 function applyOn(on) {
   ON_KEYS = on ? new Set(on) : null;
@@ -1058,7 +1112,7 @@ function viewLight(p) {
     </div>
     <div class="prod-side">
       <h1 class="dsp">${esc(p.name)}</h1>
-      <p class="price big" id="lightPrice">${money(p.price)}</p>
+      <p class="price big" id="lightPrice">${money(p.price)}</p>${shipHint()}
       <p class="desc">${esc(p.desc)}</p>
       <div class="ways" role="group" aria-label="Light color">
         <span class="label">Light</span>
@@ -1136,7 +1190,9 @@ function shotsFor(p, style) {
             ...(p.ways || []).filter(w => A.ways[w.id])
               .map(w => ({ src: A.ways[w.id], alt: "a color idea: " + w.name.toLowerCase() }))];
   }
-  return PHOTOS[p.id].shots;
+  const S = PHOTOS[p.id];
+  if (style && S.styles && S.styles[style.id]) return S.styles[style.id];
+  return S.shots;
 }
 const addKey = (p, style) => style ? p.id + ":" + style.id : p.id;
 
@@ -1163,7 +1219,7 @@ function viewShots(p, styleId) {
     </div>
     <div class="prod-side">
       <h1 class="dsp">${esc(p.name)}</h1>
-      <p class="price big">${money(p.price)}${p.per ? ` <span>${esc(p.per)}</span>` : ""}</p>
+      <p class="price big">${money(p.price)}${p.per ? ` <span>${esc(p.per)}</span>` : ""}</p>${shipHint()}
       <p class="desc" id="shotsDesc">${esc(info.desc)}</p>
       ${p.styles ? `<div class="ways" role="group" aria-label="Style">
         <span class="label">Style</span>
@@ -1280,7 +1336,7 @@ function viewProduct(p, styleId) {
     </div>
     <div class="prod-side">
       <h1 class="dsp">${esc(p.name)}</h1>
-      <p class="price big" id="prodPrice">${money(p.price)} <span>a pack of 15</span></p>
+      <p class="price big" id="prodPrice">${money(p.price)} <span>a pack of 15</span></p>${shipHint()}
       <p class="desc">${esc(p.desc)}</p>
       ${p.shapes.length > 1 ? `<div class="ways" role="group" aria-label="Shape">
         <span class="label">Shape</span>
@@ -1363,11 +1419,29 @@ function askHTML() {
    store; a static site on a domain cannot, and a form that silently saves nothing is
    worse than no form, so the public build leaves the section out until it has a
    backend. build.py sets this. */
-const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["alphabet","candycorn:colour","candycorn:white","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","chips-stopsign","clicker3","spider:colour","spider:white"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","tickets":"https://requests.mromars-classroom.com/public/ticket","paths":true,"on":["alphabet","candycorn","chips-apple","chips-leaf","chips-maple","chips-stopsign","clicker3","spider"],"offline":false,"shipping_cents":700};          // {requests, checkout, stock, keys, shipping_cents}
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["alphabet","candycorn:colour","candycorn:white","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","chips-stopsign","clicker3","spider:colour","spider:white"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","tickets":"https://requests.mromars-classroom.com/public/ticket","paths":true,"on":["alphabet","candycorn","chips-apple","chips-leaf","chips-maple","chips-stopsign","clicker3","spider"],"offline":false,"shipping_cents":700,"free_over_cents":2500};          // {requests, checkout, stock, keys, shipping_cents}
 /* Addresses. The real site has one URL per page (/p/spider/, /toys/halloween/) so search
    engines and link previews see every product; the build writes a file at each of them.
    The artifact is a single file, so it keeps #/ addresses. Everything goes through these. */
 const PATHMODE = !!SITE.paths;
+const FREE_OVER = (SITE.free_over_cents || 0) / 100;     // 0 = free shipping is off
+const usd = n => Number.isInteger(n) ? "$" + n : money(n);   // "$25", not "$25.00"
+const shipHint = () => FREE_OVER ? `<p class="ship-hint"><b>Free shipping</b> on orders of ${usd(FREE_OVER)} or more</p>` : "";
+function shipMeter(sub) {
+  const m = document.getElementById("shipMeter"); if (!m) return;
+  m.hidden = !FREE_OVER || !sub;
+  if (m.hidden) return;
+  const left = FREE_OVER - sub, done = left <= 0.0001;
+  m.classList.toggle("done", done);
+  m.querySelector("span").innerHTML = done ? "Your order ships free"
+    : `Add <b>${money(left)}</b> more for free shipping`;
+  m.querySelector("i").style.width = Math.min(100, sub / FREE_OVER * 100) + "%";
+}
+if (FREE_OVER) {
+  const promo = document.getElementById("promo");
+  promo.innerHTML = `<b>Free shipping</b> on orders ${usd(FREE_OVER)}+ &middot; made by a Tampa teacher`;
+  promo.hidden = false;
+}
 const here = () => PATHMODE ? location.pathname : (location.hash.replace(/^#/, "") || "/");
 const link = p => PATHMODE ? (p === "/" ? "/" : p.replace(/\/?$/, "/")) : "#" + p;
 function go(p, replace) {
@@ -1821,7 +1895,8 @@ function pillsFor(cat, sub) {
    Omar's rules: 30 days for unused items, ships in 3-5 business days, US only. */
 function viewPolicies() {
   const mail = SITE.support ? `<a href="mailto:${esc(SITE.support)}">${esc(SITE.support)}</a>` : "the email at the bottom of this page";
-  const ship = SITE.shipping_cents ? `a flat ${money(SITE.shipping_cents / 100)} per order` : "a flat rate per order, shown in the bag";
+  const ship = (SITE.shipping_cents ? `a flat ${money(SITE.shipping_cents / 100)} per order` : "a flat rate per order, shown in the bag")
+    + (FREE_OVER ? ` &mdash; and <strong>free on orders of ${usd(FREE_OVER)} or more</strong> (counted on the items, before any coupon code)` : "");
   return `
   <section class="page-head">
     <div class="wrap">
@@ -2319,7 +2394,9 @@ function renderBag() {
     return `<div class="line-item">${pic}<div><b>${esc(p.name)}</b><small>${money(p.price)}${note ? " &middot; " + esc(note) : ""}</small></div>
       <div class="qty"><button data-q="-1" data-id="${key}" aria-label="One fewer ${esc(p.name)}">&minus;</button><span>${bag[key]}</span><button data-q="1" data-id="${key}" aria-label="One more ${esc(p.name)}" ${bag[key] >= MAX_QTY ? "disabled" : ""}>+</button></div></div>`;
   }).join("") : `<p class="empty">Your bag is empty.</p>`;
-  $("#subtotal").textContent = money(ids.reduce((s, k) => s + bag[k] * bagItem(k).p.price, 0));
+  const sub = ids.reduce((s, k) => s + bag[k] * bagItem(k).p.price, 0);
+  $("#subtotal").textContent = money(sub);
+  shipMeter(sub);
   $$(".line-pic").forEach(c => paintChip(c, c.dataset.shape, c.dataset.shot, c.dataset.hex, c.dataset.real));
   saveBag();
 }
@@ -2354,7 +2431,7 @@ function wireCheckout() {
   if (!SITE.checkout) return;
   $("#optinRow").hidden = false;
   note.innerHTML = (SITE.shipping_cents
-    ? `Card payment by Stripe. ${money(SITE.shipping_cents / 100)} flat shipping, US only.`
+    ? `Card payment by Stripe. ${money(SITE.shipping_cents / 100)} flat shipping${FREE_OVER ? `, free on orders of ${usd(FREE_OVER)} or more` : ""}, US only.`
     : "Card payment by Stripe. Posted in the US.")
     + ` <a href="/policies/">30-day returns</a>.`;
   const refresh = () => {
