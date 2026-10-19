@@ -1,0 +1,2543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Little toys for the classroom treasure box and Friday rewards, one at a time or by the pack.">
+<meta name="theme-color" content="#2F6FD0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Treasure Box Toys · Toys · Mr. Omar&#x27;s Classroom</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Kalam:wght@400;700&family=Lexend:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F3F4EF; --sheet:#FFFFFF; --stage:#E0E4DA; --stage-2:#D3D8CD;
+  --ink:#1C221F; --ink-2:#4B544F; --ink-3:#5F6862; --rule:#D8DBD2; --rule-2:#BFC4B9;
+  --chip-red:#CE3A32; --chip-yellow:#F5C020; --rod-blue:#2C6491; --pumpkin:#EA6A1E; --grape:#6A3E9E;
+  --mark:#CE3A32; --mark-ink:#FFF6EC;
+  --link:#2F5E9E; --btn:#2F6DB5; --btn-ink:#FFFFFF; --ok:#2F7D4F;
+  --lift:0 1px 0 rgba(28,34,31,.04), 0 14px 34px rgba(28,34,31,.10);
+  --scrim:rgba(20,26,23,.46);
+  --display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --body:"Lexend","Segoe UI",system-ui,-apple-system,sans-serif;
+  --hand:"Kalam","Bradley Hand","Comic Sans MS",cursive;
+  --maxw:1180px;
+  --butcher:#3B78C2; --butcher-sub:#E3EDFA; --letter-shadow:#1F3F6B; --navy:#1F3F6B; --navy-sub:#C9D7EA;
+  --sunny:#F5C842; --sunny-ink:#2A2118; --sunny-sub:#4F3E10;
+  --kraft:#C99F70; --kraft-ink:#2B2016; --kraft-sub:#3E2E1C;
+  --chalk:#2F5D4A; --chalk-ink:#F2F5F0; --chalk-sub:#D2E3D9;
+  --trim-a:#C93A30; --trim-b:#F3BC1C; --trim-c:#2F6DB5;
+  --bin-red:#C93A30; --bin-orange:#EC7A1F; --bin-yellow:#F3BC1C; --bin-green:#2E8045; --bin-blue:#2F6DB5; --bin-purple:#7B4FB6; --bin-teal:#127C82;
+  --wash-red:#FBE4E0; --wash-orange:#FDEBDA; --wash-yellow:#FDF3D0; --wash-green:#E1F1E3; --wash-blue:#DFEAF7; --wash-purple:#ECE4F6; --wash-teal:#D9F0F0;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B2420; --sheet:#222C27; --stage:#29342F; --stage-2:#323E38;
+    --ink:#ECEFE8; --ink-2:#B6BEB8; --ink-3:#9AA39D; --rule:#33403A; --rule-2:#46534C;
+    --chip-red:#E4584F; --chip-yellow:#F5C020; --rod-blue:#6FA8D4; --pumpkin:#F2803E; --grape:#B697E3;
+    --mark:#E4584F; --mark-ink:#1B2420;
+    --link:#9DC0EE; --btn:#5B93D6; --btn-ink:#0F1520; --ok:#7FD39E;
+    --lift:0 1px 0 rgba(0,0,0,.2), 0 16px 40px rgba(0,0,0,.38);
+    --scrim:rgba(6,10,8,.62);
+    --butcher:#22446D; --butcher-sub:#C9D7EA; --letter-shadow:#0E1F36; --navy:#142A47; --navy-sub:#B5C6DD;
+    --sunny:#5A4813; --sunny-ink:#FBF3DC; --sunny-sub:#EBDDB4;
+    --kraft:#4F3C2A; --kraft-ink:#F6EDE2; --kraft-sub:#E2D2BF;
+    --chalk:#1C3A2E; --chalk-ink:#EEF3EF; --chalk-sub:#BFD3C7;
+    --trim-a:#B8433A; --trim-b:#D9A824; --trim-c:#3F78BC;
+    --wash-red:#3B2422; --wash-orange:#3A2A1C; --wash-yellow:#363019; --wash-green:#1E3324; --wash-blue:#1D2A3D; --wash-purple:#2C2340; --wash-teal:#183235;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B2420; --sheet:#222C27; --stage:#29342F; --stage-2:#323E38;
+  --ink:#ECEFE8; --ink-2:#B6BEB8; --ink-3:#9AA39D; --rule:#33403A; --rule-2:#46534C;
+  --chip-red:#E4584F; --chip-yellow:#F5C020; --rod-blue:#6FA8D4; --pumpkin:#F2803E; --grape:#B697E3;
+  --mark:#E4584F; --mark-ink:#1B2420;
+  --link:#9DC0EE; --btn:#5B93D6; --btn-ink:#0F1520; --ok:#7FD39E;
+  --lift:0 1px 0 rgba(0,0,0,.2), 0 16px 40px rgba(0,0,0,.38);
+  --scrim:rgba(6,10,8,.62);
+  --butcher:#22446D; --butcher-sub:#C9D7EA; --letter-shadow:#0E1F36; --navy:#142A47; --navy-sub:#B5C6DD;
+  --sunny:#5A4813; --sunny-ink:#FBF3DC; --sunny-sub:#EBDDB4;
+  --kraft:#4F3C2A; --kraft-ink:#F6EDE2; --kraft-sub:#E2D2BF;
+  --chalk:#1C3A2E; --chalk-ink:#EEF3EF; --chalk-sub:#BFD3C7;
+  --trim-a:#B8433A; --trim-b:#D9A824; --trim-c:#3F78BC;
+  --wash-red:#3B2422; --wash-orange:#3A2A1C; --wash-yellow:#363019; --wash-green:#1E3324; --wash-blue:#1D2A3D; --wash-purple:#2C2340; --wash-teal:#183235;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;
+  line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--link)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--grape);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:20px}
+.label{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.dsp{font-family:var(--display);font-weight:600;letter-spacing:-.005em;line-height:1.08}
+
+/* ---------- header ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+  background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule)}
+.bar-in{display:flex;align-items:center;gap:26px;min-height:70px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand .mark{width:31px;height:31px;flex:none;transform:rotate(-7deg)}
+.brand-txt{display:flex;flex-direction:column;line-height:1}
+.brand-mr{font-family:var(--hand);font-weight:700;font-size:14px;color:var(--ink-2);margin-bottom:2px}
+.brand-name{font-family:var(--display);font-weight:600;font-size:23px}
+.cats{display:flex;gap:6px;margin-right:auto}
+.cat{position:relative}
+.cat-btn{display:flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;font-size:15px;font-weight:500;
+  color:var(--ink-2);transition:background .18s ease,color .18s ease}
+.cat-btn:hover,.cat-btn[aria-expanded="true"],.cat-btn.here{color:var(--ink);background:var(--stage)}
+.cat-btn svg{width:11px;height:11px;transition:transform .2s ease}
+.cat-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.menu{position:absolute;top:calc(100% + 10px);left:0;width:346px;padding:10px;border-radius:16px;
+  background:var(--sheet);border:1px solid var(--rule);box-shadow:var(--lift)}
+.menu a{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:11px 12px;border-radius:10px;
+  text-decoration:none;color:var(--ink)}
+.menu a:hover,.menu a:focus-visible{background:var(--stage)}
+.menu a b{font-weight:600;font-size:15px}
+.menu a span{grid-column:1;font-size:13px;color:var(--ink-2);line-height:1.45}
+.menu a em{grid-row:1;grid-column:2;font-style:normal;font-size:12px;color:var(--ink-3);align-self:center;
+  font-variant-numeric:tabular-nums}
+.menu a em.soon{color:#1C221F;background:var(--chip-yellow);padding:1px 8px;border-radius:999px;font-weight:500}
+.menu .all{border-bottom:1px solid var(--rule);border-radius:10px 10px 0 0;margin-bottom:6px}
+.bag-btn{display:flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;background:var(--btn);
+  color:var(--btn-ink);font-size:14px;font-weight:500}
+.bag-count{min-width:20px;height:20px;padding:0 6px;border-radius:999px;display:grid;place-items:center;
+  font-size:12px;background:var(--chip-red);color:#FFF;font-variant-numeric:tabular-nums}
+.bag-count.zero{background:color-mix(in srgb,var(--btn-ink) 22%,transparent);color:var(--btn-ink)}
+.browse{display:none;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1.5px solid var(--rule-2);
+  font-size:14px;font-weight:500;margin-right:auto}
+.browse i{display:block;width:14px;height:2px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor}
+.sheetnav{border-top:1px solid var(--rule);padding-block:10px 18px}
+.sheetnav h2{font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin:14px 0 4px}
+.sheetnav a{display:flex;justify-content:space-between;gap:12px;padding:11px 2px;border-bottom:1px solid var(--rule);
+  text-decoration:none;color:var(--ink);font-weight:500}
+.sheetnav a em{font-style:normal;font-size:13px;color:var(--ink-3);font-weight:400}
+
+/* ---------- hero ---------- */
+.hero{padding-block:56px 34px}
+.hero-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:52px;align-items:center}
+.hero .label{margin-bottom:14px}
+.hero h1{font-size:clamp(36px,4.9vw,60px);font-weight:700}
+.lede{font-size:17.5px;color:var(--ink-2);max-width:52ch;margin-top:18px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:500;font-size:15px;
+  text-decoration:none;transition:transform .18s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-dark{background:var(--btn);color:var(--btn-ink)}
+.btn-line{border:1.5px solid var(--rule-2);color:var(--ink)}
+
+/* product photography */
+.hero-shot,.feature-shot{width:100%;height:auto;aspect-ratio:4/3;border-radius:18px;background:var(--stage);display:block}
+.frame-cap{font-family:var(--hand);font-size:19px;color:var(--ink-2);text-align:center;margin-top:12px}
+.frame-wrap{display:flex;flex-direction:column}
+
+/* ---------- lines of materials ---------- */
+.lines{padding-block:20px 66px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px 28px;margin-bottom:28px}
+.sec-head h2{font-size:clamp(27px,3.3vw,36px);font-weight:600}
+.sec-head p{color:var(--ink-2);margin-top:8px;max-width:56ch}
+.line-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.line-card{display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:18px;background:var(--sheet);
+  border:1px solid var(--rule);text-decoration:none;color:inherit;transition:transform .2s ease,box-shadow .2s ease}
+.line-card:hover{transform:translateY(-3px);box-shadow:var(--lift)}
+.line-top{display:flex;align-items:center;gap:13px}
+.line-top svg{width:38px;height:38px;flex:none}
+.line-card h3{font-family:var(--display);font-weight:600;font-size:21px}
+.line-card>p{color:var(--ink-2);font-size:15px}
+.line-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.line-card li{display:flex;align-items:baseline;gap:10px;font-size:14.5px;color:var(--ink-2)}
+.line-card li::before{content:"";width:8px;height:8px;border-radius:50%;flex:none;align-self:center;
+  background:var(--mark)}
+.line-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:6px}
+.soon-tag{display:inline-block;padding:3px 11px;border-radius:999px;background:var(--chip-yellow);color:#1C221F;
+  font-size:12.5px;font-weight:500}
+.first-tag{background:var(--chip-red);color:#FFF}
+.go{font-size:14px;font-weight:500;color:var(--ink)}
+
+/* ---------- the product in the shop now ---------- */
+.feature{border-top:1px solid var(--rule);padding-block:56px}
+.feature-in{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:46px;align-items:center}
+.feature-shot-wrap{display:block;border-radius:20px;overflow:hidden;background:var(--stage)}
+.feature-in h2{font-size:clamp(27px,3.3vw,36px);font-weight:600;margin-top:8px}
+.feature-in > div > p{color:var(--ink-2);margin-top:12px;max-width:50ch}
+
+/* ---------- grades ---------- */
+.grades{border-top:1px solid var(--rule);padding-block:56px}
+.grade-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:26px}
+.grade h3{font-family:var(--display);font-weight:600;font-size:18px;margin-bottom:5px}
+.grade p{font-size:14.5px;color:var(--ink-2)}
+.grade{padding-top:14px;border-top:3px solid var(--rule-2)}
+.grade:nth-child(1){border-color:var(--chip-red)}
+.grade:nth-child(2){border-color:var(--chip-yellow)}
+.grade:nth-child(3){border-color:var(--rod-blue)}
+.grade:nth-child(4){border-color:var(--grape)}
+
+/* ---------- toys shelf ---------- */
+.shelf{background:var(--sheet);border-block:1px solid var(--rule);padding-block:60px}
+.colorin{position:relative;display:inline-block;color:transparent;-webkit-text-stroke:.035em var(--ink)}
+.colorin::after{content:attr(data-text);position:absolute;inset:0;color:var(--pumpkin);-webkit-text-stroke:.035em var(--ink);
+  clip-path:inset(0 100% 0 0);animation:colorin 1.2s cubic-bezier(.65,.05,.3,1) .5s forwards}
+@keyframes colorin{to{clip-path:inset(0 0 0 0)}}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px}
+.product{display:flex;flex-direction:column;gap:18px}
+.stage{position:relative;aspect-ratio:4/3;max-width:100%;border-radius:20px;overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 38%,var(--stage) 55%,var(--stage-2) 100%);
+  touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.stage:active{cursor:grabbing}
+.stage img.still,.stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.stage canvas{opacity:0;transition:opacity .25s ease}
+.stage.live canvas{opacity:1}
+.stage.live img.still{opacity:0}
+.note{position:absolute;left:18px;top:14px;font-family:var(--hand);font-weight:700;font-size:20px;line-height:1.2;
+  color:var(--ink);transform:rotate(-2.5deg);pointer-events:none}
+.note span{display:inline-block;transition:opacity .25s ease,transform .25s ease}
+.note span.swap{opacity:0;transform:translateY(-4px)}
+.hint{position:absolute;right:14px;bottom:12px;font-size:12px;color:var(--ink-2);display:flex;align-items:center;gap:6px;
+  pointer-events:none}
+.hint svg{width:22px;height:10px}
+.meta{display:flex;flex-direction:column;gap:13px}
+.title-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.title-row h3{font-size:22px;font-weight:600;line-height:1.2}
+.price{font-size:19px;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.desc{color:var(--ink-2);max-width:54ch;font-size:15px}
+.ways{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ways .label{width:100%;margin-bottom:-2px}
+.way{display:inline-flex;align-items:center;gap:8px;padding:6px 13px 6px 7px;border-radius:999px;
+  border:1.5px solid var(--rule);background:var(--sheet);font-size:14px;color:var(--ink-2);
+  transition:border-color .18s ease,color .18s ease,transform .18s ease}
+.way:hover{border-color:var(--rule-2);color:var(--ink);transform:translateY(-1px)}
+.way[aria-pressed="true"]{border-color:var(--ink);color:var(--ink)}
+.sw{display:flex}
+.sw i{width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.18);margin-left:-5px}
+.sw i:first-child{margin-left:0}
+.specs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0;padding-block:13px;
+  border-block:1px solid var(--rule)}
+.specs div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.specs dt{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.specs dd{margin:0;font-size:15px}
+.add{align-self:flex-start;padding:13px 24px;border-radius:999px;background:var(--btn);color:var(--btn-ink);
+  font-weight:500;font-size:15px;transition:transform .18s ease}
+.add:hover{transform:translateY(-2px)}
+.add.done{background:var(--ok);color:var(--paper)}
+.way.gone{text-decoration:line-through;opacity:.5}
+.add:disabled{background:transparent;color:var(--ink-3);box-shadow:inset 0 0 0 1.5px currentColor;
+  cursor:not-allowed;transform:none}
+
+/* ---------- a product with photography ---------- */
+.one-toy{margin-block:14px 60px}
+.one-toy .product{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:44px;align-items:start}
+@media (max-width:860px){.one-toy .product{grid-template-columns:1fr;gap:28px}}
+.shot-card .shot-wrap{display:block;border-radius:20px;overflow:hidden;background:var(--stage);
+  box-shadow:0 1px 0 rgba(28,34,31,.04)}
+.shot-card .shot-wrap canvas,.shot-card .shot-wrap img{display:block;width:100%;height:auto;aspect-ratio:4/3;
+  transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.shot-card .shot-wrap:hover canvas,.shot-card .shot-wrap:hover img{transform:scale(1.03)}
+.shot-card h3 a{color:inherit;text-decoration:none}
+.shot-card h3 a:hover{color:var(--link)}
+.shot-card .btn{align-self:flex-start}
+.shapes{font-size:13.5px;color:var(--ink-2)}
+.shapes span{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+  margin-right:6px}
+
+.prod{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:44px;align-items:start;
+  margin-block:18px 64px}
+.shot-main{border-radius:20px;overflow:hidden;background:var(--stage)}
+.shot-main canvas,.shot-main img{width:100%;height:auto;aspect-ratio:4/3;display:block;object-fit:cover}
+.thumbs{display:flex;gap:10px;margin-top:10px}
+.thumbs .thumb{flex:1 1 0;min-width:0}
+.thumb{border-radius:12px;overflow:hidden;background:var(--stage);border:2px solid transparent;padding:0;
+  transition:border-color .18s ease}
+.thumb canvas,.thumb img{width:100%;height:auto;aspect-ratio:4/3;display:block;object-fit:cover}
+.thumb.on{border-color:var(--ink)}
+.thumb:hover{border-color:var(--rule-2)}
+.prod-side{display:flex;flex-direction:column;gap:15px}
+.prod-side h1{font-size:clamp(28px,3.4vw,38px)}
+.price.big{font-size:26px;font-weight:500}
+.price.big span{font-size:15px;color:var(--ink-3);font-weight:400}
+.pack{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.pack li{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--ink-2)}
+.pack li::before{content:"";width:9px;height:9px;border-radius:50%;flex:none;background:var(--mark)}
+.grades-line{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ---------- the shop grid on the home page ---------- */
+.shop{padding-block:4px 56px}
+.shelves{padding-block:4px 60px}          /* not .browse: that is the header's mobile button */
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:22px}
+.card{display:flex;flex-direction:column;border-radius:18px;background:var(--sheet);border:1px solid var(--rule);
+  overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-3px);box-shadow:var(--lift)}
+.card-shot{position:relative;display:block;background:var(--stage)}
+.card-shot img,.card-shot canvas{display:block;width:100%;height:auto;aspect-ratio:4/3}
+.card-shot .toy-pic{object-fit:contain;padding:6% 0}
+.card-tag{position:absolute;left:12px;top:12px;z-index:1;padding:3px 11px;border-radius:999px;font-size:12px;font-weight:600;
+  color:var(--ink-2);background:color-mix(in srgb,var(--sheet) 86%,transparent);backdrop-filter:blur(6px)}
+.card-body{display:flex;flex-direction:column;gap:8px;padding:17px 19px 19px;flex:1}
+.card-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.card-body h3{font-size:19px;font-weight:600;line-height:1.25}
+.card-body h3 a{color:inherit;text-decoration:none}
+.card-body h3 a:hover{color:var(--link)}
+.card-body p{font-size:14.5px;color:var(--ink-2)}
+.card-body .tagline{font-size:12.5px;color:var(--ink-3)}
+.card-body .btn{align-self:flex-start;margin-top:auto;padding:10px 18px;font-size:14px}
+.tile-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.tile{display:flex;flex-direction:column;gap:3px;padding:16px 17px;border-radius:14px;background:var(--sheet);
+  border:1px solid var(--rule);text-decoration:none;color:inherit;transition:border-color .18s ease,transform .18s ease}
+.tile:hover{border-color:var(--rule-2);transform:translateY(-2px)}
+.tile svg{width:28px;height:28px;margin-bottom:4px}
+.tile b{font-weight:600;font-size:15px}
+.tile span{font-size:12.5px;color:var(--ink-3)}
+
+/* ---------- planned items ---------- */
+.plan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-block:28px 64px}
+.plan{display:flex;flex-direction:column;gap:9px;padding:24px;border-radius:16px;background:var(--sheet);
+  border:1px solid var(--rule)}
+.plan.first{border-color:var(--chip-red);border-width:2px}
+.plan-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.plan h3{font-family:var(--display);font-weight:600;font-size:19px}
+.plan p{color:var(--ink-2);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:3px}
+.tag{padding:2px 10px;border-radius:999px;border:1px solid var(--rule-2);font-size:12.5px;color:var(--ink-2)}
+.shapes{font-size:13.5px;color:var(--ink-2);margin-top:4px}
+.shapes span{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+  margin-right:6px}
+
+/* ---------- requests from teachers ---------- */
+.ask{border-top:1px solid var(--rule);padding-block:58px}
+.ask-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px;align-items:start}
+.ask-copy h2{font-size:clamp(26px,3.1vw,34px);font-weight:600}
+.ask-copy p{color:var(--ink-2);margin-top:12px;max-width:44ch}
+.ask-copy .hand{font-family:var(--hand);font-size:19px;color:var(--ink);margin-top:16px}
+.ask-form{display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:18px;background:var(--sheet);
+  border:1px solid var(--rule)}
+.ask-form label{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+  display:block;margin-bottom:6px}
+.ask-form textarea,.ask-form input,.ask-form select{width:100%;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--paper);border:1.5px solid var(--rule-2);border-radius:12px;padding:11px 13px;resize:vertical}
+.ask-form textarea::placeholder,.ask-form input::placeholder{color:var(--ink-3)}
+.ask-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ask-send{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:2px}
+.ask-status{font-size:14px;color:var(--ink-2)}
+.ask-status.good{color:var(--ok)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.inbox{margin-top:34px;padding:24px;border-radius:18px;background:var(--sheet);border:2px dashed var(--rule-2)}
+.inbox-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px}
+.inbox-head h3{font-family:var(--display);font-weight:600;font-size:19px}
+.inbox-head p{font-size:13.5px;color:var(--ink-3)}
+.inbox ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.inbox li{padding-block:16px;border-top:1px solid var(--rule)}
+.inbox li.inbox-empty{color:var(--ink-3);font-size:15px}
+.req-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.req-head time{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.req p{font-size:15px;color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere}
+.req-contact{font-size:13.5px;color:var(--ink-2);margin-top:5px}
+.req-done{margin-top:10px;padding:6px 14px;border-radius:999px;border:1.5px solid var(--rule-2);font-size:13.5px;
+  color:var(--ink-2)}
+.req-done:hover{border-color:var(--ink);color:var(--ink)}
+.req.done{opacity:.55}
+.req.done .req-done{background:var(--ok);border-color:var(--ok);color:var(--paper)}
+
+/* ---------- teacher note ---------- */
+.byteacher{border-top:1px solid var(--rule);padding-block:58px}
+.by-in{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin-top:24px}
+.by h3{font-family:var(--display);font-weight:600;font-size:18px;margin-bottom:6px}
+.by p{color:var(--ink-2);font-size:15px}
+
+.page-head{padding-block:42px 8px}
+.crumbs{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;color:var(--ink-3);margin-bottom:12px}
+.crumbs a{color:var(--ink-2);text-decoration:none}
+.crumbs a:hover{color:var(--ink);text-decoration:underline}
+.page-head h1{font-size:clamp(30px,3.7vw,42px);font-weight:600}
+.page-head p{color:var(--ink-2);font-size:17px;margin-top:10px;max-width:58ch}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pill{padding:7px 15px;border-radius:999px;border:1.5px solid var(--rule-2);font-size:14px;font-weight:500;
+  color:var(--ink-2);text-decoration:none;white-space:nowrap}
+.pill:hover{border-color:var(--ink);color:var(--ink)}
+.pill[aria-current="page"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.pill em{font-style:normal;color:inherit;opacity:.7;margin-left:4px;font-variant-numeric:tabular-nums}
+
+footer{padding-block:40px 48px;border-top:1px solid var(--rule)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+footer p{font-size:14px;color:var(--ink-3);max-width:46ch}
+
+/* ---------- bag ---------- */
+.scrim{position:fixed;inset:0;z-index:80;background:var(--scrim);opacity:0;pointer-events:none;transition:opacity .3s ease}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:90;width:min(390px,92vw);background:var(--sheet);
+  border-left:1px solid var(--rule);display:flex;flex-direction:column;transform:translateX(102%);
+  transition:transform .4s cubic-bezier(.16,1,.3,1);padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.open{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--rule)}
+.dh h2{font-family:var(--display);font-weight:600;font-size:22px}
+.x{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:22px;color:var(--ink-2)}
+.x:hover{background:var(--stage)}
+.lines-list{flex:1;overflow-y:auto;padding:4px 22px}
+.line-item{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.line-item img,.line-item canvas{width:70px;height:52px;object-fit:cover;border-radius:10px;
+  background:var(--stage);flex:none}
+.line-item div{flex:1;min-width:0}
+.line-item .qty{flex:0 0 auto}
+.line-item b{display:block;font-weight:600;font-size:15px}
+.line-item small{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.qty{display:flex;align-items:center;border:1px solid var(--rule-2);border-radius:999px;padding:2px}
+.qty button{width:40px;height:40px;border-radius:50%;font-size:16px;display:grid;place-items:center;color:var(--ink-2)}
+.qty button:hover{background:var(--stage);color:var(--ink)}
+.qty span{min-width:22px;text-align:center;font-size:14px;font-variant-numeric:tabular-nums}
+.empty{padding:50px 8px;text-align:center;color:var(--ink-3)}
+.df{padding:20px 22px;border-top:1px solid var(--rule)}
+.tot{display:flex;justify-content:space-between;align-items:baseline;font-size:15px}
+.tot b{font-size:21px;font-weight:500;font-variant-numeric:tabular-nums}
+.df .checkout{width:100%;margin-top:14px;padding:14px;border-radius:999px;background:var(--btn);color:var(--btn-ink);
+  font-weight:500}
+.df .checkout:disabled{opacity:.45;cursor:not-allowed}
+.df small{display:block;margin-top:10px;font-size:13px;color:var(--ink-3);text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:100;
+  transform:translate(-50%,calc(100% + 40px));opacity:0;visibility:hidden;
+  padding:12px 20px;border-radius:999px;background:var(--btn);color:var(--btn-ink);
+  font-size:14px;box-shadow:var(--lift);white-space:normal;text-align:center;
+  width:max-content;max-width:calc(100vw - 32px);line-height:1.4;
+  transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .25s ease,visibility 0s linear .4s}
+.toast.up{transform:translate(-50%,0);opacity:1;visibility:visible;transition-delay:0s}
+/* after paying: a thank-you that stays until it is closed (2026-10-12) */
+.thanks{position:fixed;left:50%;top:calc(16px + env(safe-area-inset-top,0px));transform:translateX(-50%);z-index:110;
+  width:min(520px,calc(100vw - 32px));background:var(--sheet);color:var(--ink);border-radius:20px;
+  box-shadow:var(--lift);padding:18px 52px 18px 20px;border:2px solid var(--btn)}
+.thanks h2{margin:0 0 4px;font-size:19px}
+.thanks p{margin:0;font-size:15px;color:var(--ink-2)}
+.thanks button{position:absolute;right:10px;top:10px;width:36px;height:36px;border-radius:50%;font-size:22px;color:var(--ink-2)}
+.card-sold,.sold-tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  background:#1C2230;color:#fff;border-radius:999px;padding:3px 10px;margin-left:6px;vertical-align:middle}
+.safety{font-size:13px;color:var(--ink-2);border-left:3px solid #C8462E;padding:4px 0 4px 10px;margin:14px 0 0}
+.notfound{padding:40px 0 60px;text-align:center}
+.notfound h1{color:#FFFFFF}
+
+@media (max-width:1040px){
+  .tile-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:960px){
+  .hero-in,.ask-in,.prod,.feature-in{grid-template-columns:1fr;gap:34px}
+  .line-grid,.plan-grid,.products{grid-template-columns:1fr}
+  .products{gap:48px}
+  .grade-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .by-in{grid-template-columns:1fr;gap:22px}
+}
+@media (max-width:760px){
+  .shop-grid{grid-template-columns:1fr}
+  .tile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cats{display:none}
+  .browse{display:flex}
+  .bar-in{gap:14px}
+  .hero{padding-block:36px 20px}
+}
+@media (max-width:440px){
+  .specs,.ask-row{grid-template-columns:1fr}
+  .grade-grid{grid-template-columns:1fr}
+  .brand-name{font-size:20px}
+  .note{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.001ms!important;animation-duration:.001ms!important;animation-delay:0s!important}
+  .colorin::after{clip-path:none;animation:none}
+}
+/* ========== classroom wall (2026-10-06): every section is a sheet of classroom paper ========== */
+body{background:var(--navy)}
+main > section{position:relative;background:var(--sunny);color:var(--sunny-ink);--sec-sub:var(--sunny-sub);--tx:var(--trim-a)}
+main > section:not([class]){padding-block:48px 56px;--tx:var(--trim-c)}
+.hero,.page-head,.byteacher{background:var(--butcher);color:#FFFFFF;--sec-sub:var(--butcher-sub)}
+.shelves{background:var(--kraft);color:var(--kraft-ink);--sec-sub:var(--kraft-sub)}
+.ask{background:var(--chalk);color:var(--chalk-ink);--sec-sub:var(--chalk-sub);--tx:var(--trim-c);border-top:0}
+.shop{--tx:var(--trim-c)}
+.byteacher{border-top:0}
+.sec-head p,.page-head p,.ask-copy p{color:var(--sec-sub)}
+.ask-copy .hand{color:var(--chalk-ink)}
+.by p{color:var(--butcher-sub)}
+
+/* scalloped border trim where one paper meets the next */
+.hero::after,.page-head::after,.shop::after,.shelves::after,.ask::after,main > section:not([class])::after{content:"";position:absolute;left:0;right:0;
+  bottom:-22px;height:30px;z-index:3;pointer-events:none;
+  background:
+    linear-gradient(var(--trim-b),var(--trim-b)) 0 0/100% 8px no-repeat,
+    radial-gradient(circle at 14px 8px,var(--tx) 14px,transparent 14.5px) 0 0/56px 30px repeat-x,
+    radial-gradient(circle at 42px 8px,var(--trim-b) 14px,transparent 14.5px) 0 0/56px 30px repeat-x}
+
+.hero{padding-block:24px 60px}
+.page-head{padding-block:30px 50px}
+.shop{padding-block:54px 50px}
+.shelves{padding-block:54px 54px}
+.ask{padding-block:58px 54px}
+.byteacher{padding-block:58px 54px}
+.prod,.one-toy,.products{margin-block:0}
+.plan-grid{margin-block:22px 0}
+.products + .plan-grid{margin-top:22px}
+
+/* header: butcher paper, continuous with the hero */
+.bar{background:var(--butcher);border-bottom:0;backdrop-filter:none;color:#FFFFFF}
+.brand{color:#FFFFFF}
+.brand-mr{color:#FFF3C4}
+.cat-btn{color:#FFFFFF;opacity:.92}
+.cat-btn:hover,.cat-btn[aria-expanded="true"],.cat-btn.here{color:#FFFFFF;opacity:1;background:rgba(255,255,255,.16)}
+.bag-btn{background:#FFFFFF;color:#1C2230;font-weight:600}
+.bag-count.zero{background:#E3E7EE;color:#1C2230}
+.browse{border-color:rgba(255,255,255,.65);color:#FFFFFF}
+.sheetnav{border-top-color:rgba(255,255,255,.22)}
+.sheetnav h2{color:var(--butcher-sub)}
+.sheetnav a{color:#FFFFFF;border-bottom-color:rgba(255,255,255,.18)}
+.sheetnav a em{color:var(--butcher-sub)}
+:focus-visible{outline:3px solid #1C2230;outline-offset:2px;box-shadow:0 0 0 5px #FFFFFF}
+
+/* hero: cut-paper headline, photo pinned to the board */
+.hero h1,.page-head h1{color:#FFFFFF;text-shadow:3px 3px 0 var(--letter-shadow)}
+.hero .lede{color:var(--butcher-sub)}
+.hand-line{font-family:var(--hand);font-size:19px;color:#FFF3C4;margin-bottom:10px}
+.btn-sun{background:#F3BC1C;color:#231C08;font-weight:600}
+.btn-ghost{border:2px solid rgba(255,255,255,.75);color:#FFFFFF;font-weight:600}
+.pinned{position:relative;width:100%;max-width:520px;justify-self:center;background:#FFFFFF;padding:12px 12px 8px;
+  transform:rotate(-2deg);box-shadow:0 18px 36px rgba(10,25,50,.35)}
+.pinned .hero-shot{border-radius:3px}
+.pinned .frame-cap{color:#3A4150;margin-top:6px;font-size:17px}
+.pin{position:absolute;z-index:2;left:50%;top:-12px;width:24px;height:24px;margin-left:-12px;border-radius:50%;
+  background:radial-gradient(circle at 35% 32%,#FFB3AB 0 18%,#C93A30 22% 100%);box-shadow:2px 4px 5px rgba(0,0,0,.35)}
+
+.crumbs{color:var(--butcher-sub)}
+.crumbs a{color:#FFFFFF}
+.crumbs a:hover{color:#FFFFFF}
+.pill{background:var(--sheet);color:var(--ink);border-color:transparent}
+.pill:hover{border-color:var(--ink);color:var(--ink)}
+.pill[aria-current="page"]{background:#F3BC1C;border-color:#F3BC1C;color:#231C08}
+
+/* white sheets pinned on the paper */
+.card,.prod,.plan,.products > .product,.one-toy .product,.ask-form{color:var(--ink)}
+.card{border:0;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.card-shot{background:var(--wash,var(--stage))}
+.card-tag{background:var(--bin,var(--sheet));color:var(--bin-ink,var(--ink-2));backdrop-filter:none}
+.prod,.one-toy .product{background:var(--sheet);border-radius:22px;padding:clamp(18px,3vw,32px);box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.products > .product{background:var(--sheet);border-radius:20px;padding:18px;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.plan{border-color:transparent;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+
+/* every shelf is a coloured bin with a white label slot */
+.tile{position:relative;justify-content:flex-end;gap:0;min-height:116px;padding:14px;border:0;border-radius:14px;
+  background:var(--bin);box-shadow:inset 0 -6px 0 rgba(0,0,0,.14)}
+.tile:hover{border-color:transparent;transform:translateY(-2px)}
+.tile::before{content:"";position:absolute;left:50%;top:12px;width:44px;height:10px;margin-left:-22px;border-radius:99px;
+  background:rgba(0,0,0,.2)}
+.tile-label{display:grid;gap:1px;background:#FFFFFF;color:#1B2230;border-radius:8px;padding:8px 12px 7px}
+.tile-label b{font-family:var(--display);font-weight:600;font-size:17px;line-height:1.2}
+.tile-label span{font-size:12.5px;color:#4A5263}
+
+.ask-form{border:0}
+.ask-form label{text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink)}
+
+footer{background:var(--navy);color:#FFFFFF;border-top:0;padding-block:44px 48px}
+footer p{color:var(--navy-sub)}
+
+@media (max-width:760px){
+  .hero{padding-block:18px 52px}
+  .pinned{max-width:440px}
+}
+
+/* ---------- mailing list band, bag opt-in, footer help (2026-10-06) ---------- */
+.join{background:var(--sunny);color:var(--sunny-ink);padding-block:44px}
+.join-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
+.join h2{font-size:clamp(24px,2.8vw,30px);font-weight:600}
+.join p{color:var(--sunny-sub);margin-top:6px;max-width:46ch}
+.join-form{display:flex;flex-wrap:wrap;gap:10px;flex:1 1 320px;max-width:480px}
+.join-form input[type=email]{flex:1 1 200px;min-width:0;font:inherit;font-size:15px;color:var(--ink);background:var(--sheet);
+  border:0;border-radius:999px;padding:13px 18px}
+.join-form .btn{flex:0 0 auto}
+.join-status{flex-basis:100%;font-size:14px;min-height:1.2em;color:var(--sunny-ink)}
+.optin{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--ink-2);margin:0 0 10px;cursor:pointer}
+.optin input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--btn)}
+.foot-help a{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
+.foot-links{flex-basis:100%}
+#checkoutNote a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.foot-links{color:#FFFFFF;font-size:14px}
+.foot-links a{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
+.policy{max-width:68ch;padding-block:28px 56px}
+.help-wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px;align-items:start;padding-block:28px 56px}
+.help-kind{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 22px}
+.help-kind legend{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;padding:0}
+.help-kind label{display:flex;align-items:center;gap:8px;font-size:15.5px;color:var(--ink);text-transform:none;letter-spacing:0;font-weight:500;margin:0;cursor:pointer}
+.help-kind input{width:18px;height:18px;accent-color:var(--btn);margin:0}
+.help-form .opt{text-transform:none;letter-spacing:0;font-weight:400}
+.help-note{font-size:14px;color:var(--ink-2);margin:0 0 8px}
+.help-form input[type=file]{padding:10px;font-size:14px}
+.help-thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.help-thumbs:empty{display:none}
+.help-thumb{position:relative;display:block}
+.help-thumb img{width:86px;height:86px;object-fit:cover;border-radius:10px;display:block}
+.help-thumb button{position:absolute;top:-8px;right:-8px;width:26px;height:26px;border-radius:50%;border:0;
+  background:var(--ink);color:var(--paper);font-size:16px;line-height:26px;cursor:pointer}
+.help-side h2{font-size:22px;font-weight:600;margin-bottom:6px}
+.help-side p{font-size:15.5px;line-height:1.6;color:var(--ink-2);margin-top:10px}
+.help-side a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:820px){.help-wrap{grid-template-columns:1fr;gap:28px}}
+.policy h2{font-size:clamp(22px,2.6vw,28px);font-weight:600;margin:34px 0 10px;scroll-margin-top:90px}
+.policy h2:first-child{margin-top:0}
+.policy p{font-size:16.5px;line-height:1.65;color:var(--ink-2);margin-top:10px}
+.policy strong{color:var(--ink)}
+.policy a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.policy-date{font-size:14px!important;color:var(--ink-3)!important;margin-top:30px!important}
+
+/* ---------- maintenance screen (2026-10-07) ----------
+   The workshop's "Take the shop offline" switch. Butcher paper like the hero, a note pinned
+   to the board with the email, the yellow scallop trim onto the paper below. */
+.closed{display:none;position:relative;background:var(--butcher);color:#FFFFFF;
+  min-height:calc(100vh - 140px);min-height:calc(100svh - 140px);padding-block:56px 92px}
+html.is-closed .closed{display:grid;align-content:center}
+html.is-closed #view,html.is-closed #joinSlot,html.is-closed .cats,html.is-closed .browse,
+html.is-closed .bag-btn,html.is-closed #sheetnav,html.is-closed .drawer,html.is-closed .scrim{display:none!important}
+.closed::after{content:"";position:absolute;left:0;right:0;bottom:-22px;height:30px;z-index:3;pointer-events:none;
+  background:
+    linear-gradient(var(--trim-b),var(--trim-b)) 0 0/100% 8px no-repeat,
+    radial-gradient(circle at 14px 8px,var(--trim-a) 14px,transparent 14.5px) 0 0/56px 30px repeat-x,
+    radial-gradient(circle at 42px 8px,var(--trim-b) 14px,transparent 14.5px) 0 0/56px 30px repeat-x}
+html.is-closed footer{padding-top:66px}
+.closed-in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.closed h1{font-size:clamp(38px,5.2vw,64px);font-weight:700;color:#FFFFFF;text-shadow:3px 3px 0 var(--letter-shadow)}
+.closed .lede{color:var(--butcher-sub);max-width:44ch}
+.closed .hand-line{font-size:21px}
+.closed-sign{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 18px 10px 12px;border-radius:12px;
+  background:#FFFFFF;color:#1C2230;font-family:var(--display);font-weight:600;font-size:18px;transform:rotate(-2.5deg);
+  box-shadow:0 10px 22px rgba(10,25,50,.28)}
+.closed-sign .mark{width:30px;height:30px;transform:rotate(-7deg)}
+.note{width:min(440px,calc(100% - 14px));padding:30px 28px 26px;color:#1C2230;transform:rotate(1.6deg)}
+.note h2{font-family:var(--display);font-weight:600;font-size:24px;line-height:1.2;margin:0}
+.note p{color:#3A4150;margin:10px 0 0;font-family:var(--body);font-size:15.5px}
+.note .btn{font-family:var(--body)}
+.note .btn{margin-top:20px}
+.note .note-mail{font-family:var(--body);font-weight:500;font-size:16px;overflow-wrap:anywhere}
+.note-mail a{color:#2F5E9E;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){
+  .closed{padding-block:34px 80px}
+  .closed-in{grid-template-columns:1fr;gap:40px}
+  .note{justify-self:center;transform:rotate(1deg)}
+}
+/* Free shipping (2026-10-18): the strip above the header, the line under each price, and
+   the meter in the bag. All hidden while the workshop has free shipping off. */
+.promo{background:var(--sunny);color:var(--sunny-ink);text-align:center;font:600 14px/1.35 var(--body);
+  padding:7px 16px}
+.promo b{font-weight:700}
+.ship-hint{margin:-4px 0 14px;font-size:14px;color:var(--ink-2)}
+.ship-hint b{color:var(--ok);font-weight:600}
+.ship-meter{margin:2px 0 12px;font-size:13.5px;color:var(--ink-2)}
+.ship-meter .track{height:7px;border-radius:99px;background:var(--stage);overflow:hidden;margin-top:6px}
+.ship-meter .track i{display:block;height:100%;width:0;background:var(--ok);border-radius:inherit;transition:width .35s}
+.ship-meter.done{color:var(--ok);font-weight:600}
+html.is-closed .promo{display:none}
+</style>
+<link rel="canonical" href="https://mromars-classroom.com/toys/treasure-box/">
+<meta property="og:site_name" content="Mr. Omar&#x27;s Classroom">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Treasure Box Toys · Toys · Mr. Omar&#x27;s Classroom">
+<meta property="og:description" content="Little toys for the classroom treasure box and Friday rewards, one at a time or by the pack.">
+<meta property="og:url" content="https://mromars-classroom.com/toys/treasure-box/">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://mromars-classroom.com/share/spider-card-0bdd5586f5.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Treasure Box Toys · Toys","url":"https://mromars-classroom.com/toys/treasure-box/","description":"Little toys for the classroom treasure box and Friday rewards, one at a time or by the pack.","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://mromars-classroom.com/p/spider/"},{"@type":"ListItem","position":2,"url":"https://mromars-classroom.com/p/candycorn/"},{"@type":"ListItem","position":3,"url":"https://mromars-classroom.com/p/wyvern/"},{"@type":"ListItem","position":4,"url":"https://mromars-classroom.com/p/gecko/"},{"@type":"ListItem","position":5,"url":"https://mromars-classroom.com/p/wyvern-20/"},{"@type":"ListItem","position":6,"url":"https://mromars-classroom.com/p/gecko-20/"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mromars-classroom.com/"},{"@type":"ListItem","position":2,"name":"Toys","item":"https://mromars-classroom.com/toys/"},{"@type":"ListItem","position":3,"name":"Treasure Box Toys","item":"https://mromars-classroom.com/toys/treasure-box/"}]}</script>
+</head>
+<body>
+
+
+<div class="promo" id="promo" hidden></div>
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="/" aria-label="Mr. Omar's Classroom, home">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50.00 4.00 A7.47 7.47 0 0 1 73.00 10.16 A7.47 7.47 0 0 1 89.84 27.00 A7.47 7.47 0 0 1 96.00 50.00 A7.47 7.47 0 0 1 89.84 73.00 A7.47 7.47 0 0 1 73.00 89.84 A7.47 7.47 0 0 1 50.00 96.00 A7.47 7.47 0 0 1 27.00 89.84 A7.47 7.47 0 0 1 10.16 73.00 A7.47 7.47 0 0 1 4.00 50.00 A7.47 7.47 0 0 1 10.16 27.00 A7.47 7.47 0 0 1 27.00 10.16 A7.47 7.47 0 0 1 50.00 4.00 Z" fill="var(--mark)"/><path d="M50.00 26.00 L56.00 42.75 L73.78 43.27 L59.70 54.15 L64.69 71.23 L50.00 61.20 L35.31 71.23 L40.30 54.15 L26.22 43.27 L44.00 42.75 Z" fill="var(--mark-ink)"/></svg>
+      <span class="brand-txt"><span class="brand-mr">Mr. Omar's</span><span class="brand-name">Classroom</span></span>
+    </a>
+    <nav class="cats" id="cats" aria-label="Shop by category"></nav>
+    <button class="browse" id="browseBtn" aria-expanded="false" aria-controls="sheetnav"><i></i>Browse</button>
+    <button class="bag-btn" id="bagBtn">Bag <span class="bag-count zero" id="bagCount">0</span></button>
+  </div>
+  <nav class="wrap sheetnav" id="sheetnav" aria-label="Browse categories" hidden></nav>
+</header>
+
+<section class="closed" id="closed" aria-labelledby="closedHead">
+  <div class="wrap closed-in">
+    <div>
+      <p class="hand-line">The shop is under maintenance</p>
+      <h1 class="dsp" id="closedHead">We&rsquo;ll be back soon!</h1>
+      <p class="lede">I&rsquo;m giving the shelves a little tidy-up. Check back shortly &mdash; everything will be
+        right where you left it.</p>
+      <p class="closed-sign" aria-hidden="true"><svg class="mark" viewBox="0 0 100 100"><path d="M50.00 4.00 A7.47 7.47 0 0 1 73.00 10.16 A7.47 7.47 0 0 1 89.84 27.00 A7.47 7.47 0 0 1 96.00 50.00 A7.47 7.47 0 0 1 89.84 73.00 A7.47 7.47 0 0 1 73.00 89.84 A7.47 7.47 0 0 1 50.00 96.00 A7.47 7.47 0 0 1 27.00 89.84 A7.47 7.47 0 0 1 10.16 73.00 A7.47 7.47 0 0 1 4.00 50.00 A7.47 7.47 0 0 1 10.16 27.00 A7.47 7.47 0 0 1 27.00 10.16 A7.47 7.47 0 0 1 50.00 4.00 Z" fill="var(--mark)"/><path d="M50.00 26.00 L56.00 42.75 L73.78 43.27 L59.70 54.15 L64.69 71.23 L50.00 61.20 L35.31 71.23 L40.30 54.15 L26.22 43.27 L44.00 42.75 Z" fill="var(--mark-ink)"/></svg>Back soon</p>
+    </div>
+    <div class="pinned note">
+      <span class="pin" aria-hidden="true"></span>
+      <h2>Need something in the meantime?</h2>
+      <p>A question about an order, or something your classroom needs? Send me an email and I&rsquo;ll get back to you.</p>
+      <div id="closedMail"></div>
+    </div>
+  </div>
+</section>
+
+<main id="view"></main>
+
+<div id="joinSlot"></div>
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="/">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50.00 4.00 A7.47 7.47 0 0 1 73.00 10.16 A7.47 7.47 0 0 1 89.84 27.00 A7.47 7.47 0 0 1 96.00 50.00 A7.47 7.47 0 0 1 89.84 73.00 A7.47 7.47 0 0 1 73.00 89.84 A7.47 7.47 0 0 1 50.00 96.00 A7.47 7.47 0 0 1 27.00 89.84 A7.47 7.47 0 0 1 10.16 73.00 A7.47 7.47 0 0 1 4.00 50.00 A7.47 7.47 0 0 1 10.16 27.00 A7.47 7.47 0 0 1 27.00 10.16 A7.47 7.47 0 0 1 50.00 4.00 Z" fill="var(--mark)"/><path d="M50.00 26.00 L56.00 42.75 L73.78 43.27 L59.70 54.15 L64.69 71.23 L50.00 61.20 L35.31 71.23 L40.30 54.15 L26.22 43.27 L44.00 42.75 Z" fill="var(--mark-ink)"/></svg>
+      <span class="brand-txt"><span class="brand-mr">Mr. Omar's</span><span class="brand-name">Classroom</span></span>
+    </a>
+    <p>Classroom materials made by a teacher.
+       Not for children under 3 &mdash; small parts.</p>
+    <p class="foot-help" id="footHelp" hidden></p>
+    <p class="foot-links"><a href="/help/">Help &amp; refunds</a> &middot; <a href="/policies/">Shipping, returns &amp; privacy</a></p>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Your bag" role="dialog" aria-modal="true" inert>
+  <div class="dh"><h2>Your bag</h2><button class="x" id="closeBag" aria-label="Close bag">&times;</button></div>
+  <div class="lines-list" id="lines"></div>
+  <div class="df">
+    <div class="tot"><span>Subtotal</span><b id="subtotal">$0.00</b></div>
+    <div class="ship-meter" id="shipMeter" hidden><span></span><div class="track"><i></i></div></div>
+    <label class="optin" id="optinRow" hidden><input type="checkbox" id="optin" checked>
+      <span>Email me new materials, promotions and discounts. Unsubscribe any time.</span></label>
+    <button class="checkout" id="checkout" disabled>Checkout</button>
+    <small id="checkoutNote">Checkout isn&rsquo;t set up yet &mdash; this shop is a preview.</small>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const ASSETS = {"spider":{"w":880,"h":660,"bbox":[0.2716,0.2773,0.767,0.9182],"frames":["/assets/frame-3b0f90672a.webp","/assets/frame-fc7f2ce8f9.webp","/assets/frame-4b3c49f57b.webp","/assets/frame-c13c8bd01f.webp","/assets/frame-1a40e7cfec.webp","/assets/frame-7cbd03dafa.webp","/assets/frame-1e036974df.webp","/assets/frame-062d270d48.webp","/assets/frame-c88d0d1b2f.webp","/assets/frame-955a48da6e.webp","/assets/frame-c97a6150f7.webp","/assets/frame-2df57f1182.webp","/assets/frame-058e0b87fa.webp","/assets/frame-fd0c9582ef.webp","/assets/frame-54f89a8516.webp","/assets/frame-b70a8e9e42.webp","/assets/frame-eb8f752c74.webp","/assets/frame-22558362d9.webp","/assets/frame-586deef035.webp","/assets/frame-357231a4de.webp","/assets/frame-06f978deef.webp","/assets/frame-bfb9e31ba1.webp","/assets/frame-05933cd9fd.webp","/assets/frame-76386c618d.webp","/assets/frame-a7ebf560c0.webp","/assets/frame-5d5840b7b7.webp","/assets/frame-2a694aaafb.webp","/assets/frame-22e1c504c1.webp","/assets/frame-3d246929d3.webp","/assets/frame-897a15ff23.webp","/assets/frame-9aa40814cd.webp","/assets/frame-3d6f75dd39.webp","/assets/frame-7c2bcbf3e9.webp","/assets/frame-b2d44f755c.webp","/assets/frame-05096a0294.webp","/assets/frame-94c1422026.webp","/assets/frame-1959306cd5.webp","/assets/frame-90e71f17ef.webp","/assets/frame-3c7863ced2.webp","/assets/frame-ffaedffaf0.webp","/assets/frame-2cb8d5f482.webp","/assets/frame-8a55c416e7.webp","/assets/frame-6be0e45dd1.webp","/assets/frame-94d1a4c344.webp","/assets/frame-263a17eee8.webp","/assets/frame-d2dbe380d5.webp","/assets/frame-9640510ea1.webp","/assets/frame-8440447a0b.webp"],"ways":{"pumpkin":"/assets/frame-8ba67509e8.webp","midnight":"/assets/frame-b643685c4c.webp","candy":"/assets/frame-0a67f08b84.webp"}},"candycorn":{"w":880,"h":660,"bbox":[0.2966,0.1848,0.7045,1.0],"frames":["/assets/frame-0ac23b92e2.webp","/assets/frame-2d3fc8f2c6.webp","/assets/frame-41e44bb3f5.webp","/assets/frame-30ac8ea183.webp","/assets/frame-074169307d.webp","/assets/frame-eb24f87ea7.webp","/assets/frame-f2cf36649e.webp","/assets/frame-48f780d68c.webp","/assets/frame-6f530de918.webp","/assets/frame-8c6ad9ec8d.webp","/assets/frame-b0468790c2.webp","/assets/frame-6c9adf6635.webp","/assets/frame-43f2b6a569.webp","/assets/frame-f05c84f29d.webp","/assets/frame-3661f6eabc.webp","/assets/frame-9b0b3873f9.webp","/assets/frame-cf120ed114.webp","/assets/frame-2b43a93476.webp","/assets/frame-127200d21e.webp","/assets/frame-4b9d0e3b03.webp","/assets/frame-23df77ec2d.webp","/assets/frame-d010f9f397.webp","/assets/frame-46178e8642.webp","/assets/frame-5d984a0695.webp","/assets/frame-dcfec8d45e.webp","/assets/frame-c2103c0640.webp","/assets/frame-da46bd2174.webp","/assets/frame-6e5ec33836.webp","/assets/frame-3f9c30df17.webp","/assets/frame-949934ba38.webp","/assets/frame-7e41ac7350.webp","/assets/frame-9424d20789.webp","/assets/frame-01e214dec9.webp","/assets/frame-62ed0738e4.webp","/assets/frame-7346e53f88.webp","/assets/frame-957a801684.webp","/assets/frame-d280ec39b4.webp","/assets/frame-2382b0953b.webp","/assets/frame-7fbdbb4860.webp","/assets/frame-0c2a4ff264.webp","/assets/frame-f0c31e980c.webp","/assets/frame-50cd085c84.webp","/assets/frame-b4176a19b3.webp","/assets/frame-3f8221884f.webp","/assets/frame-0d39ee91f4.webp","/assets/frame-da83abacd3.webp","/assets/frame-93faa6796e.webp","/assets/frame-1767d9ddc6.webp"],"ways":{"classic":"/assets/frame-c22b150169.webp","monster":"/assets/frame-9f326fd7e3.webp","berry":"/assets/frame-f6d81eca8b.webp"}}};
+const CHIPS = {"maple":{"hero":{"base":"/assets/maple-hero-19caf265af.webp","mask":"/assets/matte-112565f8db.webp","alt":"the container open and full, its lid beside it"},"open":{"base":"/assets/maple-open-2a64bc4860.webp","mask":"/assets/matte-63b67ac2bb.webp","alt":"the container closed, the chips showing through the lid"},"flatlay":{"base":"/assets/maple-flatlay-15b01f1ab8.webp","mask":"/assets/matte-05be50c70e.webp","alt":"all fifteen chips on the table"},"macro":{"base":"/assets/maple-macro-d43cafbb19.webp","mask":"/assets/matte-9d481b096c.webp","alt":"one chip up close"},"real":{"brown":{"flatlay":{"base":"/assets/maple-brown-flatlay-9865cb0d3b.webp","alt":"all fifteen chips on the table"},"hero":{"base":"/assets/maple-brown-hero-f4664bd9c2.webp","alt":"the container full, its lid beside it"},"macro":{"base":"/assets/maple-brown-macro-b3ff3503eb.webp","alt":"one chip up close"},"open":{"base":"/assets/maple-brown-open-b3bd5e44f4.webp","alt":"three chips on the table"}}}},"apple":{"hero":{"base":"/assets/apple-hero-b91532cfac.webp","mask":"/assets/matte-c209374af6.webp","alt":"a chip sitting in its container"},"open":{"base":"/assets/apple-open-bbd226c20e.webp","mask":"/assets/matte-797f544199.webp","alt":"the empty container from above"},"flatlay":{"base":"/assets/apple-flatlay-e2f0c08238.webp","mask":"/assets/matte-7bb9243eff.webp","alt":"all fifteen chips on the table"},"macro":{"base":"/assets/apple-macro-a8d55a5d7e.webp","mask":"/assets/matte-ef1181d1fa.webp","alt":"one chip up close"}},"leaf":{"hero":{"base":"/assets/leaf-hero-d6e2dd8c47.webp","mask":"/assets/matte-9f7cf2612e.webp","alt":"all fifteen chips on the table"},"open":{"base":"/assets/leaf-open-ee72471e10.webp","mask":"/assets/matte-8fd7ffbd25.webp","alt":"the lid and the container side by side"},"flatlay":{"base":"/assets/leaf-flatlay-61ba3b0fd9.webp","mask":"/assets/matte-cd144b860b.webp","alt":"the container standing, deep enough for a pack"},"macro":{"base":"/assets/leaf-macro-00e8d6e3af.webp","mask":"/assets/matte-37178d5976.webp","alt":"one chip up close"}},"home":"/assets/maple-home-f6706dac20.webp"};
+const PHOTOS = {"clicker":{"orange":"/assets/clicker-orange-b3ab4e347d.webp","red":"/assets/clicker-red-37dc0d407c.webp","blue":"/assets/clicker-blue-30e9f27155.webp","green":"/assets/clicker-green-bb348b29fe.webp","ring":"/assets/clicker-ring-be8436322c.webp","cap":"/assets/clicker-cap-79c55049d9.webp","four":"/assets/clicker-four-ccc944a548.webp","clip":"/assets/clicker-clip-cf855b4d4b.webp"},"wyvern":{"shots":[{"src":"/assets/wyvern-pink-8e6a582946.webp","alt":"in pink"},{"src":"/assets/wyvern-pink-detail-f8812609fc.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"all four colors together"}],"styles":{"pink":[{"src":"/assets/wyvern-pink-8e6a582946.webp","alt":"in pink"},{"src":"/assets/wyvern-pink-detail-f8812609fc.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"all four colors together"}],"blue":[{"src":"/assets/wyvern-blue-435c829ccf.webp","alt":"in blue"},{"src":"/assets/wyvern-blue-detail-7b2ab61f73.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"all four colors together"}],"clear":[{"src":"/assets/wyvern-clear-9e2d12923a.webp","alt":"in clear"},{"src":"/assets/wyvern-clear-detail-511e1a7ce3.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"all four colors together"}],"rainbow":[{"src":"/assets/wyvern-rainbow-427b1f391f.webp","alt":"in rainbow"},{"src":"/assets/wyvern-rainbow2-a8c92af9e0.webp","alt":"stretched out, wings open"},{"src":"/assets/wyvern-rainbow-detail-37ba213d28.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"all four colors together"}]}},"gecko":{"shots":[{"src":"/assets/gecko-blue-4da530e749.webp","alt":"in blue"},{"src":"/assets/gecko-blue-detail-5a51ea3410.webp","alt":"its face up close, see-through"}],"styles":{"blue":[{"src":"/assets/gecko-blue-4da530e749.webp","alt":"in blue"},{"src":"/assets/gecko-blue-detail-5a51ea3410.webp","alt":"its face up close, see-through"}],"rainbow":[{"src":"/assets/gecko-rainbow-715e56c1f3.webp","alt":"in rainbow"},{"src":"/assets/gecko-rainbow-detail-efdfa81ed0.webp","alt":"its face up close, see-through"}],"clear":[{"src":"/assets/gecko-clear-0379673993.webp","alt":"in clear"},{"src":"/assets/gecko-clear-detail-72666f4d31.webp","alt":"its face up close, see-through"}],"pink":[{"src":"/assets/gecko-pink-77a624ec72.webp","alt":"in pink"},{"src":"/assets/gecko-pink-detail-78bcf27a2b.webp","alt":"its face up close, see-through"}]}},"chips-stopsign":{"shots":[{"src":"/assets/stopsign-flatlay-a64acf701e.webp","alt":"all fifteen chips with the container and lid"},{"src":"/assets/stopsign-macro-09749e06c6.webp","alt":"one chip up close"},{"src":"/assets/stopsign-lid-f359f37805.webp","alt":"the lid, lettered Stop Sign"}]},"alphabet":{"shots":[{"src":"/assets/letters-flatlay-691f715d31.webp","alt":"all twenty-six tiles from above"},{"src":"/assets/letters-macro-050c249a2a.webp","alt":"the tiles up close"}]},"clicker3":{"shots":[{"src":"/assets/clicker3-hero-fc910a52d4.webp","alt":"side on"},{"src":"/assets/clicker3-lit-blue-7c10e196d1.webp","alt":"the left cap lit blue"},{"src":"/assets/clicker3-lit-red-7127aa2765.webp","alt":"the right cap lit red"},{"src":"/assets/clicker3-top-86a0c373a7.webp","alt":"all three caps from above"},{"src":"/assets/clicker3-ring-ca72aa1cd6.webp","alt":"on its split ring"},{"src":"/assets/clicker3-angle-d1cd6b6249.webp","alt":"at three-quarters"}]},"spider":{"shots":[{"src":"/assets/spider-hero-b79532d517.webp","alt":"square on"},{"src":"/assets/spider-macro-e9cd8c2021.webp","alt":"up close"},{"src":"/assets/spider-angle-1d04e3aa72.webp","alt":"turned, showing its two body segments"}]},"candycorn":{"shots":[{"src":"/assets/candycorn-hero-d4d19cd55c.webp","alt":"head on"},{"src":"/assets/candycorn-legs-3e55925a35.webp","alt":"standing, its feet showing"}]},"chips-bus":{"shots":[{"src":"/assets/bus-flatlay-82e02d7307.webp","alt":"all fifteen chips from above"},{"src":"/assets/bus-macro-f332cb8daf.webp","alt":"one bus up close"}]},"chips-pinecone":{"shots":[{"src":"/assets/pinecone-flatlay-3327525313.webp","alt":"all fifteen chips from above"},{"src":"/assets/pinecone-macro-6ed1a24d00.webp","alt":"one chip up close, its raised scales"}]},"icecream":{"shots":[{"src":"/assets/icecream-b113a8a50f.webp","alt":"with its keyring and little feet"},{"src":"/assets/icecream-ring-e824492801.webp","alt":"on its keyring, from above"}]},"wyvern-20":{"shots":[{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"pink, blue, clear and rainbow together"},{"src":"/assets/wyvern-pink-8e6a582946.webp","alt":"one in pink"},{"src":"/assets/wyvern-blue-435c829ccf.webp","alt":"one in blue"},{"src":"/assets/wyvern-clear-9e2d12923a.webp","alt":"one in clear"},{"src":"/assets/wyvern-rainbow-427b1f391f.webp","alt":"one in rainbow"}]},"gecko-20":{"shots":[{"src":"/assets/gecko-group-c003f5104f.webp","alt":"blue, rainbow, clear and pink together"},{"src":"/assets/gecko-blue-4da530e749.webp","alt":"one in blue"},{"src":"/assets/gecko-rainbow-715e56c1f3.webp","alt":"one in rainbow"},{"src":"/assets/gecko-clear-0379673993.webp","alt":"one in clear"},{"src":"/assets/gecko-pink-77a624ec72.webp","alt":"one in pink"}]}};      // products that are photographed straight, with no tinting
+/* Prices are set in the workshop (classroom-admin) and baked in at build time, so the page
+   never depends on that service being up to show a price. */
+const PRICES = {"chips-maple":{"price":8.0,"status":"live"},"chips-apple":{"price":8.0,"status":"live"},"chips-leaf":{"price":8.0,"status":"live"},"clicker":{"price":8.0,"status":"off"},"spider":{"price":5.0,"status":"live"},"candycorn":{"price":5.0,"status":"live"},"chips-stopsign":{"price":8.0,"status":"live"},"alphabet":{"price":8.0,"status":"live"},"clicker3":{"price":5.5,"status":"live"},"wyvern":{"price":1.25,"status":"live"},"gecko":{"price":1.0,"status":"live"},"wyvern-20":{"price":20.0,"status":"live"},"gecko-20":{"price":15.0,"status":"live"},"chips-bus":{"price":8.0,"status":"live"},"chips-pinecone":{"price":8.0,"status":"live"},"icecream":{"price":2.5,"status":"live"}};
+
+/* Categories and the planned line-up live here: edit these two lists and the header,
+   pages and counts all follow. */
+const CATALOG = [
+  { id: "teacher-materials", name: "Teacher Materials", short: "materials",
+    blurb: "Hands-on materials for Pre-K through 5th grade, made by a teacher a set at a time.",
+    subs: [
+      { id: "counting-number", name: "Counting & Number", blurb: "Seasonal counters, ten frames and number lines for building numbers by hand." },
+      { id: "place-value-fractions", name: "Place Value & Fractions", blurb: "Base-ten pieces, fraction circles and solids for grades 2 to 5." },
+      { id: "letters-phonics", name: "Letters & Phonics", blurb: "Letter tiles, tracing boards and word builders for early reading." },
+      { id: "classroom", name: "Classroom & Calm Corner", blurb: "Table labels, voice-level dials and quiet fidgets that keep a room running." },
+    ] },
+  { id: "toys", name: "Toys", short: "toys",
+    blurb: "Toys for the prize box, the treasure chest and Friday rewards \u2014 in color, or plain white for kids to color in.",
+    subs: [
+      { id: "halloween", name: "Halloween", blurb: "Spooky-season toys for the prize box, in color or plain white to color in." },
+      { id: "color-your-own", name: "Color Your Own", blurb: "Every toy here arrives plain white. The colors are up to the kid." },
+      { id: "fidgets", name: "Fidgets", blurb: "Clicky, glowy, pocket-sized things for hands that need something to do." },
+      { id: "keychains", name: "Keychains", blurb: "Little friends on a keyring, for backpacks, lanyards and keys." },
+      { id: "treasure-box", name: "Treasure Box Toys", blurb: "Little toys for the classroom treasure box and Friday rewards, one at a time or by the pack." },
+    ] },
+];
+
+/* The rainbow plastic shifts through green, yellow, purple and pink, so no two rainbow toys match. */
+const RAINBOW = ["#A8E03A", "#F5C61C", "#F58AB8", "#9B6BD6"];
+/* Omar 2026-10-18: the rainbow colour depends on where the roll is at, so ANY product in rainbow
+   must say it can come out in any of those colours. Every rainbow style uses RAINBOW_NOTE. */
+const RAINBOW_NOTE = "Rainbow can come out in any of its colors: green, yellow, pink, purple, or a mix of them. We can\u2019t pick which, so every rainbow one is a surprise.";
+/* status "soon" items have no photos yet and can't be added to a bag. */
+const PRODUCTS = [
+  /* Spider and candy corn lead in FULL COLOUR (Omar 2026-10-08); plain white is the
+     colour-your-own variant, and the only one the Color Your Own shelf shows. The style is
+     the variant in the bag key (spider:colour / spider:white). Colour photos come from
+     PHOTOS[id].shots; the white style shows the renders and their colour ideas. */
+  { id: "spider", name: "Baby Spider", price: 12, in: ["toys/halloween", "toys/color-your-own", "toys/treasure-box"], size: "About 2 in long",
+    desc: "A chubby spider with four big eyes and a round back, in black, with bright white eyes and feet.",
+    note: "In black &middot; or white to color in",
+    styles: [
+      { id: "colour", name: "In color", sw: ["#1D1D1F", "#F2EFE4"],
+        desc: "A chubby spider with four big eyes and a round back, in black, with bright white eyes and feet.",
+        tip: "White eyes on a black spider \u2014 it looks right back at you.",
+        specs: [["Color", "Black, white eyes and feet"], ["Size", "About 2 in long"]] },
+      { id: "white", name: "White, to color in", sw: ["#EDEDE8"],
+        desc: "A chubby spider with four big eyes and a round back, in plain white. The eyes are raised, so they\u2019re easy to color on their own.",
+        tip: "Leave the eyes white on a dark spider and they pop.",
+        specs: [["Arrives", "Plain white"], ["Color with", "Markers or paint"], ["Size", "About 2 in long"]] },
+    ],
+    ways: [
+      { id: "pumpkin", name: "Pumpkin", sw: ["#E8731E", "#1E1B22"] },
+      { id: "midnight", name: "Midnight", sw: ["#6B3FA0", "#8FD14F"] },
+      { id: "candy", name: "Bubblegum", sw: ["#F4A6C6", "#F4F4F0"] },
+    ] },
+  { id: "candycorn", name: "Little Candy Corn", price: 10, in: ["toys/halloween", "toys/color-your-own", "toys/treasure-box"], size: "About 2 in tall",
+    desc: "A candy corn with two peek-through eyes and a pair of yellow feet. The bands are part of the shape, so the stripes line up every time.",
+    note: "Orange, white and yellow &middot; or white to color in",
+    styles: [
+      { id: "colour", name: "In color", sw: ["#E77932", "#F1F1EF", "#F5CF1A"],
+        desc: "A candy corn with two peek-through eyes and a pair of yellow feet. The bands are part of the shape, so the stripes line up every time.",
+        tip: "Orange body, white tip, yellow feet \u2014 the classic.",
+        specs: [["Color", "Orange, white tip, yellow feet"], ["Size", "About 2 in tall"]] },
+      { id: "white", name: "White, to color in", sw: ["#EDEDE8"],
+        desc: "A candy corn with two peek-through eyes, in plain white. Two grooves run all the way around it, so kids know exactly where the stripes go.",
+        tip: "Follow the grooves for crisp stripes.",
+        specs: [["Arrives", "Plain white"], ["Color with", "Markers or paint"], ["Size", "About 2 in tall"]] },
+    ],
+    ways: [
+      { id: "classic", name: "Classic", sw: ["#F6C21C", "#EE7A1F", "#F4F4F0"] },
+      { id: "monster", name: "Monster", sw: ["#6B3FA0", "#8FD14F", "#F4F4F0"] },
+      { id: "berry", name: "Berry", sw: ["#E0457B", "#F4A6C6", "#F4F4F0"] },
+    ] },
+
+  { id: "clicker", name: "Key Cap Clicker", price: 8, in: ["toys/fidgets"], size: "About 1 in square",
+    lights: [                                  // one unit, one light colour: pick the colour
+      { id: "green", name: "Green", hex: "#3DD657" },
+      { id: "blue", name: "Blue", hex: "#2C6BE0" },
+      { id: "red", name: "Red", hex: "#E03A2F" },
+      { id: "orange", name: "Orange", hex: "#F08A1E" },
+    ],
+    desc: "One key cap on a keyring. Press it and it clicks like the key on a keyboard, and the cap lights up while it is held down.",
+    tip: "Black case, clear cap. Each clicker lights one color \u2014 pick which one.",
+    pack: ["One clicker on a split ring", "Black case with a clear key cap",
+           "One light color per clicker, on while the cap is down"] },
+  { id: "clicker3", name: "Triple Key Cap Clicker", price: 5.5, in: ["toys/fidgets"],
+    desc: "Three key caps on one keyring. Press any of them and it clicks like a keyboard key, and that cap lights up for as long as it is held down \u2014 one red, one white, one blue.",
+    note: "Three caps &middot; red, white and blue lights",
+    tip: "Clear pink body, so every light glows through the plastic.",
+    specs: [["Size", "About 2.7 in long"], ["Lights", "Red, white and blue"], ["On", "A split ring"]],
+    pack: ["Three key caps on one clicker", "One red, one white and one blue light", "On a split ring"] },
+
+  /* Run 2 (2026-10-18): flexi toys, all in TRANSLUCENT plastic (Omar). "Clear" is clear, not
+     white. "Rainbow" is one plastic that runs green, yellow, purple and pink, so every one comes out
+     a different mix - the copy says so. Each style has its own photos
+     (PHOTOS[id].styles[style]) plus a translucent detail picture rendered from the STL, because
+     see-through plastic hides the face and scales in a phone photo. The wyvern prints at 70% of
+     its file (Omar). draft: shown only in a --preview build. */
+  ...[
+    ["wyvern", "Tiny Wyvern", "About 2.4 in long",
+     "A little wyvern with swept-back wings, a spiky ridge down its back and a tail made of linked segments, so it wiggles and curls in your hand. See-through, so it glows when the light is behind it.",
+     "Hold it up to a sunny window and watch it light up.",
+     [["pink", "Pink", ["#F58A96"]], ["blue", "Blue", ["#5FC0F2"]], ["clear", "Clear", ["#EEF3F5"]], ["rainbow", "Rainbow", RAINBOW]]],
+    ["gecko", "Baby Gecko", "About 2.2 in long",
+     "A baby gecko with a round head, big eyes and a little smile. Its body and tail are linked segments, so it bends, curls and wiggles across the table, and the see-through plastic glows in the light.",
+     "Small enough for the prize box, wiggly enough for busy hands.",
+     [["blue", "Blue", ["#5FC0F2"]], ["rainbow", "Rainbow", RAINBOW], ["clear", "Clear", ["#EEF3F5"]], ["pink", "Pink", ["#F58A96"]]]],
+  ].map(([id, name, size, desc, tip, cols]) => ({
+    id, name, price: 5, in: ["toys/fidgets", "toys/treasure-box"], size, desc,
+    note: "See-through &middot; " + cols.map(c => c[1]).join(" &middot; "),
+    styles: cols.map(([sid, sname, sw]) => ({ id: sid, name: sname, sw,
+      desc: sid === "rainbow" ? desc + " " + RAINBOW_NOTE : desc, tip,
+      specs: [["Color", sid === "rainbow" ? "Any of green, yellow, pink or purple, or a mix" : sname + ", see-through"],
+              ["Size", size], ["Moves", "Bends at every joint"]] })),
+  })),
+  /* Spider and candy corn also sit on Treasure Box Toys (Omar 2026-10-18). No red translucent
+     exists - the wyvern's "red" is the pink.
+     Sizes (Omar): the treasure box wyvern is 70% of its file and is NOT a keychain; a full-size
+     wyvern KEYCHAIN (the file's own size), and bigger spider and candy corn keychains, come later
+     as their own listings. The gecko is never a keychain.
+     20-packs: five of each colour. Omar sets their price in the workshop, which overrides the
+     placeholder here at build time. */
+  ...[["wyvern", "Tiny Wyverns", "tiny wyverns", "About 2.4 in long", "pink, blue, clear and rainbow"],
+      ["gecko", "Baby Geckos", "baby geckos", "About 2.2 in long", "blue, rainbow, clear and pink"]]
+    .map(([id, name, lower, size, cols]) => ({
+      id: id + "-20", name: name + " \u2013 Treasure Box 20 Pack", price: 20, in: ["toys/treasure-box"],
+      size: size + " each",
+      desc: "Twenty " + lower + ", five each in " + cols + ", for restocking the classroom treasure box in one go. " +
+            "Every one bends at each joint, and the see-through plastic glows in the light. " + RAINBOW_NOTE,
+      note: "20 toys &middot; five of each color",
+      tip: "One pack gives a class of twenty one each, with the colors shared out evenly.",
+      specs: [["In the pack", "20 " + lower], ["Colors", "Five each of " + cols], ["Size", size + " each"]],
+      pack: ["Twenty " + lower, "Five in each of the four colors"] })),
+  /* Ice cream cup keychain (Omar 2026-10-18): photos IMG_4242-4245 with the keyring on. Size from
+     the STL (41.5 x 41.5 x 40.5 mm). Chocolate brown cup, white swirls. */
+  { id: "icecream", name: "Ice Cream Cup Keychain", price: 5, in: ["toys/keychains"], size: "About 1.6 in tall",
+    desc: "A little chocolate ice cream cup piled high with vanilla swirls, with two peek-through eyes and a pair of tiny feet. It hangs on a keyring with a short chain, ready for a backpack, a lanyard or a set of keys.",
+    note: "Chocolate cup &middot; vanilla swirls &middot; on a keyring",
+    tip: "Clip it to a lanyard and it peeks out at the class all day.",
+    specs: [["Color", "Chocolate brown, white swirls"], ["Size", "About 1.6 in tall"], ["On", "A keyring with a short chain"]],
+    pack: ["One ice cream cup keychain", "On a keyring with a short chain"] },
+  /* Counting Chips are THREE products, one per shape (Omar 2026-10-06), each with its own
+     price and the same four colours. Colour never changes the price. The shape stays in the
+     bag key (chips-apple:apple:red) because the photo sets and stock are keyed by it. */
+  ...[
+    ["maple", "Maple Leaf Counting Chips", "Maple leaf", "46 \u00d7 43 mm",
+     "Fifteen maple leaf counters in a maple leaf container, made for fall. Count the leaves that fell, sort them by color, build patterns along a branch \u2014 and fifteen fills a ten frame with five left over for making ten."],
+    ["apple", "Apple Counting Chips", "Apple", "42 \u00d7 47 mm",
+     "Fifteen apple counters in an apple-shaped container, a back-to-school favorite. Stack them up on top, fill an apple tree, add to and take away from the basket \u2014 and fifteen fills a ten frame with five left over for making ten."],
+    ["leaf", "Leaf Counting Chips", "Leaf", "34 \u00d7 49 mm",
+     "Fifteen leaf counters in a leaf-shaped container, at home in any season. Green for spring, red and orange for fall: sort by color, measure a branch in leaves, grow a pattern \u2014 and fifteen fills a ten frame with five left over for making ten."],
+  ].map(([shape, name, label, chip, desc]) => ({
+    id: "chips-" + shape, name, price: 10, first: true, in: ["teacher-materials/counting-number"],
+    grades: ["Pre-K\u2013K", "1\u20132", "3\u20135"],
+    shapes: [{ id: shape, name: label, chip }],
+    colours: [                                   // measured off real swatches with a colorimeter
+      { id: "red", name: "Red", hex: "#AC3637" },
+      { id: "orange", name: "Orange", hex: "#E77932" },
+      { id: "green", name: "Green", hex: "#4EE349" },
+      { id: "blue", name: "Blue", hex: "#0063A0" },
+      { id: "brown", name: "Brown", hex: "#55412F" },   // off Omar's brown maple photos, chip / paper
+    ],
+    desc,
+    tip: "The container is the same silhouette as the chips, so a pack reads across the room.",
+    pack: ["15 chips, all one shape, 3 mm thick", "A container sized for exactly one pack", "A lid that caps over the top"]
+  })),
+  /* Stop signs are real colour (red only, Omar 2026-10-12), so they are photographed as
+     they are, not tinted like the three above. */
+  { id: "chips-stopsign", name: "Stop Sign Counting Chips", price: 8, in: ["teacher-materials/counting-number"],
+    per: "a pack of 15", grades: ["Pre-K\u2013K", "1\u20132", "3\u20135"],
+    desc: "Fifteen stop sign counters in a stop sign container \u2014 a shape every child already knows the meaning of. Count them into the container, sort them, build patterns, and fifteen fills a ten frame with five left over for making ten.",
+    note: "15 to a pack &middot; red with a white rim",
+    tip: "Red faces with a white rim, like the real thing.",
+    specs: [["In the pack", "15 chips"], ["Chip size", "44 \u00d7 44 mm"], ["Thickness", "3 mm"]],
+    pack: ["15 stop sign chips, 3 mm thick", "A container sized for exactly one pack", "A lid lettered Stop Sign"] },
+  /* Run 2 (2026-10-18). Omar: every counting-chips description must tell the customer it
+     comes with a container and 15 chips. Real colour, photographed as they are. */
+  { id: "chips-bus", name: "School Bus Counting Chips", price: 8, in: ["teacher-materials/counting-number"],
+    per: "a pack of 15", grades: ["Pre-K\u2013K", "1\u20132", "3\u20135"],
+    desc: "Fifteen school bus counters that come with a container to keep them in. Yellow buses with white windows, for the first day of school and every day after: load the bus, count who gets off at each stop, and fifteen fills a ten frame with five left over for making ten.",
+    note: "15 chips and a container &middot; yellow with white windows",
+    tip: "Line the buses up nose to tail for a counting road across the table.",
+    specs: [["In the pack", "15 chips and a container"], ["Chip size", "47 \u00d7 28 mm"], ["Thickness", "3 mm"]],
+    pack: ["15 school bus chips, 3 mm thick", "A container sized for exactly one pack", "A lid that caps over the top"] },
+  { id: "chips-pinecone", name: "Pine Cone Counting Chips", price: 8, in: ["teacher-materials/counting-number"],
+    per: "a pack of 15", grades: ["Pre-K\u2013K", "1\u20132", "3\u20135"],
+    desc: "Fifteen pine cone counters that come with a container to keep them in, for fall and winter math tables. The scales are raised, so small fingers can trace them while they count, and fifteen fills a ten frame with five left over for making ten.",
+    note: "15 chips and a container &middot; brown",
+    tip: "Pair them with the maple leaf chips for a whole autumn sorting tray.",
+    specs: [["In the pack", "15 chips and a container"], ["Chip size", "33 \u00d7 51 mm"], ["Thickness", "3 mm"]],
+    pack: ["15 pine cone chips, 3 mm thick", "A container sized for exactly one pack", "A lid lettered Pine Cones"] },
+  { id: "tenframes", name: "Ten-Frame Trays", status: "soon", in: ["teacher-materials/counting-number"],
+    grades: ["Pre-K\u2013K", "1\u20132"],
+    desc: "Wells that hold the chips still, so a number stays built while a small hand counts it. Doubles up into a twenty frame." },
+  { id: "numberline", name: "Number Line 0\u201320", status: "soon", in: ["teacher-materials/counting-number"],
+    grades: ["K", "1\u20132"],
+    desc: "Snap-together segments for counting on, jumps and number talks. Comes apart for small-group work." },
+  { id: "rekenrek", name: "Rekenrek", status: "soon", in: ["teacher-materials/counting-number"],
+    grades: ["K", "1\u20132"],
+    desc: "Two rows of ten beads, five red and five white, for subitizing and making tens without counting one by one." },
+
+  { id: "baseten", name: "Base-Ten Set", status: "soon", in: ["teacher-materials/place-value-fractions"],
+    grades: ["1\u20132", "3\u20135"],
+    desc: "Units, rods and flats that stack true, so trading ten ones for a ten is something students can feel." },
+  { id: "pvmat", name: "Place Value Frames", status: "soon", in: ["teacher-materials/place-value-fractions"],
+    grades: ["1\u20132", "3\u20135"],
+    desc: "Slotted frames that keep ones, tens and hundreds in their columns, even when the table gets bumped." },
+  { id: "fractions", name: "Fraction Circles", status: "soon", in: ["teacher-materials/place-value-fractions"],
+    grades: ["3\u20135"],
+    desc: "Halves through twelfths, stackable, so equivalence is something students can see instead of memorize." },
+  { id: "solids", name: "Geometric Solids", status: "soon", in: ["teacher-materials/place-value-fractions"],
+    grades: ["3\u20135"],
+    desc: "Cube, cone, cylinder, sphere, prism and pyramid, sized to hold in one hand for faces, edges and vertices." },
+
+  { id: "alphabet", name: "Movable Alphabet \u2013 Lowercase", price: 6, in: ["teacher-materials/letters-phonics"],
+    per: "a set of 26", grades: ["Pre-K\u2013K", "1\u20132"],
+    desc: "Twenty-six lowercase tiles with the vowels in a second color, so a word a student builds shows its vowels at a glance. They come in a case with two compartments, which is what stops a set walking off round the room.",
+    note: "26 tiles &middot; red consonants, brown vowels &middot; in a case",
+    tip: "Vowels are brown and consonants red, so short vowel words practically sort themselves.",
+    specs: [["Tiles", "26, a to z"], ["Tile size", "30 \u00d7 30 mm"], ["Thickness", "3 mm"]],
+    pack: ["26 lowercase letters on white tiles", "Red consonants, brown vowels", "A case with two compartments"] },
+  { id: "alphabet-upper", name: "Movable Alphabet \u2013 Uppercase", status: "soon", in: ["teacher-materials/letters-phonics"],
+    grades: ["Pre-K\u2013K", "1\u20132"],
+    desc: "The same tiles and case as the lowercase set, in capitals, for names and the start of every sentence." },
+  { id: "tracing", name: "Letter Tracing Boards", status: "soon", in: ["teacher-materials/letters-phonics"],
+    grades: ["Pre-K\u2013K"],
+    desc: "Grooved letters deep enough to guide a finger, for letter formation before pencils enter the picture." },
+  { id: "cvc", name: "CVC Word Builders", status: "soon", in: ["teacher-materials/letters-phonics"],
+    grades: ["K", "1\u20132"],
+    desc: "Slide the first sound and a new word appears. Cat becomes hat becomes mat without hunting for tiles." },
+  { id: "whisperphone", name: "Whisper Phones", status: "soon", in: ["teacher-materials/letters-phonics"],
+    grades: ["K", "1\u20132"],
+    desc: "Readers hear their own voice clearly at a whisper, which keeps a room of readers quiet enough to think in." },
+
+  { id: "voicedial", name: "Voice Level Dial", status: "soon", in: ["teacher-materials/classroom"],
+    grades: ["All grades"],
+    desc: "Zero through four on a dial big enough to read from the back of the room. Turn it instead of saying it again." },
+  { id: "tablenumbers", name: "Table Numbers", status: "soon", in: ["teacher-materials/classroom"],
+    grades: ["All grades"],
+    desc: "Freestanding numbers with a wide base, heavy enough to stay put through a whole day of group work." },
+  { id: "calmset", name: "Calm Corner Fidget Set", status: "soon", in: ["teacher-materials/classroom"],
+    grades: ["Sensory", "All grades"],
+    desc: "A basket of quiet fidgets: no clicking, no rattle, nothing that carries across a room during a lesson." },
+  { id: "prizebox", name: "Prize Box Minis", status: "soon", in: ["teacher-materials/classroom"],
+    grades: ["All grades"],
+    desc: "Small toys that cost little to restock, in the mixed bag that keeps a treasure chest worth choosing from." },
+];
+
+
+const ICONS = {
+  "counting-number": '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="11" width="36" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M20 11v18" stroke="currentColor" stroke-width="2"/><circle cx="11" cy="20" r="5.4" fill="var(--chip-red)"/><circle cx="29" cy="20" r="5.4" fill="var(--chip-yellow)"/></svg>',
+  "place-value-fractions": '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="4" width="14" height="14" rx="2" fill="var(--rod-blue)"/><rect x="21" y="4" width="16" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="21" y="12" width="16" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="20" cy="30" r="8.6" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M20 21.4V30l7.4 4.4" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>',
+  "letters-phonics": '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="2.5" y="9" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><text x="10.5" y="21" text-anchor="middle" font-family="Fredoka, sans-serif" font-size="12" font-weight="600" fill="currentColor">a</text><rect x="21.5" y="9" width="16" height="16" rx="3" fill="var(--chip-yellow)"/><text x="29.5" y="21" text-anchor="middle" font-family="Fredoka, sans-serif" font-size="12" font-weight="600" fill="#1C221F">t</text><path d="M4 32h32" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="4 4"/></svg>',
+  "halloween": '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 34V18a10 10 0 0 1 20 0v16l-4-3-3 3-3-3-3 3-3-3-4 3z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="16" cy="19" r="1.8" fill="currentColor"/><circle cx="24" cy="19" r="1.8" fill="currentColor"/></svg>',
+  "color-your-own": '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M25 5l10 10-17 17-10 3 3-10z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M22 8l10 10" stroke="currentColor" stroke-width="2.2"/><path d="M6 36h28" stroke="var(--chip-red)" stroke-width="2.8" stroke-linecap="round"/></svg>',
+  "fidgets": '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="11" y="17" width="18" height="15" rx="3.5" fill="none" stroke="currentColor" stroke-width="2.4"/><rect x="14" y="12" width="12" height="7" rx="2.5" fill="var(--chip-yellow)" stroke="currentColor" stroke-width="2"/><path d="M20 3v4M11 6l2.4 3.2M29 6l-2.4 3.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+  "classroom": '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 33a13 13 0 1 1 13-13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M20 20l8-6" stroke="var(--chip-red)" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="20" r="2.6" fill="currentColor"/><path d="M6 34h28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+};
+
+/* A product retired in the workshop leaves the store; one marked soon stops being
+   buyable but keeps its card. Price follows the workshop either way. */
+for (let i = PRODUCTS.length - 1; i >= 0; i--) {
+  const w = PRICES[PRODUCTS[i].id];
+  if (!w) continue;
+  if (w.status === "retired") { PRODUCTS.splice(i, 1); continue; }
+  if (w.price != null) PRODUCTS[i].price = w.price;
+  if (w.status === "soon") PRODUCTS[i].status = "soon";
+}
+/* The workshop's On shop switch. A product switched off ("off") is built into the page but
+   held back; the live answer (`on`, the store keys switched on) shows or hides it on the
+   next page load, both ways, with no rebuild. Only products the workshop sells are governed
+   by it - a "soon" card stays a card. */
+const DRAFTS = false;      // build.py --preview turns this on
+const ALL_PRODUCTS = PRODUCTS.filter(p => DRAFTS || !p.draft);
+PRODUCTS.length = 0; ALL_PRODUCTS.forEach(p => PRODUCTS.push(p));
+if (!DRAFTS) CATALOG.forEach(c => { c.subs = c.subs.filter(x => !x.draft); });   // a shelf that only drafts fill
+let ON_KEYS = null;
+function applyOn(on) {
+  ON_KEYS = on ? new Set(on) : null;
+  const shown = p => {
+    const w = PRICES[p.id];
+    if (!w || !["live", "off"].includes(w.status)) return true;
+    return ON_KEYS ? ON_KEYS.has(p.id) : w.status === "live";
+  };
+  PRODUCTS.length = 0;
+  ALL_PRODUCTS.filter(shown).forEach(p => PRODUCTS.push(p));
+}
+
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const money = n => "$" + n.toFixed(2);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const inCat = (p, cat, sub) => p.in.some(k => sub ? k === cat + "/" + sub : k.startsWith(cat + "/"));
+const forSale = p => !p.status;
+const listFor = (cat, sub) => PRODUCTS.filter(p => inCat(p, cat, sub));
+const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+const CHEV = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8l4-3.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+/* ---------- header navigation ---------- */
+/* In stock = any bag key of this product is buyable (all of them before stock is known).
+   On the Color Your Own shelf only the white style counts. */
+function anyInStock(p, subId) {
+  if (!AVAIL) return true;
+  const want = p.styles && subId === "color-your-own" ? [p.id + ":white"] : null;
+  return [...AVAIL].some(k => want ? want.includes(k) : (k === p.id || k.startsWith(p.id + ":")));
+}
+function subCount(c, s) {
+  const items = listFor(c.id, s.id);
+  if (items.every(p => p.status)) return '<em class="soon">Soon</em>';
+  const n = items.filter(p => forSale(p) && anyInStock(p, s.id)).length;
+  return n ? "<em>" + plural(n, "item") + "</em>" : '<em class="soon">Sold out</em>';
+}
+function buildNav() {
+  $("#cats").innerHTML = CATALOG.map(c => `
+    <div class="cat">
+      <button class="cat-btn" id="btn-${c.id}" aria-expanded="false" aria-controls="menu-${c.id}" data-cat="${c.id}">${esc(c.name)}${CHEV}</button>
+      <div class="menu" id="menu-${c.id}" hidden>
+        <a class="all" href="/${c.id}/"><b>All ${esc(c.short)}</b><span>${esc(c.blurb)}</span></a>
+        ${c.subs.map(s => `<a href="/${c.id}/${s.id}/"><b>${esc(s.name)}</b><span>${esc(s.blurb)}</span>${subCount(c, s)}</a>`).join("")}
+      </div>
+    </div>`).join("");
+  $("#sheetnav").innerHTML = CATALOG.map(c => `
+    <h2>${esc(c.name)}</h2>
+    <a href="/${c.id}/">All ${esc(c.short)}<em>${listFor(c.id).every(p => p.status) ? "Soon" : plural(listFor(c.id).filter(forSale).length, "item")}</em></a>
+    ${c.subs.map(s => `<a href="/${c.id}/${s.id}/">${esc(s.name)}${subCount(c, s)}</a>`).join("")}`).join("");
+
+  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  $$(".cat").forEach(wrap => {
+    const btn = $(".cat-btn", wrap), menu = $(".menu", wrap);
+    let closeT;
+    const open = on => { btn.setAttribute("aria-expanded", on); menu.hidden = !on; };
+    btn.addEventListener("click", () => {
+      const on = btn.getAttribute("aria-expanded") !== "true";
+      closeMenus(); open(on);
+    });
+    if (fine) {
+      wrap.addEventListener("mouseenter", () => { clearTimeout(closeT); closeMenus(wrap); open(true); });
+      wrap.addEventListener("mouseleave", () => { closeT = setTimeout(() => open(false), 160); });
+    }
+    menu.addEventListener("click", e => { if (e.target.closest("a")) open(false); });
+  });
+  document.addEventListener("click", e => { if (!e.target.closest(".cat")) closeMenus(); });
+  document.addEventListener("keydown", e => {
+    if (e.key !== "Escape") return;
+    const openBtn = $('.cat-btn[aria-expanded="true"]');
+    closeMenus(); closeBag(); if (openBtn) openBtn.focus();
+  });
+  const bb = $("#browseBtn"), sn = $("#sheetnav");
+  bb.addEventListener("click", () => { const on = bb.getAttribute("aria-expanded") !== "true"; bb.setAttribute("aria-expanded", on); sn.hidden = !on; });
+  sn.addEventListener("click", e => { if (e.target.closest("a")) { bb.setAttribute("aria-expanded", "false"); sn.hidden = true; } });
+}
+function closeMenus(except) {
+  $$(".cat").forEach(w => { if (w === except) return; $(".cat-btn", w).setAttribute("aria-expanded", "false"); $(".menu", w).hidden = true; });
+}
+
+/* ---------- pieces ---------- */
+function productHTML(p) {
+  const A = ASSETS[p.id];
+  return `
+  <article class="product" id="p-${p.id}">
+    <div class="stage" data-id="${p.id}" tabindex="0" role="img" aria-label="${esc(p.name)}, turning slowly. Drag or use the arrow keys to turn it.">
+      <img class="still" src="${A.frames[0]}" alt="" width="${A.w}" height="${A.h}">
+      <canvas></canvas>
+      <p class="note" aria-live="polite"><span>As it arrives</span></p>
+      <span class="hint"><svg viewBox="0 0 22 10" aria-hidden="true"><path d="M1 5h20M1 5l3.5-3.5M1 5l3.5 3.5M21 5l-3.5-3.5M21 5l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Drag to turn</span>
+    </div>
+    <div class="meta">
+      <div class="title-row"><h3>${esc(p.name)}</h3><span class="price">${money(p.price)}</span></div>
+      <p class="desc">${esc(p.desc)}</p>
+      <div class="ways" role="group" aria-label="Color ideas for ${esc(p.name)}">
+        <span class="label">Color ideas</span>
+        ${p.ways.map(w => `<button class="way" id="way-${p.id}-${w.id}" data-way="${w.id}" aria-pressed="${w.id === "white"}"><span class="sw">${w.sw.map(c => `<i style="background:${c}"></i>`).join("")}</span>${esc(w.name)}</button>`).join("")}
+      </div>
+      <dl class="specs">
+        <div><dt>Arrives</dt><dd>Plain white</dd></div>
+        <div><dt>Color with</dt><dd>Markers or paint</dd></div>
+        <div><dt>Size</dt><dd>${esc(p.size)}</dd></div>
+      </dl>
+      <button class="add" id="add-${p.id}" data-add="${p.id}">Add to bag</button>
+    </div>
+  </article>`;
+}
+function shotCardHTML(p) {
+  const v = p.shapes[0].id, c = p.colours[2];          // green, the one Omar makes today
+  return `
+  <article class="product shot-card">
+    <a class="shot-wrap" href="/p/${p.id}/" aria-label="${esc(p.name)}, see the pack">
+      <canvas data-shape="${v}" data-shot="hero" data-hex="${c.hex}"
+        role="img" aria-label="${esc(p.name)}, ${esc(p.shapes[0].name.toLowerCase())}, with its container"></canvas>
+    </a>
+    <div class="meta">
+      <div class="title-row"><h3><a href="/p/${p.id}/">${esc(p.name)}</a></h3><span class="price">${money(p.price)}</span></div>
+      <p class="desc">${esc(p.desc)}</p>
+      <p class="shapes">${p.shapes.length > 1 ? `<span>Shapes</span> ${p.shapes.map(x => esc(x.name)).join(" \u00b7 ")}
+        &nbsp; ` : ""}<span>Colors</span> ${p.colours.map(x => esc(x.name)).join(" \u00b7 ")}</p>
+      <a class="btn btn-dark" href="/p/${p.id}/">See the pack</a>
+    </div>
+  </article>`;
+}
+
+const LIGHT_SHOTS = [["light", "lit up"], ["clip", "clicking, and the light coming on"],
+                     ["ring", "on its keyring"], ["cap", "the clear cap, unlit"],
+                     ["four", "the four light colors"]];
+
+function viewLight(p) {
+  const cat = CATALOG.find(c => p.in[0].startsWith(c.id));
+  const sub = cat.subs.find(x => p.in[0].endsWith(x.id));
+  const P = PHOTOS[p.id], l = p.lights[0];
+  const shots = LIGHT_SHOTS.filter(([k]) => k === "light" || P[k]);
+  return `
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/${cat.id}/">${esc(cat.name)}</a><span aria-hidden="true">/</span>
+        <a href="/${cat.id}/${sub.id}/">${esc(sub.name)}</a><span aria-hidden="true">/</span>
+        <span>${esc(p.name)}</span>
+      </nav>
+    </div>
+  </section>
+  <section><div class="wrap prod" id="prodLight" data-id="${p.id}">
+    <div class="gallery">
+      <div class="shot-main"><img id="lightMain" src="${P[l.id]}" alt="${esc(p.name)}, lit ${esc(l.name.toLowerCase())}"></div>
+      <div class="thumbs" role="group" aria-label="More pictures">
+        ${shots.map(([k, label], i) => `<button class="thumb${i ? "" : " on"}" data-shot="${k}" aria-pressed="${!i}"
+          aria-label="Show ${esc(label)}"><img src="${k === "light" ? P[l.id] : P[k]}" alt=""></button>`).join("")}
+      </div>
+    </div>
+    <div class="prod-side">
+      <h1 class="dsp">${esc(p.name)}</h1>
+      <p class="price big" id="lightPrice">${money(p.price)}</p>${shipHint()}
+      <p class="desc">${esc(p.desc)}</p>
+      <div class="ways" role="group" aria-label="Light color">
+        <span class="label">Light</span>
+        ${p.lights.map((x, i) => `<button class="way" data-light="${x.id}" aria-pressed="${!i}">
+          <span class="sw"><i style="background:${x.hex}"></i></span>${esc(x.name)}</button>`).join("")}
+      </div>
+      <p class="tip">${esc(p.tip)}</p>
+      <dl class="specs">
+        <div><dt>Size</dt><dd>${esc(p.size)}</dd></div>
+        <div><dt>Light</dt><dd>One color per clicker</dd></div>
+        <div><dt>On</dt><dd>A split ring</dd></div>
+      </dl>
+      <button class="add" id="addLight" data-add="${p.id}:${l.id}">Add to bag</button>
+      <ul class="pack">${p.pack.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      ${safetyHTML(p)}
+    </div>
+  </div></section>
+  ${askHTML()}`;
+}
+
+function mountLight() {
+  const wrap = $("#prodLight"); if (!wrap) return;
+  const p = PRODUCTS.find(x => x.id === wrap.dataset.id), P = PHOTOS[p.id];
+  let light = p.lights[0], shot = "light";
+  const main = $("#lightMain");
+  const src = k => P[k === "light" ? light.id : k];
+  const paint = () => {
+    main.src = src(shot);
+    const label = (LIGHT_SHOTS.find(([k]) => k === shot) || [])[1] || "";
+    main.alt = `${p.name}, ${shot === "light" ? "lit " + light.name.toLowerCase() : label}`;
+    $$(".thumb", wrap).forEach(b => {
+      $("img", b).src = src(b.dataset.shot);
+      const on = b.dataset.shot === shot;
+      b.classList.toggle("on", on); b.setAttribute("aria-pressed", on);
+    });
+    $$("[data-light]", wrap).forEach(b => b.setAttribute("aria-pressed", b.dataset.light === light.id));
+    $("#addLight").dataset.add = p.id + ":" + light.id;
+    markSold();
+  };
+  $$(".thumb", wrap).forEach(b => b.addEventListener("click", () => { shot = b.dataset.shot; paint(); }));
+  $$("[data-light]", wrap).forEach(b => b.addEventListener("click", () => {
+    light = p.lights.find(x => x.id === b.dataset.light);
+    if (shot !== "light" && shot !== "clip") shot = "light";
+    paint();
+  }));
+  paint();
+}
+
+function lightCardHTML(p) {
+  const l = p.lights[0];
+  return `
+  <article class="product shot-card">
+    <a class="shot-wrap" href="/p/${p.id}/" aria-label="${esc(p.name)}, see it">
+      <img src="${PHOTOS[p.id][l.id]}" alt="${esc(p.name)}, lit ${esc(l.name.toLowerCase())}" loading="lazy">
+    </a>
+    <div class="meta">
+      <div class="title-row"><h3><a href="/p/${p.id}/">${esc(p.name)}</a></h3><span class="price">${money(p.price)}</span></div>
+      <p class="desc">${esc(p.desc)}</p>
+      <p class="shapes"><span>Light</span> ${p.lights.map(x => esc(x.name)).join(" \u00b7 ")}</p>
+      <a class="btn btn-dark" href="/p/${p.id}/">See it</a>
+    </div>
+  </article>`;
+}
+
+/* ---------- real-colour products (2026-10-12) ----------
+   A plain gallery of Omar's own photos: stop signs, the alphabet, the triple clicker, and
+   the spider and candy corn in colour. A product with styles (spider, candy corn) also has
+   a white, colour-your-own style, which shows the renders and their colour ideas instead. */
+const isShots = p => !!(PHOTOS[p.id] && PHOTOS[p.id].shots);
+const styleOf = (p, id) => p.styles ? (p.styles.find(x => x.id === id) || p.styles[0]) : null;
+function shotsFor(p, style) {
+  if (style && style.id === "white" && ASSETS[p.id]) {
+    const A = ASSETS[p.id];
+    return [{ src: A.frames[0], alt: "plain white, as it arrives" },
+            ...(p.ways || []).filter(w => A.ways[w.id])
+              .map(w => ({ src: A.ways[w.id], alt: "a color idea: " + w.name.toLowerCase() }))];
+  }
+  const S = PHOTOS[p.id];
+  if (style && S.styles && S.styles[style.id]) return S.styles[style.id];
+  return S.shots;
+}
+const addKey = (p, style) => style ? p.id + ":" + style.id : p.id;
+
+function viewShots(p, styleId) {
+  const cat = CATALOG.find(c => p.in[0].startsWith(c.id));
+  const sub = cat.subs.find(x => p.in[0].endsWith(x.id));
+  const st = styleOf(p, styleId), shots = shotsFor(p, st);
+  const info = st || p;
+  return `
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/${cat.id}/">${esc(cat.name)}</a><span aria-hidden="true">/</span>
+        <a href="/${cat.id}/${sub.id}/">${esc(sub.name)}</a><span aria-hidden="true">/</span>
+        <span>${esc(p.name)}</span>
+      </nav>
+    </div>
+  </section>
+  <section><div class="wrap prod" id="prodShots" data-id="${p.id}" data-style="${st ? st.id : ""}">
+    <div class="gallery">
+      <div class="shot-main"><img id="shotsMain" src="${shots[0].src}" alt="${esc(p.name)}, ${esc(shots[0].alt)}"></div>
+      <div class="thumbs" role="group" aria-label="More pictures" id="shotsThumbs">${thumbsHTML(shots)}</div>
+    </div>
+    <div class="prod-side">
+      <h1 class="dsp">${esc(p.name)}</h1>
+      <p class="price big">${money(p.price)}${p.per ? ` <span>${esc(p.per)}</span>` : ""}</p>${shipHint()}
+      <p class="desc" id="shotsDesc">${esc(info.desc)}</p>
+      ${p.styles ? `<div class="ways" role="group" aria-label="Style">
+        <span class="label">Style</span>
+        ${p.styles.map(x => `<button class="way" data-style="${x.id}" aria-pressed="${x === st}">
+          <span class="sw">${x.sw.map(c => `<i style="background:${c}"></i>`).join("")}</span>${esc(x.name)}</button>`).join("")}
+      </div>` : ""}
+      <p class="tip" id="shotsTip">${esc(info.tip)}</p>
+      <dl class="specs" id="shotsSpecs">${specsHTML(info.specs)}</dl>
+      <button class="add" id="addShots" data-add="${addKey(p, st)}">Add to bag</button>
+      ${p.pack ? `<ul class="pack">${p.pack.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+      ${p.grades ? `<p class="grades-line">${p.grades.map(g => `<span class="tag">${esc(g)}</span>`).join("")}</p>` : ""}
+      ${safetyHTML(p)}
+    </div>
+  </div></section>
+  ${askHTML()}`;
+}
+/* On every product page, not just the footer: US rules for selling small-parts toys online
+   expect the warning where the product is offered. The clickers hold button cells. */
+const BATTERY_IDS = ["clicker", "clicker3"];
+const safetyHTML = p => `<p class="safety"><b>Warning: choking hazard</b> \u2014 small parts. Not for children under 3.</p>`
+  + (BATTERY_IDS.includes(p.id) ? `<p class="safety"><b>Warning: contains button/coin cell batteries.</b>
+      Swallowing a battery can cause serious injury or death. Keep batteries away from children;
+      if one may have been swallowed, get medical help right away.</p>` : "");
+const thumbsHTML = shots => shots.length < 2 ? "" : shots.map((x, i) =>
+  `<button class="thumb${i ? "" : " on"}" data-i="${i}" aria-pressed="${!i}" aria-label="Show ${esc(x.alt)}"><img src="${x.src}" alt=""></button>`).join("");
+const specsHTML = specs => (specs || []).map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("");
+
+function mountShots() {
+  const wrap = $("#prodShots"); if (!wrap) return;
+  const p = PRODUCTS.find(x => x.id === wrap.dataset.id);
+  let st = styleOf(p, wrap.dataset.style), shots = shotsFor(p, st), i = 0;
+  const main = $("#shotsMain");
+  const show = n => {
+    i = n; main.src = shots[i].src; main.alt = `${p.name}, ${shots[i].alt}`;
+    $$(".thumb", wrap).forEach(b => { const on = +b.dataset.i === i; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); });
+  };
+  $("#shotsThumbs").addEventListener("click", e => { const b = e.target.closest(".thumb"); if (b) show(+b.dataset.i); });
+  $$("[data-style]", wrap).forEach(b => b.addEventListener("click", () => {
+    st = styleOf(p, b.dataset.style); shots = shotsFor(p, st);
+    $("#shotsThumbs").innerHTML = thumbsHTML(shots); show(0);
+    $("#shotsDesc").textContent = st.desc; $("#shotsTip").textContent = st.tip;
+    $("#shotsSpecs").innerHTML = specsHTML(st.specs);
+    $("#addShots").dataset.add = addKey(p, st);
+    $$("[data-style]", wrap).forEach(x => x.setAttribute("aria-pressed", x.dataset.style === st.id));
+    history.replaceState(null, "", link(`/p/${p.id}/${st.id}`));
+    markSold();
+  }));
+}
+
+function shotsCardHTML(p, subId) {
+  // The Color Your Own shelf shows only the white style; everywhere else leads in colour.
+  const st = p.styles ? styleOf(p, subId === "color-your-own" ? "white" : "colour") : null;
+  const s0 = shotsFor(p, st)[0], href = link(`/p/${p.id}${st ? "/" + st.id : ""}`);
+  return `
+  <article class="product shot-card">
+    <a class="shot-wrap" href="${href}" aria-label="${esc(p.name)}, see it">
+      <img src="${s0.src}" alt="${esc(p.name)}, ${esc(s0.alt)}" loading="lazy">
+    </a>
+    <div class="meta">
+      <div class="title-row"><h3><a href="${href}">${esc(p.name)}</a>${anyInStock(p, subId) ? "" : '<span class="card-sold">Sold out</span>'}</h3><span class="price">${money(p.price)}</span></div>
+      <p class="desc">${esc((st || p).desc)}</p>
+      <p class="shapes">${st && st.id === "white" ? "<span>Arrives</span> plain white" : p.note || ""}</p>
+      <a class="btn btn-dark" href="${href}">See it</a>
+    </div>
+  </article>`;
+}
+
+function viewToy(p) {                     // a colour-your-own toy, on a page of its own
+  const cat = CATALOG.find(c => p.in[0].startsWith(c.id));
+  const sub = cat.subs.find(x => p.in[0].endsWith(x.id));
+  return `
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/${cat.id}/">${esc(cat.name)}</a><span aria-hidden="true">/</span>
+        <a href="/${cat.id}/${sub.id}/">${esc(sub.name)}</a><span aria-hidden="true">/</span>
+        <span>${esc(p.name)}</span>
+      </nav>
+    </div>
+  </section>
+  <section><div class="wrap one-toy">${productHTML(p)}</div></section>
+  ${askHTML()}`;
+}
+
+function viewProduct(p, styleId) {
+  if (isShots(p)) return viewShots(p, styleId);
+  if (p.lights) return viewLight(p);
+  if (!p.shapes) return viewToy(p);
+  const cat = CATALOG.find(c => p.in[0].startsWith(c.id));
+  const sub = cat.subs.find(x => p.in[0].endsWith(x.id));
+  const v = p.shapes[0];
+  const shots = ["hero", "open", "flatlay", "macro"];
+  const alt = sh => shotAlt(v.id, sh);
+  return `
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/${cat.id}/">${esc(cat.name)}</a><span aria-hidden="true">/</span>
+        <a href="/${cat.id}/${sub.id}/">${esc(sub.name)}</a><span aria-hidden="true">/</span>
+        <span>${esc(p.name)}</span>
+      </nav>
+    </div>
+  </section>
+  <section><div class="wrap prod" id="prod" data-id="${p.id}">
+    <div class="gallery">
+      <div class="shot-main"><canvas id="shotMain" role="img"
+        aria-label="${esc(p.name)}, ${esc(alt("hero"))}"></canvas></div>
+      <div class="thumbs" role="group" aria-label="More pictures">
+        ${shots.map((sh, i) => `<button class="thumb${i ? "" : " on"}" data-shot="${sh}" aria-pressed="${!i}"
+          aria-label="Show ${esc(alt(sh))}"><canvas></canvas></button>`).join("")}
+      </div>
+    </div>
+    <div class="prod-side">
+      <h1 class="dsp">${esc(p.name)}</h1>
+      <p class="price big" id="prodPrice">${money(p.price)} <span>a pack of 15</span></p>${shipHint()}
+      <p class="desc">${esc(p.desc)}</p>
+      ${p.shapes.length > 1 ? `<div class="ways" role="group" aria-label="Shape">
+        <span class="label">Shape</span>
+        ${p.shapes.map((x, i) => `<button class="way" data-shape="${x.id}" aria-pressed="${!i}">${esc(x.name)}</button>`).join("")}
+      </div>` : ""}
+      <div class="ways" role="group" aria-label="Color">
+        <span class="label">Color</span>
+        ${p.colours.map((c, i) => `<button class="way" data-colour="${c.id}" aria-pressed="${!i}">
+          <span class="sw"><i style="background:${c.hex}"></i></span>${esc(c.name)}</button>`).join("")}
+      </div>
+      <p class="tip">${esc(p.tip)}</p>
+      <dl class="specs">
+        <div><dt>In the pack</dt><dd>15 of one shape</dd></div>
+        <div><dt>Chip size</dt><dd id="chipSize">${esc(v.chip)}</dd></div>
+        <div><dt>Thickness</dt><dd>3 mm</dd></div>
+      </dl>
+      <button class="add" id="addProd" data-add="${p.id}:${v.id}:${p.colours[0].id}">Add to bag</button>
+      <ul class="pack">${p.pack.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      <p class="grades-line">${p.grades.map(g => `<span class="tag">${esc(g)}</span>`).join("")}</p>
+      ${safetyHTML(p)}
+    </div>
+  </div></section>
+  ${askHTML()}`;
+}
+
+const cardHTML = (p, subId) => (isShots(p) ? shotsCardHTML(p, subId) : p.shapes ? shotCardHTML(p) : p.lights ? lightCardHTML(p) : productHTML(p));
+
+const plannedHTML = p => `
+  <article class="plan${p.first ? " first" : ""}">
+    <div class="plan-top"><h3>${esc(p.name)}</h3><span class="soon-tag${p.first ? " first-tag" : ""}">${p.first ? "First up" : "In the works"}</span></div>
+    <p>${esc(p.desc)}</p>
+    <div class="tags">${(p.grades || []).map(g => `<span class="tag">${esc(g)}</span>`).join("")}</div>
+    ${p.shapes ? `<p class="shapes"><span>Shapes</span> ${p.shapes.map(esc).join(" \u00b7 ")}</p>` : ""}
+  </article>`;
+
+const GRADE_CHOICES = ["Pre-K \u2013 K", "Grades 1\u20132", "Grades 3\u20135", "Special ed & sensory", "Mixed / something else"];
+function askHTML() {
+  if (SITE.requests === "off") return "";     // no backend on this build: show nothing
+  return `
+  <section class="ask" id="ask">
+    <div class="wrap ask-in">
+      <div class="ask-copy">
+        <h2 class="dsp">Tell me what your room needs</h2>
+        <p>I would rather make the thing your room is missing than guess at it. Tell me what you need
+           and it goes on the list: the center piece that keeps breaking, the manipulative your school
+           will not buy, the thing you have been making out of card stock for years.</p>
+        <p class="hand">I read every one myself.</p>
+      </div>
+      <form class="ask-form" id="askForm" novalidate>
+        <div>
+          <label for="askText">What do you need?</label>
+          <textarea id="askText" name="askText" rows="4" maxlength="1000"
+            placeholder="Ten frames that hold the chips still, so they survive being carried to the carpet."></textarea>
+        </div>
+        <div class="ask-row">
+          <div>
+            <label for="askGrade">Grade</label>
+            <select id="askGrade" name="askGrade">${GRADE_CHOICES.map(g => `<option>${esc(g)}</option>`).join("")}</select>
+          </div>
+          <div>
+            <label for="askContact">Your email</label>
+            <input id="askContact" name="askContact" type="email" maxlength="120" required
+              autocomplete="email" placeholder="So I can write back">
+          </div>
+        </div>
+        <div class="hp" aria-hidden="true"><label for="askSite">Website</label>
+          <input id="askSite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="ask-send">
+          <button class="btn btn-dark" id="askSend" type="submit">Send it over</button>
+          <p class="ask-status" id="askStatus" role="status"></p>
+        </div>
+      </form>
+    </div>
+    <div class="wrap"><div class="inbox" id="inbox" hidden></div></div>
+  </section>`;
+}
+
+/* ---------- requests: saved to the artifact's own store ---------- */
+/* Where this copy of the page is running. The artifact can save a request to its own
+   store; a static site on a domain cannot, and a form that silently saves nothing is
+   worse than no form, so the public build leaves the section out until it has a
+   backend. build.py sets this. */
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["alphabet","candycorn:colour","candycorn:white","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","chips-stopsign","clicker3","spider:colour","spider:white"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","tickets":"https://requests.mromars-classroom.com/public/ticket","paths":true,"on":["alphabet","candycorn","chips-apple","chips-bus","chips-leaf","chips-maple","chips-pinecone","chips-stopsign","clicker3","gecko","gecko-20","icecream","spider","wyvern","wyvern-20"],"offline":false,"shipping_cents":700,"free_over_cents":2500};          // {requests, checkout, stock, keys, shipping_cents}
+/* Addresses. The real site has one URL per page (/p/spider/, /toys/halloween/) so search
+   engines and link previews see every product; the build writes a file at each of them.
+   The artifact is a single file, so it keeps #/ addresses. Everything goes through these. */
+const PATHMODE = !!SITE.paths;
+const FREE_OVER = (SITE.free_over_cents || 0) / 100;     // 0 = free shipping is off
+const usd = n => Number.isInteger(n) ? "$" + n : money(n);   // "$25", not "$25.00"
+const shipHint = () => FREE_OVER ? `<p class="ship-hint"><b>Free shipping</b> on orders of ${usd(FREE_OVER)} or more</p>` : "";
+function shipMeter(sub) {
+  const m = document.getElementById("shipMeter"); if (!m) return;
+  m.hidden = !FREE_OVER || !sub;
+  if (m.hidden) return;
+  const left = FREE_OVER - sub, done = left <= 0.0001;
+  m.classList.toggle("done", done);
+  m.querySelector("span").innerHTML = done ? "Your order ships free"
+    : `Add <b>${money(left)}</b> more for free shipping`;
+  m.querySelector("i").style.width = Math.min(100, sub / FREE_OVER * 100) + "%";
+}
+if (FREE_OVER) {
+  const promo = document.getElementById("promo");
+  promo.innerHTML = `<b>Free shipping</b> on orders ${usd(FREE_OVER)}+ &middot; made by a Tampa teacher`;
+  promo.hidden = false;
+}
+const here = () => PATHMODE ? location.pathname : (location.hash.replace(/^#/, "") || "/");
+const link = p => PATHMODE ? (p === "/" ? "/" : p.replace(/\/?$/, "/")) : "#" + p;
+function go(p, replace) {
+  if (!PATHMODE) { location[replace ? "replace" : "assign"](link(p)); return; }
+  history[replace ? "replaceState" : "pushState"](null, "", link(p) + location.search);
+  route();
+}
+
+/* ---------- stock ----------
+   The workshop says which bag keys can be bought - exactly as they go in the bag, colour
+   and all: "chips:apple:red", "clicker:blue", "spider" - and never how many: quantities stay
+   off the site on purpose. The list is baked in at build, then asked for again on load, so
+   a sale that took the last one shows Sold out without a rebuild. No list at all (the
+   artifact, or a build with the workshop down) means nothing is marked. */
+let AVAIL = SITE.keys ? new Set(SITE.keys) : null;
+applyOn(SITE.on || null);
+const inStock = key => !AVAIL || AVAIL.has(key);
+function markSold() {
+  $$("[data-add]").forEach(b => {
+    const ok = inStock(b.dataset.add);
+    b.disabled = !ok;
+    if (!ok) b.textContent = "Sold out";
+    else if (b.textContent === "Sold out") b.textContent = "Add to bag";
+  });
+  // Cross out a colour or light that is gone for the current pick, so nobody has to click
+  // through every swatch to find one that is left. Still clickable: it shows the photo.
+  const prod = $("#addProd");
+  if (prod) {
+    const [id, shape] = prod.dataset.add.split(":");
+    $$("[data-colour]").forEach(b => b.classList.toggle("gone", !inStock([id, shape, b.dataset.colour].join(":"))));
+  }
+  const light = $("#addLight");
+  if (light) {
+    const id = light.dataset.add.split(":")[0];
+    $$("[data-light]").forEach(b => b.classList.toggle("gone", !inStock(id + ":" + b.dataset.light)));
+  }
+}
+async function liveStock() {
+  if (!SITE.stock) return;
+  try {
+    const r = await fetch(SITE.stock, { cache: "no-store" });
+    const out = r.ok ? await r.json() : null;
+    if (!out) throw new Error("no answer");
+    if (out && Array.isArray(out.keys)) { AVAIL = new Set(out.keys); markSold(); buildNav(); if (!/^\/p\//.test(here())) route(); }
+    if (out && typeof out.offline === "boolean") showClosed(out.offline);
+    if (out && Array.isArray(out.on)) {
+      const before = PRODUCTS.map(p => p.id).join();
+      applyOn(out.on);
+      if (PRODUCTS.map(p => p.id).join() !== before) { buildNav(); renderBag(); route(); }
+    }
+  } catch (e) {
+    // Keep the list the build baked in. A remembered "back soon" from yesterday must not lock
+    // the shop when only this lookup failed (2026-10-12): trust the build's own flag instead.
+    if (!SITE.offline) showClosed(false);
+  }
+}
+
+/* ---------- the maintenance screen ----------
+   The workshop's "Take the shop offline" switch: every view gives way to the "back soon"
+   screen, with the support email. Baked in at build and asked again on load; a visitor who
+   saw it in the last day starts on it, so a closed shop does not flash the shelves first. */
+const CLOSED_KEY = "mrOmarsClassroom.closed";
+function showClosed(on) {
+  const was = document.documentElement.classList.contains("is-closed");
+  document.documentElement.classList.toggle("is-closed", on);
+  try { on ? localStorage.setItem(CLOSED_KEY, String(Date.now())) : localStorage.removeItem(CLOSED_KEY); } catch (e) {}
+  if (!on) { if (was) route(); return; }          // back open: redraw, which resets the title
+  const mail = SITE.support;
+  $("#closedMail").innerHTML = mail
+    ? `<a class="btn btn-sun" href="mailto:${esc(mail)}">Email Mr. Omar</a>
+       <p class="note-mail"><a href="mailto:${esc(mail)}">${esc(mail)}</a></p>` : "";
+  document.title = "Back soon \u00b7 Mr. Omar's Classroom";
+  closeMenus();
+}
+(() => {
+  let recent = false;
+  try { recent = Date.now() - (+localStorage.getItem(CLOSED_KEY) || 0) < 864e5; } catch (e) {}
+  if (SITE.offline || (SITE.stock && recent)) showClosed(true);
+})();
+
+const CAPS = { db: undefined, isOwner: false };
+let inboxStop = null;
+const capsReady = (async () => {
+  if (!window.claude || typeof window.claude.use !== "function") { CAPS.db = null; return; }
+  try { CAPS.db = await window.claude.use("db"); } catch (e) { CAPS.db = null; }
+  try {
+    const u = await window.claude.use("user");
+    if (u) CAPS.isOwner = await u.isOwner();
+  } catch (e) { /* absent viewer: stays false */ }
+  mountAsk();
+})();
+
+function fmtWhen(iso) {
+  const d = new Date(iso || "");
+  return isNaN(d) ? "" : d.toLocaleDateString(undefined, { month: "short", day: "numeric" }) +
+    ", " + d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+}
+function renderInbox(docs) {
+  const ul = $("#inboxList"); if (!ul) return;
+  $("#inboxCount").textContent = docs.length ? docs.length + (docs.length === 50 ? "+" : "") : "none yet";
+  ul.textContent = "";
+  if (!docs.length) {
+    const li = document.createElement("li"); li.className = "inbox-empty";
+    li.textContent = "Nothing yet. Requests teachers send land here.";
+    ul.append(li); return;
+  }
+  for (const d of docs) {
+    const r = d.data() || {};                 // written by viewers: render as text, never as markup
+    const done = r.status === "done";
+    const li = document.createElement("li"); li.className = "req" + (done ? " done" : "");
+    const head = document.createElement("div"); head.className = "req-head";
+    const when = document.createElement("time"); when.textContent = fmtWhen(r.createdAt);
+    const grade = document.createElement("span"); grade.className = "tag"; grade.textContent = r.grade || "Grade not given";
+    head.append(when, grade);
+    const body = document.createElement("p"); body.textContent = r.text || "";
+    li.append(head, body);
+    if (r.contact) { const c = document.createElement("p"); c.className = "req-contact"; c.textContent = r.contact; li.append(c); }
+    const btn = document.createElement("button"); btn.type = "button"; btn.className = "req-done";
+    btn.textContent = done ? "Handled" : "Mark handled";
+    btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      try { await CAPS.db.doc("requests/" + d.id).update({ status: done ? "new" : "done" }); }
+      catch (e) { btn.textContent = "Couldn't save"; }
+      btn.disabled = false;
+    });
+    li.append(btn);
+    ul.append(li);
+  }
+}
+/* Renders describe their shots with these; the real photographs carry their own alt. */
+const RENDER_ALT = { hero: "the closed container with chips in front", open: "the container open, fifteen chips inside",
+                     flatlay: "all fifteen chips seen from above", macro: "a few chips stacked, close up" };
+const realShot = (shape, shot, colour) => CHIPS[shape] && CHIPS[shape].real && CHIPS[shape].real[colour]
+  && CHIPS[shape].real[colour][shot];
+const shotAlt = (shape, shot, colour) => (realShot(shape, shot, colour) || {}).alt
+  || (CHIPS[shape] && CHIPS[shape][shot] && CHIPS[shape][shot].alt) || RENDER_ALT[shot];
+
+/* The chips are photographed white, with a matte of just the chips. Multiplying the
+   colour through that matte gives every shape-and-colour pair from one set of shots.
+   A colour with its own photographs (CHIPS[shape].real[colour], brown maple) shows those
+   instead, untinted. */
+const imgCache = new Map();
+function loadImg(src) {
+  let p = imgCache.get(src);
+  if (!p) {
+    p = new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = src; });
+    imgCache.set(src, p);
+  }
+  return p;
+}
+async function paintChip(canvas, shape, shot, hex, colour) {
+  const real = realShot(shape, shot, colour);
+  const set = real || (CHIPS[shape] && CHIPS[shape][shot]);
+  if (!canvas || !set) return;
+  if (real) hex = null;
+  const [base, mask] = await Promise.all([loadImg(set.base), set.mask ? loadImg(set.mask) : null]);
+  if (!base) return;
+  const w = base.naturalWidth, h = base.naturalHeight;
+  if (canvas.width !== w) { canvas.width = w; canvas.height = h; }
+  const ctx = canvas.getContext("2d");
+  ctx.globalCompositeOperation = "source-over";
+  ctx.clearRect(0, 0, w, h);
+  ctx.drawImage(base, 0, 0);
+  if (mask && hex) {
+    const t = document.createElement("canvas"); t.width = w; t.height = h;
+    const tc = t.getContext("2d");
+    tc.drawImage(mask, 0, 0);
+    tc.globalCompositeOperation = "source-in";
+    tc.fillStyle = hex; tc.fillRect(0, 0, w, h);
+    ctx.globalCompositeOperation = "multiply";
+    ctx.drawImage(t, 0, 0);
+    ctx.globalCompositeOperation = "source-over";
+  }
+}
+
+function mountGallery() {
+  const wrap = $("#prod");
+  $$("canvas[data-shape][data-shot]").forEach(c =>       // feature band and bag thumbnails
+    paintChip(c, c.dataset.shape, c.dataset.shot, c.dataset.hex, c.dataset.real));
+  if (!wrap) return;
+  const p = PRODUCTS.find(x => x.id === wrap.dataset.id);
+  let shape = p.shapes[0].id, colour = p.colours[0], shot = "hero";
+  const main = $("#shotMain");
+  const paint = () => {
+    paintChip(main, shape, shot, colour.hex, colour.id);
+    $$(".thumb", wrap).forEach(b => {
+      paintChip($("canvas", b), shape, b.dataset.shot, colour.hex, colour.id);
+      const on = b.dataset.shot === shot;
+      b.classList.toggle("on", on); b.setAttribute("aria-pressed", on);
+      b.setAttribute("aria-label", "Show " + shotAlt(shape, b.dataset.shot, colour.id));
+    });
+    const v = p.shapes.find(x => x.id === shape);
+    $("#chipSize").textContent = v.chip;
+    $("#addProd").dataset.add = [p.id, shape, colour.id].join(":");
+    markSold();
+    main.setAttribute("aria-label", `${p.name}, ${v.name.toLowerCase()} in ${colour.name.toLowerCase()}`);
+    $$("[data-shape]", wrap).forEach(b => b.setAttribute("aria-pressed", b.dataset.shape === shape));
+    $$("[data-colour]", wrap).forEach(b => b.setAttribute("aria-pressed", b.dataset.colour === colour.id));
+  };
+  $$(".thumb", wrap).forEach(b => b.addEventListener("click", () => { shot = b.dataset.shot; paint(); }));
+  $$("[data-shape]", wrap).forEach(b => b.addEventListener("click", () => { shape = b.dataset.shape; paint(); }));
+  $$("[data-colour]", wrap).forEach(b => b.addEventListener("click", () => {
+    colour = p.colours.find(c => c.id === b.dataset.colour); paint();
+  }));
+  paint();
+}
+
+const EMAIL_OK = e => /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]{1,64}@(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+[A-Za-z]{2,24}$/.test(e)
+  && e.length <= 200 && !e.includes("..");
+
+/* ---------- the mailing list ----------
+   Promotions, news, discounts. Only on the real site: the artifact has nowhere to keep it.
+   The address goes to the workshop through the tunnel, like a request. */
+function mountJoin() {
+  if (SITE.support) {
+    const h = $("#footHelp");
+    h.innerHTML = `Questions or a problem with an order? <a href="mailto:${esc(SITE.support)}">${esc(SITE.support)}</a>`;
+    h.hidden = false;
+  }
+  if (!SITE.subscribe) return;
+  $("#joinSlot").innerHTML = `
+  <section class="join" aria-labelledby="joinHead"><div class="wrap join-in">
+    <div><h2 class="dsp" id="joinHead">Join the list</h2>
+      <p>New materials as they come off the workbench, classroom deals and the odd discount.
+         A few emails a term, never sold or shared.</p></div>
+    <form class="join-form" id="joinForm" novalidate>
+      <label class="hp" for="joinSite">Website<input id="joinSite" type="text" tabindex="-1" autocomplete="off"></label>
+      <input type="email" id="joinEmail" required autocomplete="email" maxlength="200"
+        placeholder="you@school.org" aria-label="Your email">
+      <button class="btn btn-dark" id="joinSend" type="submit">Sign me up</button>
+      <p class="join-status" id="joinStatus" role="status"></p>
+    </form>
+  </div></section>`;
+  const form = $("#joinForm"), status = $("#joinStatus"), send = $("#joinSend");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const email = $("#joinEmail").value.trim();
+    if (!EMAIL_OK(email)) { status.textContent = "That doesn't look like an email."; return; }
+    send.disabled = true; status.textContent = "Signing you up\u2026";
+    try {
+      const r = await fetch(SITE.subscribe, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, website: $("#joinSite").value }) });
+      if (!r.ok) throw new Error(r.status);
+      const out = await r.json().catch(() => ({}));
+      form.reset();
+      status.textContent = out.confirm ? "Almost done \u2014 check your email and press the button to confirm."
+                                       : "You're on the list. Thank you!";
+    } catch (err) {
+      status.textContent = String(err.message) === "429" ? "That is plenty for now \u2014 try again later."
+        : "That didn't go through. Try again in a moment.";
+    }
+    send.disabled = false;
+  });
+}
+
+function mountAsk() {
+  if (inboxStop) { inboxStop(); inboxStop = null; }
+  const form = $("#askForm"); if (!form) return;
+  const status = $("#askStatus"), send = $("#askSend");
+  const endpoint = /^https?:/.test(SITE.requests) ? SITE.requests : null;
+  if (!endpoint && CAPS.db === null) {
+    send.disabled = true;
+    status.textContent = "Requests can't be saved from this view.";
+  }
+  if (form.dataset.wired) return wireInbox();
+  form.dataset.wired = "1";
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const text = $("#askText").value.trim();
+    if (text.length < 5) { status.className = "ask-status"; status.textContent = "Tell me a little more first."; return; }
+    const email = $("#askContact").value.trim();
+    if (endpoint && !EMAIL_OK(email)) {
+      status.className = "ask-status"; status.textContent = "Add your email so I can write back.";
+      $("#askContact").focus(); return;
+    }
+    send.disabled = true; status.className = "ask-status"; status.textContent = "Sending\u2026";
+    if (endpoint) {                       // the real site: straight into the workshop
+      try {
+        const r = await fetch(endpoint, {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: text.slice(0, 1000), grade: $("#askGrade").value,
+                                 contact: email.slice(0, 120),
+                                 website: $("#askSite").value }),
+        });
+        if (r.status === 400) {
+          status.textContent = ((await r.json().catch(() => ({}))).detail === "add your email")
+            ? "Add your email so I can write back." : "That didn't send. Try again in a moment.";
+          send.disabled = false; return;
+        }
+        if (!r.ok) throw new Error(r.status);
+        form.reset();
+        status.className = "ask-status good"; status.textContent = "Sent. Thank you \u2014 I read every one.";
+      } catch (err) {
+        status.textContent = String(err.message) === "429"
+          ? "That is plenty for now \u2014 try again later."
+          : "That didn't send. Try again in a moment.";
+      }
+      send.disabled = false;
+      return;
+    }
+    await capsReady;
+    if (!CAPS.db) { send.disabled = true; status.textContent = "Requests can't be saved from this view."; return; }
+    try {
+      await CAPS.db.collection("requests").add({
+        text: text.slice(0, 1000),
+        grade: $("#askGrade").value,
+        contact: $("#askContact").value.trim().slice(0, 120),
+        createdAt: new Date().toISOString(),
+        status: "new",
+      });
+      form.reset();
+      status.className = "ask-status good"; status.textContent = "Sent. Thank you \u2014 I read every one.";
+    } catch (err) {
+      const code = err && err.code;
+      status.textContent = code === "quota_exceeded" ? "The list is full right now. Try again later."
+        : code === "invalid_argument" ? "This view can't save requests."
+        : code === "resource_exhausted" ? "That was a lot at once. Give it a minute."
+        : "That didn't send. Try again in a moment.";
+    }
+    send.disabled = false;
+  });
+
+  wireInbox();
+}
+function wireInbox() {
+  const inbox = $("#inbox");
+  if (inbox && CAPS.isOwner && CAPS.db) {
+    inbox.hidden = false;
+    inbox.innerHTML = `<div class="inbox-head"><h3>Requests <span id="inboxCount">\u2026</span></h3>
+      <p>Only you see this list.</p></div><ul id="inboxList"></ul>`;
+    inboxStop = CAPS.db.collection("requests").orderBy("createdAt", "desc").limit(50).onSnapshot(
+      snap => renderInbox(snap.docs),
+      () => { const ul = $("#inboxList"); if (ul) ul.textContent = "Couldn't load the requests."; });
+  }
+}
+
+/* each shelf owns a classroom bin colour: tiles, card tags and photo backings all use it */
+const BIN = { "counting-number": "red", "place-value-fractions": "blue", "letters-phonics": "yellow",
+  "classroom": "green", "halloween": "orange", "color-your-own": "purple", "fidgets": "teal",
+  "treasure-box": "yellow", "keychains": "red" };
+const binStyle = subId => {
+  const b = BIN[subId] || "blue";
+  return `--bin:var(--bin-${b});--wash:var(--wash-${b});--bin-ink:${b === "yellow" || b === "orange" ? "#2A2118" : "#FFFFFF"}`;
+};
+
+function homeCard(p) {
+  const cat = CATALOG.find(c => p.in[0].startsWith(c.id));
+  const sub = cat.subs.find(x => p.in[0].endsWith("/" + x.id));
+  const pic = isShots(p)
+    ? `<img src="${PHOTOS[p.id].shots[0].src}" alt="${esc(p.name)}, ${esc(PHOTOS[p.id].shots[0].alt)}" loading="lazy">`
+    : p.shapes
+    ? `<canvas data-shape="${p.shapes[0].id}" data-shot="hero" data-hex="${p.colours[2].hex}"
+         role="img" aria-label="${esc(p.name)}, a pack with its container"></canvas>`
+    : p.lights
+      ? `<img src="${PHOTOS[p.id][p.lights[0].id]}" alt="${esc(p.name)}, lit up" loading="lazy">`
+      : `<img class="toy-pic" src="${ASSETS[p.id].frames[0]}" alt="${esc(p.name)}, as it arrives" loading="lazy">`;
+  const note = p.note ? p.note : p.shapes ? `15 to a pack &middot; ${p.shapes.length > 1 ? p.shapes.length + " shapes &middot; " : ""}${p.colours.length} colors`
+    : p.lights ? "Pick your light color &middot; on a keyring"
+    : "Arrives white &middot; color it in";
+  return `
+  <article class="card" style="${binStyle(sub.id)}">
+    <a class="card-shot" href="/p/${p.id}/"><span class="card-tag">${esc(sub.name)}</span>${pic}</a>
+    <div class="card-body">
+      <div class="card-row"><h3><a href="/p/${p.id}/">${esc(p.name)}</a></h3><span class="price">${money(p.price)}</span></div>
+      <p class="tagline">${note}</p>
+      <p>${esc(p.desc.split(". ")[0].replace(/\.$/, ""))}.</p>
+      <a class="btn btn-dark" href="/p/${p.id}/">See it</a>
+    </div>
+  </article>`;
+}
+
+function viewHome() {
+  const order = p => (inCat(p, "teacher-materials") ? 0 : 1) * 10 + (p.first ? 0 : 1);
+  const shop = PRODUCTS.filter(forSale).sort((a, b) => order(a) - order(b));
+  const tile = (c, s) => {
+    const n = listFor(c.id, s.id).filter(p => forSale(p) && anyInStock(p, s.id)).length;
+    return `<a class="tile" href="/${c.id}/${s.id}/" style="${binStyle(s.id)}">
+      <div class="tile-label"><b>${esc(s.name)}</b><span>${esc(c.name)} &middot; ${n ? plural(n, "item") : "in the works"}</span></div></a>`;
+  };
+  return `
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <p class="hand-line">Made by a teacher, for Pre-K through 5th</p>
+        <h1 class="dsp">Classroom sets and prize-box toys.</h1>
+        <p class="lede">I teach, and I make the hands-on pieces my own room kept running out of.
+           Made a set at a time, for real classrooms and the kids in them.</p>
+        <div class="cta-row">
+          <a class="btn btn-sun" href="#shop">Shop what&rsquo;s ready</a>
+          <a class="btn btn-ghost" href="/teacher-materials/">Teacher materials</a>
+        </div>
+      </div>
+      <div class="frame-wrap pinned"><span class="pin" aria-hidden="true"></span>
+        <img class="hero-shot" src="${CHIPS.home}" width="1400" height="1050"
+          alt="Maple leaf counting chips in their own maple leaf container, the lid beside it">
+        <p class="frame-cap">Fifteen to a pack, in a container shaped the same way.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop" id="shop">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><h2 class="dsp">In the shop now</h2>
+          <p>Ready to buy today. Teacher sets and toys sit together here, the way they do in a room.</p></div>
+        <div class="pills">
+          <a class="pill" href="/teacher-materials/">Teacher materials</a>
+          <a class="pill" href="/toys/">Toys</a>
+        </div>
+      </div>
+      <div class="shop-grid">${shop.map(homeCard).join("")}</div>
+    </div>
+  </section>
+
+  <section class="shelves">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><h2 class="dsp">Every shelf</h2>
+          <p>What is on the bench, and where it lands when it is done.</p></div>
+      </div>
+      <div class="tile-grid">${CATALOG.map(c => c.subs.map(s => tile(c, s)).join("")).join("")}</div>
+    </div>
+  </section>
+
+  ${askHTML()}
+
+  <section class="byteacher">
+    <div class="wrap">
+      <h2 class="dsp">Why buy these from me</h2>
+      <div class="by-in">
+        <div class="by"><h3>A teacher makes them</h3><p>I teach. Every set starts because something in my own
+          room broke, went missing, or never existed in the first place.</p></div>
+        <div class="by"><h3>Made for a class, not one kid</h3><p>Classroom quantities, in a size that fits small
+          hands, a center bin and a table group.</p></div>
+        <div class="by"><h3>Built to survive a year</h3><p>One bin, twenty-some hands, all year, and the
+          occasional drop onto tile.</p></div>
+      </div>
+    </div>
+  </section>`;
+}
+function pillsFor(cat, sub) {
+  const all = `<a class="pill" href="/${cat.id}/" ${!sub ? 'aria-current="page"' : ""}>All</a>`;
+  return all + cat.subs.map(s => {
+    const items = listFor(cat.id, s.id);
+    const n = items.filter(forSale).length;
+    return `<a class="pill" href="/${cat.id}/${s.id}/" ${sub === s.id ? 'aria-current="page"' : ""}>${esc(s.name)}<em>${n || "soon"}</em></a>`;
+  }).join("");
+}
+/* ---------- policies (2026-10-08) ----------
+   Shipping, returns and privacy, on one page. Stripe checks a live shop's site for a refund
+   policy and a way to reach the seller, so this page has to exist before taking real money.
+   Omar's rules: 30 days for unused items, ships in 3-5 business days, US only. */
+function viewPolicies() {
+  const mail = SITE.support ? `<a href="mailto:${esc(SITE.support)}">${esc(SITE.support)}</a>` : "the email at the bottom of this page";
+  const ship = (SITE.shipping_cents ? `a flat ${money(SITE.shipping_cents / 100)} per order` : "a flat rate per order, shown in the bag")
+    + (FREE_OVER ? ` &mdash; and <strong>free on orders of ${usd(FREE_OVER)} or more</strong> (counted on the items, before any coupon code)` : "");
+  return `
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Policies</span></nav>
+      <h1 class="dsp">Shipping, returns &amp; privacy</h1>
+      <p>The short version: orders go out within a week, unused things come back within 30 days, and your details are used for your order and nothing else.</p>
+    </div>
+  </section>
+  <section><div class="wrap policy">
+    <h2 class="dsp" id="shipping">Shipping</h2>
+    <p>We ship to the United States only, for ${ship}.</p>
+    <p>Please allow <strong>3&ndash;5 business days</strong> for your order to ship. When it goes out you'll get an email with the tracking number. Most parcels arrive a few days after that.</p>
+
+    <h2 class="dsp" id="returns">Returns &amp; refunds</h2>
+    <p><strong>Changed your mind?</strong> Send back anything unused, in the condition it arrived, within <strong>30 days of delivery</strong> for a full refund of what you paid for it. Start it from the <a href="/help/refund/">Help page</a> so we know it's coming. Return postage is yours, and the original shipping isn't refunded. A color-your-own toy that has been colored in counts as used.</p>
+    <p><strong>Arrived broken, wrong or missing a piece?</strong> Send a <a href="/help/refund/">refund request</a> within 30 days with a photo and we'll send a replacement or refund it in full, shipping included. You won't need to send the broken one back.</p>
+    <p>Refunds go back to the card you paid with. Once we've approved one, your bank usually shows it within 5&ndash;10 business days.</p>
+
+    <h2 class="dsp" id="privacy">Privacy</h2>
+    <p><strong>At checkout</strong> we get your name, email and shipping address, and use them to fill and ship your order and to email you about it. Your card is handled by Stripe; we never see the number.</p>
+    <p><strong>The mailing list</strong> only has you on it if you joined or left the box ticked at checkout. Every email has an unsubscribe link, and one click takes you off.</p>
+    <p><strong>Requests</strong> you send keep the email you gave, so we can answer you.</p>
+    <p>We don't sell or share your details with anyone. The only others who see them are Stripe, to take the payment, and the post, to deliver it. Visits are counted with Cloudflare Web Analytics, which uses no cookies and doesn't track you from site to site.</p>
+    <p>To see or delete what we hold about you, just ask.</p>
+
+    <h2 class="dsp" id="contact">Contact</h2>
+    <p>Mr. Omar's Classroom, Tampa, Florida. Questions, problems with an order, or a return: the <a href="/help/">Help page</a>, or ${mail}. A real teacher reads every email, usually within a day or two.</p>
+    <p class="policy-date">Last updated October 8, 2026.</p>
+  </div></section>`;
+}
+
+/* ---------- help & refunds (2026-10-08) ----------
+   One form, two kinds: a question/problem, or a refund request. Both land in the workshop's
+   Help desk and are emailed to Omar. A refund needs the order number (it must match the
+   email used at checkout - the workshop checks) and at least one photo. Photos are shrunk
+   here to JPEGs of at most 1600 px before sending, which also drops a phone's location data. */
+function viewHelp(kind) {
+  const r = kind === "refund";
+  return `
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Help</span></nav>
+      <h1 class="dsp">Help &amp; refunds</h1>
+      <p>A question, a problem with an order, or a refund &mdash; send it here and I'll get back to you within a day or two.</p>
+    </div>
+  </section>
+  <section><div class="wrap help-wrap">
+    <form class="ask-form help-form" id="helpForm" novalidate>
+      <fieldset class="help-kind">
+        <legend>What do you need?</legend>
+        <label><input type="radio" name="kind" value="support" ${r ? "" : "checked"}> A question or a problem</label>
+        <label><input type="radio" name="kind" value="refund" ${r ? "checked" : ""}> A refund</label>
+      </fieldset>
+      <div class="ask-row">
+        <div><label for="helpName">Your name</label>
+          <input id="helpName" type="text" maxlength="80" autocomplete="name" required></div>
+        <div><label for="helpEmail">Your email</label>
+          <input id="helpEmail" type="email" maxlength="200" autocomplete="email" required
+            placeholder="The one you used at checkout"></div>
+      </div>
+      <div><label for="helpOrder">Order number <span class="opt" id="helpOrderOpt">${r ? "" : "(if it's about an order)"}</span></label>
+        <p class="help-note">It's on your order confirmation email.</p>
+        <input id="helpOrder" type="text" inputmode="numeric" maxlength="12" placeholder="e.g. 12"></div>
+      <div><label for="helpMsg" id="helpMsgLabel">${r ? "Why are you asking for a refund?" : "How can I help?"}</label>
+        <textarea id="helpMsg" rows="5" maxlength="2000"></textarea></div>
+      <div><label for="helpPhotos" id="helpPhotoLabel">${r ? "Photos of the item" : "Photos (optional)"}</label>
+        <p class="help-note" id="helpPhotoNote">${r ? "At least one photo, up to four &mdash; of what arrived, or what's wrong with it." : "Up to four, if a picture helps."}</p>
+        <input id="helpPhotos" type="file" accept="image/*" multiple>
+        <div class="help-thumbs" id="helpThumbs"></div></div>
+      <div class="hp" aria-hidden="true"><label for="helpSite">Website</label>
+        <input id="helpSite" type="text" tabindex="-1" autocomplete="off"></div>
+      <div class="ask-send">
+        <button class="btn btn-dark" type="submit" id="helpSend">Send</button>
+        <span class="ask-status" id="helpStatus" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+    <aside class="help-side">
+      <h2 class="dsp">Good to know</h2>
+      <p><b>Unused, changed your mind?</b> You can send it back within 30 days of delivery.</p>
+      <p><b>Broken, wrong or missing a piece?</b> Send a photo and I'll replace it or refund it &mdash; no need to post it back.</p>
+      <p>Refunds go back to the card you paid with, usually within 5&ndash;10 business days of approval.
+         The full rules are on the <a href="/policies/">policies page</a>.</p>
+    </aside>
+  </div></section>`;
+}
+
+const HELP_MAX_PHOTOS = 4;
+let helpPhotos = [];                        // JPEG data URLs, already shrunk
+
+async function shrinkPhoto(file) {
+  // createImageBitmap honours the photo's rotation; the <img> route is the fallback.
+  let src;
+  try { src = await createImageBitmap(file, { imageOrientation: "from-image" }); }
+  catch (e) {
+    src = await new Promise((ok, bad) => {
+      const im = new Image(); im.onload = () => ok(im); im.onerror = bad; im.src = URL.createObjectURL(file);
+    });
+  }
+  for (const [max, q] of [[1600, 0.82], [1200, 0.72], [900, 0.65]]) {
+    const w0 = src.width || src.naturalWidth, h0 = src.height || src.naturalHeight;
+    const k = Math.min(1, max / Math.max(w0, h0));
+    const c = document.createElement("canvas");
+    c.width = Math.round(w0 * k); c.height = Math.round(h0 * k);
+    c.getContext("2d").drawImage(src, 0, 0, c.width, c.height);
+    const url = c.toDataURL("image/jpeg", q);
+    if (url.length < 2_600_000) return url;
+  }
+  throw new Error("too big");
+}
+
+function mountHelp() {
+  const form = $("#helpForm"); if (!form) return;
+  helpPhotos = [];
+  const status = $("#helpStatus"), send = $("#helpSend"), thumbs = $("#helpThumbs");
+  const kind = () => (form.querySelector("input[name=kind]:checked") || {}).value || "support";
+  const paintKind = () => {
+    const r = kind() === "refund";
+    $("#helpOrderOpt").textContent = r ? "" : "(if it's about an order)";
+    $("#helpMsgLabel").textContent = r ? "Why are you asking for a refund?" : "How can I help?";
+    $("#helpPhotoLabel").textContent = r ? "Photos of the item" : "Photos (optional)";
+    $("#helpPhotoNote").textContent = r ? "At least one photo, up to four \u2014 of what arrived, or what's wrong with it."
+                                        : "Up to four, if a picture helps.";
+  };
+  const paintThumbs = () => {
+    thumbs.innerHTML = helpPhotos.map((u, i) =>
+      `<span class="help-thumb"><img src="${u}" alt="Photo ${i + 1}"><button type="button" data-rm="${i}" aria-label="Remove photo ${i + 1}">&times;</button></span>`).join("");
+    $$("[data-rm]", thumbs).forEach(b => b.addEventListener("click", () => { helpPhotos.splice(+b.dataset.rm, 1); paintThumbs(); }));
+  };
+  form.querySelectorAll("input[name=kind]").forEach(x => x.addEventListener("change", paintKind));
+  $("#helpPhotos").addEventListener("change", async e => {
+    const files = [...e.target.files]; e.target.value = "";
+    for (const f of files) {
+      if (helpPhotos.length >= HELP_MAX_PHOTOS) { status.className = "ask-status"; status.textContent = "Four photos is the most."; break; }
+      try { helpPhotos.push(await shrinkPhoto(f)); status.textContent = ""; }
+      catch (err) { status.className = "ask-status"; status.textContent = "That photo couldn't be read here \u2014 try a JPG, or a screenshot of it."; }
+    }
+    paintThumbs();
+  });
+  if (!/^https?:/.test(SITE.tickets || "")) {
+    send.disabled = true; status.textContent = "Requests can't be sent from this view.";
+    return;
+  }
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const k = kind(), name = $("#helpName").value.trim(), email = $("#helpEmail").value.trim();
+    const order = $("#helpOrder").value.replace(/[^0-9]/g, ""), message = $("#helpMsg").value.trim();
+    const say = (t, el) => { status.className = "ask-status"; status.textContent = t; if (el) el.focus(); };
+    if (!name) return say("Add your name.", $("#helpName"));
+    if (!EMAIL_OK(email)) return say("Add your email so I can write back.", $("#helpEmail"));
+    if (k === "refund" && !order) return say("Add your order number \u2014 it's on your confirmation email.", $("#helpOrder"));
+    if (k === "refund" && !helpPhotos.length) return say("Add at least one photo.", $("#helpPhotos"));
+    if (message.length < 5) return say(k === "refund" ? "Tell me why you'd like a refund." : "Tell me a little more.", $("#helpMsg"));
+    send.disabled = true; say("Sending\u2026");
+    try {
+      const r = await fetch(SITE.tickets, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ kind: k, name, email, order, message, photos: helpPhotos, website: $("#helpSite").value }) });
+      const j = await r.json().catch(() => ({}));
+      if (r.status === 429) throw new Error("429");
+      if (!r.ok) {
+        const d = j.detail || "";
+        say(d === "no order with that number under this email"
+          ? "I can't find that order number with this email. Use the email you checked out with, or pick \u201cA question or a problem\u201d instead."
+          : d === "that order has already been refunded" ? "That order has already been refunded."
+          : d ? d.charAt(0).toUpperCase() + d.slice(1) + "." : "That didn't send. Try again in a moment.");
+        send.disabled = false; return;
+      }
+      form.reset(); helpPhotos = []; paintThumbs(); paintKind();
+      status.className = "ask-status good";
+      status.textContent = "Sent \u2014 I've emailed you a copy, and I'll get back to you within a day or two.";
+    } catch (err) {
+      say(String(err.message) === "429" ? "That is plenty for now \u2014 try again later." : "That didn't send. Try again in a moment.");
+    }
+    send.disabled = false;
+  });
+}
+
+function viewCategory(cat, subId) {
+  const sub = cat.subs.find(s => s.id === subId);
+  const items = listFor(cat.id, sub && sub.id);
+  const sale = items.filter(forSale), soon = items.filter(p => p.status);
+  const crumbs = `<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>${sub ? `<a href="/${cat.id}/">${esc(cat.name)}</a><span aria-hidden="true">/</span><span>${esc(sub.name)}</span>` : `<span>${esc(cat.name)}</span>`}</nav>`;
+  return `
+  <section class="page-head">
+    <div class="wrap">
+      ${crumbs}
+      <h1 class="dsp">${esc(sub ? sub.name : cat.name)}</h1>
+      <p>${esc(sub ? sub.blurb : cat.blurb)}</p>
+      <div class="pills">${pillsFor(cat, sub && sub.id)}</div>
+    </div>
+  </section>
+  <section><div class="wrap">
+    ${sale.length ? `<div class="products">${sale.map(p => cardHTML(p, sub && sub.id)).join("")}</div>` : ""}
+    ${soon.length ? `<div class="plan-grid">${soon.map(plannedHTML).join("")}</div>` : ""}
+  </div></section>
+  ${cat.id === "teacher-materials" ? askHTML() : ""}`;
+}
+
+function viewNotFound(product) {
+  return `
+  <section class="page-head"><div class="wrap notfound">
+    <h1 class="dsp">${product ? "That item isn\u2019t in the shop" : "That page isn\u2019t here"}</h1>
+    <p>${product ? "It may have sold out for good, or the link is old." : "The link may be old or mistyped."}</p>
+    <p class="cta-row" style="justify-content:center"><a class="btn btn-sun" href="/">See what\u2019s in the shop</a></p>
+  </div></section>`;
+}
+
+/* One anonymous beacon per page view, for the workshop's visitor counts. No cookie, nothing
+   stored in the browser; the workshop keeps only a hash that changes daily. */
+let lastBeacon = "";
+function beacon() {
+  if (!SITE.stock || !navigator.sendBeacon) return;
+  // Reported in the #/p/spider form either way: the workshop's Analytics tab names pages by
+  // it, and visits from before the real addresses (2026-10-18) stay comparable.
+  const path = "#" + here().replace(/(.)\/$/, "$1");
+  if (path === lastBeacon) return;
+  lastBeacon = path;
+  try {
+    navigator.sendBeacon(SITE.stock.replace(/\/stock$/, "/hit"),
+      new Blob([JSON.stringify({ path, ref: document.referrer || "" })], { type: "text/plain" }));
+  } catch (e) {}
+}
+
+let stages = [];
+const BUILT = { path: here(), title: document.title };   // the file this visit landed on
+function route() {
+  if (here().replace(/\/$/, "") === "/p/chips") { go("/p/chips-maple", true); return; }   // old one-product link
+  stages.forEach(s => s.destroy()); stages = [];
+  const parts = here().split("/").filter(Boolean);
+  const prod = parts[0] === "p" && PRODUCTS.find(x => x.id === parts[1] && forSale(x));
+  const cat = CATALOG.find(c => c.id === parts[0]);
+  const sub = cat && cat.subs.find(s => s.id === parts[1]);
+  const pol = parts[0] === "policies", help = parts[0] === "help";
+  // A link to something that isn't here (an old product, a typo) says so instead of quietly
+  // showing the home page.
+  const lost = parts.length && !prod && !pol && !help && !(cat && (!parts[1] || sub));
+  $("#view").innerHTML = lost ? viewNotFound(parts[0] === "p") : help ? viewHelp(parts[1] === "refund" ? "refund" : "support") : pol ? viewPolicies() : prod ? viewProduct(prod, parts[2]) : cat ? viewCategory(cat, sub && sub.id) : viewHome();
+  $$(".cat-btn").forEach(b => b.classList.toggle("here", !!cat && b.dataset.cat === cat.id));
+  // The page a visit landed on keeps the title its own file was built with (written for
+  // search results); the other pages get the short one as the shopper moves around.
+  document.title = PATHMODE && here() === BUILT.path ? BUILT.title : lost ? "Not found \u00b7 Mr. Omar's Classroom"
+    : help ? "Help & refunds \u00b7 Mr. Omar's Classroom"
+    : pol ? "Shipping, returns & privacy \u00b7 Mr. Omar's Classroom"
+    : prod ? prod.name + " \u00b7 Mr. Omar's Classroom"
+    : cat ? (sub ? sub.name + " \u00b7 " : "") + cat.name + " \u00b7 Mr. Omar's Classroom"
+    : "Mr. Omar's Classroom";
+  $$(".stage").forEach(el => stages.push(new Stage(el, PRODUCTS.find(p => p.id === el.dataset.id))));
+  mountGallery(); mountLight(); mountShots(); mountAsk(); mountHelp(); markSold();
+  if (prod || cat || pol || help || lost) scrollTo({ top: 0, behavior: "instant" });
+  beacon();
+  if (document.documentElement.classList.contains("is-closed")) document.title = "Back soon \u00b7 Mr. Omar's Classroom";
+}
+addEventListener("hashchange", () => {
+  const h = location.hash.slice(1);
+  if (h && !h.startsWith("/") && document.getElementById(h)) return;   // in-page anchors
+  closeMenus();
+  if (PATHMODE) { if (h.startsWith("/")) go(h, true); return; }       // an old #/ link
+  route();
+});
+if (PATHMODE) {
+  /* Links between pages change the address without reloading, so the bag drawer, the
+     turning toys and the live stock answer carry over. A new tab or a modified click is
+     left to the browser, and every address is also a real file if it reloads. */
+  document.addEventListener("click", e => {
+    if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest("a[href^='/']");
+    if (!a || a.target || a.hasAttribute("download") || /^\/(assets|share)\//.test(a.getAttribute("href"))) return;
+    e.preventDefault(); closeMenus();
+    if (a.pathname !== location.pathname) { go(a.pathname); scrollTo({ top: 0, behavior: "instant" }); }
+  });
+  addEventListener("popstate", () => { closeMenus(); route(); });
+  // Links shared before 2026-10-18 were #/p/spider; send them to the page's own address.
+  if (location.hash.startsWith("#/")) history.replaceState(null, "", link(location.hash.slice(1)) + location.search);
+}
+
+/* ---------- the turning stage ----------
+   White turntable frames spin; at the front-facing frame a marker scribble colors the toy in
+   with one of its color ideas, holds, wipes back, and the toy spins again. */
+const SPIN_FPS = 8;
+class Stage {
+  constructor(el, p) {
+    this.el = el; this.p = p; this.A = ASSETS[p.id]; this.n = this.A.frames.length;
+    this.canvas = $("canvas", el); this.ctx = this.canvas.getContext("2d");
+    this.mask = document.createElement("canvas"); this.mctx = this.mask.getContext("2d");
+    this.noteEl = $(".note span", el);
+    this.frames = this.A.frames.map((src, i) => { const im = new Image(); im.decoding = "async"; im.src = src; if (i) im.onload = () => { this.dirty = true; }; return im; });
+    this.colors = {};
+    for (const w of p.ways) if (w.id !== "white") { const im = new Image(); im.src = this.A.ways[w.id]; this.colors[w.id] = im; }
+    this.frame = 0; this.spun = 0; this.way = null; this.want = null; this.reveal = 0; this.t = 0;
+    this.phase = REDUCED ? "rest" : "spin"; this.idleUntil = 0; this.autoIdx = 0;
+    this.visible = true; this.dirty = true; this.dragging = false;
+    this.card = el.closest(".product");
+    this.chips = $$(".way", this.card);
+    this.chips.forEach(b => b.addEventListener("click", () => this.pick(b.dataset.way)));
+
+    const first = this.frames[0];
+    const ready = () => { this.resize(); el.classList.add("live"); };
+    (first.decode ? first.decode() : Promise.resolve()).then(ready, ready);
+    this.ro = new ResizeObserver(() => this.resize()); this.ro.observe(el);
+    this.io = new IntersectionObserver(es => { this.visible = es[0].isIntersecting; }, { threshold: 0.15 }); this.io.observe(el);
+
+    el.addEventListener("pointerdown", e => {
+      if (e.button !== 0) return;
+      this.dragging = true; this.dragX = e.clientX; this.dragFrame = this.frame; this.moved = false;
+      el.setPointerCapture(e.pointerId);
+    });
+    el.addEventListener("pointermove", e => {
+      if (!this.dragging) return;
+      const dx = e.clientX - this.dragX;
+      if (!this.moved && Math.abs(dx) < 4) return;
+      if (!this.moved) { this.moved = true; this.clearColor(); }
+      this.frame = this.dragFrame - dx / 9; this.idleUntil = performance.now() + 8000; this.phase = "rest"; this.dirty = true;
+    });
+    const end = () => { if (!this.dragging) return; this.dragging = false; this.frame = this.norm(this.frame); if (this.moved) this.idleUntil = performance.now() + 6000; };
+    el.addEventListener("pointerup", end); el.addEventListener("pointercancel", end);
+    el.addEventListener("keydown", e => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      e.preventDefault(); this.clearColor();
+      this.frame = this.norm(Math.round(this.frame) + (e.key === "ArrowRight" ? -1 : 1));
+      this.phase = "rest"; this.idleUntil = performance.now() + 8000; this.dirty = true;
+    });
+  }
+  norm(f) { return ((f % this.n) + this.n) % this.n; }
+  clearColor() { this.way = null; this.want = null; this.reveal = 0; this.setNote(null); }
+  setNote(way) {
+    const w = this.p.ways.find(x => x.id === (way || "white"));
+    const text = way ? "Idea: " + w.name : "As it arrives";
+    this.chips.forEach(b => b.setAttribute("aria-pressed", b.dataset.way === (way || "white")));
+    if (this.noteEl.textContent === text) return;
+    if (REDUCED) { this.noteEl.textContent = text; return; }
+    this.noteEl.classList.add("swap");
+    setTimeout(() => { this.noteEl.textContent = text; this.noteEl.classList.remove("swap"); }, 180);
+  }
+  pick(id) {
+    this.idleUntil = performance.now() + 10000;
+    if (REDUCED) {
+      this.frame = 0; this.way = id === "white" ? null : id; this.reveal = this.way ? 1 : 0;
+      this.phase = "rest"; this.setNote(this.way); this.dirty = true; return;
+    }
+    if (id === "white") { this.want = null; this.phase = this.way ? "unreveal" : "rest"; this.setNote(null); return; }
+    if (this.way === id) { this.phase = this.reveal < 1 ? "reveal" : "hold"; this.t = 0; return; }
+    this.want = id;
+    this.chips.forEach(b => b.setAttribute("aria-pressed", b.dataset.way === id));
+    if (this.way) this.phase = "unreveal";
+    else if (Math.abs(this.frame) > 1e-3) this.phase = "settle";
+    else { this.phase = "pause"; this.t = 0; }
+  }
+  nextAutoWay() {
+    const ids = this.p.ways.filter(w => w.id !== "white").map(w => w.id);
+    return ids[this.autoIdx++ % ids.length];
+  }
+  resize() {
+    const r = this.el.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+    const W = Math.max(1, Math.round(r.width * d)), H = Math.max(1, Math.round(r.height * d));
+    if (this.canvas.width !== W || this.canvas.height !== H) {
+      this.canvas.width = this.mask.width = W; this.canvas.height = this.mask.height = H;
+      const [x0, y0, x1, y1] = this.A.bbox, padX = (x1 - x0) * 0.08, padY = (y1 - y0) * 0.08;
+      const bx0 = (x0 - padX) * W, bx1 = (x1 + padX) * W, by0 = (y0 - padY) * H, by1 = (y1 + padY) * H;
+      const rows = 6, pts = [];
+      for (let i = 0; i <= rows; i++) {
+        const y = by0 + (by1 - by0) * i / rows;
+        pts.push(i % 2 ? [bx1, y + (by1 - by0) * 0.05] : [bx0, y]);
+      }
+      this.path = pts; this.lw = (by1 - by0) / rows * 1.9;
+      let L = 0; this.segs = pts.slice(1).map((q, i) => { const pv = pts[i], len = Math.hypot(q[0] - pv[0], q[1] - pv[1]); L += len; return len; });
+      this.pathLen = L;
+    }
+    this.dirty = true; this.draw();
+  }
+  frameImage() {
+    const i = Math.round(this.norm(this.frame)) % this.n;
+    for (let k = 0; k < this.n; k++) {
+      const a = this.frames[(i - k + this.n) % this.n];
+      if (a.complete && a.naturalWidth) return a;
+    }
+    return null;
+  }
+  scribble(m, t) {
+    m.lineWidth = this.lw; m.lineCap = "round"; m.lineJoin = "round"; m.strokeStyle = "#000";
+    m.beginPath(); m.moveTo(...this.path[0]);
+    let left = t * this.pathLen;
+    for (let i = 1; i < this.path.length && left > 0; i++) {
+      const [ax, ay] = this.path[i - 1], [bx, by] = this.path[i], len = this.segs[i - 1];
+      const f = Math.min(1, left / len); m.lineTo(ax + (bx - ax) * f, ay + (by - ay) * f); left -= len;
+    }
+    m.stroke();
+  }
+  draw() {
+    if (!this.dirty || !this.path) return;
+    this.dirty = false;
+    const { ctx, canvas: c } = this, W = c.width, H = c.height;
+    ctx.clearRect(0, 0, W, H);
+    const base = this.frameImage(); if (base) ctx.drawImage(base, 0, 0, W, H);
+    const col = this.way && this.colors[this.way];
+    if (col && this.reveal > 0 && col.complete && col.naturalWidth) {
+      if (this.reveal >= 1) { ctx.drawImage(col, 0, 0, W, H); return; }
+      const m = this.mctx; m.globalCompositeOperation = "source-over"; m.clearRect(0, 0, W, H);
+      const e = this.reveal < .5 ? 2 * this.reveal * this.reveal : 1 - Math.pow(-2 * this.reveal + 2, 2) / 2;
+      this.scribble(m, e);
+      m.globalCompositeOperation = "source-in"; m.drawImage(col, 0, 0, W, H); m.globalCompositeOperation = "source-over";
+      ctx.drawImage(this.mask, 0, 0);
+    }
+  }
+  tick(dt, now) {
+    const auto = !REDUCED && now > this.idleUntil && !this.dragging;
+    const f0 = this.frame, r0 = this.reveal;
+    switch (this.phase) {
+      case "spin":
+        if (!auto) break;
+        this.frame += dt * SPIN_FPS; this.spun += dt * SPIN_FPS;
+        if (this.frame >= this.n) this.frame -= this.n;
+        if (this.spun >= this.n) this.phase = "settle";
+        break;
+      case "settle": {
+        const target = this.frame < 1e-3 ? 0 : this.n;
+        this.frame = Math.min(target, this.frame + dt * SPIN_FPS * 1.6);
+        if (this.frame >= target - 1e-3) { this.frame = 0; this.phase = "pause"; this.t = 0; }
+        break;
+      }
+      case "pause":
+        this.t += dt;
+        if (this.t > 0.35 && (auto || this.want)) { this.way = this.want || this.nextAutoWay(); this.want = null; this.setNote(this.way); this.phase = "reveal"; }
+        break;
+      case "reveal":
+        this.reveal = Math.min(1, this.reveal + dt / 1.15);
+        if (this.reveal >= 1) { this.phase = "hold"; this.t = 0; }
+        break;
+      case "hold":
+        this.t += dt;
+        if (auto && this.t > 2.4) this.phase = "unreveal";
+        break;
+      case "unreveal":
+        this.reveal = Math.max(0, this.reveal - dt / 0.7);
+        if (this.reveal <= 0) {
+          this.way = null;
+          if (this.want) { this.phase = "pause"; this.t = 0; }
+          else { this.setNote(null); this.phase = auto ? "spin" : "rest"; this.spun = 0; }
+        }
+        break;
+      case "rest":
+        if (auto) { this.frame = this.norm(this.frame); this.spun = 0; this.phase = "spin"; }
+        break;
+    }
+    if (this.frame !== f0 || this.reveal !== r0) this.dirty = true;
+    this.draw();
+  }
+  destroy() { this.ro.disconnect(); this.io.disconnect(); }
+}
+let last = performance.now();
+function loop(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  if (!document.hidden) for (const s of stages) if (s.visible) s.tick(dt, now);
+  requestAnimationFrame(loop);
+}
+
+/* ---------- bag ---------- */
+let bag = {};
+try { bag = JSON.parse(localStorage.getItem("mrOmarsClassroom.bag") || "{}") || {}; } catch (e) { bag = {}; }
+// Before 2026-10-06 all chips were one product: "chips:apple:red" is now "chips-apple:apple:red".
+for (const k of Object.keys(bag)) if (k.startsWith("chips:")) {
+  const nk = "chips-" + k.split(":")[1] + k.slice(5); bag[nk] = (bag[nk] || 0) + bag[k]; delete bag[k];
+}
+const saveBag = () => { try { localStorage.setItem("mrOmarsClassroom.bag", JSON.stringify(bag)); } catch (e) {} };
+const bagItem = key => {                       // "chips:maple:red" -> product, shape, colour
+  const [id, shapeId, colourId] = key.split(":");
+  const p = PRODUCTS.find(x => x.id === id && forSale(x));
+  if (!p) return null;
+  const shape = p.shapes && p.shapes.find(x => x.id === shapeId);
+  const colour = p.colours && p.colours.find(x => x.id === colourId);
+  const light = p.lights && p.lights.find(x => x.id === shapeId);
+  const style = p.styles && p.styles.find(x => x.id === shapeId);
+  if (p.styles && !style) return null;          // an old bare "spider" key: no style, no line
+  return { p, shape, colour, light, style };
+};
+const MAX_QTY = 20;          // the checkout's own limit per item
+function renderBag() {
+  // A line the shop can't sell any more (an old saved key, a product switched off, the old
+  // 404 page's bag) is removed, not hidden: hidden lines used to ride along to checkout and
+  // fail it every time, with nothing on screen to take out (2026-10-12).
+  for (const k of Object.keys(bag)) if (!(bag[k] > 0) || !bagItem(k)) delete bag[k];
+  for (const k of Object.keys(bag)) if (bag[k] > MAX_QTY) bag[k] = MAX_QTY;
+  const ids = Object.keys(bag);
+  const n = ids.reduce((s, id) => s + bag[id], 0);
+  const c = $("#bagCount"); c.textContent = n; c.classList.toggle("zero", n === 0);
+  $("#lines").innerHTML = ids.length ? ids.map(key => {
+    const { p, shape, colour, light, style } = bagItem(key);
+    const note = shape ? (p.shapes.length > 1 ? shape.name + (colour ? ", " + colour.name.toLowerCase() : "")
+                                              : colour ? colour.name : shape.name)
+      : light ? light.name.toLowerCase() + " light" : style ? style.name.toLowerCase()
+      : isShots(p) ? (p.per || "") : "arrives white";
+    const pic = shape
+      ? `<canvas class="line-pic" data-shape="${shape.id}" data-shot="hero" data-hex="${colour ? colour.hex : "#4EE349"}" data-real="${colour ? colour.id : ""}"></canvas>`
+      : light ? `<img src="${PHOTOS[p.id][light.id]}" alt="">`
+      : isShots(p) ? `<img src="${shotsFor(p, style)[0].src}" alt="">`
+      : `<img src="${ASSETS[p.id].frames[0]}" alt="">`;
+    return `<div class="line-item">${pic}<div><b>${esc(p.name)}</b><small>${money(p.price)}${note ? " &middot; " + esc(note) : ""}</small></div>
+      <div class="qty"><button data-q="-1" data-id="${key}" aria-label="One fewer ${esc(p.name)}">&minus;</button><span>${bag[key]}</span><button data-q="1" data-id="${key}" aria-label="One more ${esc(p.name)}" ${bag[key] >= MAX_QTY ? "disabled" : ""}>+</button></div></div>`;
+  }).join("") : `<p class="empty">Your bag is empty.</p>`;
+  const sub = ids.reduce((s, k) => s + bag[k] * bagItem(k).p.price, 0);
+  $("#subtotal").textContent = money(sub);
+  shipMeter(sub);
+  $$(".line-pic").forEach(c => paintChip(c, c.dataset.shape, c.dataset.shot, c.dataset.hex, c.dataset.real));
+  saveBag();
+}
+$("#lines").addEventListener("click", e => {
+  const b = e.target.closest("button[data-q]"); if (!b) return;
+  bag[b.dataset.id] = Math.min(MAX_QTY, Math.max(0, (bag[b.dataset.id] || 0) + +b.dataset.q));
+  if (+b.dataset.q > 0 && bag[b.dataset.id] >= MAX_QTY) toast(`Up to ${MAX_QTY} of one item per order \u2014 for more, send a request.`, 4000);
+  renderBag();
+});
+$("#view").addEventListener("click", e => {
+  const anchor = e.target.closest('a[href^="#"]:not([href^="#/"])');
+  if (anchor) {
+    const t = document.getElementById(anchor.getAttribute("href").slice(1));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth" }); return; }
+  }
+  const b = e.target.closest("[data-add]"); if (!b) return;
+  const key = b.dataset.add, item = bagItem(key); if (!item) return;
+  const p = item.p;
+  if ((bag[key] || 0) >= MAX_QTY) { toast(`Up to ${MAX_QTY} of one item per order \u2014 for more, send a request.`, 4000); return; }
+  bag[key] = (bag[key] || 0) + 1; renderBag();
+  b.classList.add("done"); b.textContent = "Added";
+  // markSold, not a fixed label: a style switch in the meantime may have made it Sold out.
+  setTimeout(() => { b.classList.remove("done"); b.textContent = "Add to bag"; markSold(); }, 1500);
+  toast(p.name + " added to your bag");
+});
+/* ---------- paying ----------
+   The bag is posted to a Cloudflare Worker, which prices it against the workshop's own
+   catalogue and hands back a Stripe page to send the buyer to. The page never sees a
+   secret key, and a price edited in devtools is simply ignored. */
+function wireCheckout() {
+  const btn = $("#checkout"), note = $("#checkoutNote");
+  if (!SITE.checkout) return;
+  $("#optinRow").hidden = false;
+  note.innerHTML = (SITE.shipping_cents
+    ? `Card payment by Stripe. ${money(SITE.shipping_cents / 100)} flat shipping${FREE_OVER ? `, free on orders of ${usd(FREE_OVER)} or more` : ""}, US only.`
+    : "Card payment by Stripe. Posted in the US.")
+    + ` <a href="/policies/">30-day returns</a>.`;
+  const refresh = () => {
+    const n = Object.keys(bag).filter(k => bag[k] > 0 && bagItem(k)).length;
+    btn.disabled = !n;
+  };
+  refresh();
+  new MutationObserver(refresh).observe($("#bagCount"), { childList: true });
+  btn.addEventListener("click", async () => {
+    const cart = Object.entries(bag).filter(([k, q]) => q > 0 && bagItem(k)).map(([key, qty]) => ({ key, qty }));
+    if (!cart.length) return;
+    btn.disabled = true; btn.textContent = "Taking you to checkout\u2026";
+    try {
+      const r = await fetch(SITE.checkout, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cart, marketing: $("#optin").checked }),
+      });
+      const out = await r.json().catch(() => ({}));
+      if (!r.ok && out.error) {
+        btn.disabled = false; btn.textContent = "Checkout";
+        // Sold out, or no longer sold: take that line out so the next try can go through.
+        if ((out.sold_out || r.status === 400) && out.key && bag[out.key]) { delete bag[out.key]; renderBag(); }
+        note.textContent = out.error;
+        toast(out.error, 5000); liveStock();
+        return;
+      }
+      if (!r.ok || !out.url) throw new Error("no session");
+      location.href = out.url;                     // Stripe takes it from here
+    } catch (err) {
+      btn.disabled = false; btn.textContent = "Checkout";
+      note.textContent = "That didn't start. Try again in a moment.";
+      toast("Checkout didn't start");
+    }
+  });
+}
+
+/* Coming back from Stripe: ?paid=1 means the payment went through, so the bag is done.
+   The order itself is recorded by Stripe calling the workshop, not by this page. */
+function afterPayment() {
+  const q = new URLSearchParams(location.search);
+  if (!q.has("paid")) return;
+  const paid = q.get("paid") === "1";
+  if (paid) { bag = {}; saveBag(); renderBag(); }
+  history.replaceState(null, "", location.pathname + location.hash);
+  if (!paid) { setTimeout(() => toast("Payment cancelled \u2014 your bag is still here."), 400); return; }
+  const box = document.createElement("div");
+  box.className = "thanks"; box.setAttribute("role", "status");
+  box.innerHTML = `<h2>Thank you \u2014 your order is in!</h2>
+    <p>A confirmation is on its way to your email. Please allow 3\u20135 business days for it to ship;
+       I'll email you again the moment it does.</p>
+    <button aria-label="Close">&times;</button>`;
+  $("button", box).addEventListener("click", () => box.remove());
+  document.body.appendChild(box);
+}
+
+const openBag = () => { const d = $("#drawer"); d.inert = false; d.classList.add("open"); $("#scrim").classList.add("open"); $("#closeBag").focus(); };
+function closeBag() {
+  const d = $("#drawer"); if (!d.classList.contains("open")) return;
+  d.classList.remove("open"); $("#scrim").classList.remove("open"); d.inert = true;
+  $("#bagBtn").focus();                       // back where the shopper was
+}
+$("#bagBtn").addEventListener("click", openBag);
+$("#closeBag").addEventListener("click", closeBag);
+$("#scrim").addEventListener("click", closeBag);
+let toastT;
+function toast(msg, ms = 2600) { const t = $("#toast"); t.textContent = msg; t.classList.add("up"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("up"), ms); }
+
+buildNav(); renderBag(); wireCheckout(); mountJoin(); afterPayment(); route(); liveStock(); requestAnimationFrame(loop);
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "24c405086994467b8fdf0931d3f8295c"}'></script>
+
+</body>
+</html>
