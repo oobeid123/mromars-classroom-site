@@ -10,17 +10,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Kalam:wght@400;700&family=Lexend:wght@400;500;600&display=swap">
 <style>
 :root{
-  --paper:#F3F4EF; --sheet:#FFFFFF; --stage:#E0E4DA; --stage-2:#D3D8CD;
-  --ink:#1C221F; --ink-2:#4B544F; --ink-3:#5F6862; --rule:#D8DBD2; --rule-2:#BFC4B9;
-  --chip-red:#CE3A32; --chip-yellow:#F5C020; --rod-blue:#2C6491; --pumpkin:#EA6A1E; --grape:#6A3E9E;
+  --paper:#FBF7EF; --sheet:#FFFFFF; --stage:#F2EADB; --stage-2:#E6DCC8;
+  --ink:#1E2833; --ink-2:#4C5663; --ink-3:#646D7A; --rule:#E7DFD0; --rule-2:#D3C8B4;
+  --chip-red:#C93A30; --chip-yellow:#F3BC1C; --rod-blue:#2C6491; --pumpkin:#EA6A1E; --grape:#6A3E9E;
   --mark:#CE3A32; --mark-ink:#FFF6EC;
   --link:#2F5E9E; --btn:#2F6DB5; --btn-ink:#FFFFFF; --ok:#2F7D4F;
-  --lift:0 1px 0 rgba(28,34,31,.04), 0 14px 34px rgba(28,34,31,.10);
+  --lift:0 12px 32px rgba(31,63,107,.10); --lift-sm:0 2px 10px rgba(31,63,107,.06);
   --scrim:rgba(20,26,23,.46);
   --display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
   --body:"Lexend","Segoe UI",system-ui,-apple-system,sans-serif;
   --hand:"Kalam","Bradley Hand","Comic Sans MS",cursive;
-  --maxw:1180px;
+  --maxw:1240px;
   --butcher:#3B78C2; --butcher-sub:#E3EDFA; --letter-shadow:#1F3F6B; --navy:#1F3F6B; --navy-sub:#C9D7EA;
   --sunny:#F5C842; --sunny-ink:#2A2118; --sunny-sub:#4F3E10;
   --kraft:#C99F70; --kraft-ink:#2B2016; --kraft-sub:#3E2E1C;
@@ -28,37 +28,50 @@
   --trim-a:#C93A30; --trim-b:#F3BC1C; --trim-c:#2F6DB5;
   --bin-red:#C93A30; --bin-orange:#EC7A1F; --bin-yellow:#F3BC1C; --bin-green:#2E8045; --bin-blue:#2F6DB5; --bin-purple:#7B4FB6; --bin-teal:#127C82;
   --wash-red:#FBE4E0; --wash-orange:#FDEBDA; --wash-yellow:#FDF3D0; --wash-green:#E1F1E3; --wash-blue:#DFEAF7; --wash-purple:#ECE4F6; --wash-teal:#D9F0F0;
+  /* studio storefront (2026-10-19) */
+  --navy:#1F3F6B; --navy-sub:#C2D1E6; --deep:#1F3F6B; --deep-ink:#FFFFFF;
+  --band:#3B78C2; --band-ink:#FFFFFF; --band-sub:#E3EDFA;
+  --sky:#DFEAF7; --butter:#FDF1CC; --blush:#FBE4E0; --sun:#F3BC1C; --sun-ink:#231C08;
+  --wall:#F5EDDF; --floor:#EADCC4; --arch-a:#E8B84A; --arch-b:#6E9ACB; --plinth:#F3E9D8;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --paper:#1B2420; --sheet:#222C27; --stage:#29342F; --stage-2:#323E38;
-    --ink:#ECEFE8; --ink-2:#B6BEB8; --ink-3:#9AA39D; --rule:#33403A; --rule-2:#46534C;
-    --chip-red:#E4584F; --chip-yellow:#F5C020; --rod-blue:#6FA8D4; --pumpkin:#F2803E; --grape:#B697E3;
-    --mark:#E4584F; --mark-ink:#1B2420;
-    --link:#9DC0EE; --btn:#5B93D6; --btn-ink:#0F1520; --ok:#7FD39E;
-    --lift:0 1px 0 rgba(0,0,0,.2), 0 16px 40px rgba(0,0,0,.38);
+    --paper:#141B23; --sheet:#1B242E; --stage:#212B36; --stage-2:#2B3643;
+    --ink:#EEF1F5; --ink-2:#B3BCC7; --ink-3:#97A1AD; --rule:#2C3743; --rule-2:#3B4855;
+    --chip-red:#E4655B; --chip-yellow:#F3C53A; --rod-blue:#6FA8D4; --pumpkin:#F2803E; --grape:#B697E3;
+    --mark:#E4584F; --mark-ink:#141B23;
+    --link:#9DC0EE; --btn:#6FA2E0; --btn-ink:#0E1520; --ok:#7FD39E;
+    --lift:0 14px 36px rgba(0,0,0,.40); --lift-sm:0 2px 10px rgba(0,0,0,.25);
     --scrim:rgba(6,10,8,.62);
     --butcher:#22446D; --butcher-sub:#C9D7EA; --letter-shadow:#0E1F36; --navy:#142A47; --navy-sub:#B5C6DD;
     --sunny:#5A4813; --sunny-ink:#FBF3DC; --sunny-sub:#EBDDB4;
     --kraft:#4F3C2A; --kraft-ink:#F6EDE2; --kraft-sub:#E2D2BF;
     --chalk:#1C3A2E; --chalk-ink:#EEF3EF; --chalk-sub:#BFD3C7;
     --trim-a:#B8433A; --trim-b:#D9A824; --trim-c:#3F78BC;
+
+    --navy:#0D141C; --navy-sub:#A3B0C0; --deep:#9CC0EC; --deep-ink:#0E1520;
+    --band:#203F66; --band-ink:#F3F6FB; --band-sub:#C3D3E8;
+    --sky:#1E2C3D; --butter:#33301E; --blush:#3A2624; --sun:#F3C53A; --sun-ink:#231C08;
     --wash-red:#3B2422; --wash-orange:#3A2A1C; --wash-yellow:#363019; --wash-green:#1E3324; --wash-blue:#1D2A3D; --wash-purple:#2C2340; --wash-teal:#183235;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#1B2420; --sheet:#222C27; --stage:#29342F; --stage-2:#323E38;
-  --ink:#ECEFE8; --ink-2:#B6BEB8; --ink-3:#9AA39D; --rule:#33403A; --rule-2:#46534C;
-  --chip-red:#E4584F; --chip-yellow:#F5C020; --rod-blue:#6FA8D4; --pumpkin:#F2803E; --grape:#B697E3;
-  --mark:#E4584F; --mark-ink:#1B2420;
-  --link:#9DC0EE; --btn:#5B93D6; --btn-ink:#0F1520; --ok:#7FD39E;
-  --lift:0 1px 0 rgba(0,0,0,.2), 0 16px 40px rgba(0,0,0,.38);
+  --paper:#141B23; --sheet:#1B242E; --stage:#212B36; --stage-2:#2B3643;
+  --ink:#EEF1F5; --ink-2:#B3BCC7; --ink-3:#97A1AD; --rule:#2C3743; --rule-2:#3B4855;
+  --chip-red:#E4655B; --chip-yellow:#F3C53A; --rod-blue:#6FA8D4; --pumpkin:#F2803E; --grape:#B697E3;
+  --mark:#E4584F; --mark-ink:#141B23;
+  --link:#9DC0EE; --btn:#6FA2E0; --btn-ink:#0E1520; --ok:#7FD39E;
+  --lift:0 14px 36px rgba(0,0,0,.40); --lift-sm:0 2px 10px rgba(0,0,0,.25);
   --scrim:rgba(6,10,8,.62);
   --butcher:#22446D; --butcher-sub:#C9D7EA; --letter-shadow:#0E1F36; --navy:#142A47; --navy-sub:#B5C6DD;
   --sunny:#5A4813; --sunny-ink:#FBF3DC; --sunny-sub:#EBDDB4;
   --kraft:#4F3C2A; --kraft-ink:#F6EDE2; --kraft-sub:#E2D2BF;
   --chalk:#1C3A2E; --chalk-ink:#EEF3EF; --chalk-sub:#BFD3C7;
   --trim-a:#B8433A; --trim-b:#D9A824; --trim-c:#3F78BC;
+
+  --navy:#0D141C; --navy-sub:#A3B0C0; --deep:#9CC0EC; --deep-ink:#0E1520;
+  --band:#203F66; --band-ink:#F3F6FB; --band-sub:#C3D3E8;
+  --sky:#1E2C3D; --butter:#33301E; --blush:#3A2624; --sun:#F3C53A; --sun-ink:#231C08;
   --wash-red:#3B2422; --wash-orange:#3A2A1C; --wash-yellow:#363019; --wash-green:#1E3324; --wash-blue:#1D2A3D; --wash-purple:#2C2340; --wash-teal:#183235;
 }
 
@@ -447,102 +460,6 @@ footer p{font-size:14px;color:var(--ink-3);max-width:46ch}
   *,*::before,*::after{transition-duration:.001ms!important;animation-duration:.001ms!important;animation-delay:0s!important}
   .colorin::after{clip-path:none;animation:none}
 }
-/* ========== classroom wall (2026-10-06): every section is a sheet of classroom paper ========== */
-body{background:var(--navy)}
-main > section{position:relative;background:var(--sunny);color:var(--sunny-ink);--sec-sub:var(--sunny-sub);--tx:var(--trim-a)}
-main > section:not([class]){padding-block:48px 56px;--tx:var(--trim-c)}
-.hero,.page-head,.byteacher{background:var(--butcher);color:#FFFFFF;--sec-sub:var(--butcher-sub)}
-.shelves{background:var(--kraft);color:var(--kraft-ink);--sec-sub:var(--kraft-sub)}
-.ask{background:var(--chalk);color:var(--chalk-ink);--sec-sub:var(--chalk-sub);--tx:var(--trim-c);border-top:0}
-.shop{--tx:var(--trim-c)}
-.byteacher{border-top:0}
-.sec-head p,.page-head p,.ask-copy p{color:var(--sec-sub)}
-.ask-copy .hand{color:var(--chalk-ink)}
-.by p{color:var(--butcher-sub)}
-
-/* scalloped border trim where one paper meets the next */
-.hero::after,.page-head::after,.shop::after,.shelves::after,.ask::after,main > section:not([class])::after{content:"";position:absolute;left:0;right:0;
-  bottom:-22px;height:30px;z-index:3;pointer-events:none;
-  background:
-    linear-gradient(var(--trim-b),var(--trim-b)) 0 0/100% 8px no-repeat,
-    radial-gradient(circle at 14px 8px,var(--tx) 14px,transparent 14.5px) 0 0/56px 30px repeat-x,
-    radial-gradient(circle at 42px 8px,var(--trim-b) 14px,transparent 14.5px) 0 0/56px 30px repeat-x}
-
-.hero{padding-block:24px 60px}
-.page-head{padding-block:30px 50px}
-.shop{padding-block:54px 50px}
-.shelves{padding-block:54px 54px}
-.ask{padding-block:58px 54px}
-.byteacher{padding-block:58px 54px}
-.prod,.one-toy,.products{margin-block:0}
-.plan-grid{margin-block:22px 0}
-.products + .plan-grid{margin-top:22px}
-
-/* header: butcher paper, continuous with the hero */
-.bar{background:var(--butcher);border-bottom:0;backdrop-filter:none;color:#FFFFFF}
-.brand{color:#FFFFFF}
-.brand-mr{color:#FFF3C4}
-.cat-btn{color:#FFFFFF;opacity:.92}
-.cat-btn:hover,.cat-btn[aria-expanded="true"],.cat-btn.here{color:#FFFFFF;opacity:1;background:rgba(255,255,255,.16)}
-.bag-btn{background:#FFFFFF;color:#1C2230;font-weight:600}
-.bag-count.zero{background:#E3E7EE;color:#1C2230}
-.browse{border-color:rgba(255,255,255,.65);color:#FFFFFF}
-.sheetnav{border-top-color:rgba(255,255,255,.22)}
-.sheetnav h2{color:var(--butcher-sub)}
-.sheetnav a{color:#FFFFFF;border-bottom-color:rgba(255,255,255,.18)}
-.sheetnav a em{color:var(--butcher-sub)}
-:focus-visible{outline:3px solid #1C2230;outline-offset:2px;box-shadow:0 0 0 5px #FFFFFF}
-
-/* hero: cut-paper headline, photo pinned to the board */
-.hero h1,.page-head h1{color:#FFFFFF;text-shadow:3px 3px 0 var(--letter-shadow)}
-.hero .lede{color:var(--butcher-sub)}
-.hand-line{font-family:var(--hand);font-size:19px;color:#FFF3C4;margin-bottom:10px}
-.btn-sun{background:#F3BC1C;color:#231C08;font-weight:600}
-.btn-ghost{border:2px solid rgba(255,255,255,.75);color:#FFFFFF;font-weight:600}
-.pinned{position:relative;width:100%;max-width:520px;justify-self:center;background:#FFFFFF;padding:12px 12px 8px;
-  transform:rotate(-2deg);box-shadow:0 18px 36px rgba(10,25,50,.35)}
-.pinned .hero-shot{border-radius:3px}
-.pinned .frame-cap{color:#3A4150;margin-top:6px;font-size:17px}
-.pin{position:absolute;z-index:2;left:50%;top:-12px;width:24px;height:24px;margin-left:-12px;border-radius:50%;
-  background:radial-gradient(circle at 35% 32%,#FFB3AB 0 18%,#C93A30 22% 100%);box-shadow:2px 4px 5px rgba(0,0,0,.35)}
-
-.crumbs{color:var(--butcher-sub)}
-.crumbs a{color:#FFFFFF}
-.crumbs a:hover{color:#FFFFFF}
-.pill{background:var(--sheet);color:var(--ink);border-color:transparent}
-.pill:hover{border-color:var(--ink);color:var(--ink)}
-.pill[aria-current="page"]{background:#F3BC1C;border-color:#F3BC1C;color:#231C08}
-
-/* white sheets pinned on the paper */
-.card,.prod,.plan,.products > .product,.one-toy .product,.ask-form{color:var(--ink)}
-.card{border:0;box-shadow:0 2px 0 rgba(0,0,0,.08)}
-.card-shot{background:var(--wash,var(--stage))}
-.card-tag{background:var(--bin,var(--sheet));color:var(--bin-ink,var(--ink-2));backdrop-filter:none}
-.prod,.one-toy .product{background:var(--sheet);border-radius:22px;padding:clamp(18px,3vw,32px);box-shadow:0 2px 0 rgba(0,0,0,.08)}
-.products > .product{background:var(--sheet);border-radius:20px;padding:18px;box-shadow:0 2px 0 rgba(0,0,0,.08)}
-.plan{border-color:transparent;box-shadow:0 2px 0 rgba(0,0,0,.08)}
-
-/* every shelf is a coloured bin with a white label slot */
-.tile{position:relative;justify-content:flex-end;gap:0;min-height:116px;padding:14px;border:0;border-radius:14px;
-  background:var(--bin);box-shadow:inset 0 -6px 0 rgba(0,0,0,.14)}
-.tile:hover{border-color:transparent;transform:translateY(-2px)}
-.tile::before{content:"";position:absolute;left:50%;top:12px;width:44px;height:10px;margin-left:-22px;border-radius:99px;
-  background:rgba(0,0,0,.2)}
-.tile-label{display:grid;gap:1px;background:#FFFFFF;color:#1B2230;border-radius:8px;padding:8px 12px 7px}
-.tile-label b{font-family:var(--display);font-weight:600;font-size:17px;line-height:1.2}
-.tile-label span{font-size:12.5px;color:#4A5263}
-
-.ask-form{border:0}
-.ask-form label{text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink)}
-
-footer{background:var(--navy);color:#FFFFFF;border-top:0;padding-block:44px 48px}
-footer p{color:var(--navy-sub)}
-
-@media (max-width:760px){
-  .hero{padding-block:18px 52px}
-  .pinned{max-width:440px}
-}
-
 /* ---------- mailing list band, bag opt-in, footer help (2026-10-06) ---------- */
 .join{background:var(--sunny);color:var(--sunny-ink);padding-block:44px}
 .join-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
@@ -632,6 +549,232 @@ html.is-closed footer{padding-top:66px}
 .ship-meter .track i{display:block;height:100%;width:0;background:var(--ok);border-radius:inherit;transition:width .35s}
 .ship-meter.done{color:var(--ok);font-weight:600}
 html.is-closed .promo{display:none}
+/* ========== studio storefront (2026-10-19) ==========
+   Omar: "this is how I want my website to look" - modelled on nunutoysdubai.com. A calm cream
+   page, a navy shipping strip, a collage hero, trust tiles, a filterable grid of studio-lit
+   product photos, one classroom-blue teacher band, a navy footer. Photos sit on the same
+   studio set (tools/studio_stage.py); anything transparent (turntable frames) gets the set in CSS. */
+body{background:var(--paper)}
+.bar{background:color-mix(in srgb,var(--paper) 88%,transparent);border-bottom:1px solid var(--rule)}
+.bar-in{min-height:74px}
+.brand .mark{width:34px;height:34px}
+.cat-btn:hover,.cat-btn[aria-expanded="true"],.cat-btn.here{background:var(--stage)}
+.bag-btn{background:var(--deep);color:var(--deep-ink);padding:9px 10px 9px 16px;font-weight:600}
+.bag-count{min-width:24px;height:24px;background:var(--chip-red);color:#FFFFFF}
+.bag-count.zero{background:color-mix(in srgb,var(--deep-ink) 22%,transparent);color:var(--deep-ink)}
+.promo{background:var(--navy);color:#FFFFFF;font:500 13px/1.4 var(--body);padding:8px 16px}
+.promo b{font-weight:600}
+:focus-visible{outline:3px solid var(--btn);outline-offset:3px;border-radius:8px}
+.btn{font-weight:600}
+.btn-dark{background:var(--btn);color:var(--btn-ink);box-shadow:0 6px 18px color-mix(in srgb,var(--btn) 28%,transparent)}
+.btn-line{background:var(--sheet);border:1.5px solid var(--rule);color:var(--ink)}
+.btn-line:hover{border-color:var(--btn)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+
+/* hero */
+.hero{padding-block:56px 40px}
+.hero-in{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:48px}
+.hero-pill{display:inline-flex;align-items:center;gap:9px;padding:7px 16px 7px 12px;border-radius:999px;background:var(--butter);
+  font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.hero-pill i{width:8px;height:8px;border-radius:50%;background:var(--chip-red)}
+.hero h1{font-size:clamp(40px,5.4vw,66px);font-weight:600;margin-top:22px;letter-spacing:-.01em;color:var(--ink)}
+.hero h1 span{color:var(--btn)}
+.hero .lede{color:var(--ink-2);max-width:46ch;margin-top:20px}
+.hero .cta-row{margin-top:30px}
+.hero-sign{display:flex;align-items:center;gap:14px;margin-top:30px;color:var(--ink-3);font-size:13px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase}
+.hero-sign::before{content:"";width:46px;height:1.5px;background:var(--rule-2)}
+.collage{position:relative;aspect-ratio:1/.92;width:100%;max-width:100%}
+.c-arch{position:absolute;left:12%;right:10%;top:4%;bottom:6%;background:var(--sky);border-radius:999px 999px 34px 34px}
+.c-disc{position:absolute;right:2%;bottom:16%;width:28%;aspect-ratio:1;border-radius:50%;background:var(--butter)}
+.ctile{position:absolute;display:block;border-radius:22px;overflow:hidden;box-shadow:var(--lift);background:var(--wall);aspect-ratio:1}
+.ctile img{width:100%;height:100%;object-fit:cover}
+.ct1{left:4%;top:8%;width:54%}
+.ct2{right:2%;top:24%;width:42%}
+.ct3{left:30%;bottom:0;width:36%}
+.hero-note{position:absolute;left:0;bottom:8%;width:min(200px,40%);padding:16px 14px 14px;background:#FFF8D6;color:#3B3122;
+  font-family:var(--hand);font-size:15px;line-height:1.3;border-radius:4px;transform:rotate(-4deg);
+  box-shadow:0 10px 24px rgba(31,40,51,.16)}
+.hero-note::before{content:"";position:absolute;top:-8px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#F08178,#C93A30 60%,#8F231C)}
+
+/* wave + trust tiles */
+.wave{display:block;width:100%;height:56px;color:var(--stage)}
+.trust{background:var(--stage);padding-block:12px 56px}
+.trust-in{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.tr{display:flex;gap:14px;align-items:flex-start;padding:22px;border-radius:22px;background:var(--sheet);box-shadow:var(--lift-sm)}
+.tr-ic{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center}
+.tr-ic svg{width:22px;height:22px}
+.tr-blue{background:var(--sky);color:var(--btn)}
+.tr-sun{background:var(--butter);color:#9A6B00}
+.tr-red{background:var(--blush);color:var(--chip-red)}
+.tr h3{font-family:var(--display);font-weight:600;font-size:17px;line-height:1.2}
+.tr p{margin-top:4px;font-size:14px;color:var(--ink-2);line-height:1.5}
+
+/* shop grid */
+.shop{padding-block:72px 40px}
+.sec-head{margin-bottom:0}
+.sec-head h2{font-size:clamp(30px,3.6vw,42px)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.f{padding:9px 18px;border-radius:999px;background:var(--sheet);border:1.5px solid var(--rule);font-size:14px;font-weight:600;
+  color:var(--ink-2);transition:border-color .18s ease,color .18s ease,background .18s ease}
+.f:hover{border-color:var(--btn);color:var(--ink)}
+.f[aria-pressed="true"]{background:var(--deep);border-color:var(--deep);color:var(--deep-ink)}
+.f small{font-size:inherit;font-weight:500;opacity:.7;margin-left:5px;font-variant-numeric:tabular-nums}
+.pgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;margin-top:28px}
+.pc{display:flex;flex-direction:column;background:var(--sheet);border-radius:22px;overflow:hidden;box-shadow:var(--lift-sm);
+  transition:transform .22s ease,box-shadow .22s ease;color:var(--ink)}
+.pc:hover{transform:translateY(-3px);box-shadow:var(--lift)}
+.pc-ph{position:relative;display:block;aspect-ratio:1;overflow:hidden;
+  background:linear-gradient(var(--wall) 0 70%,var(--floor) 70%)}
+.pc-ph img,.pc-ph canvas{display:block;width:100%;height:100%;object-fit:contain;transition:transform .5s ease}
+.pc:hover .pc-ph img,.pc:hover .pc-ph canvas{transform:scale(1.04)}
+.pc-badge{position:absolute;top:12px;right:12px;z-index:1;padding:5px 11px;border-radius:999px;font-size:11px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;background:var(--chip-red);color:#FFFFFF}
+.pc-badge.sold{background:#1C2230}
+.pc-body{display:flex;flex-direction:column;flex:1;padding:16px 16px 18px}
+.pc-body .eyebrow{font-size:11px}
+.pc-body h3{margin-top:5px;font-family:var(--display);font-weight:600;font-size:17px;line-height:1.2}
+.pc-body h3 a{color:inherit;text-decoration:none}
+.pc-body h3 a:hover{color:var(--link)}
+.pc-note{margin-top:4px;font-size:13px;color:var(--ink-3);line-height:1.45}
+.pc-sw{display:flex;align-items:center;gap:7px;margin-top:12px;min-height:22px}
+.pc-sw i{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(30,40,51,.16)}
+.pc-sw span{font-size:12px;color:var(--ink-3);margin-left:2px}
+.pc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:14px}
+.pc-price{font-family:var(--display);font-weight:600;font-size:20px;font-variant-numeric:tabular-nums}
+.pc-add{display:inline-flex;align-items:center;justify-content:center;padding:9px 15px;border-radius:999px;background:var(--btn);
+  color:var(--btn-ink);font-size:13px;font-weight:600;white-space:nowrap;text-decoration:none;transition:transform .15s ease}
+.pc-add:hover{transform:translateY(-1px)}
+.pc-add.done{background:var(--ok);color:var(--paper)}
+.pc-add:disabled{background:transparent;color:var(--ink-3);box-shadow:inset 0 0 0 1.5px currentColor;cursor:not-allowed;transform:none}
+.pc-choose{background:var(--sheet);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--rule-2)}
+.pc-choose:hover{box-shadow:inset 0 0 0 1.5px var(--btn)}
+
+/* teacher band */
+.tband{padding-block:48px 24px}
+.tband-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border-radius:34px;overflow:hidden;
+  background:var(--band);color:var(--band-ink)}
+.tband-ph{position:relative;min-height:360px;background:var(--wall)}
+.tband-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tband-tx{padding:clamp(28px,5vw,60px);display:flex;flex-direction:column;justify-content:center;gap:16px}
+.tband-tx .hi{font-family:var(--hand);font-weight:700;font-size:19px;color:var(--sun)}
+.tband-tx h2{font-family:var(--display);font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.1}
+.tband-tx p{color:var(--band-sub);max-width:52ch}
+.tband-tx .sig{font-family:var(--hand);font-size:22px;color:var(--band-ink)}
+.tband-grades{display:flex;flex-wrap:wrap;gap:8px}
+.tband-grades span{padding:6px 13px;border-radius:999px;background:rgba(255,255,255,.14);font-size:13px;font-weight:600}
+
+/* next on the workbench */
+.soonrow{padding-block:56px 64px}
+.soonrow h2{font-family:var(--display);font-weight:600;font-size:clamp(26px,3vw,34px);margin-top:4px}
+.soonrow .wrap > p:not(.eyebrow){margin-top:8px;color:var(--ink-2);max-width:60ch}
+.soon-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:26px}
+.sn{padding:18px 18px 16px;border-radius:18px;background:var(--sheet);border:1.5px dashed var(--rule-2)}
+.sn h3{font-family:var(--display);font-weight:600;font-size:16px}
+.sn p{margin-top:6px;font-size:13px;color:var(--ink-2);line-height:1.5}
+.sn .eyebrow{display:block;margin-top:10px;font-size:10.5px}
+
+/* inner pages */
+.page-head{padding-block:40px 6px}
+.page-head h1{color:var(--ink)}
+.page-head p{color:var(--ink-2)}
+.pills{margin-top:24px}
+.pill{background:var(--sheet);border:1.5px solid var(--rule);color:var(--ink-2);font-weight:600}
+.pill:hover{border-color:var(--btn);color:var(--ink)}
+.pill[aria-current="page"]{background:var(--deep);border-color:var(--deep);color:var(--deep-ink)}
+main > section:not([class]){padding-block:24px 56px}
+.pgrid.cat-grid{margin-top:4px}
+.plan{border:1.5px dashed var(--rule-2);border-radius:18px}
+.plan.first{border:2px solid var(--chip-red)}
+.plan-grid{margin-block:28px 0}
+.prod{margin-block:18px 8px;gap:48px}
+.shot-main,.thumb,.stage{position:relative;isolation:isolate;
+  background:linear-gradient(var(--wall) 0 70%,var(--floor) 70%)}
+.shot-main{border-radius:24px;box-shadow:var(--lift-sm)}
+.shot-main::before,.shot-main::after,.stage::before,.stage::after{content:"";position:absolute;z-index:-1;bottom:30%;
+  border-radius:999px 999px 0 0}
+.shot-main::before,.stage::before{left:8%;width:22%;height:42%;background:var(--arch-a);opacity:.85}
+.shot-main::after,.stage::after{right:9%;width:20%;height:36%;background:var(--arch-b);opacity:.85}
+.shot-main canvas,.shot-main img{aspect-ratio:1;object-fit:contain;position:relative}
+.thumb{border-radius:14px}
+.thumb canvas,.thumb img{aspect-ratio:1;object-fit:contain}
+.thumb.on{border-color:var(--btn)}
+.stage{aspect-ratio:1;border-radius:24px}
+.stage .note{z-index:1}
+.prod-side .price.big{font-family:var(--display);font-weight:600;font-size:28px}
+.prod-side .add{box-shadow:0 6px 18px color-mix(in srgb,var(--btn) 28%,transparent);font-weight:600}
+.way[aria-pressed="true"]{border-color:var(--btn);color:var(--ink)}
+.tag{background:var(--sheet)}
+.one-toy .product{background:transparent;padding:0}
+.ask{background:var(--stage);padding-block:58px;border-top:0}
+.ask-copy .hand{color:var(--ink)}
+.ask-form{background:var(--sheet);border:0;box-shadow:var(--lift-sm)}
+.ask-form label{text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink)}
+.notfound h1{color:var(--ink)}
+.notfound .btn-sun,.btn-sun{background:var(--btn);color:var(--btn-ink)}
+
+/* the list, footer */
+.join{background:var(--butter);color:var(--ink)}
+.join p{color:var(--ink-2)}
+.join-status{color:var(--ink)}
+.join-form input[type=email]{box-shadow:inset 0 0 0 1.5px var(--rule)}
+footer{background:var(--navy);color:#F3F6FB;border-top:0;padding-block:56px 28px}
+footer .brand{color:#FFFFFF}
+footer .brand-mr{color:var(--navy-sub)}
+.foot-cols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px}
+.foot-cols h4{margin:0 0 12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-sub);font-weight:600}
+.foot-cols ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px}
+.foot-cols a{color:#FFFFFF;text-decoration:none}
+.foot-cols a:hover{text-decoration:underline;text-underline-offset:3px}
+footer p{color:var(--navy-sub);font-size:14px;max-width:36ch}
+.foot-brand p{margin-top:14px}
+.foot-help{overflow-wrap:anywhere}
+.foot-help a{color:#FFFFFF}
+.foot-bot{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;
+  justify-content:space-between;gap:10px;font-size:13px;color:var(--navy-sub)}
+
+/* back-soon screen */
+.closed{background:var(--paper);color:var(--ink)}
+.closed::after{display:none}
+.closed h1{color:var(--ink);text-shadow:none}
+.closed .lede{color:var(--ink-2)}
+.closed .hand-line{color:var(--chip-red)}
+.closed .note{background:var(--sheet);color:var(--ink);box-shadow:var(--lift)}
+.closed .note p{color:var(--ink-2)}
+.closed-sign{background:var(--butter);color:var(--ink)}
+.hand-line{font-family:var(--hand);font-size:19px;margin-bottom:10px}
+.pinned{position:relative}
+.pin{position:absolute;z-index:2;left:50%;top:-12px;width:24px;height:24px;margin-left:-12px;border-radius:50%;
+  background:radial-gradient(circle at 35% 32%,#FFB3AB 0 18%,#C93A30 22% 100%);box-shadow:2px 4px 5px rgba(0,0,0,.35)}
+html.is-closed footer{padding-top:56px}
+
+@media (max-width:1100px){
+  .pgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .trust-in{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .soon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:880px){
+  .hero-in{grid-template-columns:1fr;gap:36px}
+  .collage{max-width:560px;margin-inline:auto}
+  .pgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .tband-in{grid-template-columns:1fr}
+  .tband-ph{min-height:280px}
+  .foot-cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .wrap{padding-inline:16px}
+  .hero{padding-block:32px 28px}
+  .pgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .pc-body{padding:12px 12px 14px}
+  .pc-body h3{font-size:15px}
+  .pc-sw span{display:none}
+  .pc-sw i{width:16px;height:16px}
+  .pc-foot{flex-direction:column;align-items:stretch;gap:10px}
+  .trust-in,.soon-grid{grid-template-columns:1fr}
+  .hero-note{font-size:13px;width:44%;padding:12px 10px 10px}
+  .foot-cols{grid-template-columns:1fr}
+}
 </style>
 <link rel="canonical" href="https://mromars-classroom.com/p/gecko-20/">
 <meta property="og:site_name" content="Mr. Omar&#x27;s Classroom">
@@ -640,10 +783,13 @@ html.is-closed .promo{display:none}
 <meta property="og:description" content="$15.00. Twenty baby geckos, five each in blue, rainbow, clear and pink, for restocking the classroom treasure box in one go. Every one bends at each joint…">
 <meta property="og:url" content="https://mromars-classroom.com/p/gecko-20/">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://mromars-classroom.com/share/gecko-20-card-a465dc3d5b.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="product:price:amount" content="15.00">
 <meta property="product:price:currency" content="USD">
 <meta property="product:availability" content="in stock">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Baby Geckos – Treasure Box 20 Pack","description":"Twenty baby geckos, five each in blue, rainbow, clear and pink, for restocking the classroom treasure box in one go. Every one bends at each joint, and the see-through plastic glows in the light. Rainbow can come out in any of its colors: green, yellow, pink, purple, or a mix of them. We can’t pick which, so every rainbow one is a surprise.","sku":"gecko-20","url":"https://mromars-classroom.com/p/gecko-20/","image":[],"brand":{"@type":"Brand","name":"Mr. Omar's Classroom"},"category":"Toys > Treasure Box Toys","offers":{"@type":"Offer","url":"https://mromars-classroom.com/p/gecko-20/","price":"15.00","priceCurrency":"USD","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","seller":{"@id":"https://mromars-classroom.com/#shop"},"shippingDetails":{"@type":"OfferShippingDetails","shippingRate":{"@type":"MonetaryAmount","value":"7.00","currency":"USD"},"shippingDestination":{"@type":"DefinedRegion","addressCountry":"US"},"deliveryTime":{"@type":"ShippingDeliveryTime","handlingTime":{"@type":"QuantitativeValue","minValue":3,"maxValue":5,"unitCode":"DAY"},"transitTime":{"@type":"QuantitativeValue","minValue":2,"maxValue":5,"unitCode":"DAY"}}},"hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","applicableCountry":"US","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":30,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/ReturnShippingFees"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Baby Geckos – Treasure Box 20 Pack","description":"Twenty baby geckos, five each in blue, rainbow, clear and pink, for restocking the classroom treasure box in one go. Every one bends at each joint, and the see-through plastic glows in the light. Rainbow can come out in any of its colors: green, yellow, pink, purple, or a mix of them. We can’t pick which, so every rainbow one is a surprise.","sku":"gecko-20","url":"https://mromars-classroom.com/p/gecko-20/","image":["https://mromars-classroom.com/share/gecko-group-5e21bf14ef.jpg"],"brand":{"@type":"Brand","name":"Mr. Omar's Classroom"},"category":"Toys > Treasure Box Toys","offers":{"@type":"Offer","url":"https://mromars-classroom.com/p/gecko-20/","price":"15.00","priceCurrency":"USD","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","seller":{"@id":"https://mromars-classroom.com/#shop"},"shippingDetails":{"@type":"OfferShippingDetails","shippingRate":{"@type":"MonetaryAmount","value":"7.00","currency":"USD"},"shippingDestination":{"@type":"DefinedRegion","addressCountry":"US"},"deliveryTime":{"@type":"ShippingDeliveryTime","handlingTime":{"@type":"QuantitativeValue","minValue":3,"maxValue":5,"unitCode":"DAY"},"transitTime":{"@type":"QuantitativeValue","minValue":2,"maxValue":5,"unitCode":"DAY"}}},"hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","applicableCountry":"US","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":30,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/ReturnShippingFees"}}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mromars-classroom.com/"},{"@type":"ListItem","position":2,"name":"Toys","item":"https://mromars-classroom.com/toys/"},{"@type":"ListItem","position":3,"name":"Treasure Box Toys","item":"https://mromars-classroom.com/toys/treasure-box/"},{"@type":"ListItem","position":4,"name":"Baby Geckos – Treasure Box 20 Pack","item":"https://mromars-classroom.com/p/gecko-20/"}]}</script>
 </head>
 <body>
@@ -685,15 +831,27 @@ html.is-closed .promo{display:none}
 
 <div id="joinSlot"></div>
 <footer>
-  <div class="wrap foot">
-    <a class="brand" href="/">
-      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50.00 4.00 A7.47 7.47 0 0 1 73.00 10.16 A7.47 7.47 0 0 1 89.84 27.00 A7.47 7.47 0 0 1 96.00 50.00 A7.47 7.47 0 0 1 89.84 73.00 A7.47 7.47 0 0 1 73.00 89.84 A7.47 7.47 0 0 1 50.00 96.00 A7.47 7.47 0 0 1 27.00 89.84 A7.47 7.47 0 0 1 10.16 73.00 A7.47 7.47 0 0 1 4.00 50.00 A7.47 7.47 0 0 1 10.16 27.00 A7.47 7.47 0 0 1 27.00 10.16 A7.47 7.47 0 0 1 50.00 4.00 Z" fill="var(--mark)"/><path d="M50.00 26.00 L56.00 42.75 L73.78 43.27 L59.70 54.15 L64.69 71.23 L50.00 61.20 L35.31 71.23 L40.30 54.15 L26.22 43.27 L44.00 42.75 Z" fill="var(--mark-ink)"/></svg>
-      <span class="brand-txt"><span class="brand-mr">Mr. Omar's</span><span class="brand-name">Classroom</span></span>
-    </a>
-    <p>Classroom materials made by a teacher.
-       Not for children under 3 &mdash; small parts.</p>
-    <p class="foot-help" id="footHelp" hidden></p>
-    <p class="foot-links"><a href="/help/">Help &amp; refunds</a> &middot; <a href="/policies/">Shipping, returns &amp; privacy</a></p>
+  <div class="wrap">
+    <div class="foot-cols">
+      <div class="foot-brand">
+        <a class="brand" href="/">
+          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50.00 4.00 A7.47 7.47 0 0 1 73.00 10.16 A7.47 7.47 0 0 1 89.84 27.00 A7.47 7.47 0 0 1 96.00 50.00 A7.47 7.47 0 0 1 89.84 73.00 A7.47 7.47 0 0 1 73.00 89.84 A7.47 7.47 0 0 1 50.00 96.00 A7.47 7.47 0 0 1 27.00 89.84 A7.47 7.47 0 0 1 10.16 73.00 A7.47 7.47 0 0 1 4.00 50.00 A7.47 7.47 0 0 1 10.16 27.00 A7.47 7.47 0 0 1 27.00 10.16 A7.47 7.47 0 0 1 50.00 4.00 Z" fill="var(--mark)"/><path d="M50.00 26.00 L56.00 42.75 L73.78 43.27 L59.70 54.15 L64.69 71.23 L50.00 61.20 L35.31 71.23 L40.30 54.15 L26.22 43.27 L44.00 42.75 Z" fill="var(--mark-ink)"/></svg>
+          <span class="brand-txt"><span class="brand-mr">Mr. Omar's</span><span class="brand-name">Classroom</span></span>
+        </a>
+        <p>Hands-on classroom sets and prize-box toys, made by a teacher for Pre-K through 5th.</p>
+        <p>Not for children under 3 &mdash; small parts.</p>
+      </div>
+      <div><h4>Shop</h4><ul>
+        <li><a href="/teacher-materials/">Teacher Materials</a></li>
+        <li><a href="/toys/">Toys</a></li>
+        <li><a href="/toys/treasure-box/">Treasure Box Toys</a></li>
+        <li><a href="/toys/fidgets/">Fidgets</a></li></ul></div>
+      <div><h4>Help</h4><ul class="foot-links">
+        <li><a href="/help/">Help &amp; refunds</a></li>
+        <li><a href="/policies/">Shipping, returns &amp; privacy</a></li></ul></div>
+      <div><h4>Contact</h4><p class="foot-help" id="footHelp" hidden></p></div>
+    </div>
+    <div class="foot-bot"><span>&copy; 2026 Mr. Omar's Classroom</span><span>Made by a teacher</span></div>
   </div>
 </footer>
 
@@ -714,8 +872,8 @@ html.is-closed .promo{display:none}
 
 <script>
 const ASSETS = {"spider":{"w":880,"h":660,"bbox":[0.2716,0.2773,0.767,0.9182],"frames":["/assets/frame-3b0f90672a.webp","/assets/frame-fc7f2ce8f9.webp","/assets/frame-4b3c49f57b.webp","/assets/frame-c13c8bd01f.webp","/assets/frame-1a40e7cfec.webp","/assets/frame-7cbd03dafa.webp","/assets/frame-1e036974df.webp","/assets/frame-062d270d48.webp","/assets/frame-c88d0d1b2f.webp","/assets/frame-955a48da6e.webp","/assets/frame-c97a6150f7.webp","/assets/frame-2df57f1182.webp","/assets/frame-058e0b87fa.webp","/assets/frame-fd0c9582ef.webp","/assets/frame-54f89a8516.webp","/assets/frame-b70a8e9e42.webp","/assets/frame-eb8f752c74.webp","/assets/frame-22558362d9.webp","/assets/frame-586deef035.webp","/assets/frame-357231a4de.webp","/assets/frame-06f978deef.webp","/assets/frame-bfb9e31ba1.webp","/assets/frame-05933cd9fd.webp","/assets/frame-76386c618d.webp","/assets/frame-a7ebf560c0.webp","/assets/frame-5d5840b7b7.webp","/assets/frame-2a694aaafb.webp","/assets/frame-22e1c504c1.webp","/assets/frame-3d246929d3.webp","/assets/frame-897a15ff23.webp","/assets/frame-9aa40814cd.webp","/assets/frame-3d6f75dd39.webp","/assets/frame-7c2bcbf3e9.webp","/assets/frame-b2d44f755c.webp","/assets/frame-05096a0294.webp","/assets/frame-94c1422026.webp","/assets/frame-1959306cd5.webp","/assets/frame-90e71f17ef.webp","/assets/frame-3c7863ced2.webp","/assets/frame-ffaedffaf0.webp","/assets/frame-2cb8d5f482.webp","/assets/frame-8a55c416e7.webp","/assets/frame-6be0e45dd1.webp","/assets/frame-94d1a4c344.webp","/assets/frame-263a17eee8.webp","/assets/frame-d2dbe380d5.webp","/assets/frame-9640510ea1.webp","/assets/frame-8440447a0b.webp"],"ways":{"pumpkin":"/assets/frame-8ba67509e8.webp","midnight":"/assets/frame-b643685c4c.webp","candy":"/assets/frame-0a67f08b84.webp"}},"candycorn":{"w":880,"h":660,"bbox":[0.2966,0.1848,0.7045,1.0],"frames":["/assets/frame-0ac23b92e2.webp","/assets/frame-2d3fc8f2c6.webp","/assets/frame-41e44bb3f5.webp","/assets/frame-30ac8ea183.webp","/assets/frame-074169307d.webp","/assets/frame-eb24f87ea7.webp","/assets/frame-f2cf36649e.webp","/assets/frame-48f780d68c.webp","/assets/frame-6f530de918.webp","/assets/frame-8c6ad9ec8d.webp","/assets/frame-b0468790c2.webp","/assets/frame-6c9adf6635.webp","/assets/frame-43f2b6a569.webp","/assets/frame-f05c84f29d.webp","/assets/frame-3661f6eabc.webp","/assets/frame-9b0b3873f9.webp","/assets/frame-cf120ed114.webp","/assets/frame-2b43a93476.webp","/assets/frame-127200d21e.webp","/assets/frame-4b9d0e3b03.webp","/assets/frame-23df77ec2d.webp","/assets/frame-d010f9f397.webp","/assets/frame-46178e8642.webp","/assets/frame-5d984a0695.webp","/assets/frame-dcfec8d45e.webp","/assets/frame-c2103c0640.webp","/assets/frame-da46bd2174.webp","/assets/frame-6e5ec33836.webp","/assets/frame-3f9c30df17.webp","/assets/frame-949934ba38.webp","/assets/frame-7e41ac7350.webp","/assets/frame-9424d20789.webp","/assets/frame-01e214dec9.webp","/assets/frame-62ed0738e4.webp","/assets/frame-7346e53f88.webp","/assets/frame-957a801684.webp","/assets/frame-d280ec39b4.webp","/assets/frame-2382b0953b.webp","/assets/frame-7fbdbb4860.webp","/assets/frame-0c2a4ff264.webp","/assets/frame-f0c31e980c.webp","/assets/frame-50cd085c84.webp","/assets/frame-b4176a19b3.webp","/assets/frame-3f8221884f.webp","/assets/frame-0d39ee91f4.webp","/assets/frame-da83abacd3.webp","/assets/frame-93faa6796e.webp","/assets/frame-1767d9ddc6.webp"],"ways":{"classic":"/assets/frame-c22b150169.webp","monster":"/assets/frame-9f326fd7e3.webp","berry":"/assets/frame-f6d81eca8b.webp"}}};
-const CHIPS = {"maple":{"hero":{"base":"/assets/maple-hero-19caf265af.webp","mask":"/assets/matte-112565f8db.webp","alt":"the container open and full, its lid beside it"},"open":{"base":"/assets/maple-open-2a64bc4860.webp","mask":"/assets/matte-63b67ac2bb.webp","alt":"the container closed, the chips showing through the lid"},"flatlay":{"base":"/assets/maple-flatlay-15b01f1ab8.webp","mask":"/assets/matte-05be50c70e.webp","alt":"all fifteen chips on the table"},"macro":{"base":"/assets/maple-macro-d43cafbb19.webp","mask":"/assets/matte-9d481b096c.webp","alt":"one chip up close"},"real":{"brown":{"flatlay":{"base":"/assets/maple-brown-flatlay-9865cb0d3b.webp","alt":"all fifteen chips on the table"},"hero":{"base":"/assets/maple-brown-hero-f4664bd9c2.webp","alt":"the container full, its lid beside it"},"macro":{"base":"/assets/maple-brown-macro-b3ff3503eb.webp","alt":"one chip up close"},"open":{"base":"/assets/maple-brown-open-b3bd5e44f4.webp","alt":"three chips on the table"}}}},"apple":{"hero":{"base":"/assets/apple-hero-b91532cfac.webp","mask":"/assets/matte-c209374af6.webp","alt":"a chip sitting in its container"},"open":{"base":"/assets/apple-open-bbd226c20e.webp","mask":"/assets/matte-797f544199.webp","alt":"the empty container from above"},"flatlay":{"base":"/assets/apple-flatlay-e2f0c08238.webp","mask":"/assets/matte-7bb9243eff.webp","alt":"all fifteen chips on the table"},"macro":{"base":"/assets/apple-macro-a8d55a5d7e.webp","mask":"/assets/matte-ef1181d1fa.webp","alt":"one chip up close"}},"leaf":{"hero":{"base":"/assets/leaf-hero-d6e2dd8c47.webp","mask":"/assets/matte-9f7cf2612e.webp","alt":"all fifteen chips on the table"},"open":{"base":"/assets/leaf-open-ee72471e10.webp","mask":"/assets/matte-8fd7ffbd25.webp","alt":"the lid and the container side by side"},"flatlay":{"base":"/assets/leaf-flatlay-61ba3b0fd9.webp","mask":"/assets/matte-cd144b860b.webp","alt":"the container standing, deep enough for a pack"},"macro":{"base":"/assets/leaf-macro-00e8d6e3af.webp","mask":"/assets/matte-37178d5976.webp","alt":"one chip up close"}},"home":"/assets/maple-home-f6706dac20.webp"};
-const PHOTOS = {"clicker":{"orange":"/assets/clicker-orange-b3ab4e347d.webp","red":"/assets/clicker-red-37dc0d407c.webp","blue":"/assets/clicker-blue-30e9f27155.webp","green":"/assets/clicker-green-bb348b29fe.webp","ring":"/assets/clicker-ring-be8436322c.webp","cap":"/assets/clicker-cap-79c55049d9.webp","four":"/assets/clicker-four-ccc944a548.webp","clip":"/assets/clicker-clip-cf855b4d4b.webp"},"wyvern":{"shots":[{"src":"/assets/wyvern-pink-8e6a582946.webp","alt":"in pink"},{"src":"/assets/wyvern-pink-detail-f8812609fc.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"all four colors together"}],"styles":{"pink":[{"src":"/assets/wyvern-pink-8e6a582946.webp","alt":"in pink"},{"src":"/assets/wyvern-pink-detail-f8812609fc.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"all four colors together"}],"blue":[{"src":"/assets/wyvern-blue-435c829ccf.webp","alt":"in blue"},{"src":"/assets/wyvern-blue-detail-7b2ab61f73.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"all four colors together"}],"clear":[{"src":"/assets/wyvern-clear-9e2d12923a.webp","alt":"in clear"},{"src":"/assets/wyvern-clear-detail-511e1a7ce3.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"all four colors together"}],"rainbow":[{"src":"/assets/wyvern-rainbow-427b1f391f.webp","alt":"in rainbow"},{"src":"/assets/wyvern-rainbow2-a8c92af9e0.webp","alt":"stretched out, wings open"},{"src":"/assets/wyvern-rainbow-detail-37ba213d28.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"all four colors together"}]}},"gecko":{"shots":[{"src":"/assets/gecko-blue-4da530e749.webp","alt":"in blue"},{"src":"/assets/gecko-blue-detail-5a51ea3410.webp","alt":"its face up close, see-through"}],"styles":{"blue":[{"src":"/assets/gecko-blue-4da530e749.webp","alt":"in blue"},{"src":"/assets/gecko-blue-detail-5a51ea3410.webp","alt":"its face up close, see-through"}],"rainbow":[{"src":"/assets/gecko-rainbow-715e56c1f3.webp","alt":"in rainbow"},{"src":"/assets/gecko-rainbow-detail-efdfa81ed0.webp","alt":"its face up close, see-through"}],"clear":[{"src":"/assets/gecko-clear-0379673993.webp","alt":"in clear"},{"src":"/assets/gecko-clear-detail-72666f4d31.webp","alt":"its face up close, see-through"}],"pink":[{"src":"/assets/gecko-pink-77a624ec72.webp","alt":"in pink"},{"src":"/assets/gecko-pink-detail-78bcf27a2b.webp","alt":"its face up close, see-through"}]}},"chips-stopsign":{"shots":[{"src":"/assets/stopsign-flatlay-a64acf701e.webp","alt":"all fifteen chips with the container and lid"},{"src":"/assets/stopsign-macro-09749e06c6.webp","alt":"one chip up close"},{"src":"/assets/stopsign-lid-f359f37805.webp","alt":"the lid, lettered Stop Sign"}]},"alphabet":{"shots":[{"src":"/assets/letters-flatlay-691f715d31.webp","alt":"all twenty-six tiles from above"},{"src":"/assets/letters-macro-050c249a2a.webp","alt":"the tiles up close"}]},"clicker3":{"shots":[{"src":"/assets/clicker3-hero-fc910a52d4.webp","alt":"side on"},{"src":"/assets/clicker3-lit-blue-7c10e196d1.webp","alt":"the left cap lit blue"},{"src":"/assets/clicker3-lit-red-7127aa2765.webp","alt":"the right cap lit red"},{"src":"/assets/clicker3-top-86a0c373a7.webp","alt":"all three caps from above"},{"src":"/assets/clicker3-ring-ca72aa1cd6.webp","alt":"on its split ring"},{"src":"/assets/clicker3-angle-d1cd6b6249.webp","alt":"at three-quarters"}]},"spider":{"shots":[{"src":"/assets/spider-hero-b79532d517.webp","alt":"square on"},{"src":"/assets/spider-macro-e9cd8c2021.webp","alt":"up close"},{"src":"/assets/spider-angle-1d04e3aa72.webp","alt":"turned, showing its two body segments"}]},"candycorn":{"shots":[{"src":"/assets/candycorn-hero-d4d19cd55c.webp","alt":"head on"},{"src":"/assets/candycorn-legs-3e55925a35.webp","alt":"standing, its feet showing"}]},"chips-bus":{"shots":[{"src":"/assets/bus-flatlay-82e02d7307.webp","alt":"all fifteen chips from above"},{"src":"/assets/bus-macro-f332cb8daf.webp","alt":"one bus up close"}]},"chips-pinecone":{"shots":[{"src":"/assets/pinecone-flatlay-3327525313.webp","alt":"all fifteen chips from above"},{"src":"/assets/pinecone-macro-6ed1a24d00.webp","alt":"one chip up close, its raised scales"}]},"icecream":{"shots":[{"src":"/assets/icecream-b113a8a50f.webp","alt":"with its keyring and little feet"},{"src":"/assets/icecream-ring-e824492801.webp","alt":"on its keyring, from above"}]},"wyvern-20":{"shots":[{"src":"/assets/wyvern-group-5877d6a2ea.webp","alt":"pink, blue, clear and rainbow together"},{"src":"/assets/wyvern-pink-8e6a582946.webp","alt":"one in pink"},{"src":"/assets/wyvern-blue-435c829ccf.webp","alt":"one in blue"},{"src":"/assets/wyvern-clear-9e2d12923a.webp","alt":"one in clear"},{"src":"/assets/wyvern-rainbow-427b1f391f.webp","alt":"one in rainbow"}]},"gecko-20":{"shots":[{"src":"/assets/gecko-group-c003f5104f.webp","alt":"blue, rainbow, clear and pink together"},{"src":"/assets/gecko-blue-4da530e749.webp","alt":"one in blue"},{"src":"/assets/gecko-rainbow-715e56c1f3.webp","alt":"one in rainbow"},{"src":"/assets/gecko-clear-0379673993.webp","alt":"one in clear"},{"src":"/assets/gecko-pink-77a624ec72.webp","alt":"one in pink"}]}};      // products that are photographed straight, with no tinting
+const CHIPS = {"maple":{"hero":{"base":"/assets/maple-hero-50a3c3e30d.webp","mask":"/assets/matte-9e8f5de7e2.webp","alt":"the container open and full, its lid beside it"},"open":{"base":"/assets/maple-open-ea14d5066e.webp","mask":"/assets/matte-bbbec2ea50.webp","alt":"the container closed, the chips showing through the lid"},"flatlay":{"base":"/assets/maple-flatlay-f3573cec53.webp","mask":"/assets/matte-0fc4272d87.webp","alt":"all fifteen chips on the table"},"macro":{"base":"/assets/maple-macro-7e40fc43b0.webp","mask":"/assets/matte-0f14b55594.webp","alt":"one chip up close"},"real":{"brown":{"flatlay":{"base":"/assets/maple-brown-flatlay-4cd70acf99.webp","alt":"all fifteen chips on the table"},"hero":{"base":"/assets/maple-brown-hero-3e99880103.webp","alt":"the container full, its lid beside it"},"macro":{"base":"/assets/maple-brown-macro-8adeaec537.webp","alt":"one chip up close"},"open":{"base":"/assets/maple-brown-open-0ae8f2f147.webp","alt":"three chips on the table"}}}},"apple":{"hero":{"base":"/assets/apple-hero-f39cd29a85.webp","mask":"/assets/matte-364a9695a3.webp","alt":"a chip sitting in its container"},"open":{"base":"/assets/apple-open-c9027c2843.webp","mask":"/assets/matte-7a9320c7be.webp","alt":"the empty container from above"},"flatlay":{"base":"/assets/apple-flatlay-5146a134d2.webp","mask":"/assets/matte-7cdc4fd2a0.webp","alt":"all fifteen chips on the table"},"macro":{"base":"/assets/apple-macro-39f4f48d39.webp","mask":"/assets/matte-7a307885a3.webp","alt":"one chip up close"}},"leaf":{"hero":{"base":"/assets/leaf-hero-f3cd9fd08e.webp","mask":"/assets/matte-83b3e97a53.webp","alt":"all fifteen chips on the table"},"open":{"base":"/assets/leaf-open-b23959442e.webp","mask":"/assets/matte-42a1dc83e7.webp","alt":"the lid and the container side by side"},"flatlay":{"base":"/assets/leaf-flatlay-750728dbff.webp","mask":"/assets/matte-b4fbba8256.webp","alt":"the container standing, deep enough for a pack"},"macro":{"base":"/assets/leaf-macro-8abaecf473.webp","mask":"/assets/matte-aaee60f6b1.webp","alt":"one chip up close"}},"home":"/assets/maple-home-642df2337d.webp"};
+const PHOTOS = {"clicker":{"orange":"/assets/clicker-orange-b3ab4e347d.webp","red":"/assets/clicker-red-37dc0d407c.webp","blue":"/assets/clicker-blue-30e9f27155.webp","green":"/assets/clicker-green-bb348b29fe.webp","ring":"/assets/clicker-ring-be8436322c.webp","cap":"/assets/clicker-cap-79c55049d9.webp","four":"/assets/clicker-four-ccc944a548.webp","clip":"/assets/clicker-clip-cf855b4d4b.webp"},"wyvern":{"shots":[{"src":"/assets/wyvern-pink-a2e70295c9.webp","alt":"in pink"},{"src":"/assets/wyvern-pink-detail-e5b4d96a8f.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"styles":{"pink":[{"src":"/assets/wyvern-pink-a2e70295c9.webp","alt":"in pink"},{"src":"/assets/wyvern-pink-detail-e5b4d96a8f.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"blue":[{"src":"/assets/wyvern-blue-c59b1b9427.webp","alt":"in blue"},{"src":"/assets/wyvern-blue-detail-bd1b7d655e.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"clear":[{"src":"/assets/wyvern-clear-14874f03e9.webp","alt":"in clear"},{"src":"/assets/wyvern-clear-detail-57b7219ea3.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"rainbow":[{"src":"/assets/wyvern-rainbow-5f36b3789c.webp","alt":"in rainbow"},{"src":"/assets/wyvern-rainbow2-1f96c83478.webp","alt":"stretched out, wings open"},{"src":"/assets/wyvern-rainbow-detail-580341bc1e.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}]}},"gecko":{"shots":[{"src":"/assets/gecko-blue-10b0c483d3.webp","alt":"in blue"},{"src":"/assets/gecko-blue-detail-44c1c67ffe.webp","alt":"its face up close, see-through"}],"styles":{"blue":[{"src":"/assets/gecko-blue-10b0c483d3.webp","alt":"in blue"},{"src":"/assets/gecko-blue-detail-44c1c67ffe.webp","alt":"its face up close, see-through"}],"rainbow":[{"src":"/assets/gecko-rainbow-aa91c702e3.webp","alt":"in rainbow"},{"src":"/assets/gecko-rainbow-detail-b95019523d.webp","alt":"its face up close, see-through"}],"clear":[{"src":"/assets/gecko-clear-dad42a2248.webp","alt":"in clear"},{"src":"/assets/gecko-clear-detail-b013a8e53f.webp","alt":"its face up close, see-through"}],"pink":[{"src":"/assets/gecko-pink-e4f2eeaece.webp","alt":"in pink"},{"src":"/assets/gecko-pink-detail-5b7621387f.webp","alt":"its face up close, see-through"}]}},"chips-stopsign":{"shots":[{"src":"/assets/stopsign-flatlay-b4401ec498.webp","alt":"all fifteen chips with the container and lid"},{"src":"/assets/stopsign-macro-47dd0860a2.webp","alt":"one chip up close"},{"src":"/assets/stopsign-lid-a388d71365.webp","alt":"the lid, lettered Stop Sign"}]},"alphabet":{"shots":[{"src":"/assets/letters-flatlay-22f4fe1094.webp","alt":"all twenty-six tiles from above"},{"src":"/assets/letters-macro-a3efd94f62.webp","alt":"the tiles up close"}]},"clicker3":{"shots":[{"src":"/assets/clicker3-hero-4f9825cd23.webp","alt":"side on"},{"src":"/assets/clicker3-lit-blue-1ea21482ef.webp","alt":"the left cap lit blue"},{"src":"/assets/clicker3-lit-red-95d5d20027.webp","alt":"the right cap lit red"},{"src":"/assets/clicker3-top-062ad1e757.webp","alt":"all three caps from above"},{"src":"/assets/clicker3-ring-2e78c06030.webp","alt":"on its split ring"},{"src":"/assets/clicker3-angle-7a7a725218.webp","alt":"at three-quarters"}]},"spider":{"shots":[{"src":"/assets/spider-hero-398cb57333.webp","alt":"square on"},{"src":"/assets/spider-macro-e2cc809dac.webp","alt":"up close"},{"src":"/assets/spider-angle-91471cf892.webp","alt":"turned, showing its two body segments"}]},"candycorn":{"shots":[{"src":"/assets/candycorn-hero-a458910e90.webp","alt":"head on"},{"src":"/assets/candycorn-legs-83f2cc4626.webp","alt":"standing, its feet showing"}]},"chips-bus":{"shots":[{"src":"/assets/bus-flatlay-8d1c35ad50.webp","alt":"all fifteen chips from above"},{"src":"/assets/bus-macro-e5ec110c41.webp","alt":"one bus up close"}]},"chips-pinecone":{"shots":[{"src":"/assets/pinecone-flatlay-0daae0e6b8.webp","alt":"all fifteen chips from above"},{"src":"/assets/pinecone-macro-e622cb53c1.webp","alt":"one chip up close, its raised scales"}]},"icecream":{"shots":[{"src":"/assets/icecream-48d5a26ccd.webp","alt":"with its keyring and little feet"},{"src":"/assets/icecream-ring-d9095d057b.webp","alt":"on its keyring, from above"}]},"wyvern-20":{"shots":[{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"pink, blue, clear and rainbow together"},{"src":"/assets/wyvern-pink-a2e70295c9.webp","alt":"one in pink"},{"src":"/assets/wyvern-blue-c59b1b9427.webp","alt":"one in blue"},{"src":"/assets/wyvern-clear-14874f03e9.webp","alt":"one in clear"},{"src":"/assets/wyvern-rainbow-5f36b3789c.webp","alt":"one in rainbow"}]},"gecko-20":{"shots":[{"src":"/assets/gecko-group-7d0d8835f9.webp","alt":"blue, rainbow, clear and pink together"},{"src":"/assets/gecko-blue-10b0c483d3.webp","alt":"one in blue"},{"src":"/assets/gecko-rainbow-aa91c702e3.webp","alt":"one in rainbow"},{"src":"/assets/gecko-clear-dad42a2248.webp","alt":"one in clear"},{"src":"/assets/gecko-pink-e4f2eeaece.webp","alt":"one in pink"}]}};      // products that are photographed straight, with no tinting
 /* Prices are set in the workshop (classroom-admin) and baked in at build time, so the page
    never depends on that service being up to show a price. */
 const PRICES = {"chips-maple":{"price":8.0,"status":"live"},"chips-apple":{"price":8.0,"status":"live"},"chips-leaf":{"price":8.0,"status":"live"},"clicker":{"price":8.0,"status":"off"},"spider":{"price":5.0,"status":"live"},"candycorn":{"price":5.0,"status":"live"},"chips-stopsign":{"price":8.0,"status":"live"},"alphabet":{"price":8.0,"status":"live"},"clicker3":{"price":5.5,"status":"live"},"wyvern":{"price":1.25,"status":"live"},"gecko":{"price":1.0,"status":"live"},"wyvern-20":{"price":20.0,"status":"live"},"gecko-20":{"price":15.0,"status":"live"},"chips-bus":{"price":8.0,"status":"live"},"chips-pinecone":{"price":8.0,"status":"live"},"icecream":{"price":2.5,"status":"live"}};
@@ -1822,100 +1980,175 @@ const binStyle = subId => {
   return `--bin:var(--bin-${b});--wash:var(--wash-${b});--bin-ink:${b === "yellow" || b === "orange" ? "#2A2118" : "#FFFFFF"}`;
 };
 
-function homeCard(p) {
+/* ---------- the storefront (2026-10-19) ----------
+   One card for every product, on the home page and every shelf: a studio photo, the shelf it
+   is on, a line about the pack, its colours, the price, and either Add to bag (one version) or
+   Choose (a colour, style or light to pick first). */
+/* Run 2 went on sale 2026-10-18; take ids off this list once they stop being news. */
+const NEW_IDS = new Set(["chips-bus", "chips-pinecone", "wyvern", "gecko", "wyvern-20", "gecko-20", "icecream"]);
+const swatchOf = sw => Array.isArray(sw) && sw.length > 1 && sw === RAINBOW
+  ? `conic-gradient(${sw.join(",")},${sw[0]})` : (Array.isArray(sw) ? sw[0] : sw);
+function cardSwatches(p, st) {
+  if (p.colours) return [p.colours.map(c => c.hex), plural(p.colours.length, "color")];
+  if (p.lights) return [p.lights.map(l => l.hex), plural(p.lights.length, "light")];
+  if (p.styles && st && st.id === "white") return [["#EDEDE8"], "Arrives white"];
+  if (p.styles) {
+    const white = p.styles.some(x => x.id === "white");
+    return [p.styles.map(x => swatchOf(x.sw)), white ? "In color, or white to color" : plural(p.styles.length, "color")];
+  }
+  return [[], ""];
+}
+function homeCard(p, subId) {
   const cat = CATALOG.find(c => p.in[0].startsWith(c.id));
-  const sub = cat.subs.find(x => p.in[0].endsWith("/" + x.id));
-  const pic = isShots(p)
-    ? `<img src="${PHOTOS[p.id].shots[0].src}" alt="${esc(p.name)}, ${esc(PHOTOS[p.id].shots[0].alt)}" loading="lazy">`
-    : p.shapes
-    ? `<canvas data-shape="${p.shapes[0].id}" data-shot="hero" data-hex="${p.colours[2].hex}"
-         role="img" aria-label="${esc(p.name)}, a pack with its container"></canvas>`
-    : p.lights
-      ? `<img src="${PHOTOS[p.id][p.lights[0].id]}" alt="${esc(p.name)}, lit up" loading="lazy">`
-      : `<img class="toy-pic" src="${ASSETS[p.id].frames[0]}" alt="${esc(p.name)}, as it arrives" loading="lazy">`;
-  const note = p.note ? p.note : p.shapes ? `15 to a pack &middot; ${p.shapes.length > 1 ? p.shapes.length + " shapes &middot; " : ""}${p.colours.length} colors`
-    : p.lights ? "Pick your light color &middot; on a keyring"
-    : "Arrives white &middot; color it in";
+  const sub = cat.subs.find(x => (subId ? x.id === subId : p.in[0].endsWith("/" + x.id))) || cat.subs[0];
+  const st = p.styles ? styleOf(p, subId === "color-your-own" ? "white" : "colour") : null;
+  const href = link(`/p/${p.id}${st && st.id === "white" ? "/white" : ""}`);
+  let pic;
+  if (isShots(p)) {
+    const s0 = shotsFor(p, st)[0];
+    pic = `<img src="${s0.src}" alt="${esc(p.name)}, ${esc(s0.alt)}" loading="lazy">`;
+  } else if (p.shapes) {
+    pic = `<canvas data-shape="${p.shapes[0].id}" data-shot="hero" data-hex="${p.colours[2].hex}"
+      role="img" aria-label="${esc(p.name)}, a pack with its container"></canvas>`;
+  } else if (p.lights) {
+    pic = `<img src="${PHOTOS[p.id][p.lights[0].id]}" alt="${esc(p.name)}, lit up" loading="lazy">`;
+  } else {
+    pic = `<img src="${ASSETS[p.id].frames[0]}" alt="${esc(p.name)}, as it arrives" loading="lazy">`;
+  }
+  const note = p.shapes ? "15 chips and a container" : p.note || "";
+  const [sw, swl] = cardSwatches(p, st);
+  const simple = !p.shapes && !p.styles && !p.lights;
+  const instock = anyInStock(p, subId);
+  const badge = !instock ? '<span class="pc-badge sold">Sold out</span>' : NEW_IDS.has(p.id) ? '<span class="pc-badge">New</span>' : "";
+  const pick = p.styles && !p.styles.every(x => x.id !== "white") ? "style" : p.lights ? "light" : "color";
   return `
-  <article class="card" style="${binStyle(sub.id)}">
-    <a class="card-shot" href="/p/${p.id}/"><span class="card-tag">${esc(sub.name)}</span>${pic}</a>
-    <div class="card-body">
-      <div class="card-row"><h3><a href="/p/${p.id}/">${esc(p.name)}</a></h3><span class="price">${money(p.price)}</span></div>
-      <p class="tagline">${note}</p>
-      <p>${esc(p.desc.split(". ")[0].replace(/\.$/, ""))}.</p>
-      <a class="btn btn-dark" href="/p/${p.id}/">See it</a>
+  <article class="pc" data-kind="${cat.id}" data-subs="${p.in.map(k => k.split("/")[1]).join(" ")}">
+    <a class="pc-ph" href="${href}" tabindex="-1" aria-hidden="true">${badge}${pic}</a>
+    <div class="pc-body">
+      <p class="eyebrow">${esc(sub.name)}</p>
+      <h3><a href="${href}">${esc(p.name)}</a></h3>
+      <p class="pc-note">${note}</p>
+      <div class="pc-sw">${sw.map(c => `<i style="background:${c}"></i>`).join("")}${swl ? `<span>${esc(swl)}</span>` : ""}</div>
+      <div class="pc-foot"><span class="pc-price">${money(p.price)}</span>
+        ${simple ? `<button class="pc-add" type="button" data-add="${p.id}">Add to bag</button>`
+                 : `<a class="pc-add pc-choose" href="${href}">Choose ${pick}</a>`}</div>
     </div>
   </article>`;
+}
+
+const TRUST_ICONS = {
+  cap: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11.5V16c0 1.5 2.5 3 5 3s5-1.5 5-3v-4.5"/></svg>',
+  frame: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><path d="M16.5 13v7M13 16.5h7"/></svg>',
+  truck: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>',
+  chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M9 10h6"/></svg>',
+};
+function trustHTML() {
+  const ship = SITE.shipping_cents ? money(SITE.shipping_cents / 100) : null;
+  const shipTile = FREE_OVER
+    ? [`Free shipping over $${FREE_OVER % 1 ? FREE_OVER.toFixed(2) : FREE_OVER}`, ship ? `A ${ship} flat rate on anything smaller.` : "Counted before any coupon."]
+    : ["Ships in 3\u20135 business days", "Packed by hand and sent across the US."];
+  const tile = (cls, icon, h, p) => `<div class="tr"><span class="tr-ic ${cls}">${TRUST_ICONS[icon]}</span><div><h3>${h}</h3><p>${p}</p></div></div>`;
+  return `
+  <svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C 240 6 480 6 720 26 S 1200 52 1440 22 V56 H0Z" fill="currentColor"/></svg>
+  <section class="trust" aria-label="Why teachers shop here">
+    <div class="wrap trust-in">
+      ${tile("tr-blue", "cap", "Made by a teacher", "Every set started as something my own class needed.")}
+      ${tile("tr-sun", "frame", "Fifteen fills a ten frame", "Counting packs come with five left over for making ten.")}
+      ${tile("tr-red", "truck", esc(shipTile[0]), esc(shipTile[1]))}
+      ${tile("tr-blue", "chat", "Help when you need it", `Missing piece or wrong color? <a href="/help/">The help desk</a> sorts it out.`)}
+    </div>
+  </section>`;
 }
 
 function viewHome() {
   const order = p => (inCat(p, "teacher-materials") ? 0 : 1) * 10 + (p.first ? 0 : 1);
   const shop = PRODUCTS.filter(forSale).sort((a, b) => order(a) - order(b));
-  const tile = (c, s) => {
-    const n = listFor(c.id, s.id).filter(p => forSale(p) && anyInStock(p, s.id)).length;
-    return `<a class="tile" href="/${c.id}/${s.id}/" style="${binStyle(s.id)}">
-      <div class="tile-label"><b>${esc(s.name)}</b><span>${esc(c.name)} &middot; ${n ? plural(n, "item") : "in the works"}</span></div></a>`;
-  };
+  const soon = PRODUCTS.filter(p => p.status === "soon");
+  // Filters: everything, the two halves of the shop, then each toy shelf with something on it.
+  const filters = [["all", "All"], ...CATALOG.map(c => [c.id, c.name])]
+    .concat(CATALOG.find(c => c.id === "toys").subs.filter(s => s.id !== "color-your-own").map(s => [s.id, s.name]))
+    .map(([k, l]) => [k, l, shop.filter(p => k === "all" || inCat(p, k) || p.in.some(x => x.endsWith("/" + k))).length])
+    .filter(([k, , n]) => n);
+  const pic = (id, i) => PHOTOS[id] && PHOTOS[id].shots ? PHOTOS[id].shots[i || 0] : null;
+  const t2 = pic("alphabet"), t3 = pic("candycorn");
+  const band = pic("chips-pinecone") || t2;
   return `
   <section class="hero">
     <div class="wrap hero-in">
       <div>
-        <p class="hand-line">Made by a teacher, for Pre-K through 5th</p>
-        <h1 class="dsp">Classroom sets and prize-box toys.</h1>
+        <span class="hero-pill"><i></i>Made by a teacher &middot; Pre-K to 5th</span>
+        <h1 class="dsp">Classroom sets <span>and prize-box toys.</span></h1>
         <p class="lede">I teach, and I make the hands-on pieces my own room kept running out of.
            Made a set at a time, for real classrooms and the kids in them.</p>
         <div class="cta-row">
-          <a class="btn btn-sun" href="#shop">Shop what&rsquo;s ready</a>
-          <a class="btn btn-ghost" href="/teacher-materials/">Teacher materials</a>
+          <a class="btn btn-dark" href="#shop">Shop what&rsquo;s ready</a>
+          <a class="btn btn-line" href="/teacher-materials/">Teacher materials</a>
         </div>
+        <p class="hero-sign">From Mr. Omar&rsquo;s classroom</p>
       </div>
-      <div class="frame-wrap pinned"><span class="pin" aria-hidden="true"></span>
-        <img class="hero-shot" src="${CHIPS.home}" width="1400" height="1050"
-          alt="Maple leaf counting chips in their own maple leaf container, the lid beside it">
-        <p class="frame-cap">Fifteen to a pack, in a container shaped the same way.</p>
+      <div class="collage">
+        <div class="c-arch"></div><div class="c-disc"></div>
+        <a class="ctile ct1" href="${link("/p/chips-maple")}"><img src="${CHIPS.home}" alt="Maple leaf counting chips in their maple leaf container, the lid beside it"></a>
+        ${t2 ? `<a class="ctile ct2" href="${link("/p/alphabet")}"><img src="${t2.src}" alt="Movable alphabet, ${esc(t2.alt)}"></a>` : ""}
+        ${t3 ? `<a class="ctile ct3" href="${link("/p/candycorn")}"><img src="${t3.src}" alt="Little candy corn, ${esc(t3.alt)}"></a>` : ""}
+        <p class="hero-note">Fifteen to a pack, in a container shaped the same way.</p>
       </div>
     </div>
   </section>
+  ${trustHTML()}
 
   <section class="shop" id="shop">
     <div class="wrap">
       <div class="sec-head">
-        <div><h2 class="dsp">In the shop now</h2>
-          <p>Ready to buy today. Teacher sets and toys sit together here, the way they do in a room.</p></div>
-        <div class="pills">
-          <a class="pill" href="/teacher-materials/">Teacher materials</a>
-          <a class="pill" href="/toys/">Toys</a>
+        <div><p class="eyebrow">In the shop now</p>
+          <h2 class="dsp">Made to be handled, counted and traded.</h2>
+          <p>Teacher sets and prize-box toys sit together here, the way they do in a room.</p></div>
+      </div>
+      <div class="filters" role="group" aria-label="Filter the shop" id="homeFilters">
+        ${filters.map(([k, l, n], i) => `<button class="f" type="button" id="f-${k}" data-f="${k}" aria-pressed="${!i}">${esc(l)}<small>${n}</small></button>`).join("")}
+      </div>
+      <div class="pgrid" id="homeGrid">${shop.map(p => homeCard(p)).join("")}</div>
+    </div>
+  </section>
+
+  <section class="tband">
+    <div class="wrap">
+      <div class="tband-in">
+        <div class="tband-ph">${band ? `<img src="${band.src}" alt="Pine cone counting chips, ${esc(band.alt)}" loading="lazy">` : ""}</div>
+        <div class="tband-tx">
+          <p class="hi">Hi, I&rsquo;m Mr. Omar.</p>
+          <h2>Made for the way a classroom actually runs.</h2>
+          <p>The counting chips come in a container shaped like the chips, so a pack reads from across the
+             room and clean-up is one lid. The letter tiles live in a case with two compartments, which is
+             what stops a set walking off. The toys are for the prize box and the treasure box, at prices
+             that let a teacher stock one.</p>
+          <div class="tband-grades"><span>Pre-K&ndash;K</span><span>Grades 1&ndash;2</span><span>Grades 3&ndash;5</span></div>
+          <p class="sig">&mdash; Mr. Omar</p>
         </div>
       </div>
-      <div class="shop-grid">${shop.map(homeCard).join("")}</div>
     </div>
   </section>
 
-  <section class="shelves">
+  ${soon.length ? `<section class="soonrow">
     <div class="wrap">
-      <div class="sec-head">
-        <div><h2 class="dsp">Every shelf</h2>
-          <p>What is on the bench, and where it lands when it is done.</p></div>
-      </div>
-      <div class="tile-grid">${CATALOG.map(c => c.subs.map(s => tile(c, s)).join("")).join("")}</div>
+      <p class="eyebrow">Coming to the shop</p>
+      <h2>Next on the workbench</h2>
+      <p>Teacher materials in progress. Ask for one below and it moves up the list.</p>
+      <div class="soon-grid">${soon.slice(0, 8).map(p => `<div class="sn"><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>
+        <span class="eyebrow">${esc((p.grades || []).join(" \u00b7 "))}</span></div>`).join("")}</div>
     </div>
-  </section>
+  </section>` : ""}
 
-  ${askHTML()}
-
-  <section class="byteacher">
-    <div class="wrap">
-      <h2 class="dsp">Why buy these from me</h2>
-      <div class="by-in">
-        <div class="by"><h3>A teacher makes them</h3><p>I teach. Every set starts because something in my own
-          room broke, went missing, or never existed in the first place.</p></div>
-        <div class="by"><h3>Made for a class, not one kid</h3><p>Classroom quantities, in a size that fits small
-          hands, a center bin and a table group.</p></div>
-        <div class="by"><h3>Built to survive a year</h3><p>One bin, twenty-some hands, all year, and the
-          occasional drop onto tile.</p></div>
-      </div>
-    </div>
-  </section>`;
+  ${askHTML()}`;
+}
+function mountHomeFilters() {
+  const bar = $("#homeFilters"); if (!bar) return;
+  bar.addEventListener("click", e => {
+    const b = e.target.closest("[data-f]"); if (!b) return;
+    const k = b.dataset.f;
+    $$("[data-f]", bar).forEach(x => x.setAttribute("aria-pressed", x === b));
+    $$("#homeGrid .pc").forEach(c => { c.hidden = !(k === "all" || c.dataset.kind === k || c.dataset.subs.split(" ").includes(k)); });
+  });
 }
 function pillsFor(cat, sub) {
   const all = `<a class="pill" href="/${cat.id}/" ${!sub ? 'aria-current="page"' : ""}>All</a>`;
@@ -2124,7 +2357,7 @@ function viewCategory(cat, subId) {
     </div>
   </section>
   <section><div class="wrap">
-    ${sale.length ? `<div class="products">${sale.map(p => cardHTML(p, sub && sub.id)).join("")}</div>` : ""}
+    ${sale.length ? `<div class="pgrid cat-grid">${sale.map(p => homeCard(p, sub && sub.id)).join("")}</div>` : ""}
     ${soon.length ? `<div class="plan-grid">${soon.map(plannedHTML).join("")}</div>` : ""}
   </div></section>
   ${cat.id === "teacher-materials" ? askHTML() : ""}`;
@@ -2179,7 +2412,7 @@ function route() {
     : cat ? (sub ? sub.name + " \u00b7 " : "") + cat.name + " \u00b7 Mr. Omar's Classroom"
     : "Mr. Omar's Classroom";
   $$(".stage").forEach(el => stages.push(new Stage(el, PRODUCTS.find(p => p.id === el.dataset.id))));
-  mountGallery(); mountLight(); mountShots(); mountAsk(); mountHelp(); markSold();
+  mountGallery(); mountLight(); mountShots(); mountAsk(); mountHelp(); mountHomeFilters(); markSold();
   if (prod || cat || pol || help || lost) scrollTo({ top: 0, behavior: "instant" });
   beacon();
   if (document.documentElement.classList.contains("is-closed")) document.title = "Back soon \u00b7 Mr. Omar's Classroom";
