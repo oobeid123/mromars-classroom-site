@@ -76,6 +76,9 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
+/* hidden must win over a component's own display (the home filter hid .pc cards that stayed
+   on screen because .pc is display:flex - 2026-10-19) */
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;
   line-height:1.6;-webkit-font-smoothing:antialiased}
