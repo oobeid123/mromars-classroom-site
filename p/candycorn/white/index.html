@@ -2389,6 +2389,16 @@ function beacon() {
   } catch (e) {}
 }
 
+/* "Add to bag" pressed (2026-10-26): the same anonymous beacon, so the workshop's twice-daily
+   recap can say what went into bags. Only the bag key travels - no cookie, nothing stored. */
+function cartBeacon(key) {
+  if (!SITE.stock || !navigator.sendBeacon) return;
+  try {
+    navigator.sendBeacon(SITE.stock.replace(/\/stock$/, "/hit"),
+      new Blob([JSON.stringify({ event: "cart", key })], { type: "text/plain" }));
+  } catch (e) {}
+}
+
 let stages = [];
 const BUILT = { path: here(), title: document.title };   // the file this visit landed on
 function route() {
@@ -2687,6 +2697,7 @@ $("#view").addEventListener("click", e => {
   const p = item.p;
   if ((bag[key] || 0) >= MAX_QTY) { toast(`Up to ${MAX_QTY} of one item per order \u2014 for more, send a request.`, 4000); return; }
   bag[key] = (bag[key] || 0) + 1; renderBag();
+  cartBeacon(key);
   b.classList.add("done"); b.textContent = "Added";
   // markSold, not a fixed label: a style switch in the meantime may have made it Sold out.
   setTimeout(() => { b.classList.remove("done"); b.textContent = "Add to bag"; markSold(); }, 1500);
