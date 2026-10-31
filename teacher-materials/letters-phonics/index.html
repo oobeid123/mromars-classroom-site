@@ -778,6 +778,51 @@ html.is-closed footer{padding-top:56px}
   .hero-note{font-size:13px;width:44%;padding:12px 10px 10px}
   .foot-cols{grid-template-columns:1fr}
 }
+
+/* build your own + live 3D (run 3, 2026-10-26) */
+.live3d{position:relative;width:100%;aspect-ratio:1;display:block;cursor:grab;touch-action:pan-y}
+.live3d:active{cursor:grabbing}
+.live3d[hidden]{display:none}
+.live3d .v3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.live3d.loading::after{content:"Loading 3D\2026";position:absolute;inset:auto 0 46%;text-align:center;font-size:14px;color:var(--ink-3)}
+.live3d.no3d{display:none}
+.b3d-tag{position:absolute;top:14px;left:14px;z-index:2;background:var(--sheet);color:var(--ink);font:600 12px/1 var(--body);
+  letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:999px;box-shadow:var(--lift-sm);pointer-events:none}
+.b3d-hint{position:absolute;bottom:12px;left:0;right:0;z-index:2;text-align:center;font-size:13px;color:var(--ink-3);pointer-events:none}
+.builder .thumbs{flex-wrap:wrap}
+.builder .thumbs .thumb{flex:0 0 calc((100% - 50px) / 6)}
+@media (max-width:560px){.builder .thumbs .thumb{flex:0 0 calc((100% - 30px) / 4)}}
+.thumb.design{display:grid;place-items:center;aspect-ratio:1;font:600 12.5px/1.2 var(--display);color:var(--btn);text-align:center;
+  background:linear-gradient(135deg,var(--sky),var(--butter))}
+.click-pop{position:absolute;z-index:3;transform:translate(-50%,-50%);font:700 22px/1 var(--display);color:var(--btn);
+  background:var(--sheet);padding:6px 12px;border-radius:999px;box-shadow:var(--lift-sm);pointer-events:none;animation:clickpop .9s ease-out forwards}
+@keyframes clickpop{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}18%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}
+  70%{opacity:1}100%{opacity:0;transform:translate(-50%,-110%) scale(1)}}
+.price.big .pnum{font-weight:inherit}
+.opt{display:flex;flex-direction:column;gap:8px}
+.ways.opt{flex-direction:row}
+.opt .label em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink-3);margin-left:6px}
+.shape-btn{padding:8px 14px 8px 10px;border-radius:14px;gap:10px}
+.shape-btn svg{width:30px;height:24px;color:var(--ink-2)}
+.shape-btn[aria-pressed="true"] svg{color:var(--btn)}
+.shape-btn span{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15}
+.shape-btn small{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.way:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.keys-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.keymap{width:132px;height:auto;max-height:96px;overflow:visible}
+.keymap .kk{cursor:pointer}
+.keymap .kk:hover rect:last-child,.keymap .kk:focus rect:last-child{stroke:var(--btn);stroke-width:1.4}
+.keymap .kk:focus{outline:none}
+.keys-row .ways{flex:1;min-width:150px}
+.design-sum{margin:0;font-size:14.5px;color:var(--ink-2)}
+.name-in{font:500 20px/1.2 var(--display);padding:12px 16px;border-radius:14px;border:1.5px solid var(--rule-2);background:var(--sheet);
+  color:var(--ink);width:100%;max-width:380px}
+.name-in:focus{outline:none;border-color:var(--btn);box-shadow:0 0 0 3px color-mix(in srgb,var(--btn) 22%,transparent)}
+.name-help{font-size:13px;color:var(--ink-3)}
+.name-help.bad{color:#B4372B}
+.long-note{margin:0;font-size:14px;line-height:1.5;color:var(--ink);background:var(--butter);border-radius:12px;padding:10px 14px}
+.pc-nophoto{display:grid;place-items:center;height:100%;font:600 18px var(--display);color:var(--ink-3)}
+@media (max-width:560px){.shape-btn{flex:1 1 calc(50% - 8px)}.keymap{width:112px}}
 </style>
 <link rel="canonical" href="https://mromars-classroom.com/teacher-materials/letters-phonics/">
 <meta property="og:site_name" content="Mr. Omar&#x27;s Classroom">
@@ -873,10 +918,10 @@ html.is-closed footer{padding-top:56px}
 <script>
 const ASSETS = {"spider":{"w":880,"h":660,"bbox":[0.2716,0.2773,0.767,0.9182],"frames":["/assets/frame-3b0f90672a.webp","/assets/frame-fc7f2ce8f9.webp","/assets/frame-4b3c49f57b.webp","/assets/frame-c13c8bd01f.webp","/assets/frame-1a40e7cfec.webp","/assets/frame-7cbd03dafa.webp","/assets/frame-1e036974df.webp","/assets/frame-062d270d48.webp","/assets/frame-c88d0d1b2f.webp","/assets/frame-955a48da6e.webp","/assets/frame-c97a6150f7.webp","/assets/frame-2df57f1182.webp","/assets/frame-058e0b87fa.webp","/assets/frame-fd0c9582ef.webp","/assets/frame-54f89a8516.webp","/assets/frame-b70a8e9e42.webp","/assets/frame-eb8f752c74.webp","/assets/frame-22558362d9.webp","/assets/frame-586deef035.webp","/assets/frame-357231a4de.webp","/assets/frame-06f978deef.webp","/assets/frame-bfb9e31ba1.webp","/assets/frame-05933cd9fd.webp","/assets/frame-76386c618d.webp","/assets/frame-a7ebf560c0.webp","/assets/frame-5d5840b7b7.webp","/assets/frame-2a694aaafb.webp","/assets/frame-22e1c504c1.webp","/assets/frame-3d246929d3.webp","/assets/frame-897a15ff23.webp","/assets/frame-9aa40814cd.webp","/assets/frame-3d6f75dd39.webp","/assets/frame-7c2bcbf3e9.webp","/assets/frame-b2d44f755c.webp","/assets/frame-05096a0294.webp","/assets/frame-94c1422026.webp","/assets/frame-1959306cd5.webp","/assets/frame-90e71f17ef.webp","/assets/frame-3c7863ced2.webp","/assets/frame-ffaedffaf0.webp","/assets/frame-2cb8d5f482.webp","/assets/frame-8a55c416e7.webp","/assets/frame-6be0e45dd1.webp","/assets/frame-94d1a4c344.webp","/assets/frame-263a17eee8.webp","/assets/frame-d2dbe380d5.webp","/assets/frame-9640510ea1.webp","/assets/frame-8440447a0b.webp"],"ways":{"pumpkin":"/assets/frame-8ba67509e8.webp","midnight":"/assets/frame-b643685c4c.webp","candy":"/assets/frame-0a67f08b84.webp"}},"candycorn":{"w":880,"h":660,"bbox":[0.2966,0.1848,0.7045,1.0],"frames":["/assets/frame-0ac23b92e2.webp","/assets/frame-2d3fc8f2c6.webp","/assets/frame-41e44bb3f5.webp","/assets/frame-30ac8ea183.webp","/assets/frame-074169307d.webp","/assets/frame-eb24f87ea7.webp","/assets/frame-f2cf36649e.webp","/assets/frame-48f780d68c.webp","/assets/frame-6f530de918.webp","/assets/frame-8c6ad9ec8d.webp","/assets/frame-b0468790c2.webp","/assets/frame-6c9adf6635.webp","/assets/frame-43f2b6a569.webp","/assets/frame-f05c84f29d.webp","/assets/frame-3661f6eabc.webp","/assets/frame-9b0b3873f9.webp","/assets/frame-cf120ed114.webp","/assets/frame-2b43a93476.webp","/assets/frame-127200d21e.webp","/assets/frame-4b9d0e3b03.webp","/assets/frame-23df77ec2d.webp","/assets/frame-d010f9f397.webp","/assets/frame-46178e8642.webp","/assets/frame-5d984a0695.webp","/assets/frame-dcfec8d45e.webp","/assets/frame-c2103c0640.webp","/assets/frame-da46bd2174.webp","/assets/frame-6e5ec33836.webp","/assets/frame-3f9c30df17.webp","/assets/frame-949934ba38.webp","/assets/frame-7e41ac7350.webp","/assets/frame-9424d20789.webp","/assets/frame-01e214dec9.webp","/assets/frame-62ed0738e4.webp","/assets/frame-7346e53f88.webp","/assets/frame-957a801684.webp","/assets/frame-d280ec39b4.webp","/assets/frame-2382b0953b.webp","/assets/frame-7fbdbb4860.webp","/assets/frame-0c2a4ff264.webp","/assets/frame-f0c31e980c.webp","/assets/frame-50cd085c84.webp","/assets/frame-b4176a19b3.webp","/assets/frame-3f8221884f.webp","/assets/frame-0d39ee91f4.webp","/assets/frame-da83abacd3.webp","/assets/frame-93faa6796e.webp","/assets/frame-1767d9ddc6.webp"],"ways":{"classic":"/assets/frame-c22b150169.webp","monster":"/assets/frame-9f326fd7e3.webp","berry":"/assets/frame-f6d81eca8b.webp"}}};
 const CHIPS = {"maple":{"hero":{"base":"/assets/maple-hero-50a3c3e30d.webp","mask":"/assets/matte-9e8f5de7e2.webp","alt":"the container open and full, its lid beside it"},"open":{"base":"/assets/maple-open-ea14d5066e.webp","mask":"/assets/matte-bbbec2ea50.webp","alt":"the container closed, the chips showing through the lid"},"flatlay":{"base":"/assets/maple-flatlay-f3573cec53.webp","mask":"/assets/matte-0fc4272d87.webp","alt":"all fifteen chips on the table"},"macro":{"base":"/assets/maple-macro-7e40fc43b0.webp","mask":"/assets/matte-0f14b55594.webp","alt":"one chip up close"},"real":{"brown":{"flatlay":{"base":"/assets/maple-brown-flatlay-4cd70acf99.webp","alt":"all fifteen chips on the table"},"hero":{"base":"/assets/maple-brown-hero-3e99880103.webp","alt":"the container full, its lid beside it"},"macro":{"base":"/assets/maple-brown-macro-8adeaec537.webp","alt":"one chip up close"},"open":{"base":"/assets/maple-brown-open-0ae8f2f147.webp","alt":"three chips on the table"}}}},"apple":{"hero":{"base":"/assets/apple-hero-f39cd29a85.webp","mask":"/assets/matte-364a9695a3.webp","alt":"a chip sitting in its container"},"open":{"base":"/assets/apple-open-c9027c2843.webp","mask":"/assets/matte-7a9320c7be.webp","alt":"the empty container from above"},"flatlay":{"base":"/assets/apple-flatlay-5146a134d2.webp","mask":"/assets/matte-7cdc4fd2a0.webp","alt":"all fifteen chips on the table"},"macro":{"base":"/assets/apple-macro-39f4f48d39.webp","mask":"/assets/matte-7a307885a3.webp","alt":"one chip up close"}},"leaf":{"hero":{"base":"/assets/leaf-hero-f3cd9fd08e.webp","mask":"/assets/matte-83b3e97a53.webp","alt":"all fifteen chips on the table"},"open":{"base":"/assets/leaf-open-b23959442e.webp","mask":"/assets/matte-42a1dc83e7.webp","alt":"the lid and the container side by side"},"flatlay":{"base":"/assets/leaf-flatlay-750728dbff.webp","mask":"/assets/matte-b4fbba8256.webp","alt":"the container standing, deep enough for a pack"},"macro":{"base":"/assets/leaf-macro-8abaecf473.webp","mask":"/assets/matte-aaee60f6b1.webp","alt":"one chip up close"}},"home":"/assets/maple-home-642df2337d.webp"};
-const PHOTOS = {"clicker":{"orange":"/assets/clicker-orange-b3ab4e347d.webp","red":"/assets/clicker-red-37dc0d407c.webp","blue":"/assets/clicker-blue-30e9f27155.webp","green":"/assets/clicker-green-bb348b29fe.webp","ring":"/assets/clicker-ring-be8436322c.webp","cap":"/assets/clicker-cap-79c55049d9.webp","four":"/assets/clicker-four-ccc944a548.webp","clip":"/assets/clicker-clip-cf855b4d4b.webp"},"wyvern":{"shots":[{"src":"/assets/wyvern-pink-a2e70295c9.webp","alt":"in pink"},{"src":"/assets/wyvern-pink-detail-e5b4d96a8f.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"styles":{"pink":[{"src":"/assets/wyvern-pink-a2e70295c9.webp","alt":"in pink"},{"src":"/assets/wyvern-pink-detail-e5b4d96a8f.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"blue":[{"src":"/assets/wyvern-blue-c59b1b9427.webp","alt":"in blue"},{"src":"/assets/wyvern-blue-detail-bd1b7d655e.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"clear":[{"src":"/assets/wyvern-clear-14874f03e9.webp","alt":"in clear"},{"src":"/assets/wyvern-clear-detail-57b7219ea3.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"rainbow":[{"src":"/assets/wyvern-rainbow-5f36b3789c.webp","alt":"in rainbow"},{"src":"/assets/wyvern-rainbow2-1f96c83478.webp","alt":"stretched out, wings open"},{"src":"/assets/wyvern-rainbow-detail-580341bc1e.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}]}},"gecko":{"shots":[{"src":"/assets/gecko-blue-10b0c483d3.webp","alt":"in blue"},{"src":"/assets/gecko-blue-detail-44c1c67ffe.webp","alt":"its face up close, see-through"}],"styles":{"blue":[{"src":"/assets/gecko-blue-10b0c483d3.webp","alt":"in blue"},{"src":"/assets/gecko-blue-detail-44c1c67ffe.webp","alt":"its face up close, see-through"}],"rainbow":[{"src":"/assets/gecko-rainbow-aa91c702e3.webp","alt":"in rainbow"},{"src":"/assets/gecko-rainbow-detail-b95019523d.webp","alt":"its face up close, see-through"}],"clear":[{"src":"/assets/gecko-clear-dad42a2248.webp","alt":"in clear"},{"src":"/assets/gecko-clear-detail-b013a8e53f.webp","alt":"its face up close, see-through"}],"pink":[{"src":"/assets/gecko-pink-e4f2eeaece.webp","alt":"in pink"},{"src":"/assets/gecko-pink-detail-5b7621387f.webp","alt":"its face up close, see-through"}]}},"chips-stopsign":{"shots":[{"src":"/assets/stopsign-flatlay-b4401ec498.webp","alt":"all fifteen chips with the container and lid"},{"src":"/assets/stopsign-macro-47dd0860a2.webp","alt":"one chip up close"},{"src":"/assets/stopsign-lid-a388d71365.webp","alt":"the lid, lettered Stop Sign"}]},"alphabet":{"shots":[{"src":"/assets/letters-flatlay-22f4fe1094.webp","alt":"all twenty-six tiles from above"},{"src":"/assets/letters-macro-a3efd94f62.webp","alt":"the tiles up close"}]},"clicker3":{"shots":[{"src":"/assets/clicker3-hero-4f9825cd23.webp","alt":"side on"},{"src":"/assets/clicker3-lit-blue-1ea21482ef.webp","alt":"the left cap lit blue"},{"src":"/assets/clicker3-lit-red-95d5d20027.webp","alt":"the right cap lit red"},{"src":"/assets/clicker3-top-062ad1e757.webp","alt":"all three caps from above"},{"src":"/assets/clicker3-ring-2e78c06030.webp","alt":"on its split ring"},{"src":"/assets/clicker3-angle-7a7a725218.webp","alt":"at three-quarters"}]},"spider":{"shots":[{"src":"/assets/spider-hero-398cb57333.webp","alt":"square on"},{"src":"/assets/spider-macro-e2cc809dac.webp","alt":"up close"},{"src":"/assets/spider-angle-91471cf892.webp","alt":"turned, showing its two body segments"}]},"candycorn":{"shots":[{"src":"/assets/candycorn-hero-a458910e90.webp","alt":"head on"},{"src":"/assets/candycorn-legs-83f2cc4626.webp","alt":"standing, its feet showing"}]},"chips-bus":{"shots":[{"src":"/assets/bus-flatlay-8d1c35ad50.webp","alt":"all fifteen chips from above"},{"src":"/assets/bus-macro-e5ec110c41.webp","alt":"one bus up close"}]},"chips-pinecone":{"shots":[{"src":"/assets/pinecone-flatlay-0daae0e6b8.webp","alt":"all fifteen chips from above"},{"src":"/assets/pinecone-macro-e622cb53c1.webp","alt":"one chip up close, its raised scales"}]},"icecream":{"shots":[{"src":"/assets/icecream-48d5a26ccd.webp","alt":"with its keyring and little feet"},{"src":"/assets/icecream-ring-d9095d057b.webp","alt":"on its keyring, from above"}]},"wyvern-20":{"shots":[{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"pink, blue, clear and rainbow together"},{"src":"/assets/wyvern-pink-a2e70295c9.webp","alt":"one in pink"},{"src":"/assets/wyvern-blue-c59b1b9427.webp","alt":"one in blue"},{"src":"/assets/wyvern-clear-14874f03e9.webp","alt":"one in clear"},{"src":"/assets/wyvern-rainbow-5f36b3789c.webp","alt":"one in rainbow"}]},"gecko-20":{"shots":[{"src":"/assets/gecko-group-7d0d8835f9.webp","alt":"blue, rainbow, clear and pink together"},{"src":"/assets/gecko-blue-10b0c483d3.webp","alt":"one in blue"},{"src":"/assets/gecko-rainbow-aa91c702e3.webp","alt":"one in rainbow"},{"src":"/assets/gecko-clear-dad42a2248.webp","alt":"one in clear"},{"src":"/assets/gecko-pink-e4f2eeaece.webp","alt":"one in pink"}]}};      // products that are photographed straight, with no tinting
+const PHOTOS = {"clicker":{"orange":"/assets/clicker-orange-b3ab4e347d.webp","red":"/assets/clicker-red-37dc0d407c.webp","blue":"/assets/clicker-blue-30e9f27155.webp","green":"/assets/clicker-green-bb348b29fe.webp","ring":"/assets/clicker-ring-be8436322c.webp","cap":"/assets/clicker-cap-79c55049d9.webp","four":"/assets/clicker-four-ccc944a548.webp","clip":"/assets/clicker-clip-cf855b4d4b.webp"},"wyvern":{"shots":[{"src":"/assets/wyvern-pink-a2e70295c9.webp","alt":"in pink"},{"src":"/assets/wyvern-pink-detail-e5b4d96a8f.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"styles":{"pink":[{"src":"/assets/wyvern-pink-a2e70295c9.webp","alt":"in pink"},{"src":"/assets/wyvern-pink-detail-e5b4d96a8f.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"blue":[{"src":"/assets/wyvern-blue-c59b1b9427.webp","alt":"in blue"},{"src":"/assets/wyvern-blue-detail-bd1b7d655e.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"clear":[{"src":"/assets/wyvern-clear-14874f03e9.webp","alt":"in clear"},{"src":"/assets/wyvern-clear-detail-57b7219ea3.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}],"rainbow":[{"src":"/assets/wyvern-rainbow-5f36b3789c.webp","alt":"in rainbow"},{"src":"/assets/wyvern-rainbow2-1f96c83478.webp","alt":"stretched out, wings open"},{"src":"/assets/wyvern-rainbow-detail-580341bc1e.webp","alt":"its face and spikes, see-through"},{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"all four colors together"}]}},"gecko":{"shots":[{"src":"/assets/gecko-blue-10b0c483d3.webp","alt":"in blue"},{"src":"/assets/gecko-blue-detail-44c1c67ffe.webp","alt":"its face up close, see-through"}],"styles":{"blue":[{"src":"/assets/gecko-blue-10b0c483d3.webp","alt":"in blue"},{"src":"/assets/gecko-blue-detail-44c1c67ffe.webp","alt":"its face up close, see-through"}],"rainbow":[{"src":"/assets/gecko-rainbow-aa91c702e3.webp","alt":"in rainbow"},{"src":"/assets/gecko-rainbow-detail-b95019523d.webp","alt":"its face up close, see-through"}],"clear":[{"src":"/assets/gecko-clear-dad42a2248.webp","alt":"in clear"},{"src":"/assets/gecko-clear-detail-b013a8e53f.webp","alt":"its face up close, see-through"}],"pink":[{"src":"/assets/gecko-pink-e4f2eeaece.webp","alt":"in pink"},{"src":"/assets/gecko-pink-detail-5b7621387f.webp","alt":"its face up close, see-through"}]}},"chips-stopsign":{"shots":[{"src":"/assets/stopsign-flatlay-b4401ec498.webp","alt":"all fifteen chips with the container and lid"},{"src":"/assets/stopsign-macro-47dd0860a2.webp","alt":"one chip up close"},{"src":"/assets/stopsign-lid-a388d71365.webp","alt":"the lid, lettered Stop Sign"}]},"alphabet":{"shots":[{"src":"/assets/letters-flatlay-22f4fe1094.webp","alt":"all twenty-six tiles from above"},{"src":"/assets/letters-macro-a3efd94f62.webp","alt":"the tiles up close"}]},"clicker3":{"shots":[{"src":"/assets/clicker3-hero-4f9825cd23.webp","alt":"side on"},{"src":"/assets/clicker3-lit-blue-1ea21482ef.webp","alt":"the left cap lit blue"},{"src":"/assets/clicker3-lit-red-95d5d20027.webp","alt":"the right cap lit red"},{"src":"/assets/clicker3-top-062ad1e757.webp","alt":"all three caps from above"},{"src":"/assets/clicker3-ring-2e78c06030.webp","alt":"on its split ring"},{"src":"/assets/clicker3-angle-7a7a725218.webp","alt":"at three-quarters"}]},"spider":{"shots":[{"src":"/assets/spider-hero-398cb57333.webp","alt":"square on"},{"src":"/assets/spider-macro-e2cc809dac.webp","alt":"up close"},{"src":"/assets/spider-angle-91471cf892.webp","alt":"turned, showing its two body segments"}]},"candycorn":{"shots":[{"src":"/assets/candycorn-hero-a458910e90.webp","alt":"head on"},{"src":"/assets/candycorn-legs-83f2cc4626.webp","alt":"standing, its feet showing"}]},"chips-bus":{"shots":[{"src":"/assets/bus-flatlay-8d1c35ad50.webp","alt":"all fifteen chips from above"},{"src":"/assets/bus-macro-e5ec110c41.webp","alt":"one bus up close"}]},"chips-pinecone":{"shots":[{"src":"/assets/pinecone-flatlay-0daae0e6b8.webp","alt":"all fifteen chips from above"},{"src":"/assets/pinecone-macro-e622cb53c1.webp","alt":"one chip up close, its raised scales"}]},"icecream":{"shots":[{"src":"/assets/icecream-48d5a26ccd.webp","alt":"with its keyring and little feet"},{"src":"/assets/icecream-ring-d9095d057b.webp","alt":"on its keyring, from above"}]},"wyvern-20":{"shots":[{"src":"/assets/wyvern-group-37ef1496b9.webp","alt":"pink, blue, clear and rainbow together"},{"src":"/assets/wyvern-pink-a2e70295c9.webp","alt":"one in pink"},{"src":"/assets/wyvern-blue-c59b1b9427.webp","alt":"one in blue"},{"src":"/assets/wyvern-clear-14874f03e9.webp","alt":"one in clear"},{"src":"/assets/wyvern-rainbow-5f36b3789c.webp","alt":"one in rainbow"}]},"gecko-20":{"shots":[{"src":"/assets/gecko-group-7d0d8835f9.webp","alt":"blue, rainbow, clear and pink together"},{"src":"/assets/gecko-blue-10b0c483d3.webp","alt":"one in blue"},{"src":"/assets/gecko-rainbow-aa91c702e3.webp","alt":"one in rainbow"},{"src":"/assets/gecko-clear-dad42a2248.webp","alt":"one in clear"},{"src":"/assets/gecko-pink-e4f2eeaece.webp","alt":"one in pink"}]},"eggs":{"shots":[{"src":"/assets/eggs-open-444839adf7.webp","alt":"the carton open with all four eggs inside"},{"src":"/assets/eggs-carton-b0a7d6064e.webp","alt":"the carton closed"},{"src":"/assets/eggs-whole-69460780c4.webp","alt":"four whole eggs, each with its seam"},{"src":"/assets/eggs-fried-1193a10cd5.webp","alt":"an egg cracked open, with the fried egg"}]},"icetray":{"shots":[{"src":"/assets/icetray-hero-8b727af0e2.webp","alt":"the tray with its cubes tipped out beside it"},{"src":"/assets/icetray-full-60f4e0e7f3.webp","alt":"the tray full, every cube in its well"},{"src":"/assets/icetray-cubes-04b43932bd.webp","alt":"the pretend ice cubes up close"}]},"keycap":{"shots":[{"src":"/assets/keycap-group-82a793e698.webp","alt":"four finished clickers in white"},{"src":"/assets/keycap-group-black-7de4e02764.webp","alt":"four finished clickers in black"},{"src":"/assets/keycap-t-white-e8642ddd32.webp","alt":"the T shape in white"},{"src":"/assets/keycap-t-black-115b29ea59.webp","alt":"the T shape in black"},{"src":"/assets/keycap-s-white-f2c8e80b0d.webp","alt":"the S shape in white"},{"src":"/assets/keycap-s-black-bea798c06c.webp","alt":"the S shape in black"},{"src":"/assets/keycap-square-white-981646126d.webp","alt":"the square in white"},{"src":"/assets/keycap-square-black-501578ee44.webp","alt":"the square in black"},{"src":"/assets/keycap-two-white-2420708743.webp","alt":"the 2-key in white"},{"src":"/assets/keycap-two-black-75ad1a1d52.webp","alt":"the 2-key in black"},{"src":"/assets/keycap-bodies-white-09f4f65cc5.webp","alt":"the white cases with the keys off"},{"src":"/assets/keycap-bodies-black-30b54f9cbf.webp","alt":"the black cases with the keys off"}]},"cookie":{"shots":[{"src":"/assets/cookie-side-ad51523dc4.webp","alt":"standing on its edge, the cream showing"},{"src":"/assets/cookie-edge-24f1106af5.webp","alt":"edge on"}]},"organizer":{"shots":[{"src":"/assets/organizer-hero-6fe09ff3ff.webp","alt":"a finished one: Mrs. Henry, black with red letters"},{"src":"/assets/organizer-angle-2c72b82c92.webp","alt":"the same one from a little further back"}]}};      // products that are photographed straight, with no tinting
 /* Prices are set in the workshop (classroom-admin) and baked in at build time, so the page
    never depends on that service being up to show a price. */
-const PRICES = {"chips-maple":{"price":5.0,"status":"live"},"chips-apple":{"price":5.0,"status":"live"},"chips-leaf":{"price":5.0,"status":"live"},"clicker":{"price":8.0,"status":"off"},"spider":{"price":3.0,"status":"live"},"candycorn":{"price":3.0,"status":"live"},"chips-stopsign":{"price":5.0,"status":"live"},"alphabet":{"price":8.0,"status":"live"},"clicker3":{"price":5.5,"status":"off"},"wyvern":{"price":0.99,"status":"live"},"gecko":{"price":0.6,"status":"live"},"wyvern-20":{"price":15.0,"status":"live"},"gecko-20":{"price":10.0,"status":"live"},"chips-bus":{"price":5.0,"status":"live"},"chips-pinecone":{"price":5.0,"status":"live"},"icecream":{"price":2.5,"status":"live"}};
+const PRICES = {"chips-maple":{"price":5.0,"status":"live"},"chips-apple":{"price":5.0,"status":"live"},"chips-leaf":{"price":5.0,"status":"live"},"clicker":{"price":8.0,"status":"off"},"spider":{"price":3.0,"status":"live"},"candycorn":{"price":3.0,"status":"live"},"chips-stopsign":{"price":5.0,"status":"live"},"alphabet":{"price":8.0,"status":"live"},"clicker3":{"price":5.5,"status":"off"},"wyvern":{"price":0.99,"status":"live"},"gecko":{"price":0.6,"status":"live"},"wyvern-20":{"price":15.0,"status":"live"},"gecko-20":{"price":10.0,"status":"live"},"chips-bus":{"price":5.0,"status":"live"},"chips-pinecone":{"price":5.0,"status":"live"},"icecream":{"price":2.5,"status":"live"},"eggs":{"price":15.0,"status":"live"},"icetray":{"price":5.0,"status":"live"},"cookie":{"price":3.0,"status":"live"},"organizer":{"price":15.0,"status":"live","opts":{"base":[{"code":"black","label":"Black","hex":"#1D1D1F","price_cents":null,"keys":0,"active":1},{"code":"white","label":"White","hex":"#F1F1EF","price_cents":null,"keys":0,"active":1}],"letters":[{"code":"white","label":"White","hex":"#F1F1EF","price_cents":null,"keys":0,"active":1},{"code":"black","label":"Black","hex":"#1D1D1F","price_cents":null,"keys":0,"active":1},{"code":"galaxy-red","label":"Galaxy Red","hex":"#9B1C2C","price_cents":null,"keys":0,"active":1},{"code":"yellow","label":"Yellow","hex":"#F5CF1A","price_cents":null,"keys":0,"active":1},{"code":"clear","label":"Translucent","hex":"#EEF3F5","price_cents":null,"keys":0,"active":1},{"code":"blue","label":"Translucent Blue","hex":"#A9D2EC","price_cents":null,"keys":0,"active":1},{"code":"pink","label":"Translucent Pink","hex":"#EEBCC8","price_cents":null,"keys":0,"active":1}]}}};
 
 /* Categories and the planned line-up live here: edit these two lists and the header,
    pages and counts all follow. */
@@ -897,6 +942,7 @@ const CATALOG = [
       { id: "fidgets", name: "Fidgets", blurb: "Clicky, glowy, pocket-sized things for hands that need something to do." },
       { id: "keychains", name: "Keychains", blurb: "Little friends on a keyring, for backpacks, lanyards and keys." },
       { id: "treasure-box", name: "Treasure Box Toys", blurb: "Little toys for the classroom treasure box and Friday rewards, one at a time or by the pack." },
+      { id: "pretend-play", name: "Pretend Play", blurb: "Play-kitchen food and make-believe tools for the house corner and dramatic play." },
     ] },
 ];
 
@@ -1015,6 +1061,62 @@ const PRODUCTS = [
     tip: "Clip it to a lanyard and it peeks out at the class all day.",
     specs: [["Color", "Chocolate brown, white swirls"], ["Size", "About 1.6 in tall"], ["On", "A keyring with a short chain"]],
     pack: ["One ice cream cup keychain", "On a keyring with a short chain"] },
+  /* Run 3 (2026-10-26). Two BUILD-YOUR-OWN products (builder: "keycap" | "name"): the buyer picks
+     options and watches a live 3D model update (View3D below, three.js loaded only on these pages).
+     Colours are the workshop's own (PRICES[id].opts overrides the hexes and shape prices here at
+     build). The clicker is ONE product priced PER SHAPE (Omar) - the page leads with the cheapest.
+     Bag keys: keycap:<shape>:<body>:<cap.cap...>, organizer:<base>:<letters>:<name, URI-encoded>.
+     The cookie clicker is never called by the brand name on its face (trademark); its first
+     gallery slide is a live 3D model whose top turns and clicks. */
+  { id: "keycap", draft: true, builder: "keycap", name: "Build Your Own Clicker", price: 6,
+    in: ["toys/fidgets", "toys/keychains"],
+    shapes: [                                  // placeholder prices until the workshop sets them
+      { id: "two", name: "2-Key", price: 6, size: "45 x 24 mm" },
+      { id: "square", name: "Square", price: 9, size: "45 x 45 mm" },
+      { id: "s", name: "S Shape", price: 9, size: "67 x 46 mm" },
+      { id: "t", name: "T Shape", price: 9, size: "67 x 45 mm" },
+    ],
+    bodies: [{ id: "white", name: "White", hex: "#F1F1EF" }, { id: "black", name: "Black", hex: "#1D1D1F" }],
+    caps: [{ id: "red", name: "Galaxy Red", hex: "#9B1C2C", glitter: true }, { id: "yellow", name: "Yellow", hex: "#F5CF1A" }],
+    desc: "Design your own clicky keychain. Pick a shape, pick white or black for the case, then make every key galaxy red (with a sparkle) or yellow. Each key clicks like a key on a keyboard when you press it, and the clicker hangs on a keyring, so it goes wherever busy hands go.",
+    note: "4 shapes &middot; white or black &middot; galaxy red and yellow keys",
+    tip: "Tap a key on the picture, or in the little map, to switch its color.",
+    pack: ["One clicker in the shape you pick", "Galaxy red or yellow on every key, your choice", "On a keyring"] },
+  { id: "organizer", builder: "name", name: "Name Desk Organizer", price: 20,
+    in: ["teacher-materials/classroom"], maxName: 20,
+    bases: [{ id: "black", name: "Black", hex: "#1D1D1F" }, { id: "white", name: "White", hex: "#F1F1EF" }],
+    letters: [
+      { id: "white", name: "White", hex: "#F1F1EF" }, { id: "black", name: "Black", hex: "#1D1D1F" },
+      { id: "galaxy-red", name: "Galaxy Red", hex: "#9B1C2C", glitter: true },
+      { id: "yellow", name: "Yellow", hex: "#F5CF1A" },
+      { id: "clear", name: "Translucent", hex: "#EEF3F5", see: true },
+      { id: "blue", name: "Translucent Blue", hex: "#A9D2EC", see: true },
+      { id: "pink", name: "Translucent Pink", hex: "#EEBCC8", see: true },
+    ],
+    desc: "A three-section desk caddy with a name standing tall across the front, for pens, markers, sticky notes and the scissors that always walk off. Type the name, pick the colors, and see exactly how it looks before you order.",
+    note: "Your name on it &middot; black or white &middot; 7 letter colors",
+    tip: "Short and sweet fits best: Mrs. Henry, Mr. O, Room 12.",
+    longNote: "If a name is too long for the standard holder, I make the holder longer to fit it. The price may change for an extra-long name, at my discretion, and I'll message you before I start.",
+    specs: [["Size", "About 8.3 x 2.8 in"], ["Height", "About 3.3 in with the name"], ["Sections", "3"]],
+    pack: ["One desk organizer with three sections", "Your name in raised letters across the front", "Holder and letters in the colors you pick"] },
+  { id: "cookie", name: "Cookie Clicker", price: 5, in: ["toys/fidgets"],
+    desc: "A chocolate sandwich cookie you can't eat but can't stop turning. Twist the top and it clicks with every turn, one satisfying click after another, all the way around. Black cookies with a white cream middle, the size of the real thing.",
+    note: "Twist it and it clicks &middot; black and cream",
+    tip: "Quiet enough for a desk, clicky enough to keep fingers busy.",
+    specs: [["Size", "About 1.8 in across"], ["Color", "Black, white cream"], ["Does", "Clicks as you turn it"]],
+    pack: ["One cookie clicker", "The top turns all the way around, clicking as it goes"] },
+  { id: "eggs", name: "Pretend Egg Set", price: 10, in: ["toys/pretend-play"],
+    desc: "An egg carton with four eggs inside, ready for the play kitchen. Every egg comes apart into two halves so it can be cracked over the pan, and a soft, bendy fried egg is ready to cook up. The fried egg doubles as a coaster for a grown-up's mug once play is over. At clean-up time it all goes back in the carton.",
+    note: "Carton, four eggs and a fried egg",
+    tip: "Crack, cook, then count the eggs back into the carton.",
+    specs: [["In the set", "Carton, 4 eggs, 1 fried egg"], ["Eggs", "About 1.7 in across"], ["Fried egg", "Soft and bendy, doubles as a coaster"]],
+    pack: ["An egg carton with a lid that closes", "Four eggs that crack open into two halves", "One soft fried egg that doubles as a coaster"] },
+  { id: "icetray", name: "Pretend Ice Cube Tray", price: 8, in: ["toys/pretend-play"],
+    desc: "A black ice cube tray with fourteen see-through blue ice cubes, each in its own well. Pop them out for the play kitchen or the lemonade stand, then count them back in: two rows of seven make it a handy tray for counting by twos.",
+    note: "14 ice cubes &middot; see-through blue",
+    tip: "Ask for seven cubes, then for the same again, and count the doubles.",
+    specs: [["In the set", "Tray and 14 cubes"], ["Tray", "About 6 x 2.2 in"], ["Cubes", "Translucent blue, 14 per tray"]],
+    pack: ["One ice cube tray with 14 wells", "Fourteen pretend ice cubes"] },
   /* Counting Chips are THREE products, one per shape (Omar 2026-10-06), each with its own
      price and the same four colours. Colour never changes the price. The shape stays in the
      bag key (chips-apple:apple:red) because the photo sets and stock are keyed by it. */
@@ -1141,6 +1243,31 @@ for (let i = PRODUCTS.length - 1; i >= 0; i--) {
   if (w.status === "retired") { PRODUCTS.splice(i, 1); continue; }
   if (w.price != null) PRODUCTS[i].price = w.price;
   if (w.status === "soon") PRODUCTS[i].status = "soon";
+}
+/* Build-your-own options from the workshop (run 3): each colour's hex is the workshop's, a shape's
+   price is its own, and an option switched off there is not offered. The clicker's headline
+   price is its cheapest shape, and the cheapest shape is shown first. */
+for (const p of PRODUCTS) {
+  const o = (PRICES[p.id] || {}).opts;
+  if (!p.builder) continue;
+  const lists = p.builder === "keycap" ? { shape: "shapes", body: "bodies", cap: "caps" } : { base: "bases", letters: "letters" };
+  if (o) for (const [grp, key] of Object.entries(lists)) {
+    for (const x of p[key]) {
+      const w = (o[grp] || []).find(r => r.code === x.id);
+      if (!w) { x.off = true; continue; }
+      if (w.hex) x.hex = w.hex;
+      if (w.label) x.name = w.label;
+      if (/galaxy/i.test(x.name)) x.glitter = true;          // a new colour named in the workshop
+      if (/translucent|clear/i.test(x.name)) x.see = true;     // looks right with no code change
+      if (grp === "shape") { if (w.price_cents != null) x.price = w.price_cents / 100; else x.off = true; }
+      x.off = x.off || !w.active;
+    }
+  }
+  if (p.shapes) {
+    p.shapes.sort((a, b) => (a.off - b.off) || (a.price - b.price));
+    const on = p.shapes.filter(x => !x.off);
+    if (on.length) p.price = Math.min(...on.map(x => x.price));
+  }
 }
 /* The workshop's On shop switch. A product switched off ("off") is built into the page but
    held back; the live answer (`on`, the store keys switched on) shows or hides it on the
@@ -1388,6 +1515,9 @@ function shotsFor(p, style) {
   return S.shots;
 }
 const addKey = (p, style) => style ? p.id + ":" + style.id : p.id;
+/* A product whose first picture is a live 3D model rather than a photo (run 3): the cookie
+   clicker turns a notch at a time and says click, because a still photo can't show that. */
+const LIVE = { cookie: { mount: h => mountCookie(h), label: "Watch it click", alt: "turning, with a click at every notch" } };
 
 function viewShots(p, styleId) {
   const cat = CATALOG.find(c => p.in[0].startsWith(c.id));
@@ -1407,8 +1537,8 @@ function viewShots(p, styleId) {
   </section>
   <section><div class="wrap prod" id="prodShots" data-id="${p.id}" data-style="${st ? st.id : ""}">
     <div class="gallery">
-      <div class="shot-main"><img id="shotsMain" src="${shots[0].src}" alt="${esc(p.name)}, ${esc(shots[0].alt)}"></div>
-      <div class="thumbs" role="group" aria-label="More pictures" id="shotsThumbs">${thumbsHTML(shots)}</div>
+      <div class="shot-main">${LIVE[p.id] ? `<div class="live3d loading" id="shotsLive" role="img" aria-label="${esc(p.name)}, ${esc(LIVE[p.id].alt)}"><span class="b3d-tag">${esc(LIVE[p.id].label)}</span></div>` : ""}<img id="shotsMain" src="${shots[0].src}" alt="${esc(p.name)}, ${esc(shots[0].alt)}"${LIVE[p.id] ? " hidden" : ""}></div>
+      <div class="thumbs" role="group" aria-label="More pictures" id="shotsThumbs">${LIVE[p.id] ? liveThumbs(p, shots) : thumbsHTML(shots)}</div>
     </div>
     <div class="prod-side">
       <h1 class="dsp">${esc(p.name)}</h1>
@@ -1438,6 +1568,8 @@ const safetyHTML = p => `<p class="safety"><b>Warning: choking hazard</b> \u2014
       if one may have been swallowed, get medical help right away.</p>` : "");
 const thumbsHTML = shots => shots.length < 2 ? "" : shots.map((x, i) =>
   `<button class="thumb${i ? "" : " on"}" data-i="${i}" aria-pressed="${!i}" aria-label="Show ${esc(x.alt)}"><img src="${x.src}" alt=""></button>`).join("");
+const liveThumbs = (p, shots) => `<button class="thumb design on" data-i="-1" aria-pressed="true" aria-label="Show it ${esc(LIVE[p.id].alt)}"><span>${esc(LIVE[p.id].label)}</span></button>` +
+  shots.map((x, i) => `<button class="thumb" data-i="${i}" aria-pressed="false" aria-label="Show ${esc(x.alt)}"><img src="${x.src}" alt=""></button>`).join("");
 const specsHTML = specs => (specs || []).map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("");
 
 function mountShots() {
@@ -1445,8 +1577,13 @@ function mountShots() {
   const p = PRODUCTS.find(x => x.id === wrap.dataset.id);
   let st = styleOf(p, wrap.dataset.style), shots = shotsFor(p, st), i = 0;
   const main = $("#shotsMain");
+  const live = $("#shotsLive");
+  if (live) LIVE[p.id].mount(live).catch(() => { live.remove(); main.hidden = false; });
   const show = n => {
-    i = n; main.src = shots[i].src; main.alt = `${p.name}, ${shots[i].alt}`;
+    i = n;
+    if (live) { live.hidden = n >= 0; main.hidden = n < 0; }
+    if (n < 0) { $$(".thumb", wrap).forEach(b => { const on = +b.dataset.i === n; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); }); return; }
+    main.src = shots[i].src; main.alt = `${p.name}, ${shots[i].alt}`;
     $$(".thumb", wrap).forEach(b => { const on = +b.dataset.i === i; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); });
   };
   $("#shotsThumbs").addEventListener("click", e => { const b = e.target.closest(".thumb"); if (b) show(+b.dataset.i); });
@@ -1465,14 +1602,14 @@ function mountShots() {
 function shotsCardHTML(p, subId) {
   // The Color Your Own shelf shows only the white style; everywhere else leads in colour.
   const st = p.styles ? styleOf(p, subId === "color-your-own" ? "white" : "colour") : null;
-  const s0 = shotsFor(p, st)[0], href = link(`/p/${p.id}${st ? "/" + st.id : ""}`);
+  const s0 = shotsFor(p, st).find(x => x.src), href = link(`/p/${p.id}${st ? "/" + st.id : ""}`);
   return `
   <article class="product shot-card">
     <a class="shot-wrap" href="${href}" aria-label="${esc(p.name)}, see it">
       <img src="${s0.src}" alt="${esc(p.name)}, ${esc(s0.alt)}" loading="lazy">
     </a>
     <div class="meta">
-      <div class="title-row"><h3><a href="${href}">${esc(p.name)}</a>${anyInStock(p, subId) ? "" : '<span class="card-sold">Sold out</span>'}</h3><span class="price">${money(p.price)}</span></div>
+      <div class="title-row"><h3><a href="${href}">${esc(p.name)}</a>${anyInStock(p, subId) ? "" : '<span class="card-sold">Sold out</span>'}</h3><span class="price">${priceLabel(p)}</span></div>
       <p class="desc">${esc((st || p).desc)}</p>
       <p class="shapes">${st && st.id === "white" ? "<span>Arrives</span> plain white" : p.note || ""}</p>
       <a class="btn btn-dark" href="${href}">See it</a>
@@ -1499,6 +1636,7 @@ function viewToy(p) {                     // a colour-your-own toy, on a page of
 }
 
 function viewProduct(p, styleId) {
+  if (p.builder) return viewBuilder(p);
   if (isShots(p)) return viewShots(p, styleId);
   if (p.lights) return viewLight(p);
   if (!p.shapes) return viewToy(p);
@@ -1612,7 +1750,7 @@ function askHTML() {
    store; a static site on a domain cannot, and a form that silently saves nothing is
    worse than no form, so the public build leaves the section out until it has a
    backend. build.py sets this. */
-const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["alphabet","candycorn:colour","candycorn:white","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-bus","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","chips-pinecone","chips-stopsign","gecko-20","gecko:blue","gecko:clear","gecko:pink","gecko:rainbow","icecream","spider:colour","spider:white","wyvern-20","wyvern:blue","wyvern:clear","wyvern:pink","wyvern:rainbow"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","tickets":"https://requests.mromars-classroom.com/public/ticket","paths":true,"on":["alphabet","candycorn","chips-apple","chips-bus","chips-leaf","chips-maple","chips-pinecone","chips-stopsign","gecko","gecko-20","icecream","spider","wyvern","wyvern-20"],"offline":false,"shipping_cents":700,"free_over_cents":2500};          // {requests, checkout, stock, keys, shipping_cents}
+const SITE = {"requests":"https://requests.mromars-classroom.com/public/request","checkout":"https://checkout.mromars-classroom.com/","stock":"https://requests.mromars-classroom.com/public/stock","keys":["alphabet","candycorn:colour","candycorn:white","chips-apple:apple:blue","chips-apple:apple:brown","chips-apple:apple:green","chips-apple:apple:orange","chips-apple:apple:red","chips-bus","chips-leaf:leaf:blue","chips-leaf:leaf:brown","chips-leaf:leaf:green","chips-leaf:leaf:orange","chips-leaf:leaf:red","chips-maple:maple:blue","chips-maple:maple:brown","chips-maple:maple:green","chips-maple:maple:orange","chips-maple:maple:red","chips-pinecone","chips-stopsign","eggs","gecko-20","gecko:blue","gecko:clear","gecko:pink","gecko:rainbow","icecream","icetray","organizer:base:black","organizer:base:white","organizer:letters:black","organizer:letters:blue","organizer:letters:clear","organizer:letters:galaxy-red","organizer:letters:pink","organizer:letters:white","organizer:letters:yellow","spider:colour","spider:white","wyvern-20","wyvern:blue","wyvern:clear","wyvern:pink","wyvern:rainbow"],"subscribe":"https://requests.mromars-classroom.com/public/subscribe","support":"mr.omars.classroom1@gmail.com","tickets":"https://requests.mromars-classroom.com/public/ticket","paths":true,"on":["alphabet","candycorn","chips-apple","chips-bus","chips-leaf","chips-maple","chips-pinecone","chips-stopsign","cookie","eggs","gecko","gecko-20","icecream","icetray","organizer","spider","wyvern","wyvern-20"],"offline":false,"shipping_cents":700,"free_over_cents":2500};          // {requests, checkout, stock, keys, shipping_cents}
 /* Addresses. The real site has one URL per page (/p/spider/, /toys/halloween/) so search
    engines and link previews see every product; the build writes a file at each of them.
    The artifact is a single file, so it keeps #/ addresses. Everything goes through these. */
@@ -1651,9 +1789,11 @@ function go(p, replace) {
    artifact, or a build with the workshop down) means nothing is marked. */
 let AVAIL = SITE.keys ? new Set(SITE.keys) : null;
 applyOn(SITE.on || null);
-const inStock = key => !AVAIL || AVAIL.has(key);
+const inStock = key => !AVAIL || (/^(keycap|organizer):/.test(key) ? builderInStock(key) : AVAIL.has(key));
 function markSold() {
+  markBuilderGone();
   $$("[data-add]").forEach(b => {
+    if (!b.dataset.add) return;                    // a design not finished yet (no name typed)
     const ok = inStock(b.dataset.add);
     b.disabled = !ok;
     if (!ok) b.textContent = "Sold out";
@@ -1985,10 +2125,13 @@ const binStyle = subId => {
    is on, a line about the pack, its colours, the price, and either Add to bag (one version) or
    Choose (a colour, style or light to pick first). */
 /* Run 2 went on sale 2026-10-18; take ids off this list once they stop being news. */
-const NEW_IDS = new Set(["chips-bus", "chips-pinecone", "wyvern", "gecko", "wyvern-20", "gecko-20", "icecream"]);
+const NEW_IDS = new Set(["chips-bus", "chips-pinecone", "wyvern", "gecko", "wyvern-20", "gecko-20", "icecream",
+                         "keycap", "organizer", "cookie", "eggs", "icetray"]);
 const swatchOf = sw => Array.isArray(sw) && sw.length > 1 && sw === RAINBOW
   ? `conic-gradient(${sw.join(",")},${sw[0]})` : (Array.isArray(sw) ? sw[0] : sw);
 function cardSwatches(p, st) {
+  if (p.builder === "keycap") return [[...p.bodies, ...p.caps].filter(c => !c.off).map(c => c.hex), "Build your own"];
+  if (p.builder) return [p.letters.filter(c => !c.off).map(c => c.hex), "Your name on it"];
   if (p.colours) return [p.colours.map(c => c.hex), plural(p.colours.length, "color")];
   if (p.lights) return [p.lights.map(l => l.hex), plural(p.lights.length, "light")];
   if (p.styles && st && st.id === "white") return [["#EDEDE8"], "Arrives white"];
@@ -2005,8 +2148,10 @@ function homeCard(p, subId) {
   const href = link(`/p/${p.id}${st && st.id === "white" ? "/white" : ""}`);
   let pic;
   if (isShots(p)) {
-    const s0 = shotsFor(p, st)[0];
+    const s0 = shotsFor(p, st).find(x => x.src);
     pic = `<img src="${s0.src}" alt="${esc(p.name)}, ${esc(s0.alt)}" loading="lazy">`;
+  } else if (p.builder) {
+    pic = `<span class="pc-nophoto">${esc(p.name)}</span>`;
   } else if (p.shapes) {
     pic = `<canvas data-shape="${p.shapes[0].id}" data-shot="hero" data-hex="${p.colours[2].hex}"
       role="img" aria-label="${esc(p.name)}, a pack with its container"></canvas>`;
@@ -2015,12 +2160,13 @@ function homeCard(p, subId) {
   } else {
     pic = `<img src="${ASSETS[p.id].frames[0]}" alt="${esc(p.name)}, as it arrives" loading="lazy">`;
   }
-  const note = p.shapes ? "15 chips and a container" : p.note || "";
+  const note = p.shapes && !p.builder ? "15 chips and a container" : p.note || "";
   const [sw, swl] = cardSwatches(p, st);
-  const simple = !p.shapes && !p.styles && !p.lights;
+  const simple = !p.shapes && !p.styles && !p.lights && !p.builder;
   const instock = anyInStock(p, subId);
   const badge = !instock ? '<span class="pc-badge sold">Sold out</span>' : NEW_IDS.has(p.id) ? '<span class="pc-badge">New</span>' : "";
   const pick = p.styles && !p.styles.every(x => x.id !== "white") ? "style" : p.lights ? "light" : "color";
+  const choose = p.builder ? "Design yours" : "Choose " + pick;
   return `
   <article class="pc" data-kind="${cat.id}" data-subs="${p.in.map(k => k.split("/")[1]).join(" ")}">
     <a class="pc-ph" href="${href}" tabindex="-1" aria-hidden="true">${badge}${pic}</a>
@@ -2029,9 +2175,9 @@ function homeCard(p, subId) {
       <h3><a href="${href}">${esc(p.name)}</a></h3>
       <p class="pc-note">${note}</p>
       <div class="pc-sw">${sw.map(c => `<i style="background:${c}"></i>`).join("")}${swl ? `<span>${esc(swl)}</span>` : ""}</div>
-      <div class="pc-foot"><span class="pc-price">${money(p.price)}</span>
+      <div class="pc-foot"><span class="pc-price">${priceLabel(p)}</span>
         ${simple ? `<button class="pc-add" type="button" data-add="${p.id}">Add to bag</button>`
-                 : `<a class="pc-add pc-choose" href="${href}">Choose ${pick}</a>`}</div>
+                 : `<a class="pc-add pc-choose" href="${href}">${choose}</a>`}</div>
     </div>
   </article>`;
 }
@@ -2402,7 +2548,7 @@ let stages = [];
 const BUILT = { path: here(), title: document.title };   // the file this visit landed on
 function route() {
   if (here().replace(/\/$/, "") === "/p/chips") { go("/p/chips-maple", true); return; }   // old one-product link
-  stages.forEach(s => s.destroy()); stages = [];
+  stages.forEach(s => s.destroy()); stages = []; dropViews();
   const parts = here().split("/").filter(Boolean);
   const prod = parts[0] === "p" && PRODUCTS.find(x => x.id === parts[1] && forSale(x));
   const cat = CATALOG.find(c => c.id === parts[0]);
@@ -2422,7 +2568,7 @@ function route() {
     : cat ? (sub ? sub.name + " \u00b7 " : "") + cat.name + " \u00b7 Mr. Omar's Classroom"
     : "Mr. Omar's Classroom";
   $$(".stage").forEach(el => stages.push(new Stage(el, PRODUCTS.find(p => p.id === el.dataset.id))));
-  mountGallery(); mountLight(); mountShots(); mountAsk(); mountHelp(); mountHomeFilters(); markSold();
+  mountGallery(); mountLight(); mountShots(); mountBuilder(); mountAsk(); mountHelp(); mountHomeFilters(); markSold();
   if (prod || cat || pol || help || lost) scrollTo({ top: 0, behavior: "instant" });
   beacon();
   if (document.documentElement.classList.contains("is-closed")) document.title = "Back soon \u00b7 Mr. Omar's Classroom";
@@ -2630,6 +2776,588 @@ function loop(now) {
   requestAnimationFrame(loop);
 }
 
+/* ---------- build your own (run 3, 2026-10-26) ----------
+   Two products are designed by the buyer: the clicker (shape, case colour, a colour per key) and
+   the name organizer (a name, holder colour, letter colour). Each page shows a live 3D model that
+   follows every choice. three.js is loaded from the CDN only when one of these pages (or the
+   cookie clicker's turning slide) is opened, so the rest of the shop stays as light as it was.
+   Models are the real files, packed by tools/models3d/ (meshes quantised to 16 bits); the
+   organizer is built here from the name, in Lilita One - the font on the one Omar made. */
+const THREE_URL = "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js";
+const MODELS = {"keycap":"/assets/keycap-399478b05f.bin","cookie":"/assets/cookie-21721850b1.bin"};          // {keycap, cookie}: packed mesh files (build.py)
+const FONT = {"upm":1000,"g":{"A":{"a":655,"p":"M520 -2Q433 -2 426 26L393 155L234 155L205 31Q199 0 109 0Q61 0 38 6Q15 11 15 14L192 691Q192 699 329 699Q466 699 466 691L639 13Q639 6 593 2Q547 -2 520 -2ZM259 282L364 282L319 489L313 489Z"},"B":{"a":594,"p":"M541 519Q541 415 451 361Q500 343 533 299Q566 255 566 174Q566 94 506 47Q447 0 336 0L100 0Q83 0 72 12Q61 23 61 42L61 682Q61 693 64 696Q68 700 79 700L307 700Q541 700 541 519ZM253 538L253 407L258 407Q354 407 354 471Q354 506 336 522Q317 538 274 538ZM253 289L253 159L271 159Q314 159 334 175Q354 191 354 226Q354 261 336 275Q317 289 274 289Z"},"C":{"a":561,"p":"M449 495Q444 495 438 500Q431 506 408 512Q384 519 367 519Q309 519 274 478Q238 437 238 352Q238 268 274 227Q311 186 367 186Q390 186 418 192Q447 199 459 211Q461 213 467 213Q473 213 490 190Q506 168 520 132Q534 95 534 75Q534 36 474 13Q414 -10 332 -10Q200 -10 115 83Q30 176 30 346Q30 515 118 612Q205 709 336 709Q409 709 464 688Q520 668 520 633Q520 598 494 546Q467 495 449 495Z"},"D":{"a":616,"p":"M50 46L50 646Q50 671 62 686Q75 700 95 700L262 700Q421 700 504 620Q586 540 586 368Q586 0 272 0L101 0Q50 0 50 46ZM242 510L242 211Q242 190 245 184Q248 179 263 179Q318 179 346 220Q375 261 375 356Q375 452 346 481Q316 510 252 510Z"},"E":{"a":493,"p":"M375 422Q394 422 394 352Q394 331 390 302Q385 274 373 274L246 274L246 174L430 174Q447 174 453 130Q456 111 456 90Q456 68 450 34Q444 0 430 0L88 0Q50 0 50 31L50 674Q50 700 73 700L431 700Q452 700 452 612Q452 523 431 523L246 523L246 422Z"},"F":{"a":472,"p":"M424 700Q441 700 441 612Q441 523 424 523L241 523L241 409L363 409Q380 409 380 332Q380 254 364 254L241 254L241 13Q241 -1 204 -6Q166 -10 141 -10L94 -8Q45 -2 45 12L45 674Q45 690 52 695Q58 700 71 700Z"},"G":{"a":621,"p":"M420 209L422 345Q422 359 451 364Q480 368 499 368L538 365Q576 359 576 344L572 31Q552 17 492 4Q431 -10 353 -10Q208 -10 119 84Q30 178 30 360Q30 515 117 612Q204 709 358 709Q428 709 484 696Q541 682 562 659Q563 651 563 629Q563 607 548 566Q533 526 514 506Q495 486 486 486Q478 486 468 494Q459 501 431 510Q403 518 377 518Q315 518 276 478Q238 438 238 354Q238 270 278 226Q317 183 368 183Q420 183 420 209Z"},"H":{"a":644,"p":"M594 17Q594 0 493 0Q392 0 392 17L392 247L252 247L252 17Q252 0 151 0Q50 0 50 17L50 680Q50 701 151 701Q252 701 252 680L252 445L392 445L392 678Q392 692 442 698Q468 700 493 700L544 698Q594 692 594 678Z"},"I":{"a":429,"p":"M116 172L116 528L45 528Q28 528 21 571Q18 592 18 614Q18 636 21 657Q28 700 45 700L381 700Q398 700 404 657Q408 636 408 614Q408 592 404 571Q398 528 381 528L314 528L314 172L384 172Q401 172 408 129Q412 108 412 86Q412 64 408 43Q401 0 384 0L47 0Q30 0 24 43Q20 64 20 86Q20 108 24 129Q30 172 47 172Z"},"J":{"a":462,"p":"M9 90Q9 119 26 158Q43 196 63 210Q101 182 140 182L171 187Q225 203 227 273L227 528L147 528Q130 528 123 571Q120 592 120 614Q120 636 123 657Q130 700 147 700L385 700Q405 700 415 688Q425 677 425 661L425 189Q425 91 360 40Q294 -11 202 -11Q111 -11 60 16Q9 43 9 90Z"},"K":{"a":620,"p":"M250 14Q250 -1 156 -1L100 2Q50 6 50 16L50 687Q50 704 150 704Q250 704 250 687L250 431L372 687Q379 701 452 701Q585 701 592 678Q592 676 591 674L417 360L619 81Q619 79 600 64Q554 24 492 1Q473 -6 454 -6L430 -4Q398 4 380 37L266 255L250 255Z"},"L":{"a":435,"p":"M40 59L40 681Q40 702 142 702Q243 702 243 681L243 191L397 191Q415 191 422 144Q425 121 425 97Q425 73 422 48Q414 0 396 0L88 0Q66 0 53 18Q40 36 40 59Z"},"M":{"a":907,"p":"M750 -1Q661 -1 661 19L640 420L518 14Q514 2 450 2Q386 2 384 13L258 424L244 25Q243 10 206 4Q169 -1 144 -1Q120 -1 97 2Q49 9 50 27L73 677Q73 701 195 701Q231 701 283 696Q335 690 341 674L453 359L551 675Q560 701 689 701Q726 701 778 696Q829 690 829 676L858 20Q858 9 819 4Q780 -1 750 -1Z"},"N":{"a":648,"p":"M598 22Q598 1 504 1Q410 1 402 16L235 328L235 17Q235 -1 142 -1Q50 -1 50 17L50 686Q50 701 129 701Q160 701 202 696Q243 690 252 675L412 367L412 681Q412 700 505 700Q598 700 598 681Z"},"O":{"a":696,"p":"M348 -10Q207 -10 118 82Q30 174 30 350Q30 527 120 618Q209 709 350 709Q492 709 579 620Q666 530 666 348Q666 167 577 78Q488 -10 348 -10ZM348 517Q300 517 268 473Q235 429 235 350Q235 270 266 228Q297 185 348 185Q398 185 430 228Q461 271 461 351Q461 431 428 474Q396 517 348 517Z"},"P":{"a":570,"p":"M137 -2Q46 -2 46 18L46 666Q46 700 77 700L253 700Q401 700 466 639Q532 578 532 462Q532 366 470 286Q439 246 379 222Q319 198 239 198L239 19Q239 7 202 2Q164 -2 137 -2ZM239 526L239 368L252 368Q287 368 311 390Q335 412 335 452Q335 492 318 509Q302 526 260 526Z"},"Q":{"a":706,"p":"M30 349Q30 527 120 618Q209 709 350 709Q492 709 579 620Q666 530 666 349Q666 210 612 125Q558 40 464 8L570 -65Q576 -69 576 -80Q576 -90 554 -119Q531 -148 500 -164Q468 -179 452 -179Q436 -179 426 -168L280 -6Q168 15 99 106Q30 198 30 349ZM348 517Q300 517 268 473Q235 429 235 350Q235 270 266 228Q297 185 348 185Q398 185 430 228Q461 271 461 351Q461 431 428 474Q396 517 348 517Z"},"R":{"a":590,"p":"M241 14Q241 -2 146 -2Q50 -2 50 13L50 665Q50 700 87 700L278 700Q541 700 541 495Q541 433 517 382Q493 332 449 302L575 92Q567 68 523 37Q463 -6 424 -6Q385 -6 366 22L272 241L241 241ZM241 523L241 373L246 373Q341 373 341 452Q341 488 322 506Q304 523 262 523Z"},"S":{"a":531,"p":"M76 244Q95 229 142 203Q188 177 230 177Q273 177 273 210Q273 225 261 236Q249 248 217 263Q185 278 169 286Q153 295 126 314Q100 334 86 355Q46 412 46 500Q46 588 112 648Q177 709 283 709Q355 709 416 694Q477 678 479 653Q479 650 479 647Q479 612 457 558Q435 505 426 499Q362 532 312 532Q261 532 261 496Q261 474 298 457Q306 453 321 446Q336 439 356 430Q375 420 398 406Q420 391 446 367Q499 317 499 235Q499 128 440 60Q381 -8 258 -10Q198 -10 150 0Q101 10 65 39Q29 68 29 109Q29 150 44 190Q59 231 76 244Z"},"T":{"a":502,"p":"M351 16Q351 -4 252 -4Q153 -4 153 16L153 518L33 518Q16 518 9 564Q6 586 6 609Q6 632 9 654Q16 700 33 700L468 700Q485 700 492 654Q495 632 495 609Q495 586 492 564Q485 518 468 518L351 518Z"},"U":{"a":628,"p":"M377 680Q377 700 486 700Q594 700 594 680L594 221Q594 119 521 54Q448 -10 320 -10Q191 -10 110 56Q30 123 30 236L30 679Q30 699 138 699Q247 699 247 679L247 228Q247 208 268 196Q290 184 314 184Q338 184 358 195Q377 206 377 228Z"},"V":{"a":661,"p":"M11 687Q11 692 54 696Q98 701 126 701Q237 701 242 672L328 232L409 672Q415 701 533 701Q562 701 606 697Q650 693 650 688L473 26Q469 10 414 5Q329 -4 260 2Q190 7 186 21Z"},"W":{"a":953,"p":"M21 690Q18 701 122 701Q237 701 240 682L289 261L395 687Q400 702 473 702Q546 702 551 688L655 259L713 684Q715 695 759 699Q803 703 830 703Q935 703 932 689L811 26Q807 11 754 4Q701 -3 668 -3Q544 -3 538 25L470 300L396 26Q392 8 326 0Q292 -3 258 -3L194 0Q128 7 124 25Z"},"X":{"a":683,"p":"M421 673Q433 703 546 703Q575 703 618 698Q660 694 660 690L490 344L666 13Q669 8 623 4Q577 -1 545 -1Q418 -1 406 33L331 224L263 27Q253 -1 135 -1Q106 -1 63 3Q20 7 24 14L180 360L18 690Q15 695 60 700Q104 704 135 704Q261 704 273 668L342 500Z"},"Y":{"a":615,"p":"M398 667Q411 702 526 702Q555 702 594 698Q634 694 631 688L423 270L423 26Q423 9 368 2Q340 -2 313 -2Q286 -2 259 1Q204 8 204 26L204 264L-11 686Q-15 692 30 698Q75 703 106 703Q229 703 241 667L314 463Z"},"Z":{"a":563,"p":"M76 518Q59 518 52 564Q49 583 49 606Q49 629 54 654Q63 700 84 700L454 700Q515 700 533 589Q537 565 537 554L303 199L486 199Q487 199 488 199Q510 199 519 151Q523 128 523 103Q523 78 517 50Q506 0 483 0L94 0Q85 0 62 60Q38 121 38 136Q38 151 41 155L275 518Z"},"a":{"a":517,"p":"M108 363Q80 413 80 444Q80 476 97 485Q154 510 254 510Q353 510 394 464Q435 417 435 326L435 168L469 168Q486 168 496 148Q505 128 505 93Q505 58 488 24Q470 -10 440 -10Q386 -10 353 19Q338 31 330 48Q284 -10 187 -10Q114 -10 64 42Q14 94 14 165Q14 328 209 328L264 328L264 338Q264 364 256 372Q247 379 216 379Q178 379 108 363ZM188 179Q188 157 200 146Q212 134 230 134Q249 134 264 149L264 226L236 226Q188 226 188 179Z"},"b":{"a":520,"p":"M50 697Q50 709 136 709Q223 709 223 696L223 502Q266 510 284 510Q494 510 494 269Q494 135 430 62Q365 -10 246 -10Q128 -10 50 43ZM256 354Q239 354 223 343L223 152Q237 146 252 146Q268 146 284 158Q312 178 312 251Q312 354 256 354Z"},"c":{"a":424,"p":"M209 248Q209 150 283 150Q331 150 363 169Q378 169 388 118Q397 66 397 48Q397 29 392 23Q339 -10 247 -10Q155 -10 90 58Q26 127 26 246Q26 364 90 437Q153 510 258 510Q364 510 405 459Q414 448 414 426Q414 405 406 374Q388 310 359 300Q355 299 348 299Q340 299 329 311Q290 350 266 350Q243 350 226 326Q209 302 209 248Z"},"d":{"a":565,"p":"M298 694Q298 709 377 709Q404 709 440 706Q475 702 475 696L475 169L510 169Q535 169 543 124Q545 111 545 88Q545 66 531 34Q511 -10 467 -10Q434 -10 408 3Q383 16 374 30L365 43Q310 -10 227 -10Q144 -10 85 59Q26 128 26 252Q26 375 88 442Q150 510 243 510Q270 510 298 504ZM265 350Q209 350 209 249Q209 198 225 176Q241 153 260 153Q280 153 298 170L298 340Q281 350 265 350Z"},"e":{"a":486,"p":"M423 27Q360 -10 261 -10Q162 -10 94 58Q26 125 26 244Q26 364 92 437Q157 510 257 510Q357 510 412 459Q466 408 466 335Q466 173 280 173L211 173Q211 143 228 132Q244 120 276 120Q346 120 409 152Q410 153 418 138Q442 95 442 66Q442 36 423 27ZM298 316Q298 358 257 358Q238 358 224 346Q211 335 211 313L211 282L265 282Q298 282 298 316Z"},"f":{"a":375,"p":"M84 367L35 367Q20 367 20 434Q20 500 35 500L84 500L84 522Q84 628 128 668Q173 709 253 709Q333 709 394 680Q402 677 402 658Q402 640 385 599Q368 558 356 552Q322 573 286 573Q247 573 247 521L247 500L330 500Q348 500 348 436Q348 366 325 366L261 366L261 12Q261 0 172 0Q84 0 84 12Z"},"g":{"a":516,"p":"M229 0Q132 0 79 62Q26 125 26 248Q26 370 96 440Q165 509 280 509Q396 509 471 458L471 -40Q471 -114 411 -154Q351 -193 257 -193Q163 -193 89 -169Q79 -145 79 -126Q79 -62 100 -32Q167 -61 243 -61Q298 -61 298 -22L298 8Q255 0 229 0ZM275 346Q208 346 208 245Q208 182 234 163Q251 150 268 150Q285 150 298 153L298 343Q286 346 275 346Z"},"h":{"a":501,"p":"M212 7Q212 -2 128 -2Q45 -2 45 12L45 697Q45 704 76 707Q107 710 128 710Q212 710 212 692L212 492Q268 509 297 509Q373 509 417 468Q461 428 461 318L461 8Q461 -1 383 -1Q295 2 295 9L295 303Q295 352 263 352Q241 352 212 331Z"},"i":{"a":273,"p":"M228 6Q228 -2 136 -2Q45 -2 45 5L45 496Q45 503 136 503Q228 503 228 497ZM228 556Q228 549 136 549Q45 549 45 555L45 699Q45 709 136 709Q228 709 228 703Z"},"j":{"a":271,"p":"M45 35L45 496Q45 502 136 502Q226 502 226 497L226 -36Q226 -110 164 -154Q103 -197 11 -197Q-118 -197 -118 -107Q-118 -77 -108 -57Q-99 -58 -83 -58Q-10 -58 18 -35Q45 -12 45 35ZM45 555L45 699Q45 709 136 709Q226 709 226 703L226 556Q226 549 136 549Q45 549 45 555Z"},"k":{"a":531,"p":"M45 692Q45 708 136 708Q221 705 221 695L221 311L320 494Q327 509 405 509Q483 509 505 499L375 287L525 6Q527 2 488 0Q448 -3 422 -3Q326 -3 319 6L220 228L220 7Q220 -6 132 -6Q45 -6 45 6Z"},"l":{"a":272,"p":"M227 8Q227 -1 125 -1Q45 0 45 7L45 688Q45 703 142 703Q227 700 227 693Z"},"m":{"a":788,"p":"M498 5Q498 -2 412 -2Q327 -2 327 7L327 298Q327 348 294 348Q277 348 249 326L249 6Q249 -4 164 -4Q78 -4 78 7L78 334L53 334Q20 334 20 403Q20 434 32 466Q48 510 84 510Q120 510 154 491Q187 472 194 455Q256 510 332 510Q407 510 453 463Q507 510 583 510Q748 510 748 309L748 5Q748 -2 662 -2Q577 -2 577 7L577 298Q577 348 544 348Q526 348 498 326Z"},"n":{"a":551,"p":"M254 6Q254 -1 182 -1Q82 2 82 10L82 334L56 334Q30 334 22 378Q20 391 20 404Q20 435 32 466Q50 510 88 510Q126 510 156 492Q186 474 196 456Q259 510 346 510Q433 510 472 463Q511 416 511 309L511 9Q511 -3 426 -3Q340 -3 340 9L340 298Q340 348 305 348Q295 348 277 340Q259 331 254 327Z"},"o":{"a":513,"p":"M88 59Q26 128 26 250Q26 372 88 441Q151 510 257 510Q363 510 425 441Q487 372 487 250Q487 128 425 59Q363 -10 257 -10Q151 -10 88 59ZM258 343Q201 343 201 251Q201 159 258 159Q314 159 314 251Q314 343 258 343Z"},"p":{"a":555,"p":"M260 -182Q260 -189 174 -189Q89 -189 89 -182L89 333L55 333Q31 333 22 377Q19 391 19 413Q19 435 33 465Q53 509 97 509Q126 509 150 496Q175 482 184 470Q194 459 194 457Q261 509 339 509Q417 509 473 448Q529 388 529 262Q529 135 473 66Q417 -4 331 -4Q292 -4 260 0ZM301 334Q284 334 268 323L268 146Q285 144 296 144Q306 144 312 144Q353 148 353 249Q353 334 301 334Z"},"q":{"a":511,"p":"M226 -4Q134 -4 80 67Q26 138 26 257Q26 376 92 443Q158 510 273 510Q388 510 466 457L466 -180Q466 -193 380 -193Q294 -193 294 -180L294 4Q254 -4 226 -4ZM228 334Q205 314 205 248Q205 181 232 163Q247 153 263 153Q279 153 294 158L294 344Q279 348 261 348Q243 348 228 334Z"},"r":{"a":396,"p":"M264 1Q264 -6 173 -6Q82 -4 82 2L82 334L55 334Q39 334 30 354Q20 373 20 402Q20 510 84 510Q129 510 159 482Q189 455 189 420Q210 461 246 486Q281 510 318 510Q376 510 388 480Q391 472 391 456Q391 441 382 401Q372 361 362 343Q352 325 350 325Q348 325 332 332Q315 340 302 340Q264 340 264 280Z"},"s":{"a":450,"p":"M66 180Q147 131 194 131Q224 131 224 152Q224 167 172 191Q47 242 47 358Q47 432 101 471Q155 510 230 510Q306 510 358 494Q411 478 411 452Q411 430 390 394Q368 358 360 355Q317 379 267 379Q240 379 240 360Q240 348 250 340Q261 331 289 318Q317 306 336 296Q354 286 377 268Q425 230 425 169Q425 89 372 40Q319 -10 212 -10Q141 -10 83 14Q25 38 25 80Q25 108 38 139Q52 170 66 180Z"},"t":{"a":368,"p":"M275 6Q275 -6 191 -6Q91 -2 91 7L91 361L40 361Q20 361 20 430Q20 448 24 474Q27 500 38 500L91 500L91 588Q91 608 176 608Q260 608 260 592L260 528L261 500L346 500Q363 500 363 430Q363 360 346 360L275 360Z"},"u":{"a":544,"p":"M40 494Q40 505 126 505Q212 505 212 494L212 202Q212 152 244 152Q268 152 298 173L298 494Q298 504 383 504Q468 504 468 494L468 166L494 166Q528 166 528 101Q528 68 514 34Q494 -10 460 -10Q393 -10 361 45L360 44Q299 -10 229 -10Q132 -10 86 38Q40 87 40 199Z"},"v":{"a":521,"p":"M6 497Q3 505 100 505Q196 505 196 500L268 160L322 495Q325 504 421 504Q518 504 515 496L374 7Q367 -3 255 -3Q143 -3 135 12Z"},"w":{"a":752,"p":"M564 495Q564 504 619 504Q743 504 741 496L643 10Q640 -6 532 -6Q424 -6 421 10L380 234L329 10Q326 -5 214 -5Q103 -5 100 13L11 500Q8 506 97 506Q185 505 185 502L231 164L314 498Q316 504 380 504Q444 504 446 498L528 168Z"},"x":{"a":557,"p":"M345 497Q349 505 395 505Q545 505 541 494L419 241Q542 11 542 11Q542 5 482 1Q422 -3 397 -3Q334 -3 330 10L276 177L214 3Q212 -4 157 -4Q102 -4 59 0Q16 4 20 10L133 240Q15 487 15 488Q15 494 46 499Q76 504 114 504Q153 504 188 500Q223 497 227 491L280 329Z"},"y":{"a":537,"p":"M10 495Q10 506 102 506Q193 506 196 496L268 260L337 498Q341 506 399 506Q532 506 526 493L291 -176Q290 -182 236 -182Q183 -182 137 -178Q91 -175 93 -170L180 40Z"},"z":{"a":454,"p":"M43 340Q36 340 36 383Q36 500 55 500L374 500Q381 500 405 456Q429 412 429 406Q429 401 428 400L234 156L408 168Q424 168 424 97Q424 70 419 35Q414 0 402 0L82 0Q67 0 46 50Q25 100 25 110Q25 121 27 123L218 346Z"},"0":{"a":639,"p":"M320 -10Q194 -10 114 82Q35 174 35 351Q35 528 115 618Q195 709 322 709Q448 709 526 619Q604 529 604 348Q604 167 524 78Q445 -10 320 -10ZM320 517Q281 517 254 474Q228 430 228 350Q228 270 254 228Q279 185 320 185Q360 185 386 228Q411 271 411 351Q411 431 384 474Q358 517 320 517Z"},"1":{"a":406,"p":"M356 17Q356 0 254 0Q153 0 153 17L153 510L45 509Q15 509 15 605Q15 638 22 669Q28 700 44 700L318 700Q335 700 346 692Q356 685 356 674Z"},"2":{"a":525,"p":"M433 0L101 0Q66 0 52 68Q45 105 45 124Q45 143 51 149Q275 380 275 463Q275 491 260 505Q246 519 214 519Q183 519 152 507Q120 495 102 481Q63 528 48 580Q43 597 43 612Q43 626 48 639Q56 665 122 688Q189 711 263 711Q487 711 487 512Q487 424 427 334Q367 243 287 177L489 185Q494 132 494 93Q494 54 478 27Q462 0 433 0Z"},"3":{"a":528,"p":"M20 66Q20 94 34 130Q48 165 61 186Q74 208 76 208Q134 173 198 173Q238 173 262 189Q287 205 287 234Q287 262 264 270Q242 278 193 281L157 281Q145 281 134 310Q124 340 124 368Q124 415 152 416L181 417Q208 417 238 432Q267 448 267 472Q267 514 192 514Q136 514 84 492Q39 573 39 618Q39 664 102 687Q166 710 262 710Q358 710 412 670Q466 630 466 561Q466 440 362 375Q488 324 488 202Q488 107 421 48Q354 -10 229 -10Q150 -10 85 12Q20 35 20 66Z"},"4":{"a":598,"p":"M547 299Q557 299 557 224Q557 148 547 148L481 147L481 21Q481 10 440 5Q399 0 369 0L328 2Q277 6 277 20L277 144L78 144Q52 170 31 212Q10 253 10 272Q10 290 16 301L235 689Q239 697 296 701Q354 705 417 705Q480 705 480 700L481 299ZM306 298L306 507L189 298Z"},"5":{"a":524,"p":"M427 700Q446 700 446 617Q446 591 442 556Q437 520 425 520L230 520L229 447L262 447Q369 447 422 385Q474 323 474 221Q474 119 402 54Q330 -10 217 -10Q104 -10 52 22Q44 35 44 62Q44 90 52 140Q60 191 74 191Q75 191 80 187Q151 158 188 158Q226 158 250 178Q275 199 275 231Q275 311 189 311L103 310Q93 308 83 318Q73 329 73 346L73 659Q73 700 103 700Z"},"6":{"a":575,"p":"M427 508Q387 530 334 530Q241 530 228 410Q280 425 339 425Q440 425 488 372Q535 320 535 229Q535 119 467 54Q399 -10 283 -10Q167 -10 101 74Q35 159 35 315Q35 497 118 604Q200 710 332 710Q482 710 482 649Q482 605 454 555Q444 533 427 508ZM362 228Q362 259 343 278Q324 298 286 298Q247 298 227 284Q226 271 226 255Q226 239 230 216Q233 192 250 170Q266 147 293 147Q362 147 362 228Z"},"7":{"a":500,"p":"M313 13Q308 -3 207 -3Q106 -3 94 6Q90 9 90 13L257 503L54 503Q24 503 24 600Q24 633 30 664Q37 695 53 695L403 696Q443 696 468 652Q480 630 485 608Z"},"8":{"a":570,"p":"M538 211Q538 113 468 51Q397 -11 280 -11Q162 -11 94 48Q27 108 27 204Q27 301 124 376Q56 435 56 518Q56 601 121 655Q186 709 287 709Q388 709 448 658Q509 608 508 532Q508 455 444 393Q485 363 512 316Q538 268 538 211ZM225 220Q225 191 242 174Q260 156 286 156Q312 156 328 174Q345 191 345 220Q345 274 276 309Q225 278 225 220ZM333 503Q333 525 318 540Q302 555 283 555Q232 555 230 506Q230 461 299 421Q333 459 333 503Z"},"9":{"a":565,"p":"M122 174Q197 159 235 159Q273 159 304 183Q334 207 339 258Q289 244 259 244Q154 244 97 302Q40 361 40 468Q40 576 106 643Q171 710 285 710Q399 710 464 630Q530 550 530 394Q530 199 460 94Q391 -10 254 -10Q84 -10 84 47Q84 77 96 126Q108 174 122 174ZM341 400Q341 469 328 500Q315 530 283 530Q251 530 234 510Q216 489 216 457Q216 425 236 406Q257 386 289 386Q321 386 341 400Z"}," ":{"a":188,"p":""},".":{"a":229,"p":"M209 -3Q209 -10 114 -10Q20 -10 20 -4L20 176Q20 185 114 185Q209 185 209 180Z"},"'":{"a":301,"p":"M118 426Q90 434 90 452L70 663Q70 681 108 689Q127 693 146 693Q165 693 184 689Q223 681 223 663L203 452Q203 434 174 426Q160 422 146 422Q132 422 118 426Z"},"&":{"a":667,"p":"M349 489L350 499Q350 524 334 539Q317 554 293 554Q269 554 253 538Q237 522 237 494Q237 418 344 418Q368 418 398 422Q595 447 597 447Q625 447 625 390Q625 344 606 299L504 287Q530 224 530 173Q530 94 470 42Q409 -10 294 -10Q178 -10 111 46Q44 103 44 192Q44 280 129 343Q66 413 66 505Q66 597 130 654Q194 710 296 710Q398 710 458 660Q517 610 517 525Q517 508 484 492Q452 476 407 476Q362 476 349 489ZM239 285Q228 256 228 234Q228 211 235 194Q251 155 299 155Q333 155 348 180Q364 204 364 241Q364 258 363 266Q362 275 362 277Q328 271 295 271Q262 271 239 285Z"},"-":{"a":525,"p":"M460 190L65 190Q47 190 39 219Q35 234 35 248Q35 262 39 277Q47 306 65 306L460 306Q478 306 486 277Q490 262 490 248Q490 234 486 219Q478 190 460 190Z"}}};            // Lilita One outlines for the characters a name may use
+/* Key centres on each clicker body (mm, from the STL), top row first, left to right: that is the
+   order of the colours in the bag key. Caps sit CAP_Z above the bed. */
+const KEY_SOCKETS = {
+  two: [[-10.83, 0], [10.67, 0]],
+  square: [[-10.82, 10.84], [10.68, 10.84], [-10.82, -10.96], [10.68, -10.96]],
+  s: [[-0.03, 10.95], [21.47, 10.95], [-21.63, -11.05], [-0.13, -11.05]],
+  t: [[-0.12, 10.6], [-21.92, -10.8], [-0.23, -10.8], [21.78, -10.8]],
+};
+const CAP_Z = 14, CAP_H = 9.45;      // the cap spans CAP_Z..CAP_Z+CAP_H above the bed, top face up
+const NAME_OK = /^[A-Za-z0-9 .'&-]+$/;
+let THREE_P = null;
+const three = () => THREE_P || (THREE_P = import(THREE_URL));
+const meshCache = {};
+
+/* A packed model file -> {name: BufferGeometry}, with creased normals so flat faces stay flat and
+   the cookie's ridges stay round. */
+function loadMeshes(name) {
+  return meshCache[name] || (meshCache[name] = (async () => {
+    const T = await three();
+    // Embedded models are decoded here, not fetched: the published page's rules refuse a fetch
+    // of a data: address, which left the clicker with no 3D at all (2026-10-27).
+    const src = MODELS[name];
+    const buf = src.startsWith("data:") ? Uint8Array.from(atob(src.slice(src.indexOf(",") + 1)), ch => ch.charCodeAt(0)).buffer
+      : await (await fetch(src)).arrayBuffer();
+    const hl = new DataView(buf).getUint32(0, true);
+    const head = JSON.parse(new TextDecoder().decode(new Uint8Array(buf, 4, hl)));
+    const base = 4 + hl + ((4 - (4 + hl) % 4) % 4);
+    const out = {};
+    for (const [k, h] of Object.entries(head)) {
+      const q = new Uint16Array(buf, base + h.o, h.v * 3), pos = new Float32Array(h.v * 3);
+      for (let i = 0; i < h.v * 3; i++) pos[i] = h.min[i % 3] + q[i] * h.sc[i % 3];
+      const idx = h.w === 2 ? new Uint16Array(buf, base + h.i, h.t * 3) : new Uint32Array(buf, base + h.i, h.t * 3);
+      out[k] = creased(T, pos, idx, 38);
+    }
+    return out;
+  })());
+}
+function creased(T, pos, idx, deg) {
+  const nt = idx.length / 3, fn = new Float32Array(nt * 3), lim = Math.cos(deg * Math.PI / 180);
+  const at = Array.from({ length: pos.length / 3 }, () => []);
+  for (let t = 0; t < nt; t++) {
+    const a = idx[t * 3] * 3, b = idx[t * 3 + 1] * 3, c = idx[t * 3 + 2] * 3;
+    const ux = pos[b] - pos[a], uy = pos[b + 1] - pos[a + 1], uz = pos[b + 2] - pos[a + 2];
+    const vx = pos[c] - pos[a], vy = pos[c + 1] - pos[a + 1], vz = pos[c + 2] - pos[a + 2];
+    let nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
+    const l = Math.hypot(nx, ny, nz) || 1;
+    fn[t * 3] = nx / l; fn[t * 3 + 1] = ny / l; fn[t * 3 + 2] = nz / l;
+    at[idx[t * 3]].push(t); at[idx[t * 3 + 1]].push(t); at[idx[t * 3 + 2]].push(t);
+  }
+  const P = new Float32Array(nt * 9), N = new Float32Array(nt * 9);
+  for (let t = 0; t < nt; t++) for (let k = 0; k < 3; k++) {
+    const v = idx[t * 3 + k], o = t * 9 + k * 3;
+    P[o] = pos[v * 3]; P[o + 1] = pos[v * 3 + 1]; P[o + 2] = pos[v * 3 + 2];
+    let x = 0, y = 0, z = 0;
+    for (const f of at[v]) {
+      if (fn[f * 3] * fn[t * 3] + fn[f * 3 + 1] * fn[t * 3 + 1] + fn[f * 3 + 2] * fn[t * 3 + 2] < lim) continue;
+      x += fn[f * 3]; y += fn[f * 3 + 1]; z += fn[f * 3 + 2];
+    }
+    const l = Math.hypot(x, y, z) || 1;
+    N[o] = x / l; N[o + 1] = y / l; N[o + 2] = z / l;
+  }
+  const g = new T.BufferGeometry();
+  g.setAttribute("position", new T.BufferAttribute(P, 3));
+  g.setAttribute("normal", new T.BufferAttribute(N, 3));
+  return g;
+}
+
+/* Plastic, looked at under neutral white light with no tone mapping, so a face turned to the
+   light reads as close to the plastic's own colour as a screen allows. See-through plastic lets
+   light; galaxy plastic carries a fleck of glitter. */
+let GLITTER = null;
+function plastic(T, c) {
+  const hex = c.hex || c;
+  if (c.see) return new T.MeshPhysicalMaterial({ color: hex, roughness: 0.28, transmission: 0.82, thickness: 2.5,
+    ior: 1.45, attenuationColor: new T.Color(hex), attenuationDistance: 6, transparent: true });
+  const m = new T.MeshStandardMaterial({ color: hex, roughness: 0.62, metalness: 0 });
+  if (c.glitter) {
+    if (!GLITTER) {
+      const cv = document.createElement("canvas"); cv.width = cv.height = 256;
+      const x = cv.getContext("2d"); x.fillStyle = "#000"; x.fillRect(0, 0, 256, 256);
+      for (let i = 0; i < 900; i++) { x.fillStyle = `rgba(255,${200 + Math.random() * 55 | 0},${190 + Math.random() * 65 | 0},${0.35 + Math.random() * 0.65})`; x.fillRect(Math.random() * 256, Math.random() * 256, 1.4, 1.4); }
+      GLITTER = new T.CanvasTexture(cv); GLITTER.wrapS = GLITTER.wrapT = T.RepeatWrapping; GLITTER.colorSpace = T.SRGBColorSpace;
+    }
+    m.roughness = 0.4; m.emissive = new T.Color("#ffffff"); m.emissiveIntensity = 0.55;
+    m.emissiveMap = GLITTER; m.emissiveMap.repeat.set(0.05, 0.05);
+  }
+  return m;
+}
+
+/* The stage: drag to turn, tap to pick (the clicker's keys), a slow turn until someone touches it.
+   Renders only while visible and while something changes. */
+class View3D {
+  constructor(host, T, opts = {}) {
+    this.T = T; this.host = host; this.opts = opts;
+    const r = this.r = new T.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+    r.setPixelRatio(Math.min(2, devicePixelRatio || 1));
+    r.outputColorSpace = T.SRGBColorSpace; r.toneMapping = T.NoToneMapping;
+    r.shadowMap.enabled = true; r.shadowMap.type = T.PCFSoftShadowMap;
+    r.domElement.className = "v3d";
+    host.appendChild(r.domElement);
+    const sc = this.scene = new T.Scene();
+    this.cam = new T.PerspectiveCamera(28, 1, 1, 4000);
+    sc.add(new T.HemisphereLight(0xffffff, 0xd9d2c6, 1.05));
+    const key = this.key = new T.DirectionalLight(0xffffff, 1.25);
+    key.position.set(-160, 320, 220); key.castShadow = true;
+    Object.assign(key.shadow.camera, { left: -220, right: 220, top: 220, bottom: -220, near: 10, far: 1200 });
+    key.shadow.mapSize.set(1024, 1024); key.shadow.radius = 5; key.shadow.bias = -0.0008;
+    sc.add(key);
+    const fill = new T.DirectionalLight(0xffffff, 0.35); fill.position.set(220, 140, -160); sc.add(fill);
+    const floor = new T.Mesh(new T.PlaneGeometry(3000, 3000), new T.ShadowMaterial({ opacity: 0.14 }));
+    floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; sc.add(floor);
+    this.hold = new T.Group(); sc.add(this.hold);
+    this.yaw = opts.yaw ?? -0.55; this.pitch = opts.pitch ?? 0.62; this.dist = 200; this.cy = 10;
+    this.auto = !REDUCED && opts.auto !== false; this.dirty = true; this.visible = true; this.tickers = [];
+    this.ray = new T.Raycaster();
+    const el = r.domElement; let down = null;
+    el.addEventListener("pointerdown", e => { down = { x: e.clientX, y: e.clientY, yaw: this.yaw, pitch: this.pitch, moved: false }; el.setPointerCapture(e.pointerId); });
+    el.addEventListener("pointermove", e => {
+      if (!down) return;
+      const dx = e.clientX - down.x, dy = e.clientY - down.y;
+      if (Math.abs(dx) + Math.abs(dy) > 5) down.moved = true;
+      if (!down.moved) return;
+      this.auto = false;
+      this.yaw = down.yaw - dx * 0.011; this.pitch = Math.max(0.12, Math.min(1.4, down.pitch + dy * 0.008));
+      this.dirty = true;
+    });
+    el.addEventListener("pointerup", e => {
+      if (down && !down.moved && opts.onPick) {
+        const b = el.getBoundingClientRect();
+        this.ray.setFromCamera(new T.Vector2((e.clientX - b.left) / b.width * 2 - 1, -((e.clientY - b.top) / b.height) * 2 + 1), this.cam);
+        const hit = this.ray.intersectObjects(this.hold.children, true).find(h => h.object.userData.pick != null);
+        if (hit) { this.auto = false; opts.onPick(hit.object.userData.pick); }
+      }
+      down = null;
+    });
+    el.style.touchAction = "pan-y";
+    this.ro = new ResizeObserver(() => this.size()); this.ro.observe(host);
+    this.io = new IntersectionObserver(([en]) => { this.visible = en.isIntersecting; }); this.io.observe(host);
+    this.size();
+    this.last = performance.now();
+    const loop = now => { this.raf = requestAnimationFrame(loop); this.frame(now); };
+    this.raf = requestAnimationFrame(loop);
+  }
+  size() {
+    const w = this.host.clientWidth, h = this.host.clientHeight || w;
+    if (!w) return;
+    this.r.setSize(w, h, false); this.cam.aspect = w / h; this.cam.updateProjectionMatrix(); this.dirty = true;
+  }
+  set(obj, fit = true) {
+    for (const c of [...this.hold.children]) { this.hold.remove(c); c.traverse(o => { if (o.material && !o.userData.keepMat) [].concat(o.material).forEach(m => m.dispose()); if (o.geometry && o.userData.ownGeo) o.geometry.dispose(); }); }
+    obj.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+    this.hold.add(obj);
+    if (fit) {
+      const box = new this.T.Box3().setFromObject(obj), s = box.getBoundingSphere(new this.T.Sphere());
+      this.dist = s.radius / Math.sin(this.cam.fov * Math.PI / 360) * (this.opts.zoom || 1.02);
+      this.cy = s.center.y * 0.9;
+    }
+    this.dirty = true;
+  }
+  frame(now) {
+    const dt = Math.min(0.05, (now - this.last) / 1000); this.last = now;
+    if (!this.visible || document.hidden) return;
+    if (this.auto && this.opts.sway) { this.t0 = (this.t0 || 0) + dt; this.yaw = this.opts.yaw + Math.sin(this.t0 * 0.6) * this.opts.sway; this.dirty = true; }
+    else if (this.auto) { this.yaw += dt * 0.32; this.dirty = true; }
+    for (const f of this.tickers) if (f(dt)) this.dirty = true;
+    if (!this.dirty) return;
+    this.dirty = false;
+    const c = Math.cos(this.pitch);
+    this.cam.position.set(this.dist * c * Math.sin(this.yaw), this.cy + this.dist * Math.sin(this.pitch), this.dist * c * Math.cos(this.yaw));
+    this.cam.lookAt(0, this.cy, 0);
+    this.r.render(this.scene, this.cam);
+  }
+  snap(px = 180) {                         // a small picture of the design, for the bag line
+    this.frame(performance.now()); this.r.render(this.scene, this.cam);
+    const src = this.r.domElement, cv = document.createElement("canvas");
+    cv.width = cv.height = px;
+    const s = Math.min(src.width, src.height), x = cv.getContext("2d");
+    x.fillStyle = "#F2EADB"; x.fillRect(0, 0, px, px);
+    x.drawImage(src, (src.width - s) / 2, (src.height - s) / 2, s, s, 0, 0, px, px);
+    try { return cv.toDataURL("image/jpeg", 0.72); } catch (e) { return ""; }
+  }
+  dispose() {
+    cancelAnimationFrame(this.raf); this.ro.disconnect(); this.io.disconnect();
+    this.set(new this.T.Group(), false); this.r.dispose(); this.r.domElement.remove();
+  }
+}
+let VIEWS = [];
+const dropViews = () => { VIEWS.forEach(v => v.dispose()); VIEWS = []; };
+
+/* ---- the clicker ---- */
+async function clickerModel(T, shape, body, caps) {
+  const g = await loadMeshes("keycap");
+  const grp = new T.Group(), up = new T.Group(); up.rotation.x = -Math.PI / 2; grp.add(up);
+  const b = new T.Mesh(g["body_" + shape], plastic(T, body)); up.add(b);
+  KEY_SOCKETS[shape].forEach(([x, y], i) => {
+    // The cap file is stem-up (its top face at z 0), so it is turned over to sit on the switch.
+    const m = new T.Mesh(g.cap, plastic(T, caps[i])); m.rotation.x = Math.PI; m.position.set(x, y, CAP_Z + CAP_H); m.userData.pick = i; up.add(m);
+  });
+  return grp;
+}
+
+/* ---- the organizer: a box, two dividers, and the name rising from the front wall ----
+   Measured off Omar's Mrs.Henry file: 210 x 70 mm box, letters 0.0449 mm per font unit (cap
+   height 31.5 mm), the casing's letter outline 3 mm wider than the coloured letters. A name wider
+   than the standard holder makes the holder wider (and says so). */
+const ORG = { W: 210, D: 70, H: 48, wall: 2.4, scale: 0.0449, base: 50.5, outline: 3, margin: 8 };
+function nameShapes(T, name) {
+  const shapes = []; let x = 0, minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
+  for (const ch of name) {
+    const gl = FONT.g[ch] || FONT.g[" "];
+    const sp = new T.ShapePath(), tok = gl.p.match(/[MLQCZ]|-?\d+/g) || [];
+    for (let i = 0; i < tok.length;) {
+      const op = tok[i++], n = () => +tok[i++];
+      const X = () => (x + n()) * ORG.scale, Y = () => n() * ORG.scale;
+      if (op === "M") { const a = X(), b = Y(); sp.moveTo(a, b); }
+      else if (op === "L") { const a = X(), b = Y(); sp.lineTo(a, b); }
+      else if (op === "Q") { const a = X(), b = Y(), c = X(), d = Y(); sp.quadraticCurveTo(a, b, c, d); }
+      else if (op === "C") { const a = X(), b = Y(), c = X(), d = Y(), e = X(), f = Y(); sp.bezierCurveTo(a, b, c, d, e, f); }
+    }
+    // Which way round a solid is drawn: the glyph's biggest outline is always solid, so its
+    // direction decides. Guessing it wrong filled the holes of o, a, e, B... and cut the rest away.
+    let big = null, bigA = 0;
+    for (const sub of sp.subPaths) { const a = Math.abs(T.ShapeUtils.area(sub.getPoints())); if (a > bigA) { bigA = a; big = sub; } }
+    const ccw = big ? !T.ShapeUtils.isClockWise(big.getPoints()) : true;
+    for (const s of sp.toShapes(ccw)) {
+      shapes.push(s);
+      for (const p of s.getPoints(2)) { minX = Math.min(minX, p.x); maxX = Math.max(maxX, p.x); minY = Math.min(minY, p.y); maxY = Math.max(maxY, p.y); }
+    }
+    x += gl.a;
+  }
+  return { shapes, minX, maxX, minY, maxY };
+}
+function organizerModel(T, name, base, letters) {
+  const grp = new T.Group();
+  const t = nameShapes(T, name || " ");
+  const textW = t.shapes.length ? t.maxX - t.minX : 0;
+  const W = Math.max(ORG.W, textW + ORG.margin), { D, H, wall } = ORG;
+  const mat = plastic(T, base);
+  const slab = (w, h, d, x, y, z) => { const m = new T.Mesh(new T.BoxGeometry(w, h, d), mat); m.position.set(x, y, z); m.userData.ownGeo = true; grp.add(m); };
+  slab(W, wall, D, 0, wall / 2, 0);                                   // floor
+  slab(W, H, wall, 0, H / 2, D / 2 - wall / 2);                       // front
+  slab(W, H, wall, 0, H / 2, -D / 2 + wall / 2);                      // back
+  slab(wall, H, D, -W / 2 + wall / 2, H / 2, 0); slab(wall, H, D, W / 2 - wall / 2, H / 2, 0);
+  slab(wall, H * 0.86, D - 2 * wall, -W / 6, H * 0.43, 0); slab(wall, H * 0.86, D - 2 * wall, W / 6, H * 0.43, 0);
+  if (t.shapes.length) {
+    const dx = -(t.minX + t.maxX) / 2;
+    // The casing's outline: the letters drawn again, spread 3 mm all round, in the holder colour.
+    const back = new T.ExtrudeGeometry(t.shapes, { depth: wall, bevelEnabled: false, curveSegments: 5 });
+    const ring = [[0, 0]];
+    for (let k = 0; k < 12; k++) ring.push([Math.cos(k * Math.PI / 6) * ORG.outline, Math.sin(k * Math.PI / 6) * ORG.outline]);
+    for (let k = 0; k < 6; k++) ring.push([Math.cos(k * Math.PI / 3 + 0.5) * ORG.outline * 0.55, Math.sin(k * Math.PI / 3 + 0.5) * ORG.outline * 0.55]);
+    ring.forEach(([ox, oy], i) => {
+      const m = new T.Mesh(back, mat); m.position.set(dx + ox, ORG.base + oy, D / 2 - wall);
+      if (i === 0) m.userData.ownGeo = true;
+      grp.add(m);
+    });
+    const front = new T.ExtrudeGeometry(t.shapes, { depth: 1.6, bevelEnabled: false, curveSegments: 6 });
+    const lm = new T.Mesh(front, plastic(T, letters)); lm.position.set(dx, ORG.base, D / 2); lm.userData.ownGeo = true;
+    grp.add(lm);
+  }
+  grp.userData.wide = W > ORG.W + 0.5; grp.userData.W = Math.round(W);
+  return grp;
+}
+
+/* ---- the cookie: the top turns a notch at a time, and every notch says click ---- */
+async function cookieModel(T) {
+  const g = await loadMeshes("cookie");
+  const grp = new T.Group(), up = new T.Group(); up.rotation.x = -Math.PI / 2; grp.add(up);
+  const black = plastic(T, "#1D1D1F"), cream = plastic(T, "#F1F1EF");
+  up.add(new T.Mesh(g.base, black)); up.add(new T.Mesh(g.cream, cream));
+  const top = new T.Mesh(g.top, black); up.add(top);
+  grp.userData.top = top;
+  return grp;
+}
+async function mountCookie(host) {
+  host.classList.add("loading");
+  const T = await three();
+  if (!host.isConnected) return;
+  const v = new View3D(host, T, { pitch: 0.78, yaw: 0.35, auto: false, zoom: 0.92 });
+  VIEWS.push(v);
+  const m = await cookieModel(T);
+  v.set(m); host.classList.remove("loading");
+  const top = m.userData.top, step = Math.PI / 6;
+  let t = 0, from = 0, to = 0, n = 0;
+  const pop = () => {
+    if (REDUCED) return;
+    const b = document.createElement("span"); b.className = "click-pop"; b.textContent = "click!";
+    const a = (n++ * 2.4) % (Math.PI * 2);
+    b.style.left = (50 + Math.cos(a) * 26) + "%"; b.style.top = (34 + Math.sin(a) * 12) + "%";
+    host.appendChild(b); setTimeout(() => b.remove(), 900);
+  };
+  v.tickers.push(dt => {
+    if (REDUCED) return false;
+    t += dt;
+    if (t > 0.62) { t = 0; from = to; to = from + step; pop(); }
+    const k = Math.min(1, t / 0.16), e = 1 - Math.pow(1 - k, 3);
+    top.rotation.z = from + (to - from) * e;
+    return true;
+  });
+}
+
+/* ---- the design pages ---- */
+const kcShape = (p, id) => p.shapes.find(x => x.id === id);
+const kcKey = d => ["keycap", d.shape, d.body, d.caps.join(".")].join(":");
+const orgKey = d => ["organizer", d.base, d.letters, encodeURIComponent(d.name)].join(":");
+const cleanName = s => s.replace(/\s+/g, " ").trim();
+const nameValid = (p, s) => !!s && s.length <= (p.maxName || 20) && NAME_OK.test(s) && /[A-Za-z0-9]/.test(s);
+function priceLabel(p) {
+  return p.builder === "keycap" && p.shapes.filter(x => !x.off).length > 1 ? "From " + money(p.price) : money(p.price);
+}
+const DESIGN = {};                       // the last design per product, so the bag and back button agree
+function designOf(p) {
+  if (DESIGN[p.id]) return DESIGN[p.id];
+  if (p.builder === "keycap") {
+    const s = p.shapes.find(x => !x.off) || p.shapes[0];
+    return DESIGN[p.id] = { shape: s.id, body: (p.bodies.find(x => !x.off) || p.bodies[0]).id,
+      caps: KEY_SOCKETS[s.id].map((_, i) => (p.caps[i % p.caps.length] || p.caps[0]).id) };
+  }
+  return DESIGN[p.id] = { name: "", base: p.bases[0].id, letters: (p.letters.find(x => !x.off) || p.letters[0]).id };
+}
+/* A little top-down map of the shape: one square per key, in its colour. Tapping one switches it. */
+function keyMapSVG(p, d) {
+  const s = KEY_SOCKETS[d.shape], xs = s.map(k => k[0]), ys = s.map(k => k[1]);
+  const x0 = Math.min(...xs) - 11, y1 = Math.max(...ys) + 11, w = Math.max(...xs) + 11 - x0, h = y1 - (Math.min(...ys) - 11);
+  const body = p.bodies.find(x => x.id === d.body);
+  return `<svg viewBox="0 0 ${w.toFixed(1)} ${h.toFixed(1)}" class="keymap" role="group" aria-label="Keys">
+    ${s.map(([x, y], i) => { const c = p.caps.find(z => z.id === d.caps[i]);
+      return `<g class="kk" data-key="${i}" role="button" tabindex="0" aria-label="Key ${i + 1}: ${esc(c.name)}. Tap to change.">
+        <rect x="${(x - x0 - 10.6).toFixed(1)}" y="${(y1 - y - 10.6).toFixed(1)}" width="21.2" height="21.2" rx="3" fill="${body.hex}" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+        <rect x="${(x - x0 - 8).toFixed(1)}" y="${(y1 - y - 8).toFixed(1)}" width="16" height="16" rx="2.6" fill="${c.hex}" stroke="rgba(0,0,0,.25)" stroke-width=".5"/></g>`; }).join("")}
+  </svg>`;
+}
+const shapeIcon = id => {
+  const s = KEY_SOCKETS[id], xs = s.map(k => k[0]), ys = s.map(k => k[1]);
+  const x0 = Math.min(...xs) - 11, y1 = Math.max(...ys) + 11;
+  return `<svg viewBox="0 0 ${Math.max(...xs) + 11 - x0} ${y1 - Math.min(...ys) + 11}" aria-hidden="true">${s.map(([x, y]) =>
+    `<rect x="${x - x0 - 10}" y="${y1 - y - 10}" width="20" height="20" rx="4" fill="currentColor"/>`).join("")}</svg>`;
+};
+const swatchStyle = c => c.see
+  ? `background:linear-gradient(${c.hex}b8,${c.hex}b8),repeating-conic-gradient(#d9d9d9 0 25%,#fff 0 50%) 0 0/8px 8px`
+  : c.glitter ? `background:radial-gradient(circle at 30% 35%,#fff9 0 1px,transparent 1.5px),radial-gradient(circle at 68% 60%,#fff8 0 1px,transparent 1.5px),radial-gradient(circle at 45% 75%,#fff7 0 .8px,transparent 1.3px),${c.hex}`
+  : `background:${c.hex}`;
+const optBtn = (attr, c, on, extra = "") => `<button class="way" ${attr}="${c.id}" aria-pressed="${on}"${c.off ? " disabled" : ""}>
+  <span class="sw"><i style="${swatchStyle(c)}"></i></span>${esc(c.name)}${extra}</button>`;
+
+function viewBuilder(p) {
+  const cat = CATALOG.find(c => p.in[0].startsWith(c.id));
+  const sub = cat.subs.find(x => p.in[0].endsWith(x.id));
+  const shots = (PHOTOS[p.id] && PHOTOS[p.id].shots) || [];
+  const d = designOf(p), kc = p.builder === "keycap";
+  const side = kc ? `
+      <div class="ways opt" role="group" aria-label="Shape">
+        <span class="label">1 &middot; Shape</span>
+        ${p.shapes.map(s => `<button class="way shape-btn" data-shape="${s.id}" aria-pressed="${s.id === d.shape}"${s.off ? " disabled" : ""}>
+          ${shapeIcon(s.id)}<span>${esc(s.name)}<small>${money(s.price)}</small></span></button>`).join("")}
+      </div>
+      <div class="ways opt" role="group" aria-label="Clicker color">
+        <span class="label">2 &middot; Clicker color</span>
+        ${p.bodies.map(c => optBtn("data-body", c, c.id === d.body)).join("")}
+      </div>
+      <div class="opt keys-opt">
+        <span class="label">3 &middot; Key colors <em>tap a key to switch it</em></span>
+        <div class="keys-row"><div id="keyMap">${keyMapSVG(p, d)}</div>
+          <div class="ways">${p.caps.map(c => `<button class="way" data-allcaps="${c.id}"${c.off ? " disabled" : ""}><span class="sw"><i style="${swatchStyle(c)}"></i></span>All ${esc(c.name.toLowerCase())}</button>`).join("")}</div></div>
+      </div>
+      <p class="design-sum" id="designSum"></p>`
+    : `
+      <div class="opt name-opt">
+        <label class="label" for="nameIn">1 &middot; The name</label>
+        <input id="nameIn" class="name-in" type="text" maxlength="${p.maxName}" autocomplete="off" spellcheck="false"
+          placeholder="Mrs. Henry" value="${esc(d.name)}" aria-describedby="nameHelp">
+        <small id="nameHelp" class="name-help">Up to ${p.maxName} letters, numbers, spaces and . ' &amp; -</small>
+      </div>
+      <div class="ways opt" role="group" aria-label="Holder color">
+        <span class="label">2 &middot; Holder color</span>
+        ${p.bases.map(c => optBtn("data-base", c, c.id === d.base)).join("")}
+      </div>
+      <div class="ways opt" role="group" aria-label="Letter color">
+        <span class="label">3 &middot; Letter color</span>
+        ${p.letters.map(c => optBtn("data-letters", c, c.id === d.letters)).join("")}
+      </div>
+      <p class="long-note" id="longNote" hidden>${esc(p.longNote)}</p>`;
+  return `
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/${cat.id}/">${esc(cat.name)}</a><span aria-hidden="true">/</span>
+        <a href="/${cat.id}/${sub.id}/">${esc(sub.name)}</a><span aria-hidden="true">/</span>
+        <span>${esc(p.name)}</span>
+      </nav>
+    </div>
+  </section>
+  <section><div class="wrap prod builder" id="prodBuild" data-id="${p.id}">
+    <div class="gallery">
+      <div class="shot-main">
+        <div class="live3d loading" id="b3d"><span class="b3d-tag">Your design</span>
+          <span class="b3d-hint">Drag to turn${kc ? " &middot; tap a key to switch its color" : ""}</span></div>
+        <img id="shotsMain" hidden alt="">
+      </div>
+      <div class="thumbs" role="group" aria-label="Pictures" id="shotsThumbs">
+        <button class="thumb design on" data-i="-1" aria-pressed="true" aria-label="Show your design in 3D"><span>Your<br>design</span></button>
+        ${shots.map((x, i) => `<button class="thumb" data-i="${i}" aria-pressed="false" aria-label="Show ${esc(x.alt)}"><img src="${x.src}" alt=""></button>`).join("")}
+      </div>
+    </div>
+    <div class="prod-side">
+      <h1 class="dsp">${esc(p.name)}</h1>
+      <p class="price big"><b class="pnum" id="bPrice">${money(kc ? kcShape(p, d.shape).price : p.price)}</b>${kc ? ` <span>each</span>` : ""}</p>${shipHint()}
+      <p class="desc">${esc(p.desc)}</p>
+      ${side}
+      <button class="add" id="addBuild" data-add="">Add to bag</button>
+      <p class="tip">${esc(p.tip)}</p>
+      <dl class="specs" id="bSpecs"></dl>
+      <ul class="pack">${p.pack.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      ${p.grades ? `<p class="grades-line">${p.grades.map(g => `<span class="tag">${esc(g)}</span>`).join("")}</p>` : ""}
+      ${safetyHTML(p)}
+    </div>
+  </div></section>
+  ${askHTML()}`;
+}
+
+let PICS = {};
+try { PICS = JSON.parse(localStorage.getItem("mrOmarsClassroom.pics") || "{}") || {}; } catch (e) { PICS = {}; }
+const savePics = () => {
+  const keep = Object.keys(PICS).filter(k => bag[k] > 0);
+  PICS = Object.fromEntries(keep.map(k => [k, PICS[k]]));
+  try { localStorage.setItem("mrOmarsClassroom.pics", JSON.stringify(PICS)); } catch (e) {}
+};
+
+async function mountBuilder() {
+  const wrap = $("#prodBuild"); if (!wrap) return;
+  const p = PRODUCTS.find(x => x.id === wrap.dataset.id), d = designOf(p), kc = p.builder === "keycap";
+  const host = $("#b3d"), img = $("#shotsMain"), add = $("#addBuild");
+  const shots = (PHOTOS[p.id] && PHOTOS[p.id].shots) || [];
+  let view = null, T = null, busy = 0;
+  const show = i => {
+    host.hidden = i >= 0; img.hidden = i < 0;
+    if (i >= 0) { img.src = shots[i].src; img.alt = `${p.name}, ${shots[i].alt}`; }
+    $$(".thumb", wrap).forEach(b => { const on = +b.dataset.i === i; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); });
+  };
+  $("#shotsThumbs").addEventListener("click", e => { const b = e.target.closest(".thumb"); if (b) show(+b.dataset.i); });
+  const specs = () => {
+    if (kc) {
+      const s = kcShape(p, d.shape);
+      return [["Shape", s.name + ", " + plural(KEY_SOCKETS[s.id].length, "key")], ["Size", s.size], ["On", "A keyring"]];
+    }
+    return p.specs;
+  };
+  const redraw = async () => {
+    const my = ++busy;
+    if (!T) return;
+    const m = kc ? await clickerModel(T, d.shape, p.bodies.find(x => x.id === d.body), d.caps.map(c => p.caps.find(x => x.id === c)))
+                 : organizerModel(T, cleanName(d.name) || "Your Name", p.bases.find(x => x.id === d.base), p.letters.find(x => x.id === d.letters));
+    if (my !== busy || !view) return;
+    if (!kc) view.opts.zoom = m.userData.wide ? 0.97 : 0.8;   // a long name swings wider: keep it all in view
+    view.set(m, kc || m.userData.W !== view.lastW); view.lastW = m.userData.W;
+    if (!kc) $("#longNote").hidden = !m.userData.wide;
+  };
+  const sync = (repaint = true) => {
+    show(-1);
+    let key = "", ok = true;
+    if (kc) {
+      const s = kcShape(p, d.shape);
+      $("#bPrice").textContent = money(s.price);
+      $$("[data-shape]", wrap).forEach(b => b.setAttribute("aria-pressed", b.dataset.shape === d.shape));
+      $$("[data-body]", wrap).forEach(b => b.setAttribute("aria-pressed", b.dataset.body === d.body));
+      $("#keyMap").innerHTML = keyMapSVG(p, d);
+      const counts = p.caps.map(c => [c, d.caps.filter(x => x === c.id).length]).filter(([, n]) => n);
+      $("#designSum").innerHTML = `<b>${esc(s.name)}</b> &middot; ${esc(p.bodies.find(x => x.id === d.body).name.toLowerCase())} case &middot; ` +
+        counts.map(([c, n]) => `${n} ${esc(c.name.toLowerCase())}`).join(" + ") + ` ${counts.length === 1 && counts[0][1] === 1 ? "key" : "keys"}`;
+      key = kcKey(d);
+    } else {
+      $$("[data-base]", wrap).forEach(b => b.setAttribute("aria-pressed", b.dataset.base === d.base));
+      $$("[data-letters]", wrap).forEach(b => b.setAttribute("aria-pressed", b.dataset.letters === d.letters));
+      const nm = cleanName(d.name);
+      ok = nameValid(p, nm);
+      const help = $("#nameHelp");
+      help.classList.toggle("bad", !!nm && !ok);
+      help.textContent = !nm ? `Type the name you want on it (up to ${p.maxName} characters).`
+        : ok ? `Up to ${p.maxName} letters, numbers, spaces and . ' & -`
+        : "Letters, numbers, spaces and . ' & - only.";
+      key = ok ? orgKey({ ...d, name: nm }) : "";
+    }
+    add.dataset.add = key;
+    $("#bSpecs").innerHTML = specsHTML(specs());
+    markSold();
+    if (!ok) { add.disabled = true; add.textContent = "Type a name first"; }
+    else if (add.textContent === "Type a name first") add.textContent = "Add to bag";
+    if (repaint) redraw();
+  };
+  wrap.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b || b.disabled) return;
+    if (b.dataset.shape) {
+      if (b.dataset.shape !== d.shape) {
+        const old = d.caps; d.shape = b.dataset.shape;
+        d.caps = KEY_SOCKETS[d.shape].map((_, i) => old[i] || old[i % old.length]);
+      }
+      sync();
+    } else if (b.dataset.body) { d.body = b.dataset.body; sync(); }
+    else if (b.dataset.allcaps) { d.caps = d.caps.map(() => b.dataset.allcaps); sync(); }
+    else if (b.dataset.base) { d.base = b.dataset.base; sync(); }
+    else if (b.dataset.letters) { d.letters = b.dataset.letters; sync(); }
+  });
+  const flip = i => {
+    const on = p.caps.filter(c => !c.off), at = on.findIndex(c => c.id === d.caps[i]);
+    d.caps[i] = on[(at + 1) % on.length].id; sync();
+  };
+  if (kc) {
+    $("#keyMap").addEventListener("click", e => { const g = e.target.closest("[data-key]"); if (g) flip(+g.dataset.key); });
+    $("#keyMap").addEventListener("keydown", e => { const g = e.target.closest("[data-key]"); if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); flip(+g.dataset.key); } });
+  } else {
+    let tm;
+    $("#nameIn").addEventListener("input", e => { d.name = e.target.value; clearTimeout(tm); sync(false); tm = setTimeout(redraw, 110); });
+  }
+  // Remember a picture of this exact design for the bag line.
+  add.addEventListener("click", () => { if (view && add.dataset.add) { PICS[add.dataset.add] = view.snap(); } }, true);
+  sync(false);
+  try {
+    T = await three();
+    if (!host.isConnected) return;
+    view = new View3D(host, T, { onPick: kc ? flip : null, zoom: kc ? 1.0 : 0.8, pitch: kc ? 0.72 : 0.3, yaw: kc ? -0.5 : -0.3, sway: kc ? 0 : 0.42 });
+    VIEWS.push(view);
+    await redraw();
+    host.classList.remove("loading");
+  } catch (e) {
+    // No 3D (an old phone, a blocked CDN): the photos still sell it, and every choice still works.
+    host.classList.remove("loading"); host.classList.add("no3d");
+    if (shots.length) show(0);
+  }
+}
+/* What a design bag key means, or null if it no longer describes something the shop sells. */
+function builderItem(p, rest) {
+  if (p.builder === "keycap") {
+    const [shapeId, bodyId, capStr] = rest;
+    const shape = p.shapes.find(x => x.id === shapeId && !x.off), body = p.bodies.find(x => x.id === bodyId && !x.off);
+    const caps = (capStr || "").split(".").map(c => p.caps.find(x => x.id === c && !x.off));
+    if (!shape || !body || caps.length !== KEY_SOCKETS[shape.id].length || caps.some(c => !c)) return null;
+    const counts = p.caps.map(c => [c, caps.filter(x => x === c).length]).filter(([, n]) => n);
+    return { p, unit: shape.price, design: { shape, body, caps },
+      note: `${shape.name}, ${body.name.toLowerCase()}, ` + counts.map(([c, n]) => `${n} ${c.name.toLowerCase()}`).join(" + ") };
+  }
+  const [baseId, letId, enc] = rest;
+  const base = p.bases.find(x => x.id === baseId && !x.off), letters = p.letters.find(x => x.id === letId && !x.off);
+  let name = "";
+  try { name = decodeURIComponent(enc || ""); } catch (e) { return null; }
+  if (!base || !letters || !nameValid(p, name)) return null;
+  return { p, unit: p.price, design: { base, letters, name }, note: `\u201c${name}\u201d, ${base.name.toLowerCase()} with ${letters.name.toLowerCase()} letters` };
+}
+/* In stock, for a design: its body in that colour and every key colour it uses (the clicker), or
+   both of its colours (the organizer). The workshop lists each of those as its own stock key. */
+function builderInStock(key) {
+  const [id, ...rest] = key.split(":");
+  if (!AVAIL) return true;
+  if (id === "keycap") {
+    const [shape, body, caps] = rest;
+    return AVAIL.has(`keycap:${shape}:${body}`) && (caps || "").split(".").every(c => AVAIL.has("keycap:cap:" + c));
+  }
+  return AVAIL.has("organizer:base:" + rest[0]) && AVAIL.has("organizer:letters:" + rest[1]);
+}
+function markBuilderGone() {
+  if (!AVAIL || !$("#prodBuild")) return;
+  const p = PRODUCTS.find(x => x.id === $("#prodBuild").dataset.id), d = designOf(p);
+  if (p.builder === "keycap") {
+    $$("[data-shape]").forEach(b => b.classList.toggle("gone", !p.bodies.some(c => AVAIL.has(`keycap:${b.dataset.shape}:${c.id}`))));
+    $$("[data-body]").forEach(b => b.classList.toggle("gone", !AVAIL.has(`keycap:${d.shape}:${b.dataset.body}`)));
+    $$("[data-allcaps]").forEach(b => b.classList.toggle("gone", !AVAIL.has("keycap:cap:" + b.dataset.allcaps)));
+  } else {
+    $$("[data-base]").forEach(b => b.classList.toggle("gone", !AVAIL.has("organizer:base:" + b.dataset.base)));
+    $$("[data-letters]").forEach(b => b.classList.toggle("gone", !AVAIL.has("organizer:letters:" + b.dataset.letters)));
+  }
+}
+
 /* ---------- bag ---------- */
 let bag = {};
 try { bag = JSON.parse(localStorage.getItem("mrOmarsClassroom.bag") || "{}") || {}; } catch (e) { bag = {}; }
@@ -2642,6 +3370,7 @@ const bagItem = key => {                       // "chips:maple:red" -> product, 
   const [id, shapeId, colourId] = key.split(":");
   const p = PRODUCTS.find(x => x.id === id && forSale(x));
   if (!p) return null;
+  if (p.builder) return builderItem(p, key.split(":").slice(1));
   const shape = p.shapes && p.shapes.find(x => x.id === shapeId);
   const colour = p.colours && p.colours.find(x => x.id === colourId);
   const light = p.lights && p.lights.find(x => x.id === shapeId);
@@ -2660,24 +3389,26 @@ function renderBag() {
   const n = ids.reduce((s, id) => s + bag[id], 0);
   const c = $("#bagCount"); c.textContent = n; c.classList.toggle("zero", n === 0);
   $("#lines").innerHTML = ids.length ? ids.map(key => {
-    const { p, shape, colour, light, style } = bagItem(key);
-    const note = shape ? (p.shapes.length > 1 ? shape.name + (colour ? ", " + colour.name.toLowerCase() : "")
+    const it = bagItem(key), { p, shape, colour, light, style } = it;
+    const note = it.design ? it.note : shape ? (p.shapes.length > 1 ? shape.name + (colour ? ", " + colour.name.toLowerCase() : "")
                                               : colour ? colour.name : shape.name)
       : light ? light.name.toLowerCase() + " light" : style ? style.name.toLowerCase()
       : isShots(p) ? (p.per || "") : "arrives white";
-    const pic = shape
+    const first = PHOTOS[p.id] && PHOTOS[p.id].shots ? PHOTOS[p.id].shots.find(x => x.src) : null;
+    const pic = it.design ? (PICS[key] || first ? `<img src="${PICS[key] || first.src}" alt="">` : "")
+      : shape
       ? `<canvas class="line-pic" data-shape="${shape.id}" data-shot="hero" data-hex="${colour ? colour.hex : "#4EE349"}" data-real="${colour ? colour.id : ""}"></canvas>`
       : light ? `<img src="${PHOTOS[p.id][light.id]}" alt="">`
       : isShots(p) ? `<img src="${shotsFor(p, style)[0].src}" alt="">`
       : `<img src="${ASSETS[p.id].frames[0]}" alt="">`;
-    return `<div class="line-item">${pic}<div><b>${esc(p.name)}</b><small>${money(p.price)}${note ? " &middot; " + esc(note) : ""}</small></div>
+    return `<div class="line-item">${pic}<div><b>${esc(p.name)}</b><small>${money(it.unit ?? p.price)}${note ? " &middot; " + esc(note) : ""}</small></div>
       <div class="qty"><button data-q="-1" data-id="${key}" aria-label="One fewer ${esc(p.name)}">&minus;</button><span>${bag[key]}</span><button data-q="1" data-id="${key}" aria-label="One more ${esc(p.name)}" ${bag[key] >= MAX_QTY ? "disabled" : ""}>+</button></div></div>`;
   }).join("") : `<p class="empty">Your bag is empty.</p>`;
-  const sub = ids.reduce((s, k) => s + bag[k] * bagItem(k).p.price, 0);
+  const sub = ids.reduce((s, k) => { const it = bagItem(k); return s + bag[k] * (it.unit ?? it.p.price); }, 0);
   $("#subtotal").textContent = money(sub);
   shipMeter(sub);
   $$(".line-pic").forEach(c => paintChip(c, c.dataset.shape, c.dataset.shot, c.dataset.hex, c.dataset.real));
-  saveBag();
+  saveBag(); savePics();
 }
 $("#lines").addEventListener("click", e => {
   const b = e.target.closest("button[data-q]"); if (!b) return;
