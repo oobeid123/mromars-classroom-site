@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Seasonal counters, ten frames and number lines for building numbers by hand.">
+<meta name="description" content="Counting chips in seasonal shapes, fifteen to a pack in a container shaped the same way.">
 <meta name="theme-color" content="#2F6FD0">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <title>Counting &amp; Number · Teacher Materials · Mr. Omar&#x27;s Classroom</title>
@@ -646,6 +646,8 @@ body{background:var(--paper)}
 .pc-sw span{font-size:12px;color:var(--ink-3);margin-left:2px}
 .pc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:14px}
 .pc-price{font-family:var(--display);font-weight:600;font-size:20px;font-variant-numeric:tabular-nums}
+.pc-price,.title-row .price{white-space:nowrap}
+small.from{display:block;font-family:var(--body);font-size:11.5px;font-weight:500;line-height:1.1;color:var(--ink-2);text-transform:lowercase}
 .pc-add{display:inline-flex;align-items:center;justify-content:center;padding:9px 15px;border-radius:999px;background:var(--btn);
   color:var(--btn-ink);font-size:13px;font-weight:600;white-space:nowrap;text-decoration:none;transition:transform .15s ease}
 .pc-add:hover{transform:translateY(-1px)}
@@ -828,13 +830,13 @@ html.is-closed footer{padding-top:56px}
 <meta property="og:site_name" content="Mr. Omar&#x27;s Classroom">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Counting &amp; Number · Teacher Materials · Mr. Omar&#x27;s Classroom">
-<meta property="og:description" content="Seasonal counters, ten frames and number lines for building numbers by hand.">
+<meta property="og:description" content="Counting chips in seasonal shapes, fifteen to a pack in a container shaped the same way.">
 <meta property="og:url" content="https://mromars-classroom.com/teacher-materials/counting-number/">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://mromars-classroom.com/share/chips-maple-card-8163896b35.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Counting & Number · Teacher Materials","url":"https://mromars-classroom.com/teacher-materials/counting-number/","description":"Seasonal counters, ten frames and number lines for building numbers by hand.","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://mromars-classroom.com/p/chips-maple/"},{"@type":"ListItem","position":2,"url":"https://mromars-classroom.com/p/chips-apple/"},{"@type":"ListItem","position":3,"url":"https://mromars-classroom.com/p/chips-leaf/"},{"@type":"ListItem","position":4,"url":"https://mromars-classroom.com/p/chips-stopsign/"},{"@type":"ListItem","position":5,"url":"https://mromars-classroom.com/p/chips-bus/"},{"@type":"ListItem","position":6,"url":"https://mromars-classroom.com/p/chips-pinecone/"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Counting & Number · Teacher Materials","url":"https://mromars-classroom.com/teacher-materials/counting-number/","description":"Counting chips in seasonal shapes, fifteen to a pack in a container shaped the same way.","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://mromars-classroom.com/p/chips-maple/"},{"@type":"ListItem","position":2,"url":"https://mromars-classroom.com/p/chips-apple/"},{"@type":"ListItem","position":3,"url":"https://mromars-classroom.com/p/chips-leaf/"},{"@type":"ListItem","position":4,"url":"https://mromars-classroom.com/p/chips-stopsign/"},{"@type":"ListItem","position":5,"url":"https://mromars-classroom.com/p/chips-bus/"},{"@type":"ListItem","position":6,"url":"https://mromars-classroom.com/p/chips-pinecone/"}]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mromars-classroom.com/"},{"@type":"ListItem","position":2,"name":"Teacher Materials","item":"https://mromars-classroom.com/teacher-materials/"},{"@type":"ListItem","position":3,"name":"Counting & Number","item":"https://mromars-classroom.com/teacher-materials/counting-number/"}]}</script>
 </head>
 <body>
@@ -908,7 +910,7 @@ html.is-closed footer{padding-top:56px}
     <div class="tot"><span>Subtotal</span><b id="subtotal">$0.00</b></div>
     <div class="ship-meter" id="shipMeter" hidden><span></span><div class="track"><i></i></div></div>
     <label class="optin" id="optinRow" hidden><input type="checkbox" id="optin" checked>
-      <span>Email me new materials, promotions and discounts. Unsubscribe any time.</span></label>
+      <span>Email me shop news, promotions and discounts. Unsubscribe any time.</span></label>
     <button class="checkout" id="checkout" disabled>Checkout</button>
     <small id="checkoutNote">Checkout isn&rsquo;t set up yet &mdash; this shop is a preview.</small>
   </div>
@@ -929,17 +931,17 @@ const CATALOG = [
   { id: "teacher-materials", name: "Teacher Materials", short: "materials",
     blurb: "Hands-on materials for Pre-K through 5th grade, made by a teacher a set at a time.",
     subs: [
-      { id: "counting-number", name: "Counting & Number", blurb: "Seasonal counters, ten frames and number lines for building numbers by hand." },
+      { id: "counting-number", name: "Counting & Number", blurb: "Counting chips in seasonal shapes, fifteen to a pack in a container shaped the same way." },
       { id: "place-value-fractions", name: "Place Value & Fractions", blurb: "Base-ten pieces, fraction circles and solids for grades 2 to 5." },
-      { id: "letters-phonics", name: "Letters & Phonics", blurb: "Letter tiles, tracing boards and word builders for early reading." },
-      { id: "classroom", name: "Classroom & Calm Corner", blurb: "Table labels, voice-level dials and quiet fidgets that keep a room running." },
+      { id: "letters-phonics", name: "Letters & Phonics", blurb: "Movable letter tiles for building words by hand." },
+      { id: "classroom", name: "Classroom & Calm Corner", blurb: "Desk organizers and pieces that keep a classroom running." },
     ] },
   { id: "toys", name: "Toys", short: "toys",
     blurb: "Toys for the prize box, the treasure chest and Friday rewards \u2014 in color, or plain white for kids to color in.",
     subs: [
       { id: "halloween", name: "Halloween", blurb: "Spooky-season toys for the prize box, in color or plain white to color in." },
       { id: "color-your-own", name: "Color Your Own", blurb: "Every toy here arrives plain white. The colors are up to the kid." },
-      { id: "fidgets", name: "Fidgets", blurb: "Clicky, glowy, pocket-sized things for hands that need something to do." },
+      { id: "fidgets", name: "Fidgets", blurb: "Clicky, twisty, pocket-sized things for hands that need something to do." },
       { id: "keychains", name: "Keychains", blurb: "Little friends on a keyring, for backpacks, lanyards and keys." },
       { id: "treasure-box", name: "Treasure Box Toys", blurb: "Little toys for the classroom treasure box and Friday rewards, one at a time or by the pack." },
       { id: "pretend-play", name: "Pretend Play", blurb: "Play-kitchen food and make-believe tools for the house corner and dramatic play." },
@@ -1274,7 +1276,8 @@ for (const p of PRODUCTS) {
    next page load, both ways, with no rebuild. Only products the workshop sells are governed
    by it - a "soon" card stays a card. */
 const DRAFTS = false;      // build.py --preview turns this on
-const ALL_PRODUCTS = PRODUCTS.filter(p => DRAFTS || !p.draft);
+// Omar 2026-11-01: the shop shows only what is for sale - no "soon" cards, no "coming" rows.
+const ALL_PRODUCTS = PRODUCTS.filter(p => (DRAFTS || !p.draft) && p.status !== "soon");
 PRODUCTS.length = 0; ALL_PRODUCTS.forEach(p => PRODUCTS.push(p));
 if (!DRAFTS) CATALOG.forEach(c => { c.subs = c.subs.filter(x => !x.draft); });   // a shelf that only drafts fill
 let ON_KEYS = null;
@@ -1297,6 +1300,8 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;",
 const inCat = (p, cat, sub) => p.in.some(k => sub ? k === cat + "/" + sub : k.startsWith(cat + "/"));
 const forSale = p => !p.status;
 const listFor = (cat, sub) => PRODUCTS.filter(p => inCat(p, cat, sub));
+const shelves = c => c.subs.filter(s => listFor(c.id, s.id).length);   // only shelves with something on them
+const cats = () => CATALOG.filter(c => listFor(c.id).length);
 const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
 const CHEV = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8l4-3.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
@@ -1310,23 +1315,22 @@ function anyInStock(p, subId) {
 }
 function subCount(c, s) {
   const items = listFor(c.id, s.id);
-  if (items.every(p => p.status)) return '<em class="soon">Soon</em>';
   const n = items.filter(p => forSale(p) && anyInStock(p, s.id)).length;
   return n ? "<em>" + plural(n, "item") + "</em>" : '<em class="soon">Sold out</em>';
 }
 function buildNav() {
-  $("#cats").innerHTML = CATALOG.map(c => `
+  $("#cats").innerHTML = cats().map(c => `
     <div class="cat">
       <button class="cat-btn" id="btn-${c.id}" aria-expanded="false" aria-controls="menu-${c.id}" data-cat="${c.id}">${esc(c.name)}${CHEV}</button>
       <div class="menu" id="menu-${c.id}" hidden>
         <a class="all" href="/${c.id}/"><b>All ${esc(c.short)}</b><span>${esc(c.blurb)}</span></a>
-        ${c.subs.map(s => `<a href="/${c.id}/${s.id}/"><b>${esc(s.name)}</b><span>${esc(s.blurb)}</span>${subCount(c, s)}</a>`).join("")}
+        ${shelves(c).map(s => `<a href="/${c.id}/${s.id}/"><b>${esc(s.name)}</b><span>${esc(s.blurb)}</span>${subCount(c, s)}</a>`).join("")}
       </div>
     </div>`).join("");
-  $("#sheetnav").innerHTML = CATALOG.map(c => `
+  $("#sheetnav").innerHTML = cats().map(c => `
     <h2>${esc(c.name)}</h2>
-    <a href="/${c.id}/">All ${esc(c.short)}<em>${listFor(c.id).every(p => p.status) ? "Soon" : plural(listFor(c.id).filter(forSale).length, "item")}</em></a>
-    ${c.subs.map(s => `<a href="/${c.id}/${s.id}/">${esc(s.name)}${subCount(c, s)}</a>`).join("")}`).join("");
+    <a href="/${c.id}/">All ${esc(c.short)}<em>${plural(listFor(c.id).filter(forSale).length, "item")}</em></a>
+    ${shelves(c).map(s => `<a href="/${c.id}/${s.id}/">${esc(s.name)}${subCount(c, s)}</a>`).join("")}`).join("");
 
   const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
   $$(".cat").forEach(wrap => {
@@ -1998,7 +2002,7 @@ function mountJoin() {
   $("#joinSlot").innerHTML = `
   <section class="join" aria-labelledby="joinHead"><div class="wrap join-in">
     <div><h2 class="dsp" id="joinHead">Join the list</h2>
-      <p>New materials as they come off the workbench, classroom deals and the odd discount.
+      <p>Classroom deals, shop news and the odd discount.
          A few emails a term, never sold or shared.</p></div>
     <form class="join-form" id="joinForm" novalidate>
       <label class="hp" for="joinSite">Website<input id="joinSite" type="text" tabindex="-1" autocomplete="off"></label>
@@ -2131,7 +2135,7 @@ const swatchOf = sw => Array.isArray(sw) && sw.length > 1 && sw === RAINBOW
   ? `conic-gradient(${sw.join(",")},${sw[0]})` : (Array.isArray(sw) ? sw[0] : sw);
 function cardSwatches(p, st) {
   if (p.builder === "keycap") return [[...p.bodies, ...p.caps].filter(c => !c.off).map(c => c.hex), "Build your own"];
-  if (p.builder) return [p.letters.filter(c => !c.off).map(c => c.hex), "Your name on it"];
+  if (p.builder) { const l = p.letters.filter(c => !c.off); return [l.slice(0, 5).map(c => c.hex), plural(l.length, "color")]; }
   if (p.colours) return [p.colours.map(c => c.hex), plural(p.colours.length, "color")];
   if (p.lights) return [p.lights.map(l => l.hex), plural(p.lights.length, "light")];
   if (p.styles && st && st.id === "white") return [["#EDEDE8"], "Arrives white"];
@@ -2164,7 +2168,7 @@ function homeCard(p, subId) {
   const [sw, swl] = cardSwatches(p, st);
   const simple = !p.shapes && !p.styles && !p.lights && !p.builder;
   const instock = anyInStock(p, subId);
-  const badge = !instock ? '<span class="pc-badge sold">Sold out</span>' : NEW_IDS.has(p.id) ? '<span class="pc-badge">New</span>' : "";
+  const badge = !instock ? '<span class="pc-badge sold">Sold out</span>' : "";
   const pick = p.styles && !p.styles.every(x => x.id !== "white") ? "style" : p.lights ? "light" : "color";
   const choose = p.builder ? "Design yours" : "Choose " + pick;
   return `
@@ -2211,7 +2215,7 @@ function viewHome() {
   const shop = PRODUCTS.filter(forSale).sort((a, b) => order(a) - order(b));
   const soon = PRODUCTS.filter(p => p.status === "soon");
   // Filters: everything, the two halves of the shop, then each toy shelf with something on it.
-  const filters = [["all", "All"], ...CATALOG.map(c => [c.id, c.name])]
+  const filters = [["all", "All"], ...cats().map(c => [c.id, c.name])]
     .concat(CATALOG.find(c => c.id === "toys").subs.filter(s => s.id !== "color-your-own").map(s => [s.id, s.name]))
     .map(([k, l]) => [k, l, shop.filter(p => k === "all" || inCat(p, k) || p.in.some(x => x.endsWith("/" + k))).length])
     .filter(([k, , n]) => n);
@@ -2227,7 +2231,7 @@ function viewHome() {
         <p class="lede">I teach, and I make the hands-on pieces my own room kept running out of.
            Made a set at a time, for real classrooms and the kids in them.</p>
         <div class="cta-row">
-          <a class="btn btn-dark" href="#shop">Shop what&rsquo;s ready</a>
+          <a class="btn btn-dark" href="#shop">Shop now</a>
           <a class="btn btn-line" href="/teacher-materials/">Teacher materials</a>
         </div>
         <p class="hero-sign">From Mr. Omar&rsquo;s classroom</p>
@@ -2298,10 +2302,10 @@ function mountHomeFilters() {
 }
 function pillsFor(cat, sub) {
   const all = `<a class="pill" href="/${cat.id}/" ${!sub ? 'aria-current="page"' : ""}>All</a>`;
-  return all + cat.subs.map(s => {
+  return all + shelves(cat).map(s => {
     const items = listFor(cat.id, s.id);
     const n = items.filter(forSale).length;
-    return `<a class="pill" href="/${cat.id}/${s.id}/" ${sub === s.id ? 'aria-current="page"' : ""}>${esc(s.name)}<em>${n || "soon"}</em></a>`;
+    return `<a class="pill" href="/${cat.id}/${s.id}/" ${sub === s.id ? 'aria-current="page"' : ""}>${esc(s.name)}<em>${n}</em></a>`;
   }).join("");
 }
 /* ---------- policies (2026-10-08) ----------
@@ -2552,7 +2556,7 @@ function route() {
   const parts = here().split("/").filter(Boolean);
   const prod = parts[0] === "p" && PRODUCTS.find(x => x.id === parts[1] && forSale(x));
   const cat = CATALOG.find(c => c.id === parts[0]);
-  const sub = cat && cat.subs.find(s => s.id === parts[1]);
+  const sub = cat && shelves(cat).find(s => s.id === parts[1]);   // an empty shelf is not a page
   const pol = parts[0] === "policies", help = parts[0] === "help";
   // A link to something that isn't here (an old product, a typo) says so instead of quietly
   // showing the home page.
@@ -3094,7 +3098,7 @@ const orgKey = d => ["organizer", d.base, d.letters, encodeURIComponent(d.name)]
 const cleanName = s => s.replace(/\s+/g, " ").trim();
 const nameValid = (p, s) => !!s && s.length <= (p.maxName || 20) && NAME_OK.test(s) && /[A-Za-z0-9]/.test(s);
 function priceLabel(p) {
-  return p.builder === "keycap" && p.shapes.filter(x => !x.off).length > 1 ? "From " + money(p.price) : money(p.price);
+  return p.builder === "keycap" && p.shapes.filter(x => !x.off).length > 1 ? `<small class="from">from</small>${money(p.price)}` : money(p.price);
 }
 const DESIGN = {};                       // the last design per product, so the bag and back button agree
 function designOf(p) {
