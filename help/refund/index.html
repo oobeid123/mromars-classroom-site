@@ -473,6 +473,51 @@ footer p{font-size:14px;color:var(--ink-3);max-width:46ch}
   border:0;border-radius:999px;padding:13px 18px}
 .join-form .btn{flex:0 0 auto}
 .join-status{flex-basis:100%;font-size:14px;min-height:1.2em;color:var(--sunny-ink)}
+/* ---------- join popup (2026-11-02) ----------
+   The same list as the band, asked once: 8s into a visit, 10 days' quiet after a close,
+   never again after a sign-up, never while the bag/checkout is open. */
+.jpop{border:0;padding:0;width:min(760px,calc(100% - 32px));max-height:calc(100% - 32px);overflow:auto;
+  background:var(--sheet);color:var(--ink);border-radius:22px;box-shadow:0 24px 60px rgba(31,63,107,.22)}
+.jpop::backdrop{background:var(--scrim);backdrop-filter:blur(2px)}
+.jpop[open]{animation:jpopRise .35s cubic-bezier(.2,.8,.3,1)}
+@keyframes jpopRise{from{transform:translateY(14px) scale(.97)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.jpop[open]{animation:none}}
+.jpop-in{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.jpop-photo{position:relative;background:var(--sunny)}
+.jpop-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.jpop-tag{position:absolute;left:14px;bottom:14px;background:var(--sheet);color:var(--ink);font-family:var(--hand);
+  font-size:16px;padding:4px 12px;border-radius:10px;transform:rotate(-3deg);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.jpop-body{padding:38px 34px 30px;display:flex;flex-direction:column;gap:14px}
+.jpop-trim{display:flex;gap:6px}
+.jpop-trim i{width:10px;height:10px;border-radius:50%;display:block;background:var(--trim-a)}
+.jpop-trim i:nth-child(2){background:var(--trim-b)}
+.jpop-trim i:nth-child(3){background:var(--trim-c)}
+.jpop-hand{font-family:var(--hand);font-size:19px;color:var(--mark);line-height:1.2}
+.jpop h2{font-size:clamp(28px,4vw,36px);font-weight:700;line-height:1.05}
+.jpop-lede{color:var(--ink-2);font-size:15.5px;max-width:36ch}
+.jpop-perks{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14.5px}
+.jpop-perks li{display:flex;gap:9px;align-items:flex-start}
+.jpop-perks li::before{content:"";width:12px;height:12px;border-radius:50%;flex:0 0 auto;margin-top:5px;background:var(--trim-c)}
+.jpop-perks li:nth-child(2)::before{background:var(--trim-a)}
+.jpop-form{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.jpop-form .lbl{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.jpop-form input[type=email]{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);
+  border:1.5px solid var(--rule);border-radius:999px;padding:13px 18px;width:100%}
+.jpop-form input[type=email]:focus{outline:none;border-color:var(--btn);box-shadow:0 0 0 3px color-mix(in srgb,var(--btn) 25%,transparent)}
+.jpop-form .btn{justify-content:center;font-family:var(--display);font-size:17px}
+.jpop-status{font-size:14px;min-height:1.2em;color:var(--mark)}
+.jpop-fine{font-size:12.5px;color:var(--ink-3)}
+.jpop-no{align-self:flex-start;background:none;border:0;padding:2px 0;font:inherit;font-size:14px;color:var(--ink-2);
+  text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.jpop-x{position:absolute;top:12px;right:12px;z-index:2;width:36px;height:36px;border-radius:50%;border:0;
+  background:var(--sheet);color:var(--ink);font-size:22px;line-height:36px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.jpop-done{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.jpop-done .mark{width:56px;height:56px}
+@media (max-width:640px){
+  .jpop-in{grid-template-columns:1fr}
+  .jpop-photo{height:170px}
+  .jpop-body{padding:24px 20px 22px}
+}
 .optin{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--ink-2);margin:0 0 10px;cursor:pointer}
 .optin input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--btn)}
 .foot-help a{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
@@ -2022,7 +2067,7 @@ function mountJoin() {
         body: JSON.stringify({ email, website: $("#joinSite").value }) });
       if (!r.ok) throw new Error(r.status);
       const out = await r.json().catch(() => ({}));
-      form.reset();
+      form.reset(); joinPopSet({ joined: Date.now() });
       status.textContent = out.confirm ? "Almost done \u2014 check your email and press the button to confirm."
                                        : "You're on the list. Thank you!";
     } catch (err) {
@@ -2031,6 +2076,95 @@ function mountJoin() {
     }
     send.disabled = false;
   });
+}
+
+/* ---------- the join popup (2026-11-02) ----------
+   Omar's rules: show 8 seconds into a visit; a close keeps it away for 10 days; a sign-up
+   (here, in the band, or the ticked box on a paid checkout) keeps it away for good; never
+   while the bag drawer (where checkout starts) is open, nor on the way back from Stripe.
+   Also kept off Help and the policies, where people come with a problem. */
+const JOINPOP_KEY = "mrOmarsClassroom.joinPop", JOINPOP_QUIET = 10 * 864e5;
+const LANDED_FROM_STRIPE = new URLSearchParams(location.search).has("paid");
+function joinPopGet() { try { return JSON.parse(localStorage.getItem(JOINPOP_KEY) || "{}") || {}; } catch (e) { return {}; } }
+function joinPopSet(v) { try { localStorage.setItem(JOINPOP_KEY, JSON.stringify(v)); } catch (e) {} }
+function joinPopDue() {
+  const s = joinPopGet();
+  if (s.joined) return false;
+  if (s.closed && Date.now() - s.closed < JOINPOP_QUIET) return false;
+  return true;
+}
+function joinPopBlocked() {
+  const p = here().split("/").filter(Boolean)[0];
+  return LANDED_FROM_STRIPE || p === "help" || p === "policies"
+    || document.documentElement.classList.contains("is-closed")
+    || $("#drawer").classList.contains("open") || document.querySelector(".thanks")
+    || document.querySelector("dialog[open]");
+}
+function mountJoinPop() {
+  if (!SITE.subscribe || LANDED_FROM_STRIPE || !joinPopDue()) return;
+  setTimeout(() => { if (joinPopDue() && !joinPopBlocked()) showJoinPop(); }, 8000);
+}
+function showJoinPop() {
+  // The gecko trio photo while it's for sale; otherwise the first photo of anything that is.
+  const pic = [PRODUCTS.find(p => p.id === "gecko-20"), ...PRODUCTS].find(p => p && forSale(p) && isShots(p) && PHOTOS[p.id].shots.some(x => x.src));
+  const img = pic && PHOTOS[pic.id].shots.find(x => x.src).src;
+  const d = document.createElement("dialog");
+  d.className = "jpop"; d.setAttribute("aria-labelledby", "jpopHead");
+  d.innerHTML = `<div class="jpop-in">
+    <button class="jpop-x" type="button" aria-label="Close">&times;</button>
+    ${img ? `<div class="jpop-photo"><img src="${esc(img)}" alt="${esc(pic.name)}"><span class="jpop-tag">fresh off the shelf</span></div>` : `<div class="jpop-photo"></div>`}
+    <div class="jpop-body">
+      <div class="jpop-trim" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="jpop-hand">From my classroom to yours</p>
+      <h2 class="dsp" id="jpopHead">Join the list</h2>
+      <p class="jpop-lede">Classroom deals, shop news and the odd discount. A few emails a term, never sold or shared.</p>
+      <ul class="jpop-perks"><li>First look at new classroom sets</li><li>Seasonal sets before they sell out</li></ul>
+      <form class="jpop-form" novalidate>
+        <label class="hp" for="jpopSite">Website<input id="jpopSite" type="text" tabindex="-1" autocomplete="off"></label>
+        <label class="lbl" for="jpopEmail">Your email</label>
+        <input type="email" id="jpopEmail" required autocomplete="email" maxlength="200" placeholder="you@school.org">
+        <button class="btn btn-dark" type="submit">Sign me up</button>
+        <p class="jpop-status" role="status"></p>
+      </form>
+      <p class="jpop-fine">Every email has a one-click unsubscribe link.</p>
+      <button class="jpop-no" type="button">No thanks, just browsing</button>
+    </div></div>`;
+  document.body.appendChild(d);
+  let joined = false;
+  const shut = () => d.close();
+  d.addEventListener("close", () => { if (!joined) joinPopSet({ closed: Date.now() }); d.remove(); });
+  d.addEventListener("click", e => { if (e.target === d) shut(); });       // a click on the backdrop
+  $(".jpop-x", d).addEventListener("click", shut);
+  $(".jpop-no", d).addEventListener("click", shut);
+  const form = $(".jpop-form", d), status = $(".jpop-status", d), send = $("button[type=submit]", d);
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const email = $("#jpopEmail").value.trim();
+    if (!EMAIL_OK(email)) { status.textContent = "That doesn't look like an email."; return; }
+    send.disabled = true; status.textContent = "Signing you up…";
+    try {
+      const r = await fetch(SITE.subscribe, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, website: $("#jpopSite").value }) });
+      if (!r.ok) throw new Error(r.status);
+      const out = await r.json().catch(() => ({}));
+      joined = true; joinPopSet({ joined: Date.now() });
+      $(".jpop-body", d).innerHTML = `<div class="jpop-done">
+        ${$(".brand .mark").outerHTML}
+        <p class="jpop-hand">Thank you!</p>
+        <h2 class="dsp" id="jpopHead">You're on the list</h2>
+        <p class="jpop-lede">${out.confirm ? "Almost done — check your email and press the button to confirm."
+          : "Watch your inbox for the next classroom drop."}</p>
+        <button class="btn btn-dark" type="button">Keep shopping</button></div>`;
+      $(".jpop-done .btn", d).addEventListener("click", shut);
+      $(".jpop-done .btn", d).focus();
+    } catch (err) {
+      send.disabled = false;
+      status.textContent = String(err.message) === "429" ? "That is plenty for now — try again later."
+        : "That didn't go through. Try again in a moment.";
+    }
+  });
+  d.showModal();
+  $("#jpopEmail").focus();
 }
 
 function mountAsk() {
@@ -3458,6 +3592,7 @@ function wireCheckout() {
     const cart = Object.entries(bag).filter(([k, q]) => q > 0 && bagItem(k)).map(([key, qty]) => ({ key, qty }));
     if (!cart.length) return;
     btn.disabled = true; btn.textContent = "Taking you to checkout\u2026";
+    try { $("#optin").checked ? sessionStorage.setItem("mrOmarsClassroom.optedIn", "1") : sessionStorage.removeItem("mrOmarsClassroom.optedIn"); } catch (e) {}
     try {
       const r = await fetch(SITE.checkout, {
         method: "POST", headers: { "Content-Type": "application/json" },
@@ -3489,6 +3624,8 @@ function afterPayment() {
   if (!q.has("paid")) return;
   const paid = q.get("paid") === "1";
   if (paid) { bag = {}; saveBag(); renderBag(); }
+  // Paid with "email me shop news" ticked: they're on the list, so the join popup stays away.
+  try { if (paid && sessionStorage.getItem("mrOmarsClassroom.optedIn")) joinPopSet({ joined: Date.now() }); } catch (e) {}
   history.replaceState(null, "", location.pathname + location.hash);
   if (!paid) { setTimeout(() => toast("Payment cancelled \u2014 your bag is still here."), 400); return; }
   const box = document.createElement("div");
@@ -3513,7 +3650,7 @@ $("#scrim").addEventListener("click", closeBag);
 let toastT;
 function toast(msg, ms = 2600) { const t = $("#toast"); t.textContent = msg; t.classList.add("up"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("up"), ms); }
 
-buildNav(); renderBag(); wireCheckout(); mountJoin(); afterPayment(); route(); liveStock(); requestAnimationFrame(loop);
+buildNav(); renderBag(); wireCheckout(); mountJoin(); afterPayment(); route(); mountJoinPop(); liveStock(); requestAnimationFrame(loop);
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "24c405086994467b8fdf0931d3f8295c"}'></script>
 
