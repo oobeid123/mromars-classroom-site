@@ -1390,6 +1390,11 @@ function buildNav() {
     }
     menu.addEventListener("click", e => { if (e.target.closest("a")) open(false); });
   });
+  // buildNav runs again when live stock answers, so everything on elements that outlive it
+  // (the document, the phone Browse button) is wired once. Twice made Browse open and shut
+  // on the same tap (fixed 2026-11-02).
+  if (buildNav.wired) return;
+  buildNav.wired = true;
   document.addEventListener("click", e => { if (!e.target.closest(".cat")) closeMenus(); });
   document.addEventListener("keydown", e => {
     if (e.key !== "Escape") return;
