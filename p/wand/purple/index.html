@@ -870,6 +870,24 @@ html.is-closed footer{padding-top:56px}
 .long-note{margin:0;font-size:14px;line-height:1.5;color:var(--ink);background:var(--butter);border-radius:12px;padding:10px 14px}
 .pc-nophoto{display:grid;place-items:center;height:100%;font:600 18px var(--display);color:var(--ink-3)}
 @media (max-width:560px){.shape-btn{flex:1 1 calc(50% - 8px)}.keymap{width:112px}}
+/* School pickup (2026-11-03, Omar): the strip + header stick together while scrolling, and the
+   strip tells Chiles Elementary teachers about the PICKUP code. The code goes in the BAG
+   (the checkout Worker checks it) - Stripe's own coupon box can't take off shipping. */
+.topbar{position:sticky;top:0;z-index:50}
+.topbar .bar{position:relative;top:auto}
+.promo .code{display:inline-block;padding:0 7px;border-radius:6px;background:var(--sunny);color:var(--sunny-ink);
+  font-weight:700;letter-spacing:.06em}
+.promo .sep{opacity:.6;margin:0 6px}
+@media (max-width:640px){.promo .tagline,.promo .sep-t{display:none}.promo .sep{display:block;height:2px;opacity:0}}
+.pickup{margin:0 0 12px;font-size:13.5px;color:var(--ink-2)}
+.pickup label{display:block;font-weight:600;color:var(--ink);margin-bottom:5px}
+.pickup-in{display:flex;gap:8px}
+.pickup input{flex:1;min-width:0;font:600 15px var(--body);text-transform:uppercase;letter-spacing:.05em;
+  padding:8px 11px;border:1.5px solid var(--rule);border-radius:10px;background:var(--sheet);color:var(--ink)}
+.pickup input:focus{border-color:var(--btn);outline:none}
+.pickup small{display:block;margin-top:5px}
+.pickup.ok small{color:var(--ok);font-weight:600}
+.pickup.bad small{color:var(--chip-red)}
 </style>
 <link rel="canonical" href="https://mromars-classroom.com/p/wand/">
 <meta property="og:site_name" content="Mr. Omar&#x27;s Classroom">
@@ -888,6 +906,7 @@ html.is-closed footer{padding-top:56px}
 <body>
 
 
+<div class="topbar" id="topbar">
 <div class="promo" id="promo" hidden></div>
 <header class="bar">
   <div class="wrap bar-in">
@@ -901,6 +920,7 @@ html.is-closed footer{padding-top:56px}
   </div>
   <nav class="wrap sheetnav" id="sheetnav" aria-label="Browse categories" hidden></nav>
 </header>
+</div>
 
 <section class="closed" id="closed" aria-labelledby="closedHead">
   <div class="wrap closed-in">
@@ -955,6 +975,11 @@ html.is-closed footer{padding-top:56px}
   <div class="df">
     <div class="tot"><span>Subtotal</span><b id="subtotal">$0.00</b></div>
     <div class="ship-meter" id="shipMeter" hidden><span></span><div class="track"><i></i></div></div>
+    <div class="pickup" id="pickupRow" hidden>
+      <label for="pickupCode">School pickup code</label>
+      <div class="pickup-in"><input id="pickupCode" maxlength="20" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Teachers at Chiles: PICKUP"></div>
+      <small id="pickupMsg">Leave blank to have your order posted.</small>
+    </div>
     <label class="optin" id="optinRow" hidden><input type="checkbox" id="optin" checked>
       <span>Email me shop news, promotions and discounts. Unsubscribe any time.</span></label>
     <button class="checkout" id="checkout" disabled>Checkout</button>
@@ -1896,7 +1921,7 @@ const usd = n => Number.isInteger(n) ? "$" + n : money(n);   // "$25", not "$25.
 const shipHint = () => FREE_OVER ? `<p class="ship-hint"><b>Free shipping</b> on orders of ${usd(FREE_OVER)} or more</p>` : "";
 function shipMeter(sub) {
   const m = document.getElementById("shipMeter"); if (!m) return;
-  m.hidden = !FREE_OVER || !sub;
+  m.hidden = !FREE_OVER || !sub || !!pickupSchool();
   if (m.hidden) return;
   const left = FREE_OVER - sub, done = left <= 0.0001;
   m.classList.toggle("done", done);
@@ -1904,9 +1929,15 @@ function shipMeter(sub) {
     : `Add <b>${money(left)}</b> more for free shipping`;
   m.querySelector("i").style.width = Math.min(100, sub / FREE_OVER * 100) + "%";
 }
-if (FREE_OVER) {
+/* School pickup codes (2026-11-03): code -> school. The checkout Worker holds the same list and
+   is what actually decides; this copy only gives instant feedback in the bag. */
+const PICKUP_CODES = { PICKUP: "Chiles Elementary" };
+const pickupSchool = () => { const i = document.getElementById("pickupCode");
+  return i ? PICKUP_CODES[i.value.trim().toUpperCase()] || "" : ""; };
+{
   const promo = document.getElementById("promo");
-  promo.innerHTML = `<b>Free shipping</b> on orders ${usd(FREE_OVER)}+ &middot; made by a Tampa teacher`;
+  promo.innerHTML = (FREE_OVER ? `<b>Free shipping</b> on orders ${usd(FREE_OVER)}+<span class="sep sep-t"> &middot; </span><span class="tagline">made by a Tampa teacher</span><span class="sep"> &middot; </span>` : "")
+    + `\u{1F34E} <b>Chiles Elementary teachers:</b> use code <span class="code">PICKUP</span> in your bag for free school pickup`;
   promo.hidden = false;
 }
 const here = () => PATHMODE ? location.pathname : (location.hash.replace(/^#/, "") || "/");
@@ -3666,6 +3697,21 @@ function wireCheckout() {
   const btn = $("#checkout"), note = $("#checkoutNote");
   if (!SITE.checkout) return;
   $("#optinRow").hidden = false;
+  const pk = $("#pickupRow"), pkIn = $("#pickupCode"), pkMsg = $("#pickupMsg");
+  pk.hidden = false;
+  const pickupShow = () => {
+    const v = pkIn.value.trim(), school = pickupSchool();
+    pk.classList.toggle("ok", !!school); pk.classList.toggle("bad", !!v && !school);
+    pkMsg.textContent = school ? `\u2713 Free pickup at ${school} \u2014 no shipping, no address needed.`
+      : v ? "That code isn't right." : "Leave blank to have your order posted.";
+    renderBag();
+  };
+  try { pkIn.value = sessionStorage.getItem("mrOmarsClassroom.pickup") || ""; } catch (e) {}
+  pkIn.addEventListener("input", () => {
+    try { sessionStorage.setItem("mrOmarsClassroom.pickup", pkIn.value.trim()); } catch (e) {}
+    pickupShow();
+  });
+  if (pkIn.value) pickupShow();
   note.innerHTML = (SITE.shipping_cents
     ? `Card payment by Stripe. ${money(SITE.shipping_cents / 100)} flat shipping${FREE_OVER ? `, free on orders of ${usd(FREE_OVER)} or more` : ""}, US only.`
     : "Card payment by Stripe. Posted in the US.")
@@ -3684,13 +3730,14 @@ function wireCheckout() {
     try {
       const r = await fetch(SITE.checkout, {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart, marketing: $("#optin").checked }),
+        body: JSON.stringify({ cart, marketing: $("#optin").checked, pickup: pkIn.value.trim() }),
       });
       const out = await r.json().catch(() => ({}));
       if (!r.ok && out.error) {
         btn.disabled = false; btn.textContent = "Checkout";
         // Sold out, or no longer sold: take that line out so the next try can go through.
         if ((out.sold_out || r.status === 400) && out.key && bag[out.key]) { delete bag[out.key]; renderBag(); }
+        if (out.pickup_bad) { pk.classList.add("bad"); pkIn.focus(); }
         note.textContent = out.error;
         toast(out.error, 5000); liveStock();
         return;
@@ -3718,10 +3765,11 @@ function afterPayment() {
   if (!paid) { setTimeout(() => toast("Payment cancelled \u2014 your bag is still here."), 400); return; }
   const box = document.createElement("div");
   box.className = "thanks"; box.setAttribute("role", "status");
+  const school = pickupSchool();
   box.innerHTML = `<h2>Thank you \u2014 your order is in!</h2>
-    <p>A confirmation is on its way to your email. Please allow 3\u20135 business days for it to ship;
-       I'll email you again the moment it does.</p>
-    <button aria-label="Close">&times;</button>`;
+    <p>A confirmation is on its way to your email. ${school ? `I'll bring it to you at ${esc(school)} \u2014 I'll email you when it's ready.`
+      : "Please allow 3\u20135 business days for it to ship; I'll email you again the moment it does."}</p>`
+    + `<button aria-label="Close">&times;</button>`;
   $("button", box).addEventListener("click", () => box.remove());
   document.body.appendChild(box);
 }
