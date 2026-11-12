@@ -981,7 +981,7 @@ a.cat-btn{text-decoration:none}
     <div class="ship-meter" id="shipMeter" hidden><span></span><div class="track"><i></i></div></div>
     <div class="pickup" id="pickupRow" hidden>
       <label for="pickupCode">School pickup code</label>
-      <div class="pickup-in"><input id="pickupCode" maxlength="20" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Staff only"></div>
+      <div class="pickup-in"><input id="pickupCode" maxlength="20" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Chiles Elementary staff"></div>
       <small id="pickupMsg">Leave blank to have your order posted.</small>
     </div>
     <label class="optin" id="optinRow" hidden><input type="checkbox" id="optin" checked>
@@ -1968,10 +1968,12 @@ async function pickupCheck(v) {
 }
 {
   const promo = document.getElementById("promo");
-  // 2026-11-07: the pickup code is no longer advertised here (anyone could use it, and it named
-  // the school). Omar gives the code to staff in person.
+  // 2026-11-12 (Omar): the pickup code is back on the banner so buyers can see it (it was taken
+  // off 2026-11-07; Omar had already decided the public code is low risk - buyers still pay
+  // and collect at school).
   const bits = [];
   if (FREE_OVER) bits.push(`<b>Free shipping</b> on orders ${usd(FREE_OVER)}+<span class="sep sep-t"> &middot; </span><span class="tagline">made by a Tampa teacher</span>`);
+  bits.push(`\u{1F34E} <b>Chiles Elementary teachers:</b> use code <span class="code">PICKUP</span> in your bag for free school pickup`);
   if (giftsLive()) bits.push(`<a class="promo-link" href="/teacher-gifts/">\u{1F381} Teacher gifts for the holidays</a>`);
   promo.innerHTML = bits.join(`<span class="sep"> &middot; </span>`);
   promo.hidden = !bits.length;
