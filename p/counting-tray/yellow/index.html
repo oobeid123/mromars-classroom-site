@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="$12.00. A number board with chunky numbers 1 to 10 that lift out and drop back into place, and a ten-frame tray to go with it. Set a number in the tray&#x27;s…">
 <meta name="theme-color" content="#2F6FD0">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Numbers Puzzle &amp; Counting Tray – Math Counters · Mr. Omar&#x27;s Classroom</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Kalam:wght@400;700&family=Lexend:wght@400;500;600&display=swap">
 <style>
@@ -894,6 +895,15 @@ a.cat-btn{text-decoration:none}
 .pickup small{display:block;margin-top:5px}
 .pickup.ok small{color:var(--ok);font-weight:600}
 .pickup.bad small{color:var(--chip-red)}
+
+/* ---------- 2026-11-17: Omar's pencil-and-blocks logo replaces the star mark ----------
+   Pieces are cut by tools/brand.py into brand/out/ and placed by build.py (LOGO, LOGO_WHITE, MARK). */
+.brand .logo{display:block;height:54px;width:auto;flex:none}
+footer .brand .logo{height:52px}
+.closed-sign .mark{width:auto;height:36px;transform:none}
+.jpop-done .mark{width:auto;height:72px;transform:none}
+@media (max-width:760px){.brand .logo{height:38px} footer .brand .logo{height:46px}}
+@media (max-width:380px){.brand .logo{height:33px}}
 </style>
 <link rel="canonical" href="https://mromars-classroom.com/p/counting-tray/">
 <meta property="og:site_name" content="Mr. Omar&#x27;s Classroom">
@@ -917,8 +927,7 @@ a.cat-btn{text-decoration:none}
 <header class="bar">
   <div class="wrap bar-in">
     <a class="brand" href="/" aria-label="Mr. Omar's Classroom, home">
-      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50.00 4.00 A7.47 7.47 0 0 1 73.00 10.16 A7.47 7.47 0 0 1 89.84 27.00 A7.47 7.47 0 0 1 96.00 50.00 A7.47 7.47 0 0 1 89.84 73.00 A7.47 7.47 0 0 1 73.00 89.84 A7.47 7.47 0 0 1 50.00 96.00 A7.47 7.47 0 0 1 27.00 89.84 A7.47 7.47 0 0 1 10.16 73.00 A7.47 7.47 0 0 1 4.00 50.00 A7.47 7.47 0 0 1 10.16 27.00 A7.47 7.47 0 0 1 27.00 10.16 A7.47 7.47 0 0 1 50.00 4.00 Z" fill="var(--mark)"/><path d="M50.00 26.00 L56.00 42.75 L73.78 43.27 L59.70 54.15 L64.69 71.23 L50.00 61.20 L35.31 71.23 L40.30 54.15 L26.22 43.27 L44.00 42.75 Z" fill="var(--mark-ink)"/></svg>
-      <span class="brand-txt"><span class="brand-mr">Mr. Omar's</span><span class="brand-name">Classroom</span></span>
+      <img class="logo" src="/assets/logo-ff8b5d5881.webp" alt="Mr. Omar's Classroom" width="482" height="112">
     </a>
     <nav class="cats" id="cats" aria-label="Shop by category"></nav>
     <button class="browse" id="browseBtn" aria-expanded="false" aria-controls="sheetnav"><i></i>Browse</button>
@@ -935,7 +944,7 @@ a.cat-btn{text-decoration:none}
       <h1 class="dsp" id="closedHead">We&rsquo;ll be back soon!</h1>
       <p class="lede">I&rsquo;m giving the shelves a little tidy-up. Check back shortly &mdash; everything will be
         right where you left it.</p>
-      <p class="closed-sign" aria-hidden="true"><svg class="mark" viewBox="0 0 100 100"><path d="M50.00 4.00 A7.47 7.47 0 0 1 73.00 10.16 A7.47 7.47 0 0 1 89.84 27.00 A7.47 7.47 0 0 1 96.00 50.00 A7.47 7.47 0 0 1 89.84 73.00 A7.47 7.47 0 0 1 73.00 89.84 A7.47 7.47 0 0 1 50.00 96.00 A7.47 7.47 0 0 1 27.00 89.84 A7.47 7.47 0 0 1 10.16 73.00 A7.47 7.47 0 0 1 4.00 50.00 A7.47 7.47 0 0 1 10.16 27.00 A7.47 7.47 0 0 1 27.00 10.16 A7.47 7.47 0 0 1 50.00 4.00 Z" fill="var(--mark)"/><path d="M50.00 26.00 L56.00 42.75 L73.78 43.27 L59.70 54.15 L64.69 71.23 L50.00 61.20 L35.31 71.23 L40.30 54.15 L26.22 43.27 L44.00 42.75 Z" fill="var(--mark-ink)"/></svg>Back soon</p>
+      <p class="closed-sign" aria-hidden="true"><img class="mark" src="/assets/mark-a99e7c0b53.webp" alt="" width="128" height="192">Back soon</p>
     </div>
     <div class="pinned note">
       <span class="pin" aria-hidden="true"></span>
@@ -953,9 +962,8 @@ a.cat-btn{text-decoration:none}
   <div class="wrap">
     <div class="foot-cols">
       <div class="foot-brand">
-        <a class="brand" href="/">
-          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50.00 4.00 A7.47 7.47 0 0 1 73.00 10.16 A7.47 7.47 0 0 1 89.84 27.00 A7.47 7.47 0 0 1 96.00 50.00 A7.47 7.47 0 0 1 89.84 73.00 A7.47 7.47 0 0 1 73.00 89.84 A7.47 7.47 0 0 1 50.00 96.00 A7.47 7.47 0 0 1 27.00 89.84 A7.47 7.47 0 0 1 10.16 73.00 A7.47 7.47 0 0 1 4.00 50.00 A7.47 7.47 0 0 1 10.16 27.00 A7.47 7.47 0 0 1 27.00 10.16 A7.47 7.47 0 0 1 50.00 4.00 Z" fill="var(--mark)"/><path d="M50.00 26.00 L56.00 42.75 L73.78 43.27 L59.70 54.15 L64.69 71.23 L50.00 61.20 L35.31 71.23 L40.30 54.15 L26.22 43.27 L44.00 42.75 Z" fill="var(--mark-ink)"/></svg>
-          <span class="brand-txt"><span class="brand-mr">Mr. Omar's</span><span class="brand-name">Classroom</span></span>
+        <a class="brand" href="/" aria-label="Mr. Omar's Classroom, home">
+          <img class="logo" src="/assets/logo-white-ef1473dbb9.webp" alt="Mr. Omar's Classroom" width="482" height="112" loading="lazy">
         </a>
         <p>Hands-on classroom sets and prize-box toys, made by a teacher for Pre-K through 5th.</p>
         <p>Not for children under 3 &mdash; small parts.</p>
@@ -2325,7 +2333,7 @@ function showJoinPop() {
       const out = await r.json().catch(() => ({}));
       joined = true; joinPopSet({ joined: Date.now() });
       $(".jpop-body", d).innerHTML = `<div class="jpop-done">
-        ${$(".brand .mark").outerHTML}
+        ${$(".closed-sign .mark").outerHTML}
         <p class="jpop-hand">Thank you!</p>
         <h2 class="dsp" id="jpopHead">You're on the list</h2>
         <p class="jpop-lede">${out.confirm ? "Almost done — check your email and press the button to confirm."
