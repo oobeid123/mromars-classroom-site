@@ -949,7 +949,7 @@ footer .brand .logo{height:52px}
     <div class="pinned note">
       <span class="pin" aria-hidden="true"></span>
       <h2>Need something in the meantime?</h2>
-      <p>A question about an order, or something your classroom needs? Send me an email and I&rsquo;ll get back to you.</p>
+      <p>A question about an order, or something you&rsquo;re looking for? Send me an email and I&rsquo;ll get back to you.</p>
       <div id="closedMail"></div>
     </div>
   </div>
@@ -965,7 +965,7 @@ footer .brand .logo{height:52px}
         <a class="brand" href="/" aria-label="Mr. Omar's Classroom, home">
           <img class="logo" src="/assets/logo-white-ef1473dbb9.webp" alt="Mr. Omar's Classroom" width="482" height="112" loading="lazy">
         </a>
-        <p>Hands-on classroom sets and prize-box toys, made by a teacher for Pre-K through 5th.</p>
+        <p>Toys, fidgets and hands-on classroom sets, made by a teacher.</p>
         <p>Not for children under 3 &mdash; small parts.</p>
       </div>
       <div><h4>Shop</h4><ul>
@@ -1022,14 +1022,14 @@ const CATALOG = [
       { id: "classroom", name: "Classroom & Calm Corner", blurb: "Desk organizers and pieces that keep a classroom running." },
     ] },
   { id: "toys", name: "Toys", short: "toys",
-    blurb: "Toys for the prize box, the treasure chest and Friday rewards \u2014 in color, or plain white for kids to color in.",
+    blurb: "Wiggly toys, clicky fidgets, keychains and pretend play for kids, desks and backpacks \u2014 and for the prize box too.",
     subs: [
       /* Halloween shelf removed 2026-11-02 (Omar); spider + candy corn stay on Color Your Own and Treasure Box. */
       { id: "color-your-own", name: "Color Your Own", blurb: "Every toy here arrives plain white. The colors are up to the kid." },
       { id: "fidgets", name: "Fidgets", blurb: "Clicky, twisty, pocket-sized things for hands that need something to do." },
       { id: "keychains", name: "Keychains", blurb: "Little friends on a keyring, for backpacks, lanyards and keys." },
-      { id: "treasure-box", name: "Treasure Box Toys", blurb: "Little toys for the classroom treasure box and Friday rewards, one at a time or by the pack." },
-      { id: "pretend-play", name: "Pretend Play", blurb: "Play-kitchen food and make-believe tools for the house corner and dramatic play." },
+      { id: "treasure-box", name: "Treasure Box Toys", blurb: "Little toys for party bags, stocking stuffers and the classroom treasure box, one at a time or by the pack." },
+      { id: "pretend-play", name: "Pretend Play", blurb: "Play-kitchen food and make-believe tools for the playroom at home or the house corner at school." },
     ] },
 ];
 
@@ -2213,8 +2213,8 @@ function mountJoin() {
   $("#joinSlot").innerHTML = `
   <section class="join" aria-labelledby="joinHead"><div class="wrap join-in">
     <div><h2 class="dsp" id="joinHead">Join the list</h2>
-      <p>Classroom deals, shop news and the odd discount.
-         A few emails a term, never sold or shared.</p></div>
+      <p>New toys and fidgets, classroom sets and the odd discount.
+         A few emails a season, never sold or shared.</p></div>
     <form class="join-form" id="joinForm" novalidate>
       <label class="hp" for="joinSite">Website<input id="joinSite" type="text" tabindex="-1" autocomplete="off"></label>
       <input type="email" id="joinEmail" required autocomplete="email" maxlength="200"
@@ -2299,10 +2299,10 @@ function showJoinPop() {
     ${img ? `<div class="jpop-photo"><img src="${esc(img)}" alt="${esc(pic.name)}"><span class="jpop-tag">fresh off the shelf</span></div>` : `<div class="jpop-photo"></div>`}
     <div class="jpop-body">
       <div class="jpop-trim" aria-hidden="true"><i></i><i></i><i></i></div>
-      <p class="jpop-hand">From my classroom to yours</p>
+      <p class="jpop-hand">From my classroom to your door</p>
       <h2 class="dsp" id="jpopHead">Join the list</h2>
-      <p class="jpop-lede">Classroom deals, shop news and the odd discount. A few emails a term, never sold or shared.</p>
-      <ul class="jpop-perks"><li>First look at new classroom sets</li><li>Seasonal sets before they sell out</li></ul>
+      <p class="jpop-lede">New toys and fidgets, classroom sets and the odd discount. A few emails a season, never sold or shared.</p>
+      <ul class="jpop-perks"><li>First look at new toys, fidgets and classroom sets</li><li>Seasonal drops before they sell out</li></ul>
       <form class="jpop-form" novalidate>
         <label class="hp" for="jpopSite">Website<input id="jpopSite" type="text" tabindex="-1" autocomplete="off"></label>
         <label class="lbl" for="jpopEmail">Your email</label>
@@ -2337,7 +2337,7 @@ function showJoinPop() {
         <p class="jpop-hand">Thank you!</p>
         <h2 class="dsp" id="jpopHead">You're on the list</h2>
         <p class="jpop-lede">${out.confirm ? "Almost done — check your email and press the button to confirm."
-          : "Watch your inbox for the next classroom drop."}</p>
+          : "Watch your inbox for the next drop."}</p>
         <button class="btn btn-dark" type="button">Keep shopping</button></div>`;
       $(".jpop-done .btn", d).addEventListener("click", shut);
       $(".jpop-done .btn", d).focus();
@@ -2517,10 +2517,10 @@ function trustHTML() {
   const tile = (cls, icon, h, p) => `<div class="tr"><span class="tr-ic ${cls}">${TRUST_ICONS[icon]}</span><div><h3>${h}</h3><p>${p}</p></div></div>`;
   return `
   <svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C 240 6 480 6 720 26 S 1200 52 1440 22 V56 H0Z" fill="currentColor"/></svg>
-  <section class="trust" aria-label="Why teachers shop here">
+  <section class="trust" aria-label="Why people shop here">
     <div class="wrap trust-in">
-      ${tile("tr-blue", "cap", "Made by a teacher", "Every set started as something my own class needed.")}
-      ${tile("tr-sun", "frame", "Fifteen fills a ten frame", "Counting packs come with five left over for making ten.")}
+      ${tile("tr-blue", "cap", "Made by a teacher", "Toys, fidgets and classroom sets from a working teacher.")}
+      ${tile("tr-sun", "frame", "For home, desk or classroom", "Fidgets for grown-ups, toys for kids, sets for teachers.")}
       ${tile("tr-red", "truck", esc(shipTile[0]), esc(shipTile[1]))}
       ${tile("tr-blue", "chat", "Help when you need it", `Missing piece or wrong color? <a href="/help/">The help desk</a> sorts it out.`)}
     </div>
@@ -2543,12 +2543,13 @@ function viewHome() {
   <section class="hero">
     <div class="wrap hero-in">
       <div>
-        <span class="hero-pill"><i></i>Made by a teacher &middot; Pre-K to 5th</span>
-        <h1 class="dsp">Classroom sets <span>and prize-box toys.</span></h1>
-        <p class="lede">I teach, and I make the hands-on pieces my own room kept running out of.
-           Made a set at a time, for real classrooms and the kids in them.</p>
+        <span class="hero-pill"><i></i>Made by a teacher &middot; For home and school</span>
+        <h1 class="dsp">Toys, fidgets <span>and classroom sets.</span></h1>
+        <p class="lede">I&rsquo;m a teacher, and I make wiggly toys, clicky fidgets and hands-on sets
+           for counting and spelling. For your home, your desk or your classroom.</p>
         <div class="cta-row">
           <a class="btn btn-dark" href="#shop">Shop now</a>
+          <a class="btn btn-line" href="/toys/">Toys &amp; fidgets</a>
           <a class="btn btn-line" href="/teacher-materials/">Teacher materials</a>
         </div>
         <p class="hero-sign">From Mr. Omar&rsquo;s classroom</p>
@@ -2569,7 +2570,7 @@ function viewHome() {
       <div class="sec-head">
         <div><p class="eyebrow">In the shop now</p>
           <h2 class="dsp">Made to be handled, counted and traded.</h2>
-          <p>Teacher sets and prize-box toys sit together here, the way they do in a room.</p></div>
+          <p>Toys, fidgets and classroom sets, all on one shelf.</p></div>
       </div>
       <div class="filters" role="group" aria-label="Filter the shop" id="homeFilters">
         ${filters.map(([k, l, n], i) => `<button class="f" type="button" id="f-${k}" data-f="${k}" aria-pressed="${!i}">${esc(l)}<small>${n}</small></button>`).join("")}
@@ -2584,12 +2585,13 @@ function viewHome() {
         <div class="tband-ph">${band ? `<img src="${band.src}" alt="Pine cone counting chips, ${esc(band.alt)}" loading="lazy">` : ""}</div>
         <div class="tband-tx">
           <p class="hi">Hi, I&rsquo;m Mr. Omar.</p>
-          <h2>Made for the way a classroom actually runs.</h2>
+          <h2>Made by a teacher, for anyone who likes to fidget, play or learn.</h2>
           <p>The counting chips come in a container shaped like the chips, so a pack reads from across the
              room and clean-up is one lid. The letter tiles live in a case with two compartments, which is
-             what stops a set walking off. The toys are for the prize box and the treasure box, at prices
-             that let a teacher stock one.</p>
-          <div class="tband-grades"><span>Pre-K&ndash;K</span><span>Grades 1&ndash;2</span><span>Grades 3&ndash;5</span></div>
+             what stops a set walking off. The toys and fidgets wiggle, click and spin, and
+             they&rsquo;re priced so you can pick up one for yourself or enough for a party bag, a prize box
+             or a whole class.</p>
+          <div class="tband-grades"><span>Toys</span><span>Fidgets</span><span>Classroom sets</span></div>
           <p class="sig">&mdash; Mr. Omar</p>
         </div>
       </div>
